@@ -1,0 +1,13 @@
+#!/bin/sh
+# Hook script auto generated on repository create by SME server manager. Enables automatic markdown for README.md
+# for viewing in gitweb as README.html.
+
+rm -f README.html
+git cat-file -e HEAD:README.md > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  git cat-file blob HEAD:README.md | perl /usr/share/markdown/Markdown.pl --html4tags > README.html
+  chmod 0440 README.html
+fi
+
+# Update GIT server info as well
+git update-server-info

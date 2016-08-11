@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	sharedrepository = 0660
+[receive]
+	denyNonFastforwards = true
+[gitweb]
+	owner = Administrator
+[hooks]
+	emailprefix = "[GIT] "
+	mailinglist = admin
