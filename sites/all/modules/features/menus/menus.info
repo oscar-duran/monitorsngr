@@ -7,6 +7,7 @@ dependencies[] = features
 dependencies[] = menu
 features[features_api][] = api:2
 features[menu_custom][] = main-menu
+features[menu_custom][] = management
 features[menu_custom][] = menu-navegaci-n-pge
 features[menu_custom][] = menu-navegaci-n-sngr
 features[menu_custom][] = navigation
