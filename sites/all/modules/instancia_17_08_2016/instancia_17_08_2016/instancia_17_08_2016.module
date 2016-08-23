@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the instancia-17-08-2016 feature.
- */
-
-include_once 'instancia_17_08_2016.features.inc';
