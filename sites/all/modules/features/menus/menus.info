@@ -1,7 +1,7 @@
 name = Menús
 description = Menús para la aplicación MonitorSNGR
 core = 7.x
-package = CNE
+package = CNE Features
 version = 7.x-1.0
 dependencies[] = features
 dependencies[] = menu

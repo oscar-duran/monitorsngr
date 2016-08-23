@@ -1,7 +1,7 @@
 name = Tipos de contenido
 description = Tipo de contenido para la aplicación MonitorSNGR
 core = 7.x
-package = CNE
+package = CNE Features
 version = 7.x-1.0
 dependencies[] = features
 dependencies[] = text
