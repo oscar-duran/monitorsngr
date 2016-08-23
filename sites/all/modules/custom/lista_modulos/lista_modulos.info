@@ -1,5 +1,5 @@
 ; Packaging information for lista_modulos
-name = "lista_modulos"
+name = "Lista de módulos"
 description = "Contiene la lista completa de módulos usados para la aplicación MonitorSNGR"
 core = "7.x"
 
