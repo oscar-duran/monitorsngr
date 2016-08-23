@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tipos de contenido monitor feature.
+ */
+
+include_once 'tipos_de_contenido_monitor.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Usuarios: roles y permisos feature.
+ */
+
+include_once 'usuarios_roles_permisos.features.inc';

@@ -1,0 +1,14 @@
+name = Usuarios: roles y permisos
+description = Roles y permisos de usuario para la aplicación MonitorSNGR
+core = 7.x
+package = CNE
+version = 7.x-1.0
+dependencies[] = features
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[user_role][] = admin-sngr
+features[user_role][] = analista-sngr
+features[user_role][] = user-alternativo
+features[user_role][] = user-institucional
+features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][views] = views
