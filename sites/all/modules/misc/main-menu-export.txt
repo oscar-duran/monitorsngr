@@ -1,3 +1,3 @@
 Inicio {"url":"<front>","options":{"attributes":{"title":""},"identifier":"main-menu_inicio:<front>"},"weight":"-50"}
-Sistema Nacional de Gestión del Riesgo {"url":"sngr","options":{"attributes":{"title":""},"identifier":"main-menu_sistema-nacional-de-gestin-del-riesgo:node\/2"},"weight":"-49"}
-Planes Generales de Emergencia {"url":"pge","options":{"attributes":{"title":""},"identifier":"main-menu_planes-generales-de-emergencia:node\/3"},"weight":"-48"}
+Sistema Nacional de Gestión del Riesgo {"url":"sngr","options":{"attributes":{"title":""},"identifier":"main-menu_sistema-nacional-de-gestin-del-riesgo:node\/2"},"node_uuid":"f998c461-a09a-4b94-86eb-17cb7ff61c26","weight":"-49"}
+Planes Generales de Emergencia {"url":"pge","options":{"attributes":{"title":""},"identifier":"main-menu_planes-generales-de-emergencia:node\/3"},"node_uuid":"8519e193-54ff-4fd1-9774-31371334d0be","weight":"-48"}
