@@ -70,6 +70,66 @@ function menus_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: menu-navigation-inicio_ayuda:node/5.
+  $menu_links['menu-navigation-inicio_ayuda:node/5'] = array(
+    'menu_name' => 'menu-navigation-inicio',
+    'link_path' => 'node/5',
+    'router_path' => 'node/%',
+    'link_title' => 'Ayuda',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Página de ayuda',
+      ),
+      'identifier' => 'menu-navigation-inicio_ayuda:node/5',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-inicio_crditos:node/6.
+  $menu_links['menu-navigation-inicio_crditos:node/6'] = array(
+    'menu_name' => 'menu-navigation-inicio',
+    'link_path' => 'node/6',
+    'router_path' => 'node/%',
+    'link_title' => 'Créditos',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Página de créditos',
+      ),
+      'identifier' => 'menu-navigation-inicio_crditos:node/6',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-inicio_enlaces-institucionales:node/4.
+  $menu_links['menu-navigation-inicio_enlaces-institucionales:node/4'] = array(
+    'menu_name' => 'menu-navigation-inicio',
+    'link_path' => 'node/4',
+    'router_path' => 'node/%',
+    'link_title' => 'Enlaces Institucionales',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-inicio_enlaces-institucionales:node/4',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Exported menu link: menu-navigation-pge_decretos:node/12.
   $menu_links['menu-navigation-pge_decretos:node/12'] = array(
     'menu_name' => 'menu-navigation-pge',
@@ -250,73 +310,13 @@ function menus_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: navigation_ayuda:node/5.
-  $menu_links['navigation_ayuda:node/5'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/5',
-    'router_path' => 'node/%',
-    'link_title' => 'Ayuda',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'navigation_ayuda:node/5',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
-  // Exported menu link: navigation_crditos:node/6.
-  $menu_links['navigation_crditos:node/6'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/6',
-    'router_path' => 'node/%',
-    'link_title' => 'Créditos',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'navigation_crditos:node/6',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
-  // Exported menu link: navigation_enlaces-institucionales:node/4.
-  $menu_links['navigation_enlaces-institucionales:node/4'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/4',
-    'router_path' => 'node/%',
-    'link_title' => 'Enlaces institucionales',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'navigation_enlaces-institucionales:node/4',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-  );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Ayuda');
   t('Créditos');
   t('Decretos');
-  t('Enlaces institucionales');
+  t('Enlaces Institucionales');
   t('Evaluaciones');
   t('Ficha insumos');
   t('Ficha técnica');

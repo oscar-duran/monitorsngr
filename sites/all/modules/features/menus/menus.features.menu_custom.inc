@@ -16,6 +16,12 @@ function menus_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
   );
+  // Exported menu: menu-navigation-inicio.
+  $menus['menu-navigation-inicio'] = array(
+    'menu_name' => 'menu-navigation-inicio',
+    'title' => 'Navigation Inicio',
+    'description' => 'Menú de Navegación para la sección inicio',
+  );
   // Exported menu: menu-navigation-pge.
   $menus['menu-navigation-pge'] = array(
     'menu_name' => 'menu-navigation-pge',
@@ -31,8 +37,10 @@ function menus_menu_default_menu_custom() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Main menu');
+  t('Menú de Navegación para la sección inicio');
   t('Navegación PGE');
   t('Navegación SNGR');
+  t('Navigation Inicio');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
 
   return $menus;
