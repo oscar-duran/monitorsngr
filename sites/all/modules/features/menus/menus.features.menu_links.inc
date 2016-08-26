@@ -70,6 +70,86 @@ function menus_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: menu-navigation-pge_decretos:node/12.
+  $menu_links['menu-navigation-pge_decretos:node/12'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/12',
+    'router_path' => 'node/%',
+    'link_title' => 'Decretos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_decretos:node/12',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_ficha-insumos:node/13.
+  $menu_links['menu-navigation-pge_ficha-insumos:node/13'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/13',
+    'router_path' => 'node/%',
+    'link_title' => 'Ficha insumos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_ficha-insumos:node/13',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_ficha-tcnica:node/14.
+  $menu_links['menu-navigation-pge_ficha-tcnica:node/14'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/14',
+    'router_path' => 'node/%',
+    'link_title' => 'Ficha técnica',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_ficha-tcnica:node/14',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_informes:node/15.
+  $menu_links['menu-navigation-pge_informes:node/15'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/15',
+    'router_path' => 'node/%',
+    'link_title' => 'Informes',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_informes:node/15',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
   // Exported menu link: menu-navigation-sngr_evaluaciones:node/9.
   $menu_links['menu-navigation-sngr_evaluaciones:node/9'] = array(
     'menu_name' => 'menu-navigation-sngr',
@@ -170,86 +250,6 @@ function menus_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: menu-navigation-pge_decretos:node/12.
-  $menu_links['menu-navigation-pge_decretos:node/12'] = array(
-    'menu_name' => 'menu-navigation-pge',
-    'link_path' => 'node/12',
-    'router_path' => 'node/%',
-    'link_title' => 'Decretos',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-navigation-pge_decretos:node/12',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-navigation-pge_ficha-insumos:node/13.
-  $menu_links['menu-navigation-pge_ficha-insumos:node/13'] = array(
-    'menu_name' => 'menu-navigation-pge',
-    'link_path' => 'node/13',
-    'router_path' => 'node/%',
-    'link_title' => 'Ficha insumos',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-navigation-pge_ficha-insumos:node/13',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-navigation-pge_ficha-tcnica:node/14.
-  $menu_links['menu-navigation-pge_ficha-tcnica:node/14'] = array(
-    'menu_name' => 'menu-navigation-pge',
-    'link_path' => 'node/14',
-    'router_path' => 'node/%',
-    'link_title' => 'Ficha técnica',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-navigation-pge_ficha-tcnica:node/14',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-navigation-pge_informes:node/15.
-  $menu_links['menu-navigation-pge_informes:node/15'] = array(
-    'menu_name' => 'menu-navigation-pge',
-    'link_path' => 'node/15',
-    'router_path' => 'node/%',
-    'link_title' => 'Informes',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-navigation-pge_informes:node/15',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
   // Exported menu link: navigation_ayuda:node/5.
   $menu_links['navigation_ayuda:node/5'] = array(
     'menu_name' => 'navigation',
@@ -315,8 +315,11 @@ function menus_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Ayuda');
   t('Créditos');
+  t('Decretos');
   t('Enlaces institucionales');
   t('Evaluaciones');
+  t('Ficha insumos');
+  t('Ficha técnica');
   t('Informes');
   t('Inicio');
   t('Instancias de coordinación');
