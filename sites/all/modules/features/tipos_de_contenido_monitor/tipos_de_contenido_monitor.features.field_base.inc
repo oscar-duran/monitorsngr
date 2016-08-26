@@ -10,15 +10,13 @@
 function tipos_de_contenido_monitor_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'.
-  $field_bases['body'] = array(
+  // Exported field_base: 'field_cargo'.
+  $field_bases['field_cargo'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
-    'entity_types' => array(
-      0 => 'node',
-    ),
-    'field_name' => 'body',
+    'entity_types' => array(),
+    'field_name' => 'field_cargo',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -26,18 +24,35 @@ function tipos_de_contenido_monitor_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_correo_electronico'.
+  $field_bases['field_correo_electronico'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_correo_electronico',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'email',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'text_with_summary',
+    'type' => 'email',
   );
 
-  // Exported field_base: 'field_atributostipoinstancia'.
-  $field_bases['field_atributostipoinstancia'] = array(
+  // Exported field_base: 'field_direccion_exacta'.
+  $field_bases['field_direccion_exacta'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_atributostipoinstancia',
+    'field_name' => 'field_direccion_exacta',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -46,19 +61,121 @@ function tipos_de_contenido_monitor_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
-      'max_length' => 100,
+      'max_length' => 255,
     ),
     'translatable' => 0,
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_instancia_'.
-  $field_bases['field_instancia_'] = array(
+  // Exported field_base: 'field_enlace_institucional'.
+  $field_bases['field_enlace_institucional'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_instancia_',
+    'field_name' => 'field_enlace_institucional',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(),
+      ),
+      'target_type' => 'user',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_institucion'.
+  $field_bases['field_institucion'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_institucion',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'institucion' => 'institucion',
+        ),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_monto_ejecutado'.
+  $field_bases['field_monto_ejecutado'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_monto_ejecutado',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
+  // Exported field_base: 'field_monto_presupuestado'.
+  $field_bases['field_monto_presupuestado'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_monto_presupuestado',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
+  // Exported field_base: 'field_nombre_jerarca'.
+  $field_bases['field_nombre_jerarca'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_nombre_jerarca',
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -67,136 +184,91 @@ function tipos_de_contenido_monitor_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
-      'max_length' => 100,
+      'max_length' => 255,
     ),
     'translatable' => 0,
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_instituci_n_'.
-  $field_bases['field_instituci_n_'] = array(
+  // Exported field_base: 'field_sitio_web'.
+  $field_bases['field_sitio_web'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_instituci_n_',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'field_name' => 'field_sitio_web',
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'link',
     'settings' => array(
-      'max_length' => 100,
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_montoejecutado'.
-  $field_bases['field_montoejecutado'] = array(
+  // Exported field_base: 'field_telefono'.
+  $field_bases['field_telefono'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_montoejecutado',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'field_name' => 'field_telefono',
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'phone',
     'settings' => array(
-      'max_length' => 100,
+      'country' => 'cr',
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'phone',
   );
 
-  // Exported field_base: 'field_montopresupuestado'.
-  $field_bases['field_montopresupuestado'] = array(
+  // Exported field_base: 'field_tipo_instancia'.
+  $field_bases['field_tipo_instancia'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_montopresupuestado',
+    'field_name' => 'field_tipo_instancia',
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'target_id' => array(
+        0 => 'target_id',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'entityreference',
     'settings' => array(
-      'max_length' => 100,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_tipoinstancia'.
-  $field_bases['field_tipoinstancia'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_tipoinstancia',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'tipos_instancia' => 'tipos_instancia',
+        ),
       ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 100,
+      'target_type' => 'taxonomy_term',
     ),
     'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_tipoinstanciacoordinacion'.
-  $field_bases['field_tipoinstanciacoordinacion'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_tipoinstanciacoordinacion',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 100,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_valorbateriasatributos'.
-  $field_bases['field_valorbateriasatributos'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_valorbateriasatributos',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 100,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
+    'type' => 'entityreference',
   );
 
   return $field_bases;
