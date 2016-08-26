@@ -14,7 +14,7 @@ dependencies[] = module_filter
 
 ; CNE Features
 dependencies[] = menus
-dependencies[] = tipos_de_contenido_monitor
+dependencies[] = tipos_contenido
 dependencies[] = usuarios_roles_permisos
 
 ; Chaos tool suite
@@ -86,4 +86,3 @@ dependencies[] = uuid_path
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
-
