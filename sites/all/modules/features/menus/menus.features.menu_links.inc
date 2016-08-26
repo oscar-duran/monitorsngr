@@ -170,9 +170,152 @@ function menus_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
+  // Exported menu link: menu-navigation-pge_decretos:node/12.
+  $menu_links['menu-navigation-pge_decretos:node/12'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/12',
+    'router_path' => 'node/%',
+    'link_title' => 'Decretos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_decretos:node/12',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_ficha-insumos:node/13.
+  $menu_links['menu-navigation-pge_ficha-insumos:node/13'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/13',
+    'router_path' => 'node/%',
+    'link_title' => 'Ficha insumos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_ficha-insumos:node/13',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_ficha-tcnica:node/14.
+  $menu_links['menu-navigation-pge_ficha-tcnica:node/14'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/14',
+    'router_path' => 'node/%',
+    'link_title' => 'Ficha técnica',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_ficha-tcnica:node/14',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-navigation-pge_informes:node/15.
+  $menu_links['menu-navigation-pge_informes:node/15'] = array(
+    'menu_name' => 'menu-navigation-pge',
+    'link_path' => 'node/15',
+    'router_path' => 'node/%',
+    'link_title' => 'Informes',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-navigation-pge_informes:node/15',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 1,
+  );
+  // Exported menu link: navigation_ayuda:node/5.
+  $menu_links['navigation_ayuda:node/5'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/5',
+    'router_path' => 'node/%',
+    'link_title' => 'Ayuda',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'navigation_ayuda:node/5',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
+  // Exported menu link: navigation_crditos:node/6.
+  $menu_links['navigation_crditos:node/6'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/6',
+    'router_path' => 'node/%',
+    'link_title' => 'Créditos',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'navigation_crditos:node/6',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
+  // Exported menu link: navigation_enlaces-institucionales:node/4.
+  $menu_links['navigation_enlaces-institucionales:node/4'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/4',
+    'router_path' => 'node/%',
+    'link_title' => 'Enlaces institucionales',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'navigation_enlaces-institucionales:node/4',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ayuda');
+  t('Créditos');
+  t('Enlaces institucionales');
   t('Evaluaciones');
   t('Informes');
   t('Inicio');
