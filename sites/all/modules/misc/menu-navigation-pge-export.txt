@@ -1,4 +1,4 @@
-Ficha insumos {"url":"pge\/ficha-insumos","options":{"attributes":{"title":""},"identifier":"menu-navegaci-n-pge_ficha-insumos:http:\/\/localhost\/sngr\/pge\/fichainsumos"},"node_uuid":"cf2ae0f6-056e-4776-a0b7-c6e9bccf816a","weight":"0"}
-Decretos {"url":"pge\/decretos","options":{"attributes":{"title":""},"identifier":"menu-navegaci-n-pge_decretos:http:\/\/localhost\/sngr\/pge\/decretos"},"node_uuid":"8dc252ca-b13e-4364-a969-4fb5602f7772","weight":"0"}
-Ficha técnica {"url":"pge\/ficha-tecnica","options":{"attributes":{"title":""},"identifier":"menu-navegaci-n-pge_ficha-tecnica:http:\/\/localhost\/sngr\/pge\/fichatecnica"},"node_uuid":"a0bb8560-33f7-49ad-ac47-094651b02af5","weight":"0"}
-Informes {"url":"pge\/informes","options":{"attributes":{"title":""},"identifier":"menu-navegaci-n-pge_informes:http:\/\/localhost\/sngr\/pge\/informes"},"node_uuid":"dff99083-8af5-489a-adb7-d24761b33dc1","weight":"0"}
+Ficha insumos {"url":"pge\/ficha-insumos","options":{"attributes":{"title":""},"identifier":"menu-navigation-pge_ficha-insumos:node\/13"},"weight":"-47"}
+Decretos {"url":"pge\/decretos","options":{"attributes":{"title":""},"identifier":"menu-navigation-pge_decretos:node\/12"},"weight":"-47"}
+Ficha técnica {"url":"pge\/ficha-tecnica","options":{"attributes":{"title":""},"identifier":"menu-navigation-pge_ficha-tcnica:node\/14"},"weight":"-47"}
+Informes {"url":"pge\/informes","options":{"attributes":{"title":""},"identifier":"menu-navigation-pge_informes:node\/15"},"weight":"-47"}
