@@ -1,6 +1,6 @@
 ; Packaging information for lista_modulos
-name = "Lista de módulos"
-description = "Contiene la lista completa de módulos usados para la aplicación MonitorSNGR"
+name = "Lista modulos"
+description = "Lista de módulos"
 core = "7.x"
 
 
@@ -10,6 +10,12 @@ core = "7.x"
 
 ; Administration
 dependencies[] = admin_menu
+dependencies[] = module_filter
+
+; CNE Features
+dependencies[] = menus
+dependencies[] = tipos_de_contenido_monitor
+dependencies[] = usuarios_roles_permisos
 
 ; Chaos tool suite
 dependencies[] = ctools
@@ -29,6 +35,7 @@ dependencies[] = filter
 dependencies[] = help
 dependencies[] = image
 dependencies[] = list
+dependencies[] = locale
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = number
@@ -40,6 +47,7 @@ dependencies[] = shortcut
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = translation
 dependencies[] = update
 dependencies[] = user
 
@@ -49,17 +57,27 @@ dependencies[] = menu_import
 ; Features
 dependencies[] = features
 
+; Fields
+dependencies[] = email
+dependencies[] = entityreference
+dependencies[] = field_group
+dependencies[] = link
+dependencies[] = phone
+
 ; Node export
 dependencies[] = node_export
 dependencies[] = node_export_features
 dependencies[] = node_export_features_ui
 
-; Block export
-dependencies[] = blockexport
-
 ; Other
-;dependencies[] = standard
-dependencies[] = admin_menu
+dependencies[] = blockexport
+dependencies[] = entity
+dependencies[] = lista_modulos
+dependencies[] = shs
+dependencies[] = standard
+
+; Taxonomy
+dependencies[] = taxonomy_csv
 
 ; UUID
 dependencies[] = uuid
