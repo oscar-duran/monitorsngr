@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tipos_de_contenido_monitor.field_group.inc
+ * tipos_contenido.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function tipos_de_contenido_monitor_field_group_info() {
+function tipos_contenido_field_group_info() {
   $field_groups = array();
 
   $field_group = new stdClass();

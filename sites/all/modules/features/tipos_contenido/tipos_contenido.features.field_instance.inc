@@ -1,19 +1,18 @@
 <?php
 /**
  * @file
- * tipos_de_contenido_monitor.features.field_instance.inc
+ * tipos_contenido.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function tipos_de_contenido_monitor_field_default_field_instances() {
+function tipos_contenido_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance:
-  // 'node-instancia_de_coordinaci_n_-field_institucion'.
-  $field_instances['node-instancia_de_coordinaci_n_-field_institucion'] = array(
-    'bundle' => 'instancia_de_coordinaci_n_',
+  // Exported field_instance: 'node-instancia_coordinacion-field_institucion'.
+  $field_instances['node-instancia_coordinacion-field_institucion'] = array(
+    'bundle' => 'instancia_coordinacion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -55,9 +54,9 @@ function tipos_de_contenido_monitor_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-instancia_de_coordinaci_n_-field_tipo_instancia'.
-  $field_instances['node-instancia_de_coordinaci_n_-field_tipo_instancia'] = array(
-    'bundle' => 'instancia_de_coordinaci_n_',
+  // 'node-instancia_coordinacion-field_tipo_instancia'.
+  $field_instances['node-instancia_coordinacion-field_tipo_instancia'] = array(
+    'bundle' => 'instancia_coordinacion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -400,9 +399,9 @@ function tipos_de_contenido_monitor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-montos_ejecuci_n-field_institucion'.
-  $field_instances['node-montos_ejecuci_n-field_institucion'] = array(
-    'bundle' => 'montos_ejecuci_n',
+  // Exported field_instance: 'node-montos_ejecucion-field_institucion'.
+  $field_instances['node-montos_ejecucion-field_institucion'] = array(
+    'bundle' => 'montos_ejecucion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -443,9 +442,9 @@ function tipos_de_contenido_monitor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-montos_ejecuci_n-field_monto_ejecutado'.
-  $field_instances['node-montos_ejecuci_n-field_monto_ejecutado'] = array(
-    'bundle' => 'montos_ejecuci_n',
+  // Exported field_instance: 'node-montos_ejecucion-field_monto_ejecutado'.
+  $field_instances['node-montos_ejecucion-field_monto_ejecutado'] = array(
+    'bundle' => 'montos_ejecucion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -489,9 +488,9 @@ function tipos_de_contenido_monitor_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-montos_ejecuci_n-field_monto_presupuestado'.
-  $field_instances['node-montos_ejecuci_n-field_monto_presupuestado'] = array(
-    'bundle' => 'montos_ejecuci_n',
+  // Exported field_instance: 'node-montos_ejecucion-field_monto_presupuestado'.
+  $field_instances['node-montos_ejecucion-field_monto_presupuestado'] = array(
+    'bundle' => 'montos_ejecucion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tipos_de_contenido_monitor.features.taxonomy.inc
+ * tipos_contenido.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function tipos_de_contenido_monitor_taxonomy_default_vocabularies() {
+function tipos_contenido_taxonomy_default_vocabularies() {
   return array(
     'tipos_de_institucion' => array(
       'name' => 'Tipos de institución',

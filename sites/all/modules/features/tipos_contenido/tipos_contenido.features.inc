@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * tipos_de_contenido_monitor.features.inc
+ * tipos_contenido.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function tipos_de_contenido_monitor_ctools_plugin_api($module = NULL, $api = NULL) {
+function tipos_contenido_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -16,9 +16,9 @@ function tipos_de_contenido_monitor_ctools_plugin_api($module = NULL, $api = NUL
 /**
  * Implements hook_node_info().
  */
-function tipos_de_contenido_monitor_node_info() {
+function tipos_contenido_node_info() {
   $items = array(
-    'instancia_de_coordinaci_n_' => array(
+    'instancia_coordinacion' => array(
       'name' => t('Instancia de Coordinación'),
       'base' => 'node_content',
       'description' => t('El Sistema Nacional de Gestión del Riesgo se estructura por medio de las siguientes "instancias de coordinación". '),
@@ -34,7 +34,7 @@ function tipos_de_contenido_monitor_node_info() {
       'title_label' => t('Nombre de la institución'),
       'help' => '',
     ),
-    'montos_ejecuci_n' => array(
+    'montos_ejecucion' => array(
       'name' => t('Montos de Ejecución'),
       'base' => 'node_content',
       'description' => '',
