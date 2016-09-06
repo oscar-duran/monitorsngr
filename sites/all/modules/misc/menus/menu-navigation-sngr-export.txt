@@ -1,0 +1,5 @@
+Instituciones {"url":"sngr\/instituciones","options":{"attributes":{"title":""},"identifier":"menu-navigation-sngr_instituciones:node\/7"},"weight":"-50"}
+Instancias de coordinación {"url":"sngr\/instancias-coordinacion","options":{"attributes":{"title":""},"identifier":"menu-navigation-sngr_instancias-de-coordinacin:node\/8"},"weight":"-49"}
+Evaluaciones {"url":"sngr\/evaluaciones","options":{"attributes":{"title":""},"identifier":"menu-navigation-sngr_evaluaciones:node\/9"},"weight":"-48"}
+Matriz de cumplimiento {"url":"sngr\/matriz-cumplimiento","options":{"attributes":{"title":""},"identifier":"menu-navigation-sngr_matriz-de-cumplimiento:node\/10"},"weight":"-47"}
+Informes {"url":"sngr\/informes","options":{"attributes":{"title":""},"identifier":"menu-navigation-sngr_informes:node\/11"},"weight":"-46"}

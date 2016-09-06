@@ -1,6 +1,6 @@
 ; Packaging information for lista_modulos
-name = "Lista de módulos"
-description = "Contiene la lista completa de módulos usados para la aplicación MonitorSNGR"
+name = "Lista módulos"
+description = "Lista para llevar cuenta de los módulos necesarios para la aplicación monitorsngr"
 core = "7.x"
 
 
@@ -10,6 +10,12 @@ core = "7.x"
 
 ; Administration
 dependencies[] = admin_menu
+dependencies[] = module_filter
+
+; CNE Features
+;dependencies[] = menus
+;dependencies[] = tipos_contenido
+;dependencies[] = usuarios_roles_permisos
 
 ; Chaos tool suite
 dependencies[] = ctools
@@ -29,6 +35,7 @@ dependencies[] = filter
 dependencies[] = help
 dependencies[] = image
 dependencies[] = list
+dependencies[] = locale
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = number
@@ -40,6 +47,7 @@ dependencies[] = shortcut
 dependencies[] = system
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = translation
 dependencies[] = update
 dependencies[] = user
 
@@ -49,23 +57,24 @@ dependencies[] = menu_import
 ; Features
 dependencies[] = features
 
-; Node export
-dependencies[] = node_export
-dependencies[] = node_export_features
-dependencies[] = node_export_features_ui
-
-; Block export
-dependencies[] = blockexport
+; Fields
+dependencies[] = email
+dependencies[] = entityreference
+dependencies[] = field_group
+dependencies[] = link
+dependencies[] = phone
 
 ; Other
-;dependencies[] = standard
-dependencies[] = admin_menu
+dependencies[] = entity
 
-; UUID
-dependencies[] = uuid
-dependencies[] = uuid_path
+; Taxonomy
+dependencies[] = taxonomy_csv
 
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
 
+; Feeds
+dependencies[] = job_scheduler
+dependencies[] = feeds
+dependencies[] = feeds_ui

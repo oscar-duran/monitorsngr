@@ -1,0 +1,10 @@
+name = Vocabularios
+description = Vocabularios
+core = 7.x
+package = CNE Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = tipos_de_institucion
+features[taxonomy][] = tipos_instancia

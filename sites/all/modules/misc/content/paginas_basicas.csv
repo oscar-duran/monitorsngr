@@ -1,0 +1,16 @@
+nid,title,summary,body,path
+1,Inicio,Descripción del sistema monitor,Descripción del sistema monitor,inicio
+2,Sistema Nacional de Gestión del Riesgo,Descripción del SNGR,Descripción del SNGR,sngr
+3,Planes Generales de Emergencia,Descripción de los PGEs,Descripción de los PGEs,pge
+4,Enlaces institucionales,Listado de las instituciones que participan en el SNGR con su respectivo contacto,Listado de las instituciones que participan en el SNGR con su respectivo contacto,enlaces-institucionales
+5,Ayuda,Página de ayuda,Página de ayuda,ayuda
+6,Créditos,Página para los créditos,Página para los créditos,creditos
+7,Instituciones,Instituciones,Instituciones,sngr/instituciones
+8,Instancias de coordinación,Instancias de coordinación,Instancias de coordinación,sngr/instancias-coordinacion
+9,Evaluaciones,Evaluaciones,Evaluaciones,sngr/evaluaciones
+10,Matriz de cumplimiento,Matriz de cumplimiento,Matriz de cumplimiento,sngr/matriz-cumplimiento
+11,Informes,Informes,Informes,sngr/informes
+12,Decretos,Decretos,Decretos,pge/decretos
+13,Ficha insumos,Ficha insumos,Ficha insumos,pge/ficha-insumos
+14,Ficha técnica,Ficha técnica,Ficha técnica,pge/ficha-tecnica
+15,Informes,Informes,Informes,pge/informes
