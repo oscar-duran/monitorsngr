@@ -85,6 +85,9 @@
  * @see html.tpl.php
  */
 ?>
+<style type="text/css">
+  #site-name a { color: black !important; }
+</style>
 <div id="page-wrapper"><div id="page">
 
   <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>" style="background-image:url('https://163.178.170.162/monitorsngr/themes/bartik/encabezado-sngr.png'); background-repeat:no-repeat; text-align:center; margin-left:auto; margin-right:auto; clear:both;margin-left:0%;background-color:#cee9f4 !important;height:130px;"><div class="section clearfix">
