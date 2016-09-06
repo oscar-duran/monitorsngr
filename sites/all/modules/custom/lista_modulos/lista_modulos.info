@@ -50,6 +50,7 @@ dependencies[] = text
 dependencies[] = translation
 dependencies[] = update
 dependencies[] = user
+dependencies[] = token
 
 ; Development
 dependencies[] = menu_import
@@ -66,6 +67,7 @@ dependencies[] = phone
 
 ; Other
 dependencies[] = entity
+dependencies[] = auto_nodetitle
 
 ; Taxonomy
 dependencies[] = taxonomy_csv
@@ -73,6 +75,7 @@ dependencies[] = taxonomy_csv
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
+dependencies[] = viewfield
 
 ; Feeds
 dependencies[] = job_scheduler
