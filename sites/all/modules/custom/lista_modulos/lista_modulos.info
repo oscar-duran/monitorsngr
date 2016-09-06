@@ -65,9 +65,7 @@ dependencies[] = link
 dependencies[] = phone
 
 ; Other
-dependencies[] = blockexport
 dependencies[] = entity
-dependencies[] = shs
 
 ; Taxonomy
 dependencies[] = taxonomy_csv
