@@ -34,6 +34,14 @@ function tipos_contenido_node_info() {
       'title_label' => t('Nombre de la institución'),
       'help' => '',
     ),
+    'monto_ejecucion' => array(
+      'name' => t('Monto ejecución'),
+      'base' => 'node_content',
+      'description' => t('Montos de ejecución total por institución por año'),
+      'has_title' => '1',
+      'title_label' => t('Nombre'),
+      'help' => '',
+    ),
   );
   drupal_alter('node_info', $items);
   return $items;
