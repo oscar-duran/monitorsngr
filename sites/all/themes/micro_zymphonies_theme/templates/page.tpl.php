@@ -73,7 +73,6 @@
   <header id="header" class="clearfix">
    <div>
     <div class="top_left">
-    <h1>Hola mundo</h1>
    </div>
 
       <?php if ($logo): ?>
