@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Vistas feature.
+ */
+
+include_once 'vistas.features.inc';

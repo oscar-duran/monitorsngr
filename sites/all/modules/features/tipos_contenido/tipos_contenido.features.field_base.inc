@@ -190,6 +190,21 @@ function tipos_contenido_field_default_field_bases() {
     'type' => 'number_float',
   );
 
+  // Exported field_base: 'field_montos_ejecucion_view'.
+  $field_bases['field_montos_ejecucion_view'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_montos_ejecucion_view',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'viewfield',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'viewfield',
+  );
+
   // Exported field_base: 'field_nombre_jerarca'.
   $field_bases['field_nombre_jerarca'] = array(
     'active' => 1,
