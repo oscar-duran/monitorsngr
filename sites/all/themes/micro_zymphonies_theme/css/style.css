@@ -337,10 +337,11 @@ b {
 
 #header_wrapper {
   position: relative;
-  z-index: 50;
+  z-index: 9;
   background-color: #cee9f4;
- 
-}
+  }
+
+
 
 .not-front #header_wrapper{
   border-bottom: 1px solid #EEE;
@@ -353,8 +354,7 @@ b {
 #header {
   max-width: 1024px;
   margin: 0 auto;
-
-}
+  }
 
 .top_left {
   float: left;
@@ -363,7 +363,8 @@ b {
 
 .top_right {
   float: right;
-  margin: 14px 0;
+  margin: 20px 0 0 0;
+  /*margin: 14px 0;*/
 }
 
 #logo {
@@ -409,6 +410,8 @@ b {
 #main-menu {
   position: relative;
   float: left;
+    background: #1272b9;
+	width: 1020px;
 
 }
 
@@ -430,20 +433,21 @@ b {
   padding: 12px 20px;
   display: block;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #fff;
   line-height: 100%;
   white-space: nowrap;
   text-transform: uppercase;
 }
 
+
 #main-menu li a.active{
-  /*background: #F9F9F9;*/
-  background: #f2642b;
-  
+  background: #ed6d25;
+ 
 }
 
-#main-menu li:hover >a {
-  color: #289DCC;
+#main-menu li:hover a {
+  background: #ed6d25;
+
 }
 
 #main-menu li.expanded >a{ 
@@ -1065,7 +1069,6 @@ ul.secondary a.active {
 
 img {
   outline: 0;
-  
 }
 
 img.scale-with-grid {
@@ -1414,7 +1417,6 @@ ol.search-results {
 .footer_credit {
   color: #ffffff;
   font-size: 13px;
-  border-top: 1px solid #030304;
   padding: 20px 0;
   overflow: hidden;
   background: #2273b9;
@@ -1428,7 +1430,11 @@ ol.search-results {
 .footer_credit a {
   color: #91c6f5;
   }
-
+  
+ .footer_credit a:hover {
+  color: #ffffff;
+  }
+  
 
 #footer-area .column {
   float: left;
@@ -1458,10 +1464,16 @@ ol.search-results {
   width: 100%;
   padding: 7px 0;
   display: block;
-}
+  background-color:#2273b9;
+    display: inline-block;
+
+  }
+
 
 .social-icons ul {
   margin: 0;
+  padding-top: 10px;
+
 }
 
 .social-icons li {
@@ -1469,22 +1481,42 @@ ol.search-results {
 }
 
 .social-icons li a {
-  width: 30px;
-  color: #888;
-  padding: 7px 9px;
+  width: 32px;
+  padding: 40px 0px 0px 0px;
   display: block;
-  overflow: hidden;
-  background: #F9F9F9;
-  border-radius: 3px;
-  border: 1px solid #EEE;
   line-height: 100%;
 }
 
 .social-icons li a:hover {
   background: #fff;
-  color: #999;
+  color: #ea5b1a;
 }
 
+.social-icons .icon-facebook{
+	background: url(../images/facebook.png) center no-repeat;
+	}
+	
+.social-icons .icon-facebook:hover{
+	
+	background:url(../images/facebook-white.png) center no-repeat;
+	}
+	
+.social-icons .icon-twitter{
+	background: url(../images/twitter.png) center no-repeat;
+	}
+	
+.social-icons .icon-twitter:hover{
+	
+	background:url(../images/twitter-white.png) center no-repeat;
+	}
+.social-icons .icon-youtube{
+	background: url(../images/youtube.png) center no-repeat;
+	}
+	
+.social-icons .icon-youtube:hover{
+	
+	background:url(../images/youtube-white.png) center no-repeat;
+	}
 /*---------------------------
   User Menu
 ----------------------------*/
