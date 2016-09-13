@@ -363,8 +363,8 @@ b {
 
 .top_right {
   float: right;
-  margin: 20px 0 0 0;
   /*margin: 14px 0;*/
+  margin-bottom: -5px;
 }
 
 #logo {
@@ -411,7 +411,7 @@ b {
   position: relative;
   float: left;
     background: #1272b9;
-	width: 1020px;
+	width: 1003px;
 
 }
 
