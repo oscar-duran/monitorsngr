@@ -363,8 +363,7 @@ b {
 
 .top_right {
   float: right;
-  /*margin: 14px 0;
-  margin-bottom: -5px;*/
+  margin-bottom: -5px;
 }
 
 #logo {
@@ -1492,11 +1491,6 @@ ol.search-results {
   color: #ea5b1a;
 }
 
- .imagen{
-		
-	background: url(../images/banner01.png) center no-repeat;
-
-	}
 .social-icons .icon-facebook{
 	background: url(../images/facebook.png) center no-repeat;
 	}
