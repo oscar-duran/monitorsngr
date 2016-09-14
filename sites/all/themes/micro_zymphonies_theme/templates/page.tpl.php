@@ -93,7 +93,7 @@
         <div class="clear"></div>
 
       </nav>
-           <img src="banner01.png"  width="1003" height="198" alt="Make responsive" />
+           <img src="banner01.png"  width="1003" height="198" alt="Make responsive" class="imagen" />
 
     </div>
 
