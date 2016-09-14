@@ -93,7 +93,7 @@
         <div class="clear"></div>
 
       </nav>
-           <img src="<?php global $base_path; print $base_path . path_to_theme() . '/images/'; ?>banner01.png"  width="1003" height="198" alt="Make responsive" class="imagen" />
+           <img src="<?php global $base_path; print $base_path . path_to_theme() . '/images/'; ?>banner01.png"  width="1003" height="198" alt="Sistema de Monitoreo y Seguimiento" class="imagen" />
 
     </div>
 
