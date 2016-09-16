@@ -1,2 +1,5 @@
-uid,name,mail,roles,,,,,,path
-2,Usuario institucional 1,usuarioinstitucional1@preventec.ucr.ac.cr,2;7,,,,,,
+uid,name,mail,roles,active,path,nombre,apellido1,apellido2,teléfono,género,grado,institución,cargo,departamento
+2,Usuario institucional 1,usuarioinstitucional1@preventec.ucr.ac.cr,"2,7",1,,Nombre,Apellido1,,,m,Señor,16,Funcionario,Tecnologías de información
+16,User-preventec,oscar.duran@ucr.ac.cr,"2,7",1,,Preventec,UCR,,25118888,m,Señor,16,Director,Tecnologías de información
+15,Amata,Amata@cne.go.cr,"2,4",1,,Alber,Mata,Morales,22103324,m,Licenciado,24,Funcionario,Desarrollo Estratégico del SNGR
+14,Gabriela Vallejo,gabvallejo2@gmail.com,"2,4",1,,Gabriela,Vallejo,Astúa,22102806,f,Bachiller,24,Funcionario,Desarrollo Estratégico del SNGR

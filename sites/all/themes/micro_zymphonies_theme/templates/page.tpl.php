@@ -68,17 +68,11 @@
 <!-- header -->
 
 <div id="header_wrapper">
-        <img src="banner01.png"  width="1003" height="198" alt="Make responsive" />
 
   <header id="header" class="clearfix">
-   <div>
     <div class="top_left">
-   </div>
-
       <?php if ($logo): ?>
-      
         <div id="logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>"/></a></div>
- 
       <?php endif; ?>
 
       <h1 id="site-title">
@@ -86,7 +80,9 @@
         <div id="site-description"><?php print $site_slogan; ?></div>
       </h1>
     </div>
+
     <div class="top_right">
+
       <nav id="main-menu"  role="navigation">
         <a class="nav-toggle" href="#">MENU</a>
         <div class="menu-navigation-container">
@@ -95,7 +91,10 @@
           ?>
         </div>
         <div class="clear"></div>
+
       </nav>
+           <img src="<?php global $base_path; print $base_path . path_to_theme() . '/images/'; ?>banner01.png"  width="1003" height="198" alt="Sistema de Monitoreo y Seguimiento" class="imagen" />
+
     </div>
 
   </header>
@@ -230,26 +229,22 @@
   <?php endif; ?>
 
   <!-- Social Links -->
-    <?php if (theme_get_setting('social_links', 'micro_zymphonies_theme')): ?>
       <span class="social-icons">
        <ul>
-        <li><a class="fb" href="<?php echo theme_get_setting('facebook_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-facebook"></i></a></li>
-        <li><a class="twitter" href="<?php echo theme_get_setting('twitter_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="gplus" href="<?php echo theme_get_setting('gplus_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-google-plus"></i></a></li>
-        <li><a class="linkedin" href="<?php echo theme_get_setting('linkedin_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="pinterest" href="<?php echo theme_get_setting('pinterest_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-pinterest"></i></a></li>
-        <li><a class="youtube" href="<?php echo theme_get_setting('youtube_profile_url', 'micro_zymphonies_theme'); ?>" target="_blank" rel="me"><i class="fa fa-youtube"></i></a></li>
-        <li><a class="rss" href="<?php print $front_page; ?>rss.xml"><i class="fa fa-rss"></i></a></li>
+        <li><a href="https://www.facebook.com/CNECostaRica" target="_blank" class="icon-facebook"></a></li>
+        <li><a href="https://twitter.com/cnecostarica" target="_blank" class="icon-twitter"></a></li>
+        <li><a href="https://www.youtube.com/user/CNECostaRica" target="_blank" class="icon-youtube"></a></li>
        </ul>
       </span>
-    <?php endif; ?>
   <!-- End Social Links -->
 
   <div class="footer_credit">
       
-    <div id="copyright" class="full-wrap clearfix">
+   <div id="copyright" class="full-wrap clearfix">
       <p class="copyright"><?php print t('Comisión Nacional de Prevención de riesgos y atención de emergencias'); ?> &copy; <?php echo date("Y"); ?><?php print $site_name; ?></p> 
-      <p class="credits"> <?php print t('Desarrollado con'); ?><a href="http://www.drupal.org"> Drupal </a><a href="http://www.ucr.ac.cr"> Universidad de Costa Rica </a></p></p>
+      <p class="credits"> <?php print t('Desarrollado con'); ?><a href="http://www.drupal.org"> Drupal </a></p>
+      <p class="credits"><a href="http://www.preventec.ucr.ac.cr"> Preventec </a>|<a href="http://www.ucr.ac.cr"> Universidad de Costa Rica  &copy; </a></p></p>
+      
     </div>
   </div>
 

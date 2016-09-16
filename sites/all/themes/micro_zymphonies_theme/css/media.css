@@ -38,7 +38,7 @@
     vertical-align: top;
   }
 
-  .top_right { margin-bottom: 0; }
+  /*.top_right { margin-bottom: 0; }*/
 
   .field-name-field-images .field-item{
     width: 50%;
@@ -51,9 +51,20 @@
   }
 
 }
+@media screen and (max-width: 768px) {
+ #main-menu {
+  	width: 690px;
+
+  }
+
+}
 
 @media screen and (max-width: 640px) {
 
+  #main-menu {
+  	width: 400px;
+
+  }
   #main-menu ul {
     display: none;
   }
@@ -153,6 +164,7 @@
   .field-name-field-images .field-item{
     width: 100%;
   }
+
   .footer_credit p{
     width: 100%;
     text-align: center;
