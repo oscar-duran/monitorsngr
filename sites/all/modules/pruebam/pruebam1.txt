@@ -1,0 +1,54 @@
+<?php
+/**
+ * @file
+ * Archivo para prueba de modulo
+ */
+
+/**
+ * Implementa hook_menu().
+ */
+function pruebam_menu() {
+  $items['sngr/autoevaluacion'] = array(
+    'title' => 'Autoevaluación',
+    'page callback' => 'my_form',
+    'access callback' => TRUE,
+	my_form
+
+  );
+  return $items;
+}
+
+
+/**
+ * Callback que implementa la página: sngr/autoevaluacion.
+ */
+ function my_form($form_state) {
+ $form['description'] = array(
+ '#type' => 'item',
+ '#title' => t('Prueba de Módulo para Autoevaluación'),
+ );
+
+ $form['title'] = array(
+ '#type' => 'textfield',
+ '#title' => t('Título'),
+ );
+ $form['body'] = array(
+ '#type' => 'textfield',
+ '#title' => t('Cuerpo'),
+ );
+ $form['submit'] = array(
+ '#type' => 'submit',
+ '#title' => t('Submit'),
+ );
+ 
+ 
+ return $form;
+}
+
+function prueba_submit($form, &$form_state) {
+  drupal_set_message(t('El Formulario se envio correctamente. Título="@title", Cuerpo=@body',
+    array('@title' => $form_state['values']['title'], '@body' => $form_state['values']['body'] )));
+}
+
+
+?>
