@@ -1,0 +1,235 @@
+<?php
+/**
+ * @file
+ * Archivo para prueba de modulo
+ */
+
+/**
+ * Implementa hook_menu().
+ */
+function autoevaluacion_menu() {
+  $items = array();
+  $items['sngr/autoevaluacion/%'] = array(
+    'title' => t('Autoevaluación'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('autoevaluacion_form', 2),
+    'access arguments' => array('access content'),
+    'description' => t('Autoevaluación'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Returns the render array for the form.
+ */
+function autoevaluacion_form($form, &$form_state, $nid) {
+
+  $autoevaluacion = node_load($nid); 
+  $steps_count = count($autoevaluacion->field_meta[LANGUAGE_NONE]);
+
+  if (isset($form_state['step']) && $form_state['step'] > $steps_count) {
+    drupal_set_message('Gracias por finalizar la autoevaluación');
+    return;
+  }  
+
+  if (!isset($form_state['nid'])) $form_state['nid'] = $nid; 
+  if (!isset($form_state['step'])) $form_state['step'] = 1; 
+  $indice_meta = $form_state['step'] - 1;
+  $meta_actual = node_load($autoevaluacion->field_meta[LANGUAGE_NONE][$indice_meta]['target_id']);
+  $form_state['meta_id'] = $autoevaluacion->field_meta[LANGUAGE_NONE][$indice_meta]['target_id'];
+
+  $form['heading'] = array(
+    '#type' => 'markup',
+    '#markup' => "<h3>Paso " . $form_state['step'] . " de " . $steps_count . "</h3></br><h3>Meta: "  . $meta_actual->title,
+  );
+
+  $form['field_porcentaje_avance'] = array(
+    '#type' => 'select',
+    '#title' => t('¿Cuánto ha avanzado en el cumplimiento de la meta?'),
+    '#options' => array(
+      1 => t('No se ha avanzado, o existe un atraso crítico, no representa un tema relevante en la institución.'),
+      2 => t('Se ha avanzado poco, con riesgo de incumplimiento, con actividades esporádicas y sin una clara incorporación del tema en la planificación institucional.'),
+      3 => t('Se ha avanzado a nivel medio, con actividades específicas pero sin una adecuada articulación a la planificación y el presupuesto de la institución.'),
+      4 => t('Se ha avanzado de manera adecuada, con actividades planificadas y logros satisfactorios.'),
+      5 => t('Se ha avanzado de manera exitosa, con actividades planificadas y un compromiso absoluto de funcionarios y jerarcas.'),
+    ),
+    '#required' => TRUE,
+    //'#default_value' => isset($form_state['storage'][$form_state['step']]['field_porcentaje_avance']) ? $form_state['storage'][$form_state['step']]['field_porcentaje_avance'] : '',
+  );
+
+  /*$form['Aspectos Positivos'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.'),
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );*/
+
+  $form['Aspectos Positivos'] = array(
+    '#type' => 'markup',
+    '#markup' => "<p>Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.</p>",
+  );
+  $form['field_aspecto_positivo1'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Aspecto positivo 1'),
+    '#required' => TRUE,
+  );
+  $form['field_aspecto_positivo2'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Aspecto positivo 2'),
+    '#required' => TRUE,
+  );
+  $form['field_aspecto_positivo3'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Aspecto positivo 3'),
+    '#required' => TRUE,
+  );
+
+  $form['Obstáculos'] = array(
+    '#type' => 'markup',
+    '#markup' => "<p>Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.</p>",
+  );
+  $form['field_obstaculo1'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Obstáculo 1'),
+    '#required' => TRUE,
+  );
+  $form['field_obstaculo2'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Obstáculo 2'),
+    '#required' => TRUE,
+  );
+  $form['field_obstaculo3'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Obstáculo 3'),
+    '#required' => TRUE,
+  );
+
+  $form['Comentario nivel avance'] = array(
+    '#type' => 'markup',
+    '#markup' => "<p>Comente el nivel de avance reportado.</p>",
+  );
+  $form['field_porcentaje_avance_coment'] = array(
+    '#type' => 'textarea',
+    '#description' => t('Comentario nivel de avance.'),
+    '#required' => TRUE,
+  );
+
+  $form['field_recibio_asesoria'] = array(
+    '#type' => 'radios',
+    '#title' => t('En el presente año, su organización  ha recibido asesoría o capacitación en el tema de gestión de riesgo que sea pertinente a la ejecución de la meta asignada en el PNGR.'),
+    '#options' => array(
+      1 => t('Sí'),
+      0 => t('No'),
+    ),
+    '#description' => t('Recibió asesoría.'),
+    '#required' => TRUE,
+  );
+  $form['field_organizacion_capacitadora'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Sí. ¿Qué organización le ha brindado capacitación?'),
+    '#description' => t('Organización capacitadora.'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="field_recibio_asesoria"]' => array('value' => 1),
+      ),
+    ),
+  );
+
+  $form['field_tiene_necesidades'] = array(
+    '#type' => 'radios',
+    '#title' => t('¿Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo?.'),
+    '#options' => array(
+      1 => t('Sí'),
+      0 => t('No'),
+    ),
+    '#description' => t('Necesita capacitación.'),
+    '#required' => TRUE,
+  );
+  $form['field_tema_necesidades'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Sí. ¿En qué tema?'),
+    '#description' => t('Tema capacitación.'),
+    '#required' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="field_tiene_necesidades"]' => array('value' => 1),
+      ),
+    ),
+  );
+
+  if ($form_state['step'] == 1) {
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Siguiente',
+    );
+  }
+  else if ($form_state['step'] == $steps_count) {
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Finalizar',
+    );
+  }
+  else {
+  }
+
+  return $form;
+
+}
+
+
+/**
+ * Add a submit handler/function to the form.
+ *
+ * This will add a completion message to the screen when the
+ * form successfully processes
+ */
+function autoevaluacion_form_submit($form, &$form_state) {
+
+  if (!isset($form_state['step'])) $form_state['step'] = 1; 
+
+  //$form_state['storage'][$form_state['step']]['field_porcentaje_avance'] = $form_state['values']['field_porcentaje_avance'];
+
+  if ($form_state['step'] == 1) {
+    $form_state['step'] = 2;
+    $form_state['rebuild'] = true;
+  }
+  else {
+    $form_state['step'] = $form_state['step'] + 1;
+    $form_state['rebuild'] = true;
+  }
+
+  // Almacenar las respuestas
+  global $user;
+
+  $values = array(
+    'type' => 'respuestas_autoevaluacion',
+    'uid' => $user->uid,
+    'status' => 1,
+    'comment' => 0,
+    'promote' => 0, 
+  );
+  $entity = entity_create('node', $values);
+  $ewrapper = entity_metadata_wrapper('node', $entity);
+
+  $ewrapper->title->set('Au' . $form_state['nid'] . ':m' . $form_state['meta_id'] . ':u' . $user->uid);
+
+  $ewrapper->field_autoevaluacion->set($form_state['nid']);
+  $ewrapper->field_meta->set(array($form_state['meta_id']));
+  $ewrapper->field_porcentaje_avance->set($form_state['values']['field_porcentaje_avance']);
+  $ewrapper->field_aspecto_positivo1->set($form_state['values']['field_aspecto_positivo1']);
+  $ewrapper->field_aspecto_positivo2->set($form_state['values']['field_aspecto_positivo2']);
+  $ewrapper->field_aspecto_positivo3->set($form_state['values']['field_aspecto_positivo3']);
+  $ewrapper->field_obstaculo1->set($form_state['values']['field_obstaculo1']);
+  $ewrapper->field_obstaculo2->set($form_state['values']['field_obstaculo2']);
+  $ewrapper->field_obstaculo3->set($form_state['values']['field_obstaculo3']);
+  $ewrapper->field_porcentaje_avance_coment->set($form_state['values']['field_porcentaje_avance_coment']);
+  $ewrapper->field_recibio_asesoria->set($form_state['values']['field_recibio_asesoria']);
+  $ewrapper->field_organizacion_capacitadora->set($form_state['values']['field_organizacion_capacitadora']);
+  $ewrapper->field_tiene_necesidades->set($form_state['values']['field_tiene_necesidades']);
+  $ewrapper->field_tema_necesidades->set($form_state['values']['field_tema_necesidades']);
+  
+  $ewrapper->save();  
+  drupal_set_message(t('La autoevaluación para la meta se envió correctamente.'));
+}

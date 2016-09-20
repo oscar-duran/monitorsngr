@@ -1,0 +1,8 @@
+
+name = Autoevaluación
+description = Módulo para aplicar autoevaluaciones.
+package = CNE
+core = 7.x
+files[] = autoevaluacion.module
+
+
