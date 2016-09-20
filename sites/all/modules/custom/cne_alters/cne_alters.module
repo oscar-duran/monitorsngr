@@ -26,5 +26,5 @@ function cne_alters_form_user_register_form_alter(&$form, &$form_state, $form_id
  * y revisiones.
  */
 function cne_alters_form_alter(&$form, $form_state, $form_id) {
-  $form['additional_settings']['#access'] = FALSE;
+  //$form['additional_settings']['#access'] = FALSE;
 }
