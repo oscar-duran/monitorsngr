@@ -1,0 +1,3 @@
+name = "CNE alters"
+description = "Alters para los formularios de edición para la aplicación monitorsngr"
+core = "7.x"

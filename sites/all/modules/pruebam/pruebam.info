@@ -1,0 +1,8 @@
+
+name = pruebam
+description = prueba para un modulo.
+package = Development
+core = 7.x
+files[] = pruebam.module
+
+

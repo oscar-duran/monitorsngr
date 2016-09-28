@@ -1,0 +1,30 @@
+<?php 
+
+/**
+ * Implementación de hook_form_FORM_ID_alter
+ * para el formulario de registro de usuarios.
+ * 
+ * Si el usuario dió click desde el enlace "Nuevo enlace institucional"
+ * selecciona automáticamente el rol usuario institucional
+ * en la página de creación de usuario.
+ */
+function cne_alters_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+
+  if (isset($_SERVER['HTTP_REFERER'])) {
+    if (strpos($_SERVER['HTTP_REFERER'], 'enlaces-institucionales') !== false) {
+      $form['account']['roles']['#default_value'] = array(7);
+    }  
+  }
+
+}
+
+/**
+ * Implementación de hook_form_alter.
+ *
+ * Oculta la información de autoría, menú
+ * opciones de publicación, comentarios, path url
+ * y revisiones.
+ */
+function cne_alters_form_alter(&$form, $form_state, $form_id) {
+  //$form['additional_settings']['#access'] = FALSE;
+}
