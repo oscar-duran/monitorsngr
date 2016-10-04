@@ -241,7 +241,7 @@
   <div class="footer_credit">
       
    <div id="copyright" class="full-wrap clearfix">
-      <p class="copyright"><?php print t('Comisión Nacional de Prevención de riesgos y atención de emergencias'); ?> &copy; <?php echo date("Y"); ?><?php print $site_name; ?></p> 
+      <p class="copyright"><a href="http://www.cne.go.cr"><?php print t('Comisión Nacional de Prevención de Riesgos y Atención de Emergencias'); ?> &copy; <?php echo date("Y"); ?><?php print $site_name; ?></a></p> 
       <p class="credits"> <?php print t('Desarrollado con'); ?><a href="http://www.drupal.org"> Drupal </a></p>
       <p class="credits"><a href="http://www.preventec.ucr.ac.cr"> Preventec </a>|<a href="http://www.ucr.ac.cr"> Universidad de Costa Rica  &copy; </a></p></p>
       

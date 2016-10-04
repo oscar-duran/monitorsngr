@@ -79,7 +79,7 @@ table {
 
 body {
   color: #646C7A;
-  font-size: 13px;
+  font-size: 15px;
   font-family: 'Open Sans', sans-serif;
   background: #fff;
   line-height: 160%;
@@ -409,9 +409,9 @@ b {
 #main-menu {
   position: relative;
   float: left;
-    background: #1272b9;
-	width: 1003px;
-
+  background: #1272b9;
+  width: 1003px;
+  font-size: 13px;	
 }
 
 #main-menu ul {
@@ -426,10 +426,11 @@ b {
   zoom: 1;
   vertical-align: top;
   float: left;
+  background-color: #1272b9;
 }
 
 #main-menu a {
-  padding: 12px 20px;
+  padding: 10px 10px;
   display: block;
   text-decoration: none;
   color: #fff;
@@ -438,19 +439,25 @@ b {
   text-transform: uppercase;
 }
 
-
-#main-menu li a.active{
-  background: #ed6d25;
- 
-}
-
-#main-menu li:hover a {
+#main-menu li:hover{
   background: #ed6d25;
 
 }
+#main-menu li > ul li  {
+  background-color: #1272b9;
+}
 
-#main-menu li.expanded >a{ 
-  padding-right: 30px;
+#main-menu li > ul li a {
+    color: #FFF;
+	padding: 10px 10px;
+}
+#main-menu  li > ul li:hover {
+  background-color: #ed6d25;
+
+}
+
+#main-menu ul > li li.expanded { 
+  padding-right: 0px;
   background-image: url(../images/arrow.png);
   background-repeat: no-repeat;
   background-position: right;
@@ -463,6 +470,11 @@ b {
 ul.menu {
   padding: 0;
   margin: 5px 0 5px 0;
+}
+
+.inicio-sesion ul li:first-child a{
+  color: #f2642b;
+  font-size: 17px;
 }
 
 .region ul.menu li, 
@@ -522,6 +534,10 @@ ul.menu {
 
 #main-menu li > ul {
   border-top: 4px solid #666;
+}
+
+#main-menu li > ul li {
+  border-top: 4px solid #555;
 }
 
 #main-menu li ul {
@@ -1427,11 +1443,11 @@ ol.search-results {
 }
 
 .footer_credit a {
-  color: #91c6f5;
+  color: #ffffff;
   }
   
  .footer_credit a:hover {
-  color: #ffffff;
+  color: #91c6f5;
   }
   
 
