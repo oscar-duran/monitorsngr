@@ -79,7 +79,7 @@ table {
 
 body {
   color: #646C7A;
-  font-size: 13px;
+  font-size: 15px;
   font-family: 'Open Sans', sans-serif;
   background: #fff;
   line-height: 160%;
@@ -411,7 +411,7 @@ b {
   float: left;
   background: #1272b9;
   width: 1003px;
-
+  font-size: 13px;	
 }
 
 #main-menu ul {
@@ -470,6 +470,11 @@ b {
 ul.menu {
   padding: 0;
   margin: 5px 0 5px 0;
+}
+
+.inicio-sesion ul li:first-child a{
+  color: #f2642b;
+  font-size: 17px;
 }
 
 .region ul.menu li, 
