@@ -142,6 +142,11 @@ th, tr, td {
   vertical-align: middle;
 }
 
+td a, td a:hover{
+
+  text-decoration: underline;
+}
+
 .sticky-header th,
 .sticky-table th {
   border-bottom: 3px solid #ccc;
@@ -1733,4 +1738,10 @@ div.warning {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+/*Field Display*/
+.field{
+  padding-top: 6px;
+  
 }
