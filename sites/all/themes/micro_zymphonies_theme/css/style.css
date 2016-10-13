@@ -455,6 +455,7 @@ b {
 #main-menu li > ul li a {
     color: #FFF;
 	padding: 10px 10px;
+	text-transform: capitalize;
 }
 #main-menu  li > ul li:hover {
   background-color: #ed6d25;
