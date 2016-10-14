@@ -142,9 +142,20 @@ th, tr, td {
   vertical-align: middle;
 }
 
+
 td a, td a:hover{
 
   text-decoration: underline;
+}
+
+th a {
+
+  color: #cee9f4;
+}
+
+th a:hover {
+
+  color: #ffffff;
 }
 
 .sticky-header th,
