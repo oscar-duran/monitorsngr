@@ -142,9 +142,20 @@ th, tr, td {
   vertical-align: middle;
 }
 
+
 td a, td a:hover{
 
   text-decoration: underline;
+}
+
+th a {
+
+  color: #cee9f4;
+}
+
+th a:hover {
+
+  color: #ffffff;
 }
 
 .sticky-header th,
@@ -455,6 +466,7 @@ b {
 #main-menu li > ul li a {
     color: #FFF;
 	padding: 10px 10px;
+	text-transform: capitalize;
 }
 #main-menu  li > ul li:hover {
   background-color: #ed6d25;
