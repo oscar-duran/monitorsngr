@@ -1755,5 +1755,21 @@ div.warning {
 /*Field Display*/
 .field{
   padding-top: 6px;
-  
+}
+
+.taxonomy-accion {
+  padding-left: 4em;
+}
+
+.taxonomy-lineamiento {
+  background-color: #f3f4ee;
+  padding-left: 2em;
+}
+
+.taxonomy-eje {
+  padding-left: 1em;
+}
+
+.taxonomy-ambito {
+  background-color: #e1e2dc;
 }
