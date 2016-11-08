@@ -1001,7 +1001,7 @@ ul.secondary a.active {
   display: inline;
 }
 
-field-item {
+.field-item {
 	width: 800px;
 
 }
