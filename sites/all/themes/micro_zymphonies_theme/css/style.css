@@ -78,7 +78,7 @@ table {
 }
 
 body {
-  color: #646C7A;
+  color: #333333;
   font-size: 15px;
   font-family: 'Open Sans', sans-serif;
   background: #fff;
@@ -93,14 +93,14 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #646C7A;
+  color: #333333;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   margin-bottom: 8px;
-  color: #646C7A;
+  color: #333333;
 }
 
 h1 {
