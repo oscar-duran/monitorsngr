@@ -1,0 +1,4 @@
+name = "Compromiso de gestión"
+description = "Formulario para insertar compromisos de gestión"
+core = "7.x"
+scripts[] = compromiso_gestion.js

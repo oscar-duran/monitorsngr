@@ -1,0 +1,131 @@
+<?php 
+
+/**
+ * Ruta para formulario de agregar compromisos
+ * de gestión 
+ */
+function compromiso_gestion_menu() {
+
+  $items = array();
+  $items['sngr/agregar-compromiso'] = array(
+    'title' => t('Compromiso'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('compromiso_gestion_form'),
+    'access arguments' => array('access content'),
+    'description' => t('Compromiso'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+
+}
+
+function compromiso_gestion_form($form, &$form_state) {
+
+  $form['ambito'] = array(
+    '#type' => 'select',
+    '#title' => t('Ámbito'),
+    '#options' => _compromiso_gestion_get_ambitos(),
+  ); 
+
+  $form['ambito_agregar'] = array(
+    '#type' => 'button',
+    '#value' => t('Agregar ámbito'),
+  );
+
+  $form['ambito_fieldset'] = array(
+    '#title' => t('Ámbitos'),
+    '#type' => 'fieldset',
+    '#description' => t('Ámbitos agregados') ,
+  );
+  return $form;
+
+}
+
+/**
+ * Implementación de hook_form_FORM_ID_alter
+ * para el formulario de creación de compromisos de gestión
+ *
+ * 
+ */
+/*function compromiso_gestion_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
+
+  $form['ambito_agregar_fieldset'] = array(
+    '#title' => t(''),
+    '#type' => 'fieldset',
+    '#description' => t('') ,
+  );
+
+  $form['ambito_agregar_fieldset']['ambito'] = array(
+    '#type' => 'select',
+    '#title' => t('Ámbito'),
+    '#options' => _compromiso_gestion_get_ambitos(),
+    '#prefix' => '<div id="ambito-options">',
+    '#sufix' => '</div>',
+  );
+
+  $form['ambito_agregar'] = array(
+    '#type' => 'button',
+    '#value' => t('Agregar ámbito'),
+    '#ajax' => array(
+      'callback' => 'ajax_compromiso_gestion_agregar_ambito',
+      'method' => 'replace',
+      'effect' => 'fade',
+    ),
+    '#limit_validation_errors' => array(),
+  );
+
+  $form['ambito_fieldset'] = array(
+    '#title' => t('Ámbitos'),
+    '#type' => 'fieldset',
+    '#description' => t('Ámbitos agregados') ,
+  );
+
+  $form['ambito_fieldset']['ambitos'] = array(
+    '#markup' => '<div id="ambitos-agregados-div"></div>',
+  );
+
+}*/
+
+function _compromiso_gestion_get_ambitos(array $ambitos_seleccionados = array()) {
+
+  $options = array();
+
+  $ambitos = taxonomy_get_tree(7, 0, 1, FALSE);
+
+  foreach ($ambitos as $ambito) {
+    if (!in_array($ambito, $ambitos_seleccionados)) {
+      $options[$ambito->tid] = $ambito->name;    
+    }
+  }
+
+  return $options;
+}
+
+/*function ajax_compromiso_gestion_agregar_ambito($form, &$form_state) {
+
+  if (isset($form_state['values']['ambito']) && !empty($form_state['values']['ambito'])) {
+    $term = taxonomy_term_load($form_state['values']['ambito']);
+  
+    array_push($form_state['storage']['ambitos_agregados'], $term);
+    array_push($_SESSION['ambitos_agregados'], $term);
+
+    foreach ($_SESSION['ambitos_agregados'] as $term) {
+      unset($form['ambito_agregar_fieldset']['ambito']['#options'][$term->tid]);
+    }
+
+    $markup = $form['ambito_fieldset']['ambitos']['#markup'] . '<div id="' . $term->tid . '">' . $term->name . '<div><button onclick="return false;">Eliminar Ámbito</button></div></div></br>';
+
+    $form['ambito_fieldset']['ambitos'] = array(
+      '#markup' => $markup, 
+    );
+
+    return array(
+      '#type' => 'ajax',
+      '#commands' => array(
+        ajax_command_replace('#ambito-options', drupal_render($form['ambito_agregar_fieldset']['ambito'])),
+        ajax_command_replace('#ambitos-agregados-div', drupal_render($form['ambito_fieldset']['ambitos'])),
+      )
+    );
+  }
+
+}*/
