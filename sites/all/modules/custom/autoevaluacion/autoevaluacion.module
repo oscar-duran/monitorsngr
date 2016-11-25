@@ -58,30 +58,13 @@ function autoevaluacion_form($form, &$form_state, $nid) {
     //'#default_value' => isset($form_state['storage'][$form_state['step']]['field_porcentaje_avance']) ? $form_state['storage'][$form_state['step']]['field_porcentaje_avance'] : '',
   );
 
-  /*$form['Aspectos Positivos'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.'),
-    '#collapsible' => FALSE,
-    '#collapsed' => FALSE,
-  );*/
-
   $form['Aspectos Positivos'] = array(
     '#type' => 'markup',
-    '#markup' => "<p>Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.</p>",
+    '#markup' => "<p>Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el PNGR.</p>",
   );
-  $form['field_aspecto_positivo1'] = array(
+  $form['field_aspecto_positivo'] = array(
     '#type' => 'textarea',
-    '#description' => t('Aspecto positivo 1'),
-    '#required' => TRUE,
-  );
-  $form['field_aspecto_positivo2'] = array(
-    '#type' => 'textarea',
-    '#description' => t('Aspecto positivo 2'),
-    '#required' => TRUE,
-  );
-  $form['field_aspecto_positivo3'] = array(
-    '#type' => 'textarea',
-    '#description' => t('Aspecto positivo 3'),
+    '#description' => t('Aspectos positivos'),
     '#required' => TRUE,
   );
 
@@ -89,19 +72,9 @@ function autoevaluacion_form($form, &$form_state, $nid) {
     '#type' => 'markup',
     '#markup' => "<p>Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.</p>",
   );
-  $form['field_obstaculo1'] = array(
+  $form['field_obstaculo'] = array(
     '#type' => 'textarea',
-    '#description' => t('Obstáculo 1'),
-    '#required' => TRUE,
-  );
-  $form['field_obstaculo2'] = array(
-    '#type' => 'textarea',
-    '#description' => t('Obstáculo 2'),
-    '#required' => TRUE,
-  );
-  $form['field_obstaculo3'] = array(
-    '#type' => 'textarea',
-    '#description' => t('Obstáculo 3'),
+    '#description' => t('Obstáculos'),
     '#required' => TRUE,
   );
 
@@ -155,6 +128,37 @@ function autoevaluacion_form($form, &$form_state, $nid) {
     '#states' => array(
       'visible' => array(
         ':input[name="field_tiene_necesidades"]' => array('value' => 1),
+      ),
+    ),
+  );
+
+  $form['field_archivo_evidencia'] = array(
+    '#type'          => 'media',
+    '#title'         => t('Archivo de evidencia'),
+    '#description'   => t('Seleccione un archivo'),
+    '#tree' => TRUE,
+    '#input' => TRUE,
+    //'#theme'         => 'media_widget', // Without that, you only get text input
+    //'#default_value' => '',
+    //'#default_value' => array('fid' => $my_fid),
+    '#media_options' => array(
+      'global' => array(
+        //'file_directory'  => 'image_folder',
+        //'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
+        //'max_filesize'    => '10 MB',
+        //'uri_scheme'      => 'public',
+        'types' => array(
+          'image' => 'image',
+          'video' => 'video',
+          'audio' => 'audio',
+          'document' => 'document',
+        ),
+        'schemes'         => array(
+          'public' => 'public',
+        ),
+        'enabledPlugins' => array(
+          'upload' => 'upload',
+        ),
       ),
     ),
   );
@@ -218,17 +222,16 @@ function autoevaluacion_form_submit($form, &$form_state) {
   $ewrapper->field_autoevaluacion->set($form_state['nid']);
   $ewrapper->field_meta->set(array($form_state['meta_id']));
   $ewrapper->field_porcentaje_avance->set($form_state['values']['field_porcentaje_avance']);
-  $ewrapper->field_aspecto_positivo1->set($form_state['values']['field_aspecto_positivo1']);
-  $ewrapper->field_aspecto_positivo2->set($form_state['values']['field_aspecto_positivo2']);
-  $ewrapper->field_aspecto_positivo3->set($form_state['values']['field_aspecto_positivo3']);
-  $ewrapper->field_obstaculo1->set($form_state['values']['field_obstaculo1']);
-  $ewrapper->field_obstaculo2->set($form_state['values']['field_obstaculo2']);
-  $ewrapper->field_obstaculo3->set($form_state['values']['field_obstaculo3']);
+  $ewrapper->field_aspecto_positivo->set($form_state['values']['field_aspecto_positivo']);
+  $ewrapper->field_obstaculo->set($form_state['values']['field_obstaculo']);
   $ewrapper->field_porcentaje_avance_coment->set($form_state['values']['field_porcentaje_avance_coment']);
   $ewrapper->field_recibio_asesoria->set($form_state['values']['field_recibio_asesoria']);
   $ewrapper->field_organizacion_capacitadora->set($form_state['values']['field_organizacion_capacitadora']);
   $ewrapper->field_tiene_necesidades->set($form_state['values']['field_tiene_necesidades']);
   $ewrapper->field_tema_necesidades->set($form_state['values']['field_tema_necesidades']);
+  
+  watchdog('test', serialize($form_state['values']['field_archivo_evidencia']['fid']));
+  $ewrapper->field_archivo_evidencia->set( array('fid' => $form_state['values']['field_archivo_evidencia']['fid']) );
   
   $ewrapper->save();  
   drupal_set_message(t('La autoevaluación para la meta se envió correctamente.'));
