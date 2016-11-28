@@ -616,7 +616,51 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
  * Remove the leading hash sign to enable.
  */
 # $conf['theme_debug'] = TRUE;
+/**
+ * Master module configuration.
+ */
+$conf['master_version'] = 2;
+$conf['master_allow_base_scope'] = TRUE;
+$conf['master_modules']['base'] = array(
+  'adminimal_admin_menu',
+  'block_class',
+  'book',
+  'bulk_export',
+  'contact',
+  'date',
+  'date_popup',
+  'ds',
+  'ds_extras',
+  'entityconnect',
+  'feeds',
+  'inline_entity_form',
+  'media_internet',
+  'menus',
+  'site_map',
+  'views',
+  'views_field_view',
+  'webform_layout',
+  'webform_matrix_component',
+  'webform_shs',
+  'wysiwyg',
 
+  // Custom modules.
+  'autoevaluacion',
+  'cne_alters',
+  'compromiso_gestion',
+  'lista_modulos',
+  'usuarios_roles_permisos',
+  'tipos_contenido',
+  'vocabularios',
+);
+
+$conf['master_modules']['local'] = $conf['master_modules']['local'] = array(
+  'devel',
+  'ds_ui',
+  'feeds_ui',
+  'field_ui',
+  'views_ui',
+);
 // Local settings config.
 if (file_exists(dirname(__FILE__) . '/settings.local.inc')) {
   @include dirname(__FILE__) . '/settings.local.inc';
