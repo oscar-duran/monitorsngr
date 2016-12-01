@@ -650,7 +650,9 @@ $conf['master_modules']['base'] = array(
   'compromiso_gestion',
   'lista_modulos',
   'usuarios_roles_permisos',
+  'sngr_field_bases',
   'tipos_contenido',
+  'vistas',
   'vocabularios',
 );
 
