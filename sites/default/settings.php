@@ -650,6 +650,7 @@ $conf['master_modules']['base'] = array(
   'cne_alters',
   'compromiso_gestion',
   'lista_modulos',
+  'monitorsngr_pge',
   'usuarios_roles_permisos',
   'sngr_field_bases',
   'tipos_contenido',
