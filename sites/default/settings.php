@@ -636,6 +636,7 @@ $conf['master_modules']['base'] = array(
   'inline_entity_form',
   'media_internet',
   'menus',
+  'page_manage',
   'panels',
   'site_map',
   'strongarm',
