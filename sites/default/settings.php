@@ -637,6 +637,7 @@ $conf['master_modules']['base'] = array(
   'media_internet',
   'menus',
   'site_map',
+  'strongarm',
   'views',
   'views_field_view',
   'webform_layout',
