@@ -641,6 +641,7 @@ $conf['master_modules']['base'] = array(
   'site_map',
   'strongarm',
   'views',
+  'views_content',
   'views_field_view',
   'webform_layout',
   'webform_matrix_component',
