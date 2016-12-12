@@ -311,6 +311,25 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->uuid = '69a6b3ba-2483-4ea6-adf7-c2866182903a';
   $display->content['new-69a6b3ba-2483-4ea6-adf7-c2866182903a'] = $pane;
   $display->panels['middle'][7] = 'new-69a6b3ba-2483-4ea6-adf7-c2866182903a';
+  $pane = new stdClass();
+  $pane->pid = 'new-0df71b7a-4a46-4b2e-b8c3-b01b52ce016c';
+  $pane->panel = 'middle';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'compromisos_pge-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 8;
+  $pane->locks = array();
+  $pane->uuid = '0df71b7a-4a46-4b2e-b8c3-b01b52ce016c';
+  $display->content['new-0df71b7a-4a46-4b2e-b8c3-b01b52ce016c'] = $pane;
+  $display->panels['middle'][8] = 'new-0df71b7a-4a46-4b2e-b8c3-b01b52ce016c';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-54929c30-b44b-4fbd-82c9-d473c506e0d8';
   $handler->conf['display'] = $display;
