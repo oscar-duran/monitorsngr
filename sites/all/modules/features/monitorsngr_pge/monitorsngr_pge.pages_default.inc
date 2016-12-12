@@ -75,7 +75,7 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'link' => 0,
-    'markup' => 'h2',
+    'markup' => 'none',
     'id' => '',
     'class' => '',
     'context' => 'argument_entity_id:node_1',
@@ -190,6 +190,36 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $display->content['new-29115c13-ed27-42d1-a5e4-eda08ec08670'] = $pane;
   $display->panels['middle'][3] = 'new-29115c13-ed27-42d1-a5e4-eda08ec08670';
   $pane = new stdClass();
+  $pane->pid = 'new-8356fe7c-7c21-47b2-ada8-7ffaa1a19186';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_numero_de_decreto_del_fini';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'text_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 4;
+  $pane->locks = array();
+  $pane->uuid = '8356fe7c-7c21-47b2-ada8-7ffaa1a19186';
+  $display->content['new-8356fe7c-7c21-47b2-ada8-7ffaa1a19186'] = $pane;
+  $display->panels['middle'][4] = 'new-8356fe7c-7c21-47b2-ada8-7ffaa1a19186';
+  $pane = new stdClass();
   $pane->pid = 'new-cc7c3456-af4d-44c0-855e-266aec00bea1';
   $pane->panel = 'middle';
   $pane->type = 'entity_field';
@@ -214,11 +244,11 @@ function monitorsngr_pge_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 4;
+  $pane->position = 5;
   $pane->locks = array();
   $pane->uuid = 'cc7c3456-af4d-44c0-855e-266aec00bea1';
   $display->content['new-cc7c3456-af4d-44c0-855e-266aec00bea1'] = $pane;
-  $display->panels['middle'][4] = 'new-cc7c3456-af4d-44c0-855e-266aec00bea1';
+  $display->panels['middle'][5] = 'new-cc7c3456-af4d-44c0-855e-266aec00bea1';
   $pane = new stdClass();
   $pane->pid = 'new-fb1b8a81-8b74-4ca4-a26e-2832e1e7332c';
   $pane->panel = 'middle';
@@ -244,11 +274,11 @@ function monitorsngr_pge_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 5;
+  $pane->position = 6;
   $pane->locks = array();
   $pane->uuid = 'fb1b8a81-8b74-4ca4-a26e-2832e1e7332c';
   $display->content['new-fb1b8a81-8b74-4ca4-a26e-2832e1e7332c'] = $pane;
-  $display->panels['middle'][5] = 'new-fb1b8a81-8b74-4ca4-a26e-2832e1e7332c';
+  $display->panels['middle'][6] = 'new-fb1b8a81-8b74-4ca4-a26e-2832e1e7332c';
   $pane = new stdClass();
   $pane->pid = 'new-69a6b3ba-2483-4ea6-adf7-c2866182903a';
   $pane->panel = 'middle';
@@ -276,11 +306,11 @@ function monitorsngr_pge_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 6;
+  $pane->position = 7;
   $pane->locks = array();
   $pane->uuid = '69a6b3ba-2483-4ea6-adf7-c2866182903a';
   $display->content['new-69a6b3ba-2483-4ea6-adf7-c2866182903a'] = $pane;
-  $display->panels['middle'][6] = 'new-69a6b3ba-2483-4ea6-adf7-c2866182903a';
+  $display->panels['middle'][7] = 'new-69a6b3ba-2483-4ea6-adf7-c2866182903a';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-54929c30-b44b-4fbd-82c9-d473c506e0d8';
   $handler->conf['display'] = $display;
