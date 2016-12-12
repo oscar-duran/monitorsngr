@@ -64,6 +64,7 @@ features[variable][] = node_preview_decreto_de_emergencia
 features[variable][] = node_preview_peg_ficha_tecnica_compromiso
 features[variable][] = node_submitted_decreto_de_emergencia
 features[variable][] = node_submitted_peg_ficha_tecnica_compromiso
+features[variable][] = page_manager_node_view_disabled
 features_exclude[dependencies][features] = features
 features_exclude[field_instance][node-peg_ficha_tecnica_compromiso-body] = node-peg_ficha_tecnica_compromiso-body
 project path = sites/all/modules/features

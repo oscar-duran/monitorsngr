@@ -258,5 +258,12 @@ function monitorsngr_pge_strongarm() {
   $strongarm->value = 1;
   $export['node_submitted_peg_ficha_tecnica_compromiso'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'page_manager_node_view_disabled';
+  $strongarm->value = FALSE;
+  $export['page_manager_node_view_disabled'] = $strongarm;
+
   return $export;
 }
