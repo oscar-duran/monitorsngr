@@ -1,7 +1,34 @@
 <?php
+
 /**
  * @file
  * Code for the Planes generales de Emergencia feature.
  */
 
 include_once 'monitorsngr_pge.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function monitorsngr_pge_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner === 'ctools' && $plugin_type === 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === 'peg_ficha_tecnica_compromiso_node_form') {
+    $query = drupal_get_query_parameters();
+    if (count($query) && !empty($query['decree'])) {
+      $decree_id = check_plain($query['decree']);
+      if (is_numeric($decree_id)) {
+        $wrapper = entity_metadata_wrapper('node', $decree_id);
+        $form['field_decreto_emergencia']['#access'] = FALSE;
+        $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $wrapper->label() . '(' . $decree_id . ')';
+      }
+    }
+  }
+}
