@@ -20,7 +20,6 @@ $plugin = array(
  */
 function add_compro_button_render($subtype, $conf, $panel_args, $context) {
   // Build the content type block.
-  global $language;
   $wrapper = entity_metadata_wrapper('node', $context->data);
   $block = new stdClass();
   $block->title = '';
