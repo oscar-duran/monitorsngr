@@ -26,7 +26,7 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
       $decree_id = check_plain($query['decree']);
       if (is_numeric($decree_id)) {
         $wrapper = entity_metadata_wrapper('node', $decree_id);
-        $form['field_decreto_emergencia']['#access'] = FALSE;
+        $form['field_decreto_emergencia'][LANGUAGE_NONE]['#disabled'] = TRUE;
         $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $wrapper->label() . '(' . $decree_id . ')';
       }
     }

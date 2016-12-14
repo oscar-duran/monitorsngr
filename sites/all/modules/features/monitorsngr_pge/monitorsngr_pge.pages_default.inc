@@ -13,6 +13,122 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_89a5b626-7348-40bd-a205-09a312cbf161';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'Compromiso PGE',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'peg_ficha_tecnica_compromiso' => 'peg_ficha_tecnica_compromiso',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'be3b5158-0ec6-4d29-b741-c6e5f86730de';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view__panel_context_89a5b626-7348-40bd-a205-09a312cbf161';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-df8ce822-8a21-4e05-9459-c34b3ff56aef';
+  $pane->panel = 'middle';
+  $pane->type = 'node_title';
+  $pane->subtype = 'node_title';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'link' => 0,
+    'markup' => 'none',
+    'id' => '',
+    'class' => '',
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'df8ce822-8a21-4e05-9459-c34b3ff56aef';
+  $display->content['new-df8ce822-8a21-4e05-9459-c34b3ff56aef'] = $pane;
+  $display->panels['middle'][0] = 'new-df8ce822-8a21-4e05-9459-c34b3ff56aef';
+  $pane = new stdClass();
+  $pane->pid = 'new-344e0f76-4670-4e35-90b3-7f2ef2d9da2f';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_decreto_emergencia';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'entityreference_label',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'link' => 1,
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '344e0f76-4670-4e35-90b3-7f2ef2d9da2f';
+  $display->content['new-344e0f76-4670-4e35-90b3-7f2ef2d9da2f'] = $pane;
+  $display->panels['middle'][1] = 'new-344e0f76-4670-4e35-90b3-7f2ef2d9da2f';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_89a5b626-7348-40bd-a205-09a312cbf161'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view__panel_context_c49dbda0-a1a8-416b-8c38-bd8d0246a1c6';
   $handler->task = 'node_view';
   $handler->subtask = '';
