@@ -41,6 +41,7 @@ features[field_base][] = field_codigo_eje
 features[field_base][] = field_codigo_lineamiento
 features[field_base][] = field_codigo_meta
 features[field_base][] = field_correo_electronico
+features[field_base][] = field_decreto_emergencia
 features[field_base][] = field_departamento
 features[field_base][] = field_descrip_meta
 features[field_base][] = field_descripc_fuente_verifica

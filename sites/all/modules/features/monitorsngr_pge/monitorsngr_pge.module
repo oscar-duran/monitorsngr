@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Planes generales de Emergencia feature.
+ */
+
+include_once 'monitorsngr_pge.features.inc';
