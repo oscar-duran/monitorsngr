@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Install file for the menu feature.
+ */
+
+/**
+ * Fix the Content menu links.
+ */
+function menus_update_7000() {
+  $query = db_select('menu_links', 'm')
+    ->fields('m', array('mlid'))
+    ->condition('menu_name', 'navigation')
+    ->condition('router_path', 'node/add')
+    ->execute();
+  $result = $query->fetchCol();
+  $to_delete = array();
+  if (count($result > 1)) {
+    $min_value = min($result);
+    foreach ($result as $key => $mlid) {
+      if ($mlid === $min_value) {
+        continue;
+      }
+      $to_delete[] = $mlid;
+    }
+  }
+  if (count($to_delete)) {
+    db_delete('menu_links')
+      ->condition('mlid', $to_delete, 'IN')
+      ->execute();
+  }
+}
