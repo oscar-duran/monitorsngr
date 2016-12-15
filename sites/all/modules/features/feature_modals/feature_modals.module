@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feature Modals feature.
+ */
+
+include_once 'feature_modals.features.inc';
