@@ -6,3 +6,4 @@ sites/default/settings.local.inc
 .idea
 
 .DS_Store
+/nbproject/private/
