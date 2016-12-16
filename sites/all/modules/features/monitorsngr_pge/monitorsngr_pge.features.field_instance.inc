@@ -533,7 +533,7 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_acciones_obras_realizar',
-    'label' => 'Acciones y obras por relalzar',
+    'label' => 'Acciones y obras por realizar',
     'required' => 1,
     'settings' => array(
       'add_mode' => 'select',
@@ -1249,7 +1249,7 @@ function monitorsngr_pge_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Acciones y obras por relalzar');
+  t('Acciones y obras por realizar');
   t('Acuerdo de Junta Directiva');
   t('Año');
   t('Cantidad');

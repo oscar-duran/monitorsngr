@@ -232,7 +232,7 @@ function monitorsngr_pge_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_realizar) */
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por realizar (field_acciones_obras_realizar) */
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['id'] = 'field_acciones_obras_realizar_node';
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['table'] = 'paragraphs_item';
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['field'] = 'field_acciones_obras_realizar_node';
@@ -286,7 +286,7 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Acciones y obras por realizar';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_realizar) */
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por realizar (field_acciones_obras_realizar) */
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['id'] = 'field_acciones_obras_realizar_node';
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['table'] = 'paragraphs_item';
   $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['field'] = 'field_acciones_obras_realizar_node';
