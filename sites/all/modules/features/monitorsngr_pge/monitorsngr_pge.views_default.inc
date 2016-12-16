@@ -232,10 +232,10 @@ function monitorsngr_pge_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_relalizar) */
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['id'] = 'field_acciones_obras_relalizar_node';
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['table'] = 'paragraphs_item';
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['field'] = 'field_acciones_obras_relalizar_node';
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_realizar) */
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['id'] = 'field_acciones_obras_realizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['table'] = 'paragraphs_item';
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['field'] = 'field_acciones_obras_realizar_node';
   /* Campo: Paragraphs item: Paragraphs item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'paragraphs_item';
@@ -286,11 +286,11 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Acciones y obras por realizar';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_relalizar) */
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['id'] = 'field_acciones_obras_relalizar_node';
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['table'] = 'paragraphs_item';
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['field'] = 'field_acciones_obras_relalizar_node';
-  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['required'] = TRUE;
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_realizar) */
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['id'] = 'field_acciones_obras_realizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['table'] = 'paragraphs_item';
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['field'] = 'field_acciones_obras_realizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_realizar_node']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Paragraphs item: Descripción */
   $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
@@ -345,7 +345,7 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_acciones_obras_relalizar_node';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_acciones_obras_realizar_node';
   $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
@@ -386,7 +386,7 @@ function monitorsngr_pge_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field_acciones_obras_relalizar'),
+    t('field_acciones_obras_realizar'),
     t('Paragraphs item ID'),
     t('.'),
     t(','),

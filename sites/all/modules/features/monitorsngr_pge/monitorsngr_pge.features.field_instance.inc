@@ -508,8 +508,8 @@ function monitorsngr_pge_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-peg_ficha_tecnica_compromiso-field_acciones_obras_relalizar'.
-  $field_instances['node-peg_ficha_tecnica_compromiso-field_acciones_obras_relalizar'] = array(
+  // 'node-peg_ficha_tecnica_compromiso-field_acciones_obras_realizar'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_acciones_obras_realizar'] = array(
     'bundle' => 'peg_ficha_tecnica_compromiso',
     'default_value' => NULL,
     'deleted' => 0,
@@ -532,7 +532,7 @@ function monitorsngr_pge_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_acciones_obras_relalizar',
+    'field_name' => 'field_acciones_obras_realizar',
     'label' => 'Acciones y obras por relalzar',
     'required' => 1,
     'settings' => array(

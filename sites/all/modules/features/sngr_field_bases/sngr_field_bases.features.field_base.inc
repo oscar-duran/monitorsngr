@@ -129,13 +129,13 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_acciones_obras_relalizar'.
-  $field_bases['field_acciones_obras_relalizar'] = array(
+  // Exported field_base: 'field_acciones_obras_realizar'.
+  $field_bases['field_acciones_obras_realizar'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_acciones_obras_relalizar',
+    'field_name' => 'field_acciones_obras_realizar',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'paragraphs',
