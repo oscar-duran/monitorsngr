@@ -366,6 +366,27 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_cargo_fun_responsable'.
+  $field_bases['field_cargo_fun_responsable'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_cargo_fun_responsable',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_cod_producto_meta'.
   $field_bases['field_cod_producto_meta'] = array(
     'active' => 1,
@@ -851,6 +872,48 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'date',
   );
 
+  // Exported field_base: 'field_fuente_financiamiento'.
+  $field_bases['field_fuente_financiamiento'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_fuente_financiamiento',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_funcionario_responsable'.
+  $field_bases['field_funcionario_responsable'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_funcionario_responsable',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_genero'.
   $field_bases['field_genero'] = array(
     'active' => 1,
@@ -1001,6 +1064,31 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_mecanismos_ejecucion'.
+  $field_bases['field_mecanismos_ejecucion'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_mecanismos_ejecucion',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'ordinario' => 'Ordinario (con recursos propios)',
+        'excepcion' => 'Excepción (FNE)',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_meta'.
@@ -1194,6 +1282,25 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'viewfield',
   );
 
+  // Exported field_base: 'field_naturaleza_actividades'.
+  $field_bases['field_naturaleza_actividades'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_naturaleza_actividades',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_nombre'.
   $field_bases['field_nombre'] = array(
     'active' => 1,
@@ -1381,6 +1488,27 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_poblacion_meta'.
+  $field_bases['field_poblacion_meta'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_poblacion_meta',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_porcentaje_avance'.
   $field_bases['field_porcentaje_avance'] = array(
     'active' => 1,
@@ -1530,6 +1658,25 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_resultado_esperado'.
+  $field_bases['field_resultado_esperado'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_resultado_esperado',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_sector_estructural_afectad'.
@@ -1856,6 +2003,27 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_unidad_resposable'.
+  $field_bases['field_unidad_resposable'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_unidad_resposable',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_usuario'.
   $field_bases['field_usuario'] = array(
     'active' => 1,
@@ -1875,6 +2043,32 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_zona_intervencion'.
+  $field_bases['field_zona_intervencion'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_zona_intervencion',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'zona_intervencion_pge',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
   );
 
   return $field_bases;
