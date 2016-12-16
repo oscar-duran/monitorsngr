@@ -21,7 +21,7 @@ function monitorsngr_pge_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Cobertura',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_zona_intervencion',
       1 => 'field_poblacion_meta',
@@ -51,7 +51,7 @@ function monitorsngr_pge_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Competencias',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_unidad_resposable',
       1 => 'field_mecanismos_ejecucion',
@@ -80,7 +80,7 @@ function monitorsngr_pge_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Funcionario Responsable',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_funcionario_responsable',
       1 => 'field_cargo_fun_responsable',
