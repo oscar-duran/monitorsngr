@@ -327,8 +327,9 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['fields']['field_inversion_estimada']['id'] = 'field_inversion_estimada';
   $handler->display->display_options['fields']['field_inversion_estimada']['table'] = 'field_data_field_inversion_estimada';
   $handler->display->display_options['fields']['field_inversion_estimada']['field'] = 'field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['type'] = 'number_unformatted';
   $handler->display->display_options['fields']['field_inversion_estimada']['settings'] = array(
-    'thousand_separator' => '',
+    'thousand_separator' => '.',
     'decimal_separator' => '.',
     'scale' => '10',
     'prefix_suffix' => 1,
