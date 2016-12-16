@@ -638,6 +638,7 @@ $conf['master_modules']['base'] = array(
   'menus',
   'page_manager',
   'panels',
+  'paragraphs',
   'site_map',
   'strongarm',
   'views',
