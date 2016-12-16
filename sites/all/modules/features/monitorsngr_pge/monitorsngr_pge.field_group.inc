@@ -53,8 +53,8 @@ function monitorsngr_pge_field_group_info() {
     'label' => 'Competencias',
     'weight' => '4',
     'children' => array(
-      0 => 'field_mecanismos_ejecucion',
-      1 => 'field_unidad_resposable',
+      0 => 'field_unidad_resposable',
+      1 => 'field_mecanismos_ejecucion',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -80,7 +80,7 @@ function monitorsngr_pge_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Funcionario Responsable',
-    'weight' => '10',
+    'weight' => '8',
     'children' => array(
       0 => 'field_funcionario_responsable',
       1 => 'field_cargo_fun_responsable',

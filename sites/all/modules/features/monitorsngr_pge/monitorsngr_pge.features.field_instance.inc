@@ -508,6 +508,56 @@ function monitorsngr_pge_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_acciones_obras_relalizar'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_acciones_obras_relalizar'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'paragraphs',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'paragraphs_view',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_acciones_obras_relalizar',
+    'label' => 'Acciones y obras por relalzar',
+    'required' => 1,
+    'settings' => array(
+      'add_mode' => 'select',
+      'allowed_bundles' => array(
+        'compromiso_pge_acciones_obras' => 'compromiso_pge_acciones_obras',
+      ),
+      'bundle_weights' => array(
+        'compromiso_pge_acciones_obras' => 2,
+      ),
+      'default_edit_mode' => 'open',
+      'title' => 'Acciones y obras por realizar',
+      'title_multiple' => 'Acciones y obras por realizar',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'paragraphs',
+      'settings' => array(),
+      'type' => 'paragraphs_embed',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-peg_ficha_tecnica_compromiso-field_cargo_fun_responsable'.
   $field_instances['node-peg_ficha_tecnica_compromiso-field_cargo_fun_responsable'] = array(
     'bundle' => 'peg_ficha_tecnica_compromiso',
@@ -639,7 +689,7 @@ function monitorsngr_pge_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -841,7 +891,7 @@ function monitorsngr_pge_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -927,17 +977,254 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-compromiso_pge_acciones_obras-field_body'.
+  $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_body'] = array(
+    'bundle' => 'compromiso_pge_acciones_obras',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_body',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-compromiso_pge_acciones_obras-field_cantidad'.
+  $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_cantidad'] = array(
+    'bundle' => 'compromiso_pge_acciones_obras',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_cantidad',
+    'label' => 'Cantidad',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-compromiso_pge_acciones_obras-field_inversion_estimada'.
+  $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_inversion_estimada'] = array(
+    'bundle' => 'compromiso_pge_acciones_obras',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'En miles de colones',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_inversion_estimada',
+    'label' => 'Inversión Estimada',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '₡',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-compromiso_pge_acciones_obras-field_periodo_ejecucion'.
+  $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_periodo_ejecucion'] = array(
+    'bundle' => 'compromiso_pge_acciones_obras',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_periodo_ejecucion',
+    'label' => 'Periodo de ejecución',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'j M Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_popup',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-compromiso_pge_acciones_obras-field_unidad_medida'.
+  $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_unidad_medida'] = array(
+    'bundle' => 'compromiso_pge_acciones_obras',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_unidad_medida',
+    'label' => 'Unidad de medida',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acciones y obras por relalzar');
   t('Acuerdo de Junta Directiva');
   t('Año');
+  t('Cantidad');
   t('Cargo');
   t('Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)');
   t('Decreto de Emergencia');
+  t('Descripción');
   t('Documento adjunto');
+  t('En miles de colones');
   t('Fecha');
   t('Fecha de finiquito');
   t('Fuente de Financiamiento');
+  t('Inversión Estimada');
   t('Mecanismos de ejecución');
   t('Monto Total Asigando');
   t('Naturaleza de actividades');
@@ -945,11 +1232,13 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Nombre del funcionario responsable');
   t('Numero de Decreto del Finiquito');
   t('Número de Decreto');
+  t('Periodo de ejecución');
   t('Población Meta');
   t('Resultado Esperado');
   t('Sector estructural afectado');
   t('Ubicación geográfica');
   t('Unidad Resposable');
+  t('Unidad de medida');
   t('Zona de Intervención');
 
   return $field_instances;
