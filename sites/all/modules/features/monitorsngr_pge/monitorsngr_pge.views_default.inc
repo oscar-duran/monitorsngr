@@ -195,5 +195,211 @@ function monitorsngr_pge_views_default_views() {
   );
   $export['compromisos_pge'] = $view;
 
+  $view = new view();
+  $view->name = 'pge_compromisos_acciones_obras';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'paragraphs_item';
+  $view->human_name = 'PGE Compromisos Acciones y obras';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'item_id' => 'item_id',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'item_id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_relalizar) */
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['id'] = 'field_acciones_obras_relalizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['table'] = 'paragraphs_item';
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['field'] = 'field_acciones_obras_relalizar_node';
+  /* Campo: Paragraphs item: Paragraphs item ID */
+  $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
+  $handler->display->display_options['fields']['item_id']['table'] = 'paragraphs_item';
+  $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
+  /* Campo: Paragraphs item: Cantidad */
+  $handler->display->display_options['fields']['field_cantidad']['id'] = 'field_cantidad';
+  $handler->display->display_options['fields']['field_cantidad']['table'] = 'field_data_field_cantidad';
+  $handler->display->display_options['fields']['field_cantidad']['field'] = 'field_cantidad';
+  /* Campo: Paragraphs item: Descripción */
+  $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
+  $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
+  $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
+  /* Campo: Paragraphs item: Inversión Estimada */
+  $handler->display->display_options['fields']['field_inversion_estimada']['id'] = 'field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['table'] = 'field_data_field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['field'] = 'field_inversion_estimada';
+  /* Campo: Paragraphs item: Periodo de ejecución */
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['id'] = 'field_periodo_ejecucion';
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['table'] = 'field_data_field_periodo_ejecucion';
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['field'] = 'field_periodo_ejecucion';
+  /* Campo: Paragraphs item: Unidad de medida */
+  $handler->display->display_options['fields']['field_unidad_medida']['id'] = 'field_unidad_medida';
+  $handler->display->display_options['fields']['field_unidad_medida']['table'] = 'field_data_field_unidad_medida';
+  $handler->display->display_options['fields']['field_unidad_medida']['field'] = 'field_unidad_medida';
+  /* Sort criterion: Paragraphs item: Paragraphs item ID */
+  $handler->display->display_options['sorts']['item_id']['id'] = 'item_id';
+  $handler->display->display_options['sorts']['item_id']['table'] = 'paragraphs_item';
+  $handler->display->display_options['sorts']['item_id']['field'] = 'item_id';
+  /* Contextual filter: Paragraphs item: Paragraphs item ID */
+  $handler->display->display_options['arguments']['item_id']['id'] = 'item_id';
+  $handler->display->display_options['arguments']['item_id']['table'] = 'paragraphs_item';
+  $handler->display->display_options['arguments']['item_id']['field'] = 'item_id';
+  $handler->display->display_options['arguments']['item_id']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['item_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['item_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['item_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['item_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'compromiso_pge_acciones_obras' => 'compromiso_pge_acciones_obras',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Acciones y obras por realizar';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Paragraphs item: Entity with the Acciones y obras por relalzar (field_acciones_obras_relalizar) */
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['id'] = 'field_acciones_obras_relalizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['table'] = 'paragraphs_item';
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['field'] = 'field_acciones_obras_relalizar_node';
+  $handler->display->display_options['relationships']['field_acciones_obras_relalizar_node']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Paragraphs item: Descripción */
+  $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
+  $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
+  $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
+  $handler->display->display_options['fields']['field_body']['type'] = 'text_plain';
+  /* Campo: Paragraphs item: Periodo de ejecución */
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['id'] = 'field_periodo_ejecucion';
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['table'] = 'field_data_field_periodo_ejecucion';
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['field'] = 'field_periodo_ejecucion';
+  $handler->display->display_options['fields']['field_periodo_ejecucion']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Campo: Paragraphs item: Unidad de medida */
+  $handler->display->display_options['fields']['field_unidad_medida']['id'] = 'field_unidad_medida';
+  $handler->display->display_options['fields']['field_unidad_medida']['table'] = 'field_data_field_unidad_medida';
+  $handler->display->display_options['fields']['field_unidad_medida']['field'] = 'field_unidad_medida';
+  /* Campo: Paragraphs item: Cantidad */
+  $handler->display->display_options['fields']['field_cantidad']['id'] = 'field_cantidad';
+  $handler->display->display_options['fields']['field_cantidad']['table'] = 'field_data_field_cantidad';
+  $handler->display->display_options['fields']['field_cantidad']['field'] = 'field_cantidad';
+  $handler->display->display_options['fields']['field_cantidad']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Paragraphs item: Inversión Estimada */
+  $handler->display->display_options['fields']['field_inversion_estimada']['id'] = 'field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['table'] = 'field_data_field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['field'] = 'field_inversion_estimada';
+  $handler->display->display_options['fields']['field_inversion_estimada']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '10',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Paragraphs item: Paragraphs item ID */
+  $handler->display->display_options['sorts']['item_id']['id'] = 'item_id';
+  $handler->display->display_options['sorts']['item_id']['table'] = 'paragraphs_item';
+  $handler->display->display_options['sorts']['item_id']['field'] = 'item_id';
+  $handler->display->display_options['sorts']['item_id']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Contenido: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_acciones_obras_relalizar_node';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Todo';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Paragraphs item: Bundle */
+  $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['table'] = 'paragraphs_item';
+  $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
+  $handler->display->display_options['filters']['bundle']['value'] = array(
+    'compromiso_pge_acciones_obras' => 'compromiso_pge_acciones_obras',
+  );
+  $handler->display->display_options['filters']['bundle']['group'] = 1;
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'user',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Contenido: Nid',
+    ),
+  );
+  $translatables['pge_compromisos_acciones_obras'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('field_acciones_obras_relalizar'),
+    t('Paragraphs item ID'),
+    t('.'),
+    t(','),
+    t('Cantidad'),
+    t('Descripción'),
+    t('Inversión Estimada'),
+    t('Periodo de ejecución'),
+    t('Unidad de medida'),
+    t('Todo'),
+    t('Content pane'),
+    t('Acciones y obras por realizar'),
+    t('View panes'),
+  );
+  $export['pge_compromisos_acciones_obras'] = $view;
+
   return $export;
 }
