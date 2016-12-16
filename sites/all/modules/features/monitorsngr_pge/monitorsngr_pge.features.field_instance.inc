@@ -508,6 +508,47 @@ function monitorsngr_pge_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_cargo_fun_responsable'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_cargo_fun_responsable'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_cargo_fun_responsable',
+    'label' => 'Cargo',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-peg_ficha_tecnica_compromiso-field_decreto_emergencia'.
   $field_instances['node-peg_ficha_tecnica_compromiso-field_decreto_emergencia'] = array(
     'bundle' => 'peg_ficha_tecnica_compromiso',
@@ -557,7 +598,332 @@ function monitorsngr_pge_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => -3,
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_fuente_financiamiento'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_fuente_financiamiento'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fuente_financiamiento',
+    'label' => 'Fuente de Financiamiento',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_funcionario_responsable'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_funcionario_responsable'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_funcionario_responsable',
+    'label' => 'Nombre del funcionario responsable',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_mecanismos_ejecucion'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_mecanismos_ejecucion'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_mecanismos_ejecucion',
+    'label' => 'Mecanismos de ejecución',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_naturaleza_actividades'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_naturaleza_actividades'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_naturaleza_actividades',
+    'label' => 'Naturaleza de actividades',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_poblacion_meta'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_poblacion_meta'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_poblacion_meta',
+    'label' => 'Población Meta',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_resultado_esperado'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_resultado_esperado'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_resultado_esperado',
+    'label' => 'Resultado Esperado',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_unidad_resposable'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_unidad_resposable'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_unidad_resposable',
+    'label' => 'Unidad Resposable',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-peg_ficha_tecnica_compromiso-field_zona_intervencion'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_zona_intervencion'] = array(
+    'bundle' => 'peg_ficha_tecnica_compromiso',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_zona_intervencion',
+    'label' => 'Zona de Intervención',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => -1,
     ),
   );
 
@@ -565,16 +931,26 @@ function monitorsngr_pge_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Acuerdo de Junta Directiva');
   t('Año');
+  t('Cargo');
+  t('Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)');
   t('Decreto de Emergencia');
   t('Documento adjunto');
   t('Fecha');
   t('Fecha de finiquito');
+  t('Fuente de Financiamiento');
+  t('Mecanismos de ejecución');
   t('Monto Total Asigando');
+  t('Naturaleza de actividades');
   t('Nombre de Declaratoria de Emergencia');
+  t('Nombre del funcionario responsable');
   t('Numero de Decreto del Finiquito');
   t('Número de Decreto');
+  t('Población Meta');
+  t('Resultado Esperado');
   t('Sector estructural afectado');
   t('Ubicación geográfica');
+  t('Unidad Resposable');
+  t('Zona de Intervención');
 
   return $field_instances;
 }
