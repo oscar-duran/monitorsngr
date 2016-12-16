@@ -25,7 +25,13 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
     if (count($query) && !empty($query['decree'])) {
       $decree_id = check_plain($query['decree']);
       if (is_numeric($decree_id)) {
+        global $user;
+        $user_wrapper = entity_metadata_wrapper('user', $user);
         $wrapper = entity_metadata_wrapper('node', $decree_id);
+        $decree_year = date('Y', $wrapper->field_fecha->value());
+        $institution_name = $user_wrapper->field_institucion->label();
+        $form['title']['#disabled'] = TRUE;
+        $form['title']['#default_value'] = $decree_year . '-' . $institution_name;
         $form['field_decreto_emergencia'][LANGUAGE_NONE]['#disabled'] = TRUE;
         $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $wrapper->label() . '(' . $decree_id . ')';
       }
