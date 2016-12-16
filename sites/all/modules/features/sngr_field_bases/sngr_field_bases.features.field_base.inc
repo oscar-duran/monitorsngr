@@ -2121,13 +2121,13 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_unidad_resposable'.
-  $field_bases['field_unidad_resposable'] = array(
+  // Exported field_base: 'field_unidad_responsable'.
+  $field_bases['field_unidad_responsable'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_unidad_resposable',
+    'field_name' => 'field_unidad_responsable',
     'indexes' => array(
       'format' => array(
         0 => 'format',

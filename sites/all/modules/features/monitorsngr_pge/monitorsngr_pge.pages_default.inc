@@ -217,7 +217,7 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->pid = 'new-62ae9c74-73f0-41ef-bade-966515061a2c';
   $pane->panel = 'middle';
   $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_unidad_resposable';
+  $pane->subtype = 'node:field_unidad_responsable';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(

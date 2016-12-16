@@ -934,8 +934,8 @@ function monitorsngr_pge_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-peg_ficha_tecnica_compromiso-field_unidad_resposable'.
-  $field_instances['node-peg_ficha_tecnica_compromiso-field_unidad_resposable'] = array(
+  // 'node-peg_ficha_tecnica_compromiso-field_unidad_responsable'.
+  $field_instances['node-peg_ficha_tecnica_compromiso-field_unidad_responsable'] = array(
     'bundle' => 'peg_ficha_tecnica_compromiso',
     'default_value' => NULL,
     'deleted' => 0,
@@ -956,8 +956,8 @@ function monitorsngr_pge_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_unidad_resposable',
-    'label' => 'Unidad Resposable',
+    'field_name' => 'field_unidad_responsable',
+    'label' => 'Unidad responsable',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -1276,7 +1276,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Sector');
   t('Sector estructural afectado');
   t('Ubicación geográfica');
-  t('Unidad Resposable');
+  t('Unidad responsable');
   t('Unidad de medida');
   t('Zona de Intervención');
 

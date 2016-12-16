@@ -53,7 +53,7 @@ function monitorsngr_pge_field_group_info() {
     'label' => 'Competencias',
     'weight' => '5',
     'children' => array(
-      0 => 'field_unidad_resposable',
+      0 => 'field_unidad_responsable',
       1 => 'field_mecanismos_ejecucion',
     ),
     'format_type' => 'fieldset',
