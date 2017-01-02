@@ -162,7 +162,7 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['argument_input'] = array(
     'field_decreto_emergencia_target_id' => array(
-      'type' => 'context',
+      'type' => 'user',
       'context' => 'node_edit_form.nid',
       'context_optional' => 0,
       'panel' => '0',
