@@ -51,3 +51,17 @@ function monitorsngr_pge_node_info() {
   drupal_alter('node_info', $items);
   return $items;
 }
+
+/**
+ * Implements hook_paragraphs_info().
+ */
+function monitorsngr_pge_paragraphs_info() {
+  $items = array(
+    'compromiso_pge_acciones_obras' => array(
+      'name' => 'Compromiso PGE - Acciones y Obras',
+      'bundle' => 'compromiso_pge_acciones_obras',
+      'locked' => '1',
+    ),
+  );
+  return $items;
+}

@@ -254,6 +254,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'administer advanced pane settings'.
+  $permissions['administer advanced pane settings'] = array(
+    'name' => 'administer advanced pane settings',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
   // Exported permission: 'administer block classes'.
   $permissions['administer block classes'] = array(
     'name' => 'administer block classes',
@@ -420,6 +429,78 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer page manager'.
+  $permissions['administer page manager'] = array(
+    'name' => 'administer page manager',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'page_manager',
+  );
+
+  // Exported permission: 'administer pane access'.
+  $permissions['administer pane access'] = array(
+    'name' => 'administer pane access',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer panels display styles'.
+  $permissions['administer panels display styles'] = array(
+    'name' => 'administer panels display styles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer panels layouts'.
+  $permissions['administer panels layouts'] = array(
+    'name' => 'administer panels layouts',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer panels pane styles'.
+  $permissions['administer panels pane styles'] = array(
+    'name' => 'administer panels pane styles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer panels region styles'.
+  $permissions['administer panels region styles'] = array(
+    'name' => 'administer panels region styles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer panels styles'.
+  $permissions['administer panels styles'] = array(
+    'name' => 'administer panels styles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'administer paragraphs bundles'.
+  $permissions['administer paragraphs bundles'] = array(
+    'name' => 'administer paragraphs bundles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'paragraphs',
+  );
+
   // Exported permission: 'administer permissions'.
   $permissions['administer permissions'] = array(
     'name' => 'administer permissions',
@@ -524,6 +605,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'bypass access in place editing'.
+  $permissions['bypass access in place editing'] = array(
+    'name' => 'bypass access in place editing',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
   // Exported permission: 'bypass node access'.
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
@@ -534,6 +624,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'bypass paragraphs bundle content access'.
+  $permissions['bypass paragraphs bundle content access'] = array(
+    'name' => 'bypass paragraphs bundle content access',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
   // Exported permission: 'cancel account'.
   $permissions['cancel account'] = array(
     'name' => 'cancel account',
@@ -542,6 +641,15 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'change layouts in place editing'.
+  $permissions['change layouts in place editing'] = array(
+    'name' => 'change layouts in place editing',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
   );
 
   // Exported permission: 'change own username'.
@@ -702,6 +810,16 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'create paragraph content compromiso_pge_acciones_obras'.
+  $permissions['create paragraph content compromiso_pge_acciones_obras'] = array(
+    'name' => 'create paragraph content compromiso_pge_acciones_obras',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
   );
 
   // Exported permission: 'create peg_ficha_tecnica_compromiso content'.
@@ -1081,6 +1199,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'webform',
   );
 
+  // Exported permission: 'delete paragraph content compromiso_pge_acciones_obras'.
+  $permissions['delete paragraph content compromiso_pge_acciones_obras'] = array(
+    'name' => 'delete paragraph content compromiso_pge_acciones_obras',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
   // Exported permission: 'delete revisions'.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -1165,6 +1293,13 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in zona_intervencion_pge'.
+  $permissions['delete terms in zona_intervencion_pge'] = array(
+    'name' => 'delete terms in zona_intervencion_pge',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -1591,6 +1726,13 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'edit terms in zona_intervencion_pge'.
+  $permissions['edit terms in zona_intervencion_pge'] = array(
+    'name' => 'edit terms in zona_intervencion_pge',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit webform components'.
   $permissions['edit webform components'] = array(
     'name' => 'edit webform components',
@@ -1860,6 +2002,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'feeds',
   );
 
+  // Exported permission: 'update paragraph content compromiso_pge_acciones_obras'.
+  $permissions['update paragraph content compromiso_pge_acciones_obras'] = array(
+    'name' => 'update paragraph content compromiso_pge_acciones_obras',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
   // Exported permission: 'use PHP for title patterns'.
   $permissions['use PHP for title patterns'] = array(
     'name' => 'use PHP for title patterns',
@@ -1895,6 +2047,60 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'ctools',
+  );
+
+  // Exported permission: 'use ipe with page manager'.
+  $permissions['use ipe with page manager'] = array(
+    'name' => 'use ipe with page manager',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'use page manager'.
+  $permissions['use page manager'] = array(
+    'name' => 'use page manager',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'page_manager',
+  );
+
+  // Exported permission: 'use panels caching features'.
+  $permissions['use panels caching features'] = array(
+    'name' => 'use panels caching features',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'use panels dashboard'.
+  $permissions['use panels dashboard'] = array(
+    'name' => 'use panels dashboard',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'use panels in place editing'.
+  $permissions['use panels in place editing'] = array(
+    'name' => 'use panels in place editing',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'use panels locks'.
+  $permissions['use panels locks'] = array(
+    'name' => 'use panels locks',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
   );
 
   // Exported permission: 'use text format editor_gr_fico'.
@@ -1955,6 +2161,28 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view pane admin links'.
+  $permissions['view pane admin links'] = array(
+    'name' => 'view pane admin links',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
+  );
+
+  // Exported permission: 'view paragraph content compromiso_pge_acciones_obras'.
+  $permissions['view paragraph content compromiso_pge_acciones_obras'] = array(
+    'name' => 'view paragraph content compromiso_pge_acciones_obras',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+      'analista-sngr' => 'analista-sngr',
+      'user-alternativo' => 'user-alternativo',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
   );
 
   // Exported permission: 'view revisions'.
