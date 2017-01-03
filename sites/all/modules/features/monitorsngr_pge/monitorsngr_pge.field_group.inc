@@ -292,6 +292,36 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_personas_afectadas|paragraphs_item|pge_insumos_poblacion|form';
+  $field_group->group_name = 'group_personas_afectadas';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_poblacion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Personas afectadas',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_numero_personas',
+      1 => 'field_numero_familias',
+      2 => 'field_lugar_movilizacion',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-personas-afectadas field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_personas_afectadas|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_agro_sub_agricola|form';
   $field_group->group_name = 'group_propuesta';
   $field_group->entity_type = 'paragraphs_item';
@@ -677,6 +707,35 @@ function monitorsngr_pge_field_group_info() {
   );
   $field_groups['group_ubicacion|paragraphs_item|pge_insumos_obras_correctivas|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ubicacion|paragraphs_item|pge_insumos_poblacion|form';
+  $field_group->group_name = 'group_ubicacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_poblacion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Ubicación',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_poblado',
+      1 => 'field_barrio_localidad',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ubicacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_ubicacion|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Afectacción');
@@ -685,6 +744,7 @@ function monitorsngr_pge_field_group_info() {
   t('Cobertura');
   t('Competencias');
   t('Funcionario Responsable');
+  t('Personas afectadas');
   t('Propuesta');
   t('Ubicación');
   t('Ubicación ');

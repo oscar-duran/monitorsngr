@@ -4846,6 +4846,309 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_barrio_localidad'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_barrio_localidad'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_barrio_localidad',
+    'label' => 'Barrio o localidad',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_lugar_movilizacion'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_lugar_movilizacion'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_lugar_movilizacion',
+    'label' => 'Lugar de movilización',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_numero_familias'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_numero_familias'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 5,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_numero_familias',
+    'label' => 'Número de familias ',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_numero_personas'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_numero_personas'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_numero_personas',
+    'label' => 'Número de personas',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_poblado'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_poblado'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_poblado',
+    'label' => 'Poblado',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_tipo_afectacion'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_tipo_afectacion'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_tipo_afectacion',
+    'label' => 'Tipo de afectación',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_poblacion-field_ubicaci_n_geogr_fica'.
+  $field_instances['paragraphs_item-pge_insumos_poblacion-field_ubicaci_n_geogr_fica'] = array(
+    'bundle' => 'pge_insumos_poblacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ubicaci_n_geogr_fica',
+    'label' => 'Provincia, Cantón, Distrito',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acciones y obras por realizar');
@@ -4853,6 +5156,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Actividad o Productos');
   t('Acuerdo de Junta Directiva');
   t('Año');
+  t('Barrio o localidad');
   t('Cantidad');
   t('Cantidad (número de animales)');
   t('Cantidades Estimadas (Peso)');
@@ -4881,6 +5185,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Instituciones involucradas');
   t('Insumos');
   t('Inversión Estimada');
+  t('Lugar de movilización');
   t('Material predominante');
   t('Mecanismos de ejecución');
   t('Metros cuadrados de construcción');
@@ -4900,7 +5205,9 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Nombre del funcionario responsable');
   t('Numero de Decreto del Finiquito');
   t('Número de Decreto');
+  t('Número de familias ');
   t('Número de fincas o productores');
+  t('Número de personas');
   t('Obra o componente afectado');
   t('Periodo de ejecución');
   t('Plazo');
@@ -4915,6 +5222,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Solución');
   t('Tenencia');
   t('Tipo de Formulario');
+  t('Tipo de afectación');
   t('Ubicación geográfica');
   t('Unidad de medida');
   t('Unidad responsable');
