@@ -104,6 +104,7 @@ features[field_base][] = field_tema_necesidades
 features[field_base][] = field_tiene_necesidades
 features[field_base][] = field_tipo_aela
 features[field_base][] = field_tipo_documento
+features[field_base][] = field_tipo_formulario
 features[field_base][] = field_tipo_instancia
 features[field_base][] = field_tratamiento
 features[field_base][] = field_ubicaci_n_geogr_fica
