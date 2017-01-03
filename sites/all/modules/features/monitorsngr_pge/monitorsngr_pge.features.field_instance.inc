@@ -2922,6 +2922,479 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_cantidad_alcantarillas'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_cantidad_alcantarillas'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_cantidad_alcantarillas',
+    'label' => 'Cantidad',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_caracteristicas_alcanta'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_caracteristicas_alcanta'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_caracteristicas_alcanta',
+    'label' => 'Características (alcantarillas o vados)',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_descripcion_obras_reque'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_descripcion_obras_reque'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_descripcion_obras_reque',
+    'label' => 'Descripción de las obras o labores requeridas',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_monto_estimado'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_monto_estimado'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 10,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado',
+    'label' => 'Monto estimado de costo de obras y labores',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_monto_estimado_perdidas'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_monto_estimado_perdidas'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 7,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado_perdidas',
+    'label' => 'Monto estimado de pérdidas',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_naturaleza_dannos'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_naturaleza_dannos'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_naturaleza_dannos',
+    'label' => 'Descripción de los daños',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_nivel_prioridad'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_nivel_prioridad'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_nivel_prioridad',
+    'label' => 'Nivel de Prioridad',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_nombre_cauce'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_nombre_cauce'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Río, quebrada, canal y otros',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_nombre_cauce',
+    'label' => 'Nombre del cauce',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_poblado'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_poblado'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_poblado',
+    'label' => 'Poblado',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_ruta_descripcion_tramo'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_ruta_descripcion_tramo'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ruta_descripcion_tramo',
+    'label' => 'No. de ruta o descripción del tramo',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_alcantarillas_vados-field_ubicaci_n_geogr_fica'.
+  $field_instances['paragraphs_item-pge_insumos_alcantarillas_vados-field_ubicaci_n_geogr_fica'] = array(
+    'bundle' => 'pge_insumos_alcantarillas_vados',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ubicaci_n_geogr_fica',
+    'label' => 'Provincia, Cantón, Distrito',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acciones y obras por realizar');
@@ -2932,11 +3405,14 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Cantidad');
   t('Cantidad (número de animales)');
   t('Cantidades Estimadas (Peso)');
+  t('Características (alcantarillas o vados)');
   t('Cargo');
   t('Comentarios');
   t('Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)');
   t('Decreto de Emergencia');
   t('Descripción');
+  t('Descripción de las obras o labores requeridas');
+  t('Descripción de los daños');
   t('Documento adjunto');
   t('En miles de colones');
   t('Fase');
@@ -2952,11 +3428,14 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Mecanismos de ejecución');
   t('Monto Total Asigando');
   t('Monto estimado');
+  t('Monto estimado de costo de obras y labores');
   t('Monto estimado de pérdidas');
   t('Naturaleza de actividades');
   t('Naturaleza de los daños');
   t('Nivel de Prioridad');
+  t('No. de ruta o descripción del tramo');
   t('Nombre de Declaratoria de Emergencia');
+  t('Nombre del cauce');
   t('Nombre del funcionario responsable');
   t('Numero de Decreto del Finiquito');
   t('Número de Decreto');
@@ -2968,6 +3447,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Programas, proyectos, acciones, obras');
   t('Provincia, Cantón, Distrito');
   t('Resultado Esperado');
+  t('Río, quebrada, canal y otros');
   t('Sector');
   t('Sector estructural afectado');
   t('Tipo de Formulario');
