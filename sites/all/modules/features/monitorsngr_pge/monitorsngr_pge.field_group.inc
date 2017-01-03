@@ -48,6 +48,42 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_afectacion|paragraphs_item|pge_insumos_agro_sub_pecuario|form';
+  $field_group->group_name = 'group_afectacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_agro_sub_pecuario';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Afectación',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_afecta_actividad_productos',
+      1 => 'field_numero_fincas_productores',
+      2 => 'field_cantidad_numero_animales',
+      3 => 'field_naturaleza_dannos',
+      4 => 'field_monto_estimado_perdidas',
+      5 => 'field_insumos',
+      6 => 'field_area_afectada',
+      7 => 'field_infraestructura_pecuaria',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Afectación',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-afectacion field-group-fieldset',
+        'description' => '',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $field_groups['group_afectacion|paragraphs_item|pge_insumos_agro_sub_pecuario|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_cobertura|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_cobertura';
   $field_group->entity_type = 'node';
@@ -140,6 +176,39 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_agro_sub_pecuario|form';
+  $field_group->group_name = 'group_propuesta';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_agro_sub_pecuario';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Propuesta',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_nivel_prioridad',
+      1 => 'field_plazo',
+      2 => 'field_programas_proyectos_accion',
+      3 => 'field_monto_estimado',
+      4 => 'field_fase',
+      5 => 'field_instituciones_involucradas',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-propuesta field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_propuesta|paragraphs_item|pge_insumos_agro_sub_pecuario|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_responsable|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_responsable';
   $field_group->entity_type = 'node';
@@ -225,6 +294,7 @@ function monitorsngr_pge_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Afectacción');
+  t('Afectación');
   t('Cobertura');
   t('Competencias');
   t('Funcionario Responsable');
