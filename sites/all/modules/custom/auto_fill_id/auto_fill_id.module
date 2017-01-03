@@ -144,7 +144,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] = $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1';
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#suffix'] = '</div>';
-
+          
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
         }
       }

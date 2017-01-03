@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Compromiso de Geston Edit views feature.
- */
-
-include_once 'compromiso_de_geston_edit_views.features.inc';

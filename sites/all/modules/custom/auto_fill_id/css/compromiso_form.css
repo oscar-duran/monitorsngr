@@ -40,3 +40,15 @@ fieldset.item-fieldset, .action-tab {
     padding-right: 0;
     border: 0;
 }
+
+.form-wrapper > fieldset.ief-form.form-wrapper {
+    padding-left: 0;
+    border: none;
+    border-top: 3px solid #0074BD;
+}
+
+.form-wrapper > fieldset.ief-form.form-wrapper .fieldset-wrapper > div:nth-child(-n+3) {
+    padding-top: 0;
+    float: left;
+    margin-left: 10px;
+}
