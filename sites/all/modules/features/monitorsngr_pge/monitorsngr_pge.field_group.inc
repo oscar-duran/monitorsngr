@@ -114,6 +114,35 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_afectacion|paragraphs_item|pge_insumos_danno_ambiental|form';
+  $field_group->group_name = 'group_afectacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_danno_ambiental';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Afectacción',
+    'weight' => '10',
+    'children' => array(
+      0 => 'field_monto_estimado_perdidas',
+      1 => 'field_naturaleza_dannos',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-afectacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_afectacion|paragraphs_item|pge_insumos_danno_ambiental|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_cobertura|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_cobertura';
   $field_group->entity_type = 'node';
@@ -269,6 +298,36 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_danno_ambiental|form';
+  $field_group->group_name = 'group_propuesta';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_danno_ambiental';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Propuesta',
+    'weight' => '10',
+    'children' => array(
+      0 => 'field_nivel_prioridad',
+      1 => 'field_descripcion_obras_reque',
+      2 => 'field_monto_estimado',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-propuesta field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_propuesta|paragraphs_item|pge_insumos_danno_ambiental|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_responsable|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_responsable';
   $field_group->entity_type = 'node';
@@ -380,6 +439,35 @@ function monitorsngr_pge_field_group_info() {
     ),
   );
   $field_groups['group_ubicacion|paragraphs_item|pge_insumos_alcantarillas_vados|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ubicacion|paragraphs_item|pge_insumos_danno_ambiental|form';
+  $field_group->group_name = 'group_ubicacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_danno_ambiental';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Ubicación',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_poblado',
+      1 => 'field_nombre_cuencas_subcuencas',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ubicacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_ubicacion|paragraphs_item|pge_insumos_danno_ambiental|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
