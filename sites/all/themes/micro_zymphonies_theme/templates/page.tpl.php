@@ -171,15 +171,15 @@
             <?php print render($page['content']); ?>
           </section>
         </div>
-      
+
         <?php if ($page['sidebar_first']): ?>
           <aside id="sidebar-first" role="complementary"><?php print render($page['sidebar_first']); ?></aside>
         <?php endif; ?>
-      
+
         </div>
 
         <?php if ($page['sidebar_second']): ?>
-          <aside id="sidebar-second" role="complementary"><?php print render($page['sidebar_second']); ?></aside> 
+          <aside id="sidebar-second" role="complementary"><?php print render($page['sidebar_second']); ?></aside>
         <?php endif; ?>
 
     </div>
