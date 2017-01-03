@@ -1156,6 +1156,82 @@ function monitorsngr_pge_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-pge_formulario_insumos-field_formulario_insumos_pge'.
+  $field_instances['node-pge_formulario_insumos-field_formulario_insumos_pge'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'paragraphs',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'paragraphs_view',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_formulario_insumos_pge',
+    'label' => 'Formulario',
+    'required' => 1,
+    'settings' => array(
+      'add_mode' => 'select',
+      'allowed_bundles' => array(
+        'compromiso_pge_acciones_obras' => -1,
+        'pge_insumos_agro_sub_agricola' => 'pge_insumos_agro_sub_agricola',
+        'pge_insumos_agro_sub_pecuario' => 'pge_insumos_agro_sub_pecuario',
+        'pge_insumos_alcantarillas_vados' => 'pge_insumos_alcantarillas_vados',
+        'pge_insumos_danno_ambiental' => 'pge_insumos_danno_ambiental',
+        'pge_insumos_edificios_publicos' => 'pge_insumos_edificios_publicos',
+        'pge_insumos_obras_correctivas' => 'pge_insumos_obras_correctivas',
+        'pge_insumos_poblacion' => 'pge_insumos_poblacion',
+        'pge_insumos_puentes' => 'pge_insumos_puentes',
+        'pge_insumos_rios_quebradas' => 'pge_insumos_rios_quebradas',
+        'pge_insumos_sis_infocomunicacion' => 'pge_insumos_sis_infocomunicacion',
+        'pge_insumos_sistema_abaste_agua' => 'pge_insumos_sistema_abaste_agua',
+        'pge_insumos_sistema_electrico' => 'pge_insumos_sistema_electrico',
+        'pge_insumos_vivienda' => 'pge_insumos_vivienda',
+      ),
+      'bundle_weights' => array(
+        'compromiso_pge_acciones_obras' => 2,
+        'pge_insumos_agro_sub_agricola' => 3,
+        'pge_insumos_agro_sub_pecuario' => 4,
+        'pge_insumos_alcantarillas_vados' => 5,
+        'pge_insumos_danno_ambiental' => 6,
+        'pge_insumos_edificios_publicos' => 7,
+        'pge_insumos_obras_correctivas' => 8,
+        'pge_insumos_poblacion' => 9,
+        'pge_insumos_puentes' => 10,
+        'pge_insumos_rios_quebradas' => 11,
+        'pge_insumos_sis_infocomunicacion' => 12,
+        'pge_insumos_sistema_abaste_agua' => 13,
+        'pge_insumos_sistema_electrico' => 14,
+        'pge_insumos_vivienda' => 15,
+      ),
+      'default_edit_mode' => 'open',
+      'title' => 'Paragraph',
+      'title_multiple' => 'Paragraphs',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'paragraphs',
+      'settings' => array(),
+      'type' => 'paragraphs_embed',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-pge_formulario_insumos-field_funcionario_responsable'.
   $field_instances['node-pge_formulario_insumos-field_funcionario_responsable'] = array(
     'bundle' => 'pge_formulario_insumos',
@@ -1466,12 +1542,704 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_afecta_actividad_productos'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_afecta_actividad_productos'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_afecta_actividad_productos',
+    'label' => 'Actividad o Productos',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_area_afectada'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_area_afectada'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 7,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_area_afectada',
+    'label' => 'Área afectada (Ha)',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_cantidades_estimadas_peso'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_cantidades_estimadas_peso'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_cantidades_estimadas_peso',
+    'label' => 'Cantidades Estimadas (Peso)',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_fase'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_fase'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_fase',
+    'label' => 'Fase',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_infraestructura_agricola'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_infraestructura_agricola'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_infraestructura_agricola',
+    'label' => 'Infraestructura agrícola',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_instituciones_involucradas'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_instituciones_involucradas'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_instituciones_involucradas',
+    'label' => 'Instituciones involucradas',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_insumos'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_insumos'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_insumos',
+    'label' => 'Insumos',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_monto_estimado'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_monto_estimado'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 15,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado',
+    'label' => 'Monto estimado',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_monto_estimado_perdidas'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_monto_estimado_perdidas'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 9,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado_perdidas',
+    'label' => 'Monto estimado de pérdidas',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_naturaleza_dannos'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_naturaleza_dannos'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_naturaleza_dannos',
+    'label' => 'Naturaleza de los daños',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_nivel_prioridad'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_nivel_prioridad'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_nivel_prioridad',
+    'label' => 'Nivel de Prioridad',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_numero_fincas_productores'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_numero_fincas_productores'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_numero_fincas_productores',
+    'label' => 'Número de fincas o productores',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_plazo'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_plazo'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_plazo',
+    'label' => 'Plazo',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_poblado'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_poblado'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_poblado',
+    'label' => 'Poblado',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_programas_proyectos_accion'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_programas_proyectos_accion'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_programas_proyectos_accion',
+    'label' => 'Programas, proyectos, acciones, obras',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_agro_sub_agricola-field_ubicaci_n_geogr_fica'.
+  $field_instances['paragraphs_item-pge_insumos_agro_sub_agricola-field_ubicaci_n_geogr_fica'] = array(
+    'bundle' => 'pge_insumos_agro_sub_agricola',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ubicaci_n_geogr_fica',
+    'label' => 'Provincia, Cantón, Distrito',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 0,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acciones y obras por realizar');
+  t('Actividad o Productos');
   t('Acuerdo de Junta Directiva');
   t('Año');
   t('Cantidad');
+  t('Cantidades Estimadas (Peso)');
   t('Cargo');
   t('Comentarios');
   t('Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)');
@@ -1479,19 +2247,33 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Descripción');
   t('Documento adjunto');
   t('En miles de colones');
+  t('Fase');
   t('Fecha');
   t('Fecha de finiquito');
+  t('Formulario');
   t('Fuente de Financiamiento');
+  t('Infraestructura agrícola');
+  t('Instituciones involucradas');
+  t('Insumos');
   t('Inversión Estimada');
   t('Mecanismos de ejecución');
   t('Monto Total Asigando');
+  t('Monto estimado');
+  t('Monto estimado de pérdidas');
   t('Naturaleza de actividades');
+  t('Naturaleza de los daños');
+  t('Nivel de Prioridad');
   t('Nombre de Declaratoria de Emergencia');
   t('Nombre del funcionario responsable');
   t('Numero de Decreto del Finiquito');
   t('Número de Decreto');
+  t('Número de fincas o productores');
   t('Periodo de ejecución');
+  t('Plazo');
   t('Población Meta');
+  t('Poblado');
+  t('Programas, proyectos, acciones, obras');
+  t('Provincia, Cantón, Distrito');
   t('Resultado Esperado');
   t('Sector');
   t('Sector estructural afectado');
@@ -1500,6 +2282,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Unidad de medida');
   t('Unidad responsable');
   t('Zona de Intervención');
+  t('Área afectada (Ha)');
 
   return $field_instances;
 }
