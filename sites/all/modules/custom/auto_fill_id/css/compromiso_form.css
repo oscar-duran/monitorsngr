@@ -1,0 +1,42 @@
+.field-multiple-drag {
+    display: none;
+}
+
+#field-item-compromiso-values .draggable td:not(.field-multiple-drag) {
+    /*display: flex;*/
+    padding-left: 0;
+}
+
+#field-item-compromiso-values .draggable td .field-type-taxonomy-term-reference {
+    float: left;
+    padding-right: 1.45rem;
+}
+
+.draggable td .field-type-taxonomy-term-reference {
+    float: left;
+    padding-right: 1.45rem;
+}
+
+.tabledrag-toggle-weight {
+    display: none;
+}
+
+.form-item-title {
+    float: left;
+}
+
+.fieldset-wrapper .field-type-number-integer {
+    float: left;
+    margin-right: 20px;
+}
+
+/*Meta title
+.fieldset-wrapper > div.form-item {
+    display:none;
+}
+*/
+fieldset.item-fieldset, .action-tab {
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+}

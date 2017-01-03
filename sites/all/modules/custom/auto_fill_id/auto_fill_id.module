@@ -1,0 +1,311 @@
+<?php
+
+/**
+ * Implements hook_node_insert().
+ */
+function auto_fill_id_node_insert($node)
+{
+    if($node->type == "compromiso_de_gestion") {
+        action_id($node);
+    }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function auto_fill_id_node_presave($node) {
+  if($node->type == "compromiso_de_gestion") {
+    compromiso_id($node);
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function auto_fill_id_node_update($node)
+{
+    if($node->type == "compromiso_de_gestion") {
+      //compromiso_prueba_update($node);
+      action_id($node);
+    }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function auto_fill_id_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+}
+
+function clone_group($group_items){
+  $new_group = new stdClass();
+  $new_group->identifier = $group_items->identifier;
+  $new_group->group_name = $group_items->group_name;
+  $new_group->entity_type = $group_items->entity_type;
+  $new_group->bundle = $group_items->bundle;
+  $new_group->mode = $group_items->mode;
+  $new_group->parent_name = $group_items->parent_name;
+  $new_group->table = $group_items->table;
+  $new_group->type = $group_items->type;
+  $new_group->export_type = $group_items->export_type;
+  $new_group->disabled = $group_items->disabled;
+  $new_group->label = $group_items->label;
+  $new_group->weight = $group_items->weight;
+  $new_group->children = $group_items->children;
+  $new_group->format_type = $group_items->format_type;
+  $new_group->format_settings = $group_items->format_settings;
+
+  return $new_group;
+}
+
+function is_add_form($form_state){
+  return !isset($form_state['node']->nid);
+}
+
+function default_value_accion($item_id, $action_id, $form) {
+  $item_entity = $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['#entity'];
+  $eje = $item_entity->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
+  $ambito = $item_entity->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
+  $lineamiento = $item_entity->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
+
+  return 'E'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
+
+  dpm($form_state['node']);
+  //Add css
+  $form['#attached'] = array(
+    'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
+  );
+
+  //Compromiso de Gestión title disabled
+  $form['title']['#disabled'] = TRUE;
+
+  //Items de compromiso
+  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
+  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+
+  foreach($form['field_item_compromiso'][LANGUAGE_NONE] as $item_id => $item) {
+    if(is_numeric($item_id)) {
+      $item['field_id_item']['#disabled'] = TRUE;
+      $item_title = 'Item #' . ($item_id + 1);
+      $group = $item_id > 0 ? clone_group($item['#fieldgroups']['group_items']) : $item['#fieldgroups']['group_items'];
+
+      $item['field_id_item'][LANGUAGE_NONE][0]['value']['#default_value'] = $item_title;
+      $group->label = $item_title;
+      $item['#fieldgroups']['group_items'] = $group;
+      $item['#groups']['group_items'] = $group;
+
+      $ajax_eal = array(
+        //'callback' => 'method_1',
+        'callback' => 'update_name_acciones_callback',
+        //'wrapper' => 'codigo_accion_id',
+        'method' => 'replace',
+      );
+
+      $item['field_codigo_eje'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
+      $item['field_codigo_ambito'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
+      $item['field_codigo_lineamiento'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
+
+      //Acciones estratégicas
+      $item['field_accion_collect'][LANGUAGE_NONE]['#title'] = 'Acciones Estraégicas';
+      $item['field_accion_collect'][LANGUAGE_NONE]['add_more']['#value'] = 'Agregar Acción Estratégica';
+
+      foreach($item['field_accion_collect'][LANGUAGE_NONE] as $accion_id => $accion ) {
+        if(is_numeric($accion_id)) {
+          $accion['field_codigo_accion_estrategica']['#disabled'] = TRUE;
+          $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#prefix'] = '<div id="item_' . $item_id . '_codigo_accion_'. $accion_id .'">';
+          //$accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#prefix'] = '<div id="codigo_accion_id">';
+          $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#suffix'] = '</div>';
+
+          $accion_code = is_add_form($form_state) || isset($form_state['values']) ? generate_action_code($item_id, $accion_id, $form_state) : default_value_accion($item_id, $accion_id, $form);
+
+          $accion_group = $accion_id > 0 ? clone_group($accion['#groups']['group_acciones']) : $accion['#groups']['group_acciones'];
+          $accion_group->label = $accion_code;
+          $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion_code;
+
+          $accion['#groups']['group_acciones'] = $accion_group;
+          $accion['#fieldgroups']['group_acciones'] = $accion_group;
+
+          /*$accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#ajax'] = array(
+            'callback' => 'meta_callback',
+            'event' => 'change',
+            'method' => 'replace',
+            'wrapper' => 'meta_accion',
+          );*/
+
+          //Meta
+          //$accion['field_meta'][LANGUAGE_NONE]['form']['title']['#attributes']['class'][] = 'element-hidden';
+          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
+          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] = $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1';
+          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
+          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#suffix'] = '</div>';
+
+          $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
+        }
+      }
+      $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
+    }
+  }
+
+  dpm($form);
+  dpm($form_state);
+}
+
+function meta_callback($form, $form_state) {
+  return $form['field_item_de_compromiso'][LANGUAGE_NONE][0]['field_accion_collect'][LANGUAGE_NONE][0]['field_meta'][LANGUAGE_NONE]['form']['title']['value'];
+}
+
+function generate_action_code($item_id, $action_id, $form_state) {
+  $eje = !empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]) ?
+    $form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE][0]['tid'] : '0';
+  $ambito = !empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]) ?
+    $form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE][0]['tid'] : '0';
+  $lineamiento = !empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]) ?
+    $form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE][0]['tid'] : '0';
+
+  return 'E'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
+}
+
+//Form ajax callback
+function update_name_acciones_callback($form, $form_state) {
+  $commands = array();
+  foreach($form['field_item_compromiso'][LANGUAGE_NONE] as $item_id => $item) {
+    if(is_numeric($item_id)) {
+      foreach ($item['field_accion_collect'][LANGUAGE_NONE] as $action_id => $action) {
+        if (is_numeric($action_id)) {
+          $commands[] = ajax_command_replace("#item_". $item_id . "_codigo_accion_" . $action_id, drupal_render($action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']));
+          $commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['title']));
+        }
+        $item['field_accion_collect'][LANGUAGE_NONE][$action_id] = $action;
+      }
+      $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
+    }
+  }
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+}
+
+function method_1($form, $form_State) {
+  return $form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['field_codigo_accion_estrategica']['und'][0]['value'];
+}
+
+function method_2($form, $form_state) {
+  return $form['title'];
+}
+
+function method_3($form, $form_State) {
+  return $form['campo_dos'];
+}
+
+/**
+ * Implements hook_field_collection_item_insert().
+ */
+function auto_fill_id_field_collection_item_insert(FieldCollectionItemEntity $field_collection_item)
+{
+    if($field_collection_item->field_name == "field_item_compromiso") {
+      //9dpm($field_collection_item);
+//      item_id($field_collection_item);
+    }
+
+    if($field_collection_item->field_name == "field_accion_collect") {
+      dpm($field_collection_item);
+      //accion_id($field_collection_item);
+    }
+}
+
+/**
+ * Implements hook_field_collection_item_presave().
+ */
+function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $field_collection_item) {
+  if($field_collection_item->field_name == "field_item_compromiso") {
+    //9dpm($field_collection_item);
+//      item_id($field_collection_item);
+  }
+
+  if($field_collection_item->field_name == "field_accion_collect") {
+    $size = sizeof($field_collection_item->field_meta[LANGUAGE_NONE]);
+    dpm($size);
+    if($size > 1) {
+      $array = array_slice($field_collection_item->field_meta[LANGUAGE_NONE], $size - 1);
+      dpm($array);
+      $field_collection_item->field_meta[LANGUAGE_NONE] =  $array;
+    }
+    dpm($field_collection_item);
+  }
+}
+
+/**
+ * Implements hook_field_collection_item_update().
+ */
+function auto_fill_id_field_collection_item_update(FieldCollectionItemEntity $field_collection_item) {
+
+}
+
+function compromiso_id($node) {
+    if($node->field_compromiso_id) {
+        $id = $node->field_compromiso_id[LANGUAGE_NONE][0]["value"];
+        $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+        $node->title = $id . '-' . $ins->title . '-' . date('Y');
+    }
+}
+
+function action_id($compromiso_node) {
+  foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) {
+    $item = field_collection_item_load($item_id['value']);
+    if($item) {
+      $eje = $item->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
+      $ambito = $item->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
+      $lineamiento = $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
+
+      foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
+        $action = field_collection_item_load($action_id['value']);
+        if($action) {
+          $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
+          meta_id($action);
+          $action->save(TRUE);
+        }
+      }
+    }
+  }
+}
+
+function meta_id($action_node){
+  dpm($action_node);
+  $meta_id = $action_node->field_meta[LANGUAGE_NONE][0]['target_id'];
+  $action_id = $action_node->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'];
+  $meta = node_load($meta_id);
+  $meta->title = $action_id . 'M1';
+  $meta->revision = 1;
+  dpm($meta);
+  node_save($meta);
+}
+
+function compromiso_prueba_update($node) {
+    if($node->field_compromiso_id) {
+      $id = $node->field_compromiso_id[LANGUAGE_NONE][0]["value"];
+      $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+      $node->title = $id . '-' . $ins->title . '-' . date('Y');
+      field_attach_update('node', $node);
+    }
+}
+
+function get_accion_collect_parent($id){
+    $items = entity_load("field_collection_item", false, ["field_name" => "field_item_compromiso"]);
+    foreach ($items as $item){
+        $actions = $item->field_accion_collect[LANGUAGE_NONE];
+        foreach ($actions as $action) {
+            if ($action["value"] == $id) {
+                return $item;
+            }
+        }
+    }
+    return null;
+}
+

@@ -1,0 +1,7 @@
+name = Field collection Modals
+description = "Displays field collection fields in a CTools modal for adding, editing and deleting"
+package = Fields
+core = 7.x
+
+dependencies[] = field_collection
+dependencies[] = ctools

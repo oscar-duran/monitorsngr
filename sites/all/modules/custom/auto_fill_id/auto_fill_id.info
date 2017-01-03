@@ -1,0 +1,8 @@
+name = Auto Fill Id
+description = A simple module
+core = 7.x
+package = Custom
+files[] = auto_fill_id.module
+dependencies[] = devel
+dependencies[] = field_collection
+scripts[] = js/auto_fill_id.js
