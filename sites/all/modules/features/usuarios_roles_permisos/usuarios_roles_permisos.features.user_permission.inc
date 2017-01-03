@@ -831,6 +831,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create pge_formulario_insumos content'.
+  $permissions['create pge_formulario_insumos content'] = array(
+    'name' => 'create pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create producto_meta content'.
   $permissions['create producto_meta content'] = array(
     'name' => 'create producto_meta content',
@@ -1007,6 +1017,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any pge_formulario_insumos content'.
+  $permissions['delete any pge_formulario_insumos content'] = array(
+    'name' => 'delete any pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any producto_meta content'.
   $permissions['delete any producto_meta content'] = array(
     'name' => 'delete any producto_meta content',
@@ -1152,6 +1171,16 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['delete own peg_ficha_tecnica_compromiso content'] = array(
     'name' => 'delete own peg_ficha_tecnica_compromiso content',
     'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own pge_formulario_insumos content'.
+  $permissions['delete own pge_formulario_insumos content'] = array(
+    'name' => 'delete own pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1436,6 +1465,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any pge_formulario_insumos content'.
+  $permissions['edit any pge_formulario_insumos content'] = array(
+    'name' => 'edit any pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any producto_meta content'.
   $permissions['edit any producto_meta content'] = array(
     'name' => 'edit any producto_meta content',
@@ -1600,6 +1638,16 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['edit own peg_ficha_tecnica_compromiso content'] = array(
     'name' => 'edit own peg_ficha_tecnica_compromiso content',
     'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own pge_formulario_insumos content'.
+  $permissions['edit own pge_formulario_insumos content'] = array(
+    'name' => 'edit own pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
