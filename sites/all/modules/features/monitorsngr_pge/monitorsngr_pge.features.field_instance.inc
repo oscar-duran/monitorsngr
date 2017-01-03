@@ -1015,6 +1015,225 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-pge_formulario_insumos-body'.
+  $field_instances['node-pge_formulario_insumos-body'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Comentarios',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-pge_formulario_insumos-field_cargo_fun_responsable'.
+  $field_instances['node-pge_formulario_insumos-field_cargo_fun_responsable'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_cargo_fun_responsable',
+    'label' => 'Cargo',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-pge_formulario_insumos-field_decreto_emergencia'.
+  $field_instances['node-pge_formulario_insumos-field_decreto_emergencia'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_decreto_emergencia',
+    'label' => 'Decreto de Emergencia',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-pge_formulario_insumos-field_funcionario_responsable'.
+  $field_instances['node-pge_formulario_insumos-field_funcionario_responsable'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_funcionario_responsable',
+    'label' => 'Nombre del funcionario responsable',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-pge_formulario_insumos-field_tipo_formulario'.
+  $field_instances['node-pge_formulario_insumos-field_tipo_formulario'] = array(
+    'bundle' => 'pge_formulario_insumos',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_tipo_formulario',
+    'label' => 'Tipo de Formulario',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance:
   // 'paragraphs_item-compromiso_pge_acciones_obras-field_body'.
   $field_instances['paragraphs_item-compromiso_pge_acciones_obras-field_body'] = array(
@@ -1254,6 +1473,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Año');
   t('Cantidad');
   t('Cargo');
+  t('Comentarios');
   t('Debe Llenar este campo con el nombre completo del responsable (Nombre y apellidos)');
   t('Decreto de Emergencia');
   t('Descripción');
@@ -1275,9 +1495,10 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Resultado Esperado');
   t('Sector');
   t('Sector estructural afectado');
+  t('Tipo de Formulario');
   t('Ubicación geográfica');
-  t('Unidad responsable');
   t('Unidad de medida');
+  t('Unidad responsable');
   t('Zona de Intervención');
 
   return $field_instances;

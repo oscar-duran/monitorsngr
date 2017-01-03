@@ -101,6 +101,35 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_responsable|node|pge_formulario_insumos|form';
+  $field_group->group_name = 'group_responsable';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'pge_formulario_insumos';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Funcionario Responsable',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_cargo_fun_responsable',
+      1 => 'field_funcionario_responsable',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-responsable field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_responsable|node|pge_formulario_insumos|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_ubicacion|node|decreto_de_emergencia|form';
   $field_group->group_name = 'group_ubicacion';
   $field_group->entity_type = 'node';

@@ -47,6 +47,14 @@ function monitorsngr_pge_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'pge_formulario_insumos' => array(
+      'name' => t('Formulario de insumos PGE'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
   );
   drupal_alter('node_info', $items);
   return $items;
