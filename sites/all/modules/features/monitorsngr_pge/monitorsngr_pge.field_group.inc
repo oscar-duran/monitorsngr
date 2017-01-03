@@ -143,6 +143,67 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_afectacion|paragraphs_item|pge_insumos_edificios_publicos|form';
+  $field_group->group_name = 'group_afectacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_edificios_publicos';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Afectacción',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_nivel_dannos',
+      1 => 'field_naturaleza_dannos',
+      2 => 'field_monto_estimado_perdidas',
+      3 => 'field_documento_referencia',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-afectacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_afectacion|paragraphs_item|pge_insumos_edificios_publicos|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_caracteristicas_edificio|paragraphs_item|pge_insumos_edificios_publicos|form';
+  $field_group->group_name = 'group_caracteristicas_edificio';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_edificios_publicos';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Características del edificio',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_metros_cuadrados_constru',
+      1 => 'field_material_predominante',
+      2 => 'field_tenencia',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-caracteristicas-edificio field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_caracteristicas_edificio|paragraphs_item|pge_insumos_edificios_publicos|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_cobertura|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_cobertura';
   $field_group->entity_type = 'node';
@@ -328,6 +389,36 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_edificios_publicos|form';
+  $field_group->group_name = 'group_propuesta';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_edificios_publicos';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Propuesta',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_solucion',
+      1 => 'field_nivel_prioridad',
+      2 => 'field_monto_estimado',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-propuesta field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_propuesta|paragraphs_item|pge_insumos_edificios_publicos|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_responsable|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_responsable';
   $field_group->entity_type = 'node';
@@ -469,10 +560,40 @@ function monitorsngr_pge_field_group_info() {
   );
   $field_groups['group_ubicacion|paragraphs_item|pge_insumos_danno_ambiental|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ubicacion|paragraphs_item|pge_insumos_edificios_publicos|form';
+  $field_group->group_name = 'group_ubicacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_edificios_publicos';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Ubicación',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_poblado',
+      1 => 'field_direccion',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ubicacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_ubicacion|paragraphs_item|pge_insumos_edificios_publicos|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Afectacción');
   t('Afectación');
+  t('Características del edificio');
   t('Cobertura');
   t('Competencias');
   t('Funcionario Responsable');
