@@ -73,6 +73,7 @@ features[field_base][] = field_fecha
 features[field_base][] = field_fecha_finiquito
 features[field_base][] = field_formulario_insumos_pge
 features[field_base][] = field_fuente_financiamiento
+features[field_base][] = field_fuente_presa_naciente_pozo
 features[field_base][] = field_funcionario_responsable
 features[field_base][] = field_genero
 features[field_base][] = field_image
