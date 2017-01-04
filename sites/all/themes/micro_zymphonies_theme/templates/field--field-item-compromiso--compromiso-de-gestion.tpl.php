@@ -65,7 +65,7 @@
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
-        <?php //dpm($item); ?>
+        <?php dpm($item); ?>
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr>
           <?php
@@ -96,8 +96,8 @@
                 ?>
                 <?php if(is_array($meta_field)): ?>
                   <?php
-                    //dpm($meta_field);
-                    print render($meta_field['title']);
+                    dpm($meta_field['#node']);
+                    print $meta_field['#node']->title;
                   ?>
                   </br>
                 <?php endif; ?>
