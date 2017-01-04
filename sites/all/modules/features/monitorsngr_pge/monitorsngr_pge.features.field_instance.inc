@@ -6066,6 +6066,397 @@ function monitorsngr_pge_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_descripcion_obras_reque'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_descripcion_obras_reque'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_descripcion_obras_reque',
+    'label' => 'Descripción de las obras o labores requeridas',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_descripcion_tramo'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_descripcion_tramo'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_descripcion_tramo',
+    'label' => 'Descripción del tramo',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_extension'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_extension'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_extension',
+    'label' => 'Extensión',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_monto_estimado'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_monto_estimado'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 8,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado',
+    'label' => 'Monto estimado de costo de obras y labores',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_monto_estimado_perdidas'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_monto_estimado_perdidas'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Monto en millones de colones',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 5,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_monto_estimado_perdidas',
+    'label' => 'Monto estimado de pérdidas',
+    'required' => 1,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_naturaleza_dannos'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_naturaleza_dannos'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_naturaleza_dannos',
+    'label' => 'Descripción de los daños',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_nivel_prioridad'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_nivel_prioridad'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_nivel_prioridad',
+    'label' => 'Nivel de Prioridad',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_poblado'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_poblado'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_poblado',
+    'label' => 'Poblado',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-pge_insumos_sis_infocomunicacion-field_ubicaci_n_geogr_fica'.
+  $field_instances['paragraphs_item-pge_insumos_sis_infocomunicacion-field_ubicaci_n_geogr_fica'] = array(
+    'bundle' => 'pge_insumos_sis_infocomunicacion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ubicaci_n_geogr_fica',
+    'label' => 'Provincia, Cantón, Distrito',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acciones y obras por realizar');
@@ -6109,6 +6500,7 @@ function monitorsngr_pge_field_default_field_instances() {
   t('Mecanismos de ejecución');
   t('Metros cuadrados de construcción');
   t('Monto Total Asigando');
+  t('Monto en millones de colones');
   t('Monto estimado');
   t('Monto estimado de costo de obras o labores');
   t('Monto estimado de costo de obras y labores');
