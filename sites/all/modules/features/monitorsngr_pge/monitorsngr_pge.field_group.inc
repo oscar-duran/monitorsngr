@@ -292,6 +292,40 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_movilizados|paragraphs_item|pge_insumos_poblacion|form';
+  $field_group->group_name = 'group_movilizados';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_poblacion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_personas_afectadas';
+  $field_group->data = array(
+    'label' => 'Movilizados',
+    'weight' => '9',
+    'children' => array(
+      0 => 'field_numero_personas',
+      1 => 'field_lugar_movilizacion',
+      2 => 'field_numero_familias',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'formatter' => 'open',
+      'instance_settings' => array(
+        'description' => '',
+        'show_label' => 1,
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+        'classes' => 'group-movilizados field-group-div',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_movilizados|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_personas_afectadas|paragraphs_item|pge_insumos_poblacion|form';
   $field_group->group_name = 'group_personas_afectadas';
   $field_group->entity_type = 'paragraphs_item';
@@ -302,9 +336,7 @@ function monitorsngr_pge_field_group_info() {
     'label' => 'Personas afectadas',
     'weight' => '3',
     'children' => array(
-      0 => 'field_numero_personas',
-      1 => 'field_numero_familias',
-      2 => 'field_lugar_movilizacion',
+      0 => 'group_movilizados',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -566,6 +598,35 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_total|paragraphs_item|pge_insumos_poblacion|form';
+  $field_group->group_name = 'group_total';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_poblacion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Total de personas',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_total_numero_familias',
+      1 => 'field_total_numero_personas',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-total field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_total|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_ubicacion|node|decreto_de_emergencia|form';
   $field_group->group_name = 'group_ubicacion';
   $field_group->entity_type = 'node';
@@ -744,8 +805,10 @@ function monitorsngr_pge_field_group_info() {
   t('Cobertura');
   t('Competencias');
   t('Funcionario Responsable');
+  t('Movilizados');
   t('Personas afectadas');
   t('Propuesta');
+  t('Total de personas');
   t('Ubicación');
   t('Ubicación ');
 
