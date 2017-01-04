@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Display content types (add and edit) feature.
+ */
+
+include_once 'display_content_types_add_and_edit_.features.inc';
