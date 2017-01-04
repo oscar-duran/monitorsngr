@@ -348,6 +348,37 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_afectacion|paragraphs_item|pge_insumos_vivienda|form';
+  $field_group->group_name = 'group_afectacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_vivienda';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Afectacción',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_naturaleza_dannos',
+      1 => 'field_monto_estimado_perdidas',
+      2 => 'field_documento_referencia',
+      3 => 'field_nivel_dannos',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-afectacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_afectacion|paragraphs_item|pge_insumos_vivienda|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_caracteristicas_edificio|paragraphs_item|pge_insumos_edificios_publicos|form';
   $field_group->group_name = 'group_caracteristicas_edificio';
   $field_group->entity_type = 'paragraphs_item';
@@ -403,6 +434,36 @@ function monitorsngr_pge_field_group_info() {
     ),
   );
   $field_groups['group_caracteristicas_sistema|paragraphs_item|pge_insumos_sistema_abaste_agua|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_caracteristicas_vivienda|paragraphs_item|pge_insumos_vivienda|form';
+  $field_group->group_name = 'group_caracteristicas_vivienda';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_vivienda';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Características de la vivienda',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_material_predominante',
+      1 => 'field_tenencia',
+      2 => 'field_metros_cuadrados_constru',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-caracteristicas-vivienda field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_caracteristicas_vivienda|paragraphs_item|pge_insumos_vivienda|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -496,6 +557,37 @@ function monitorsngr_pge_field_group_info() {
     ),
   );
   $field_groups['group_movilizados|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_nucleo_familiar|paragraphs_item|pge_insumos_vivienda|form';
+  $field_group->group_name = 'group_nucleo_familiar';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_vivienda';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Núcleo familiar',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_nombre_jefe_familia',
+      1 => 'field_telefono_jefe_familia',
+      2 => 'field_numero_integrantes',
+      3 => 'field_numero_cedula',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-nucleo-familiar field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_nucleo_familiar|paragraphs_item|pge_insumos_vivienda|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -860,6 +952,35 @@ function monitorsngr_pge_field_group_info() {
     ),
   );
   $field_groups['group_propuesta|paragraphs_item|pge_insumos_sistema_electrico|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_vivienda|form';
+  $field_group->group_name = 'group_propuesta';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_vivienda';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Propuesta',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_solucion',
+      1 => 'field_monto_estimado',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-propuesta field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_propuesta|paragraphs_item|pge_insumos_vivienda|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -1242,16 +1363,47 @@ function monitorsngr_pge_field_group_info() {
   );
   $field_groups['group_ubicacion|paragraphs_item|pge_insumos_sistema_electrico|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ubicacion|paragraphs_item|pge_insumos_vivienda|form';
+  $field_group->group_name = 'group_ubicacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_vivienda';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Ubicación',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_poblado',
+      1 => 'field_direccion',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ubicacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_ubicacion|paragraphs_item|pge_insumos_vivienda|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Afectacción');
   t('Afectación');
+  t('Características de la vivienda');
   t('Características del edificio');
   t('Características del sistema');
   t('Cobertura');
   t('Competencias');
   t('Funcionario Responsable');
   t('Movilizados');
+  t('Núcleo familiar');
   t('Personas afectadas');
   t('Propuesta');
   t('Total de personas');
