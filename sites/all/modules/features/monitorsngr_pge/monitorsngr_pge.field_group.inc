@@ -203,6 +203,35 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_afectacion|paragraphs_item|pge_insumos_puentes|form';
+  $field_group->group_name = 'group_afectacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_puentes';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Afectacción',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_naturaleza_dannos',
+      1 => 'field_monto_estimado_perdidas',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-afectacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_afectacion|paragraphs_item|pge_insumos_puentes|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_caracteristicas_edificio|paragraphs_item|pge_insumos_edificios_publicos|form';
   $field_group->group_name = 'group_caracteristicas_edificio';
   $field_group->entity_type = 'paragraphs_item';
@@ -303,8 +332,8 @@ function monitorsngr_pge_field_group_info() {
     'weight' => '9',
     'children' => array(
       0 => 'field_numero_personas',
-      1 => 'field_lugar_movilizacion',
-      2 => 'field_numero_familias',
+      1 => 'field_numero_familias',
+      2 => 'field_lugar_movilizacion',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -540,6 +569,36 @@ function monitorsngr_pge_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_propuesta|paragraphs_item|pge_insumos_puentes|form';
+  $field_group->group_name = 'group_propuesta';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_puentes';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Propuesta',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_descripcion_obras_reque',
+      1 => 'field_nivel_prioridad',
+      2 => 'field_monto_estimado',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-propuesta field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_propuesta|paragraphs_item|pge_insumos_puentes|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_responsable|node|peg_ficha_tecnica_compromiso|form';
   $field_group->group_name = 'group_responsable';
   $field_group->entity_type = 'node';
@@ -608,8 +667,8 @@ function monitorsngr_pge_field_group_info() {
     'label' => 'Total de personas',
     'weight' => '5',
     'children' => array(
-      0 => 'field_total_numero_familias',
-      1 => 'field_total_numero_personas',
+      0 => 'field_total_numero_personas',
+      1 => 'field_total_numero_familias',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -796,6 +855,36 @@ function monitorsngr_pge_field_group_info() {
     ),
   );
   $field_groups['group_ubicacion|paragraphs_item|pge_insumos_poblacion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ubicacion|paragraphs_item|pge_insumos_puentes|form';
+  $field_group->group_name = 'group_ubicacion';
+  $field_group->entity_type = 'paragraphs_item';
+  $field_group->bundle = 'pge_insumos_puentes';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Ubicación',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_extension',
+      1 => 'field_descripcion_tramo',
+      2 => 'field_poblado',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ubicacion field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_ubicacion|paragraphs_item|pge_insumos_puentes|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
