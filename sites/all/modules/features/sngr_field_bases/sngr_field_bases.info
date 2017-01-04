@@ -59,6 +59,7 @@ features[field_base][] = field_departamento
 features[field_base][] = field_descrip_meta
 features[field_base][] = field_descripc_fuente_verifica
 features[field_base][] = field_descripcion_obras_reque
+features[field_base][] = field_descripcion_tramo
 features[field_base][] = field_direccion
 features[field_base][] = field_direccion_exacta
 features[field_base][] = field_documento_adjunto
