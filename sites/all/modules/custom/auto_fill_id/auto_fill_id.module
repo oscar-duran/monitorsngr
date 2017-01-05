@@ -64,9 +64,9 @@ function is_add_form($form_state){
 
 function default_value_accion($item_id, $action_id, $form) {
   $item_entity = $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['#entity'];
-  $eje = $item_entity->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
-  $ambito = $item_entity->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
-  $lineamiento = $item_entity->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
+  $eje =  !empty($item_entity->field_codigo_eje) ? $item_entity->field_codigo_eje[LANGUAGE_NONE][0]['tid'] : '0';
+  $ambito = !empty($item_entity->field_codigo_ambito) ? $item_entity->field_codigo_ambito[LANGUAGE_NONE][0]['tid']  :'0';
+  $lineamiento = !empty($item_entity->field_codigo_lineamiento) ? $item_entity->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'] : '0';
 
   return 'E'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
 }
@@ -144,6 +144,9 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] = $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1';
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
           $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#suffix'] = '</div>';
+          $accion['field_meta'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Agregar Meta';
+          $accion['field_meta'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear meta';
+
 
           //Producto
           //dpm($accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']);
@@ -180,7 +183,6 @@ function generate_action_code($item_id, $action_id, $form_state) {
 
 
 function generate_action_code2($item_id, $action_id, $form) {
-  dpm($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]);
   $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
   $ambito = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value']) ?
@@ -236,7 +238,7 @@ function auto_fill_id_field_collection_item_insert(FieldCollectionItemEntity $fi
     }
 
     if($field_collection_item->field_name == "field_accion_collect") {
-      dpm($field_collection_item);
+      //dpm($field_collection_item);
       //accion_id($field_collection_item);
     }
 }
@@ -251,7 +253,7 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
   }
 
   if($field_collection_item->field_name == "field_accion_collect") {
-    dpm($field_collection_item);
+    //dpm($field_collection_item);
     review_action($field_collection_item);
     //dpm($field_collection_item);
   }
@@ -292,6 +294,7 @@ function action_id($compromiso_node) {
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
         if($action) {
+          //dpm($action);
           $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
           meta_id($action);
           $action->save(TRUE);

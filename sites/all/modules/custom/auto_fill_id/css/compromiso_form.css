@@ -46,12 +46,12 @@ fieldset.item-fieldset, .action-tab {
     border: none;
     border-top: 3px solid #0074BD;
 }
-
+/*
 .form-wrapper > fieldset.ief-form.form-wrapper .fieldset-wrapper > div:nth-child(-n+3) {
     padding-top: 0;
     float: left;
     margin-left: 10px;
-}
+}*/
 
 fieldset.action-tab fieldset.form-wrapper {
     padding-right: 0;
