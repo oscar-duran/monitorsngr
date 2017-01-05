@@ -15,3 +15,12 @@ function monitorsngr_pge_ctools_plugin_directory($owner, $plugin_type) {
     return 'plugins/content_types';
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === 'pge_formulario_insumos_node_form') {
+    $form['#attached']['js'][] = drupal_get_path('module', 'monitorsngr_pge') . '/js/pge_supplies_form.js';
+  }
+}
