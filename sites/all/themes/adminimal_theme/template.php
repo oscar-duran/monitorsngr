@@ -252,10 +252,10 @@ function adminimal_table($variables) {
 
   // Add sticky headers, if applicable.
   if (count($header) && $sticky) {
-    drupal_add_js('misc/tableheader.js');
+    //drupal_add_js('misc/tableheader.js');
     // Add 'sticky-enabled' class to the table to identify it for JS.
     // This is needed to target tables constructed by this function.
-    $attributes['class'][] = 'sticky-enabled';
+    $attributes['class'][] = 'no-sticky';
   }
 
   $output = '<div class="overflow-fix">';
