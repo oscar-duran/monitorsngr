@@ -165,7 +165,7 @@ function micro_zymphonies_theme_form_element($variables) {
     $output .= '<div class="description">' . $element['#description'] . "</div>\n";
   }
 
-  $output .= "EMAEMA</div>\n";
+  $output .= "</div>\n";
 
   return $output;
 }
