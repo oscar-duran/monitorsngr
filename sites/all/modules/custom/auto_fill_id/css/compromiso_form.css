@@ -52,3 +52,9 @@ fieldset.item-fieldset, .action-tab {
     float: left;
     margin-left: 10px;
 }
+
+fieldset.action-tab fieldset.form-wrapper {
+    padding-right: 0;
+    border: 0;
+    border-top: 3px solid #0074BD;
+}

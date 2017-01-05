@@ -122,10 +122,10 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           //$accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#prefix'] = '<div id="codigo_accion_id">';
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#suffix'] = '</div>';
 
-          $accion_code = is_add_form($form_state) || isset($form_state['values']) ? generate_action_code($item_id, $accion_id, $form_state) : default_value_accion($item_id, $accion_id, $form);
+          $accion_code = is_add_form($form_state) || isset($form_state['values']) ? generate_action_code2($item_id, $accion_id, $form) : default_value_accion($item_id, $accion_id, $form);
 
           $accion_group = $accion_id > 0 ? clone_group($accion['#groups']['group_acciones']) : $accion['#groups']['group_acciones'];
-          $accion_group->label = $accion_code;
+          $accion_group->label = 'Ae' . ($accion_id + 1);
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion_code;
 
           $accion['#groups']['group_acciones'] = $accion_group;
@@ -147,7 +147,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
           //Producto
           //dpm($accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']);
-          $accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] . 'P1';
+          //$accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] . 'P1';
           $accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#disabled'] = TRUE;
             //$accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['title'] = $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] . 'P1';
 
@@ -159,8 +159,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
     }
   }
 
-  //dpm($form);
-  //dpm($form_state);
+  dpm($form);
+  dpm($form_state);
 }
 
 function meta_callback($form, $form_state) {
@@ -178,6 +178,19 @@ function generate_action_code($item_id, $action_id, $form_state) {
   return 'E'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
 }
 
+
+function generate_action_code2($item_id, $action_id, $form) {
+  dpm($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]);
+  $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
+    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
+  $ambito = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value']) ?
+    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value'][0] : '0';
+  $lineamiento = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value']) ?
+    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value'][0] : '0';
+
+  return 'E'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
+}
+
 //Form ajax callback
 function update_name_acciones_callback($form, $form_state) {
   $commands = array();
@@ -187,7 +200,7 @@ function update_name_acciones_callback($form, $form_state) {
         if (is_numeric($action_id)) {
           $commands[] = ajax_command_replace("#item_". $item_id . "_codigo_accion_" . $action_id, drupal_render($action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']));
           $commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['title']));
-          $commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value']));
+          //$commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value']));
         }
         $item['field_accion_collect'][LANGUAGE_NONE][$action_id] = $action;
       }
@@ -238,14 +251,18 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
   }
 
   if($field_collection_item->field_name == "field_accion_collect") {
+    dpm($field_collection_item);
+    review_action($field_collection_item);
     //dpm($field_collection_item);
-    $size = sizeof($field_collection_item->field_meta[LANGUAGE_NONE]);
-    if($size > 1) {
-      $array = array_slice($field_collection_item->field_meta[LANGUAGE_NONE], $size - 1);
-      //dpm($array);
-      $field_collection_item->field_meta[LANGUAGE_NONE] =  $array;
-    }
-    //dpm($field_collection_item);
+  }
+}
+
+function review_action(FieldCollectionItemEntity &$field_collection_item) {
+  $size = sizeof($field_collection_item->field_meta[LANGUAGE_NONE]);
+  if($size > 1) {
+    $array = array_slice($field_collection_item->field_meta[LANGUAGE_NONE], $size - 1);
+    //dpm($array);
+    $field_collection_item->field_meta[LANGUAGE_NONE] =  $array;
   }
 }
 
@@ -260,7 +277,7 @@ function compromiso_id($node) {
     if($node->field_id_compromiso) {
         $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
         $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-        $node->title = $id . '-' . $ins->title . '-' . date('Y');
+        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
     }
 }
 
@@ -289,19 +306,20 @@ function meta_id($action_node){
   $action_id = $action_node->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'];
   $meta = node_load($meta_id);
   $meta->title = $action_id . 'M1';
+  foreach ($meta->field_producto[LANGUAGE_NONE] as $key => $productos){
+    producto_id($meta, $productos['target_id'], ($key + 1));
+  }
   $meta->revision = 1;
   node_save($meta);
 }
-/*
-function producto_id($meta_node){
-  $producto_id = $meta_node->field_producto[LANGUAGE_NONE][0]['target_id'];
-  $action_id = $meta_node->field_cod_producto_meta[LANGUAGE_NONE][0]['value'];
-  $meta = node_load($producto_id);
-  $meta->title = $action_id . 'M1';
-  $meta->revision = 1;
-  node_save($meta);
+
+function producto_id($meta_node, $producto_nid, $producto_id){
+  $producto = node_load($producto_nid);
+  $producto->field_cod_producto_meta = $meta_node->title . 'P' . $producto_id;
+  $producto->revision = 1;
+  node_save($producto);
 }
-*/
+
 function compromiso_prueba_update($node) {
     if($node->field_id_compromiso) {
       $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
