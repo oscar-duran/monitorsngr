@@ -268,7 +268,7 @@ function field_collection_modals_operator_callback($node, $fieldname,
 
     $form_state = array(
       'ajax' => TRUE,
-      'title' => ($action == 'update' ? t('Modify Data') : t('Delete Data')),
+      'title' => ($action == 'edit' ? t('Modify Data') : t('Delete Data')),
     );
 
     $form_state['build_info']['args'][] = $field;
