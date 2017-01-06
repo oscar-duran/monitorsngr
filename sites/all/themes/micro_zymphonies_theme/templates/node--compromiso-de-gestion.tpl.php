@@ -101,7 +101,7 @@
       //hide($content['links']);
 
 
-      dpm($content);
+      //dpm($content);
       print render($content);
 
 //      print render($content['field_estado']);

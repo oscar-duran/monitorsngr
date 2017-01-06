@@ -177,7 +177,7 @@
             <?php if ($action_links): ?>
               <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
-            <?php dpm($page); ?>
+            <?php //dpm($page['content']); ?>
             <?php print render($page['content']); ?>
           </section>
         </div>

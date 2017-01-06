@@ -68,6 +68,8 @@ fieldset.action-tab fieldset.form-wrapper {
     background-color: #1272b9;
 }
 
-.form-submit {
-    bac
+.clearfix > .field-add-more-submit {
+    
+    border: 2px solid #1272b9;
+    border-radius: 25px;
 }
