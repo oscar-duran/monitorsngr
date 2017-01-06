@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Code for the Planes generales de Emergencia feature.
+ */
+
+include_once 'monitorsngr_pge.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function monitorsngr_pge_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner === 'ctools' && $plugin_type === 'content_types') {
+    return 'plugins/content_types';
+  }
+}

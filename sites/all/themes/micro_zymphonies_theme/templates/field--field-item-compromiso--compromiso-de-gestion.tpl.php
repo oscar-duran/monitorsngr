@@ -65,14 +65,14 @@
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
-        <?php dpm($item); ?>
+        <?php// dpm($item); ?>
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr>
           <?php
-            dpm($element);
+            //dpm($element);
             $accion_id = $element['field_accion_collect']['#items'][0]['value'];
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
-            dpm($accion_estrategica);
+           // dpm($accion_estrategica);
           ?>
           <!--<div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>-->
           <td><?php print render($element['field_id_item']); ?></td>
@@ -96,7 +96,7 @@
                 ?>
                 <?php if(is_array($meta_field)): ?>
                   <?php
-                    dpm($meta_field['#node']);
+                    //dpm($meta_field['#node']);
                     print $meta_field['#node']->title;
                   ?>
                   </br>

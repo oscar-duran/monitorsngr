@@ -22,7 +22,7 @@
 }
 
 .form-item-title {
-    float: left;
+    /*float: left;*/
 }
 
 .fieldset-wrapper .field-type-number-integer {
@@ -57,4 +57,17 @@ fieldset.action-tab fieldset.form-wrapper {
     padding-right: 0;
     border: 0;
     border-top: 3px solid #0074BD;
+}
+
+
+
+/********************/
+
+.field-label {
+    /*background-color: aqua;*/
+    background-color: #1272b9;
+}
+
+.form-submit {
+    bac
 }
