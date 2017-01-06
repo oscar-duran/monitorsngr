@@ -24,3 +24,19 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
     $form['#attached']['js'][] = drupal_get_path('module', 'monitorsngr_pge') . '/js/pge_supplies_form.js';
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function monitorsngr_pge_theme($existing, $type, $theme, $path) {
+  return array(
+    'monitorsngr_pge_supplie_form_author_info' => array(
+      'variables' => array(
+        'bottom_text' => array(),
+        'download_link' => array(),
+      ),
+      'template' => 'monitorsngr-pge-supplie-form-author-info',
+      'path' => drupal_get_path('module', 'monitorsngr_pge') . '/templates',
+    ),
+  );
+}
