@@ -259,6 +259,7 @@ features[field_instance][] = paragraphs_item-pge_insumos_vivienda-field_ubicaci_
 features[node][] = decreto_de_emergencia
 features[node][] = peg_ficha_tecnica_compromiso
 features[node][] = pge_formulario_insumos
+features[page_manager_handlers][] = node_view__panel_context_283405f7-0bcc-45c0-8ab5-61035e6e801c
 features[page_manager_handlers][] = node_view__panel_context_89a5b626-7348-40bd-a205-09a312cbf161
 features[page_manager_handlers][] = node_view__panel_context_c49dbda0-a1a8-416b-8c38-bd8d0246a1c6
 features[paragraphs][] = compromiso_pge_acciones_obras

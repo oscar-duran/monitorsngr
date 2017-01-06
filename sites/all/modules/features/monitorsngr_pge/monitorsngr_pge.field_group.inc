@@ -1024,8 +1024,8 @@ function monitorsngr_pge_field_group_info() {
     'label' => 'Funcionario Responsable',
     'weight' => '4',
     'children' => array(
-      0 => 'field_cargo_fun_responsable',
-      1 => 'field_funcionario_responsable',
+      0 => 'field_funcionario_responsable',
+      1 => 'field_cargo_fun_responsable',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
