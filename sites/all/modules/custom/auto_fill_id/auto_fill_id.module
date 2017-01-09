@@ -78,8 +78,25 @@ function default_value_accion($item_id, $action_id, $form) {
 function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) {
   dpm($form);
 
-  //$form['title']['#attributes']['class'][] = 'element-hidden';
+  //css
+  $form['#attached'] = array(
+    'css' => array('sites/all/modules/custom/auto_fill_id/css/meta_form.css'),
+  );
 
+  $form['title']['#disabled'] = TRUE;
+
+  $form['field_producto'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Añadir producto';
+
+  if(is_add_form($form_state)) {
+    $form['title']['#default_value'] = 'M1';
+  }
+
+  if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
+    $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
+    $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
+    $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#disabled'] = TRUE;
+    $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
+  }
 }
 
 /**
@@ -142,39 +159,18 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion['#groups']['group_acciones'] = $accion_group;
           $accion['#fieldgroups']['group_acciones'] = $accion_group;
 
-          /*$accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#ajax'] = array(
-            'callback' => 'meta_callback',
-            'event' => 'change',
-            'method' => 'replace',
-            'wrapper' => 'meta_accion',
-          );*/
-
-          //Meta
-          /*$accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#ajax'] = array(
-            'callback' => 'method_2',
-            'method' => 'replace',
-          );*/
-          //$accion['field_meta'][LANGUAGE_NONE]['form']['title']['#attributes']['class'][] = 'element-hidden';
-          /*$accion['field_meta'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
-          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] = $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1';
-          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
-          $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#suffix'] = '</div>';
-          $accion['field_meta'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Agregar Meta';
-          $accion['field_meta'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear meta';*/
-
-          unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
+          //unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
           $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
           $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#suffix'] = '</div>';
-          $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] =  'M1' ;
-
-          review_meta_form($accion, $form_state, $item_id, $accion_id);
-
-          //Producto
-          //dpm($accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']);
-          //$accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] . 'P1';
-          $accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#disabled'] = TRUE;
-            //$accion['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['title'] = $accion['field_meta'][LANGUAGE_NONE]['form']['title']['#default_value'] . 'P1';
-
+          $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1"'  ;
+          //$accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] =  'M1' ;
+          //dpm($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']);
+          //$accion['field_meta'][LANGUAGE_NONE]['#disabled'] = TRUE;
+          /*if(!empty($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id']))
+          {
+            review_meta_form($accion, $form_state, $item_id, $accion_id);
+          }*/
+          //change_new_meta_code($accion);
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
         }
       }
@@ -186,15 +182,26 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   dpm($form_state);
 }
 
+function change_new_meta_code(&$action) {
+  if(!empty($action['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id'])) {
+    $meta_id = $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id'];
+    $meta = node_load($meta_id);
+    $meta->title = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
+    $meta->revision = 1;
+    node_save($meta);
+  }
+}
+
 function meta_callback($form, $form_state) {
   return $form['field_item_de_compromiso'][LANGUAGE_NONE][0]['field_accion_collect'][LANGUAGE_NONE][0]['field_meta'][LANGUAGE_NONE]['form']['title']['value'];
 }
 
 function review_meta_form(&$action, $form_state, $item_id, $action_id) {
-  //if(!empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_accion_collect'][LANGUAGE_NONE][$action_id]['field_meta'][LANGUAGE_NONE][0])) {
-    //$action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
-    $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] =  'M1' . rand(0, 50) ;
-  //}
+  if(!empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_accion_collect'][LANGUAGE_NONE][$action_id]['field_meta'][LANGUAGE_NONE][0])) {
+    $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
+    $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#value'] = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
+    //$action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] =  'M1' . rand(0, 50) ;
+  }
 }
 
 function generate_action_code($item_id, $action_id, $form_state) {
@@ -228,7 +235,7 @@ function update_name_acciones_callback($form, $form_state) {
       foreach ($item['field_accion_collect'][LANGUAGE_NONE] as $action_id => $action) {
         if (is_numeric($action_id)) {
           $commands[] = ajax_command_replace("#item_". $item_id . "_codigo_accion_" . $action_id, drupal_render($action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']));
-          $commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE][0]['target_id']));
+          $commands[] = ajax_command_replace('#item_' . $item_id . '_accion_meta_' . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE][0]['target_id']));
           //$commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['title']));
           //$commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value']));
         }
@@ -237,6 +244,7 @@ function update_name_acciones_callback($form, $form_state) {
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
     }
   }
+  dpm($commands);
   return array(
     '#type' => 'ajax',
     '#commands' => $commands,
@@ -327,7 +335,10 @@ function action_id($compromiso_node) {
         if($action) {
           //dpm($action);
           $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
-          meta_id($action);
+          dpm($action);
+          if(!empty($action->field_meta)) {
+            meta_id($action);
+          }
           $action->save(TRUE);
         }
       }
@@ -340,18 +351,22 @@ function meta_id($action_node){
   $action_id = $action_node->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'];
   $meta = node_load($meta_id);
   $meta->title = $action_id . 'M1';
+  dpm($meta);
+  $meta->revision = 1;
+  node_save($meta);
+
   foreach ($meta->field_producto[LANGUAGE_NONE] as $key => $productos){
     producto_id($meta, $productos['target_id'], ($key + 1));
   }
-  $meta->revision = 1;
-  node_save($meta);
 }
 
 function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
   $producto->field_cod_producto_meta = $meta_node->title . 'P' . $producto_id;
+  dpm($producto);
   $producto->revision = 1;
   node_save($producto);
+  //field_attach_update('node', $producto);
 }
 
 function compromiso_prueba_update($node) {

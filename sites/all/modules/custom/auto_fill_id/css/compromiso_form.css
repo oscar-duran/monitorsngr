@@ -58,3 +58,11 @@ fieldset.action-tab fieldset.form-wrapper {
     border: 0;
     border-top: 3px solid #0074BD;
 }
+
+fieldset.action-tab > .fieldset-wrapper {
+    display: flex;
+}
+
+fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
+    padding-left: 20px;
+}
