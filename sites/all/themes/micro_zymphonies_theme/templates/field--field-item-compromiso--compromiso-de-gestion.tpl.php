@@ -49,7 +49,7 @@
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
-  <?php dpm($items) ?>
+
   <div class="field-items"<?php print $content_attributes; ?>>
     <table>
       <thead>
@@ -65,16 +65,17 @@
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
-        <?php// dpm($item); ?>
+
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr>
           <?php
-            //dpm($element);
+
             $accion_id = $element['field_accion_collect']['#items'][0]['value'];
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
-           // dpm($accion_estrategica);
+
           ?>
-          <!--<div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>-->
+          <?php print $delta % 2 ? 'odd' : 'even'; ?>
+          <?php print $item_attributes[$delta]; ?>
           <td><?php print render($element['field_id_item']); ?></td>
           <td><?php print render($element['field_codigo_eje']); ?></td>
           <td><?php print render($element['field_codigo_ambito']); ?></td>
@@ -91,12 +92,11 @@
             <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
               <?php foreach($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field) : ?>
                 <?php
-                  //dpm($i . ' ' . $action_id['value']);
-                  //dpm($meta_field);
+
                 ?>
                 <?php if(is_array($meta_field)): ?>
                   <?php
-                    //dpm($meta_field['#node']);
+
                     print $meta_field['#node']->title;
                   ?>
                   </br>
@@ -119,13 +119,7 @@
           <td>
             <?php print render($item['links']); ?>
           </td>
-          <!--<td>
-            <?php
-              //dpm($item);
-              //print render($item);
-            ?>
-          </td>-->
-        <!--</div>-->
+  
         </tr>
         <?php endforeach; ?>
       <?php endforeach; ?>
