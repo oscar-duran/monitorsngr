@@ -79,3 +79,11 @@ html tbody tr td input[type="submit"] {
     border: 2px solid #1272b9;
     border-radius: 25px;
 }
+
+.fieldset-wrapper .form-wrapper .form-type-select {
+    margin: 10px 0px;
+}
+
+.fieldset-wrapper .form-wrapper .form-type-textfield {
+    margin: 10px 0px;
+}
