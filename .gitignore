@@ -2,8 +2,8 @@
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-.idea
 sites/default/settings.local.inc
+.idea
 
 .DS_Store
 /nbproject/private/
