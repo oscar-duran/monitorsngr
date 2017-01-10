@@ -180,7 +180,7 @@ function generate_action_code($item_id, $action_id, $form_state) {
 
 
 function generate_action_code2($item_id, $action_id, $form) {
-  dpm($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]);
+  //dpm($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]);
   $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
   $ambito = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value']) ?

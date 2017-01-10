@@ -140,7 +140,7 @@ table {
 }
 
 th, tr, td {
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 
@@ -172,7 +172,7 @@ table {
 }
 
 th {
-  background: #2E3D4A;
+  background: #1272b9;
   border-right: 1px solid #c8c7c7;
   color: #fff;
   padding: 10px;
