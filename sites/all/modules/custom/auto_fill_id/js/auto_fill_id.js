@@ -1,21 +1,3 @@
-/*jQuery("#edit-field-institucion-und-0-target-id").keyup(function () {
-        var d = new Date();
-        var institucion = jQuery(this).val();
-        jQuery("#edit-title").val(d.getFullYear() + '-' + institucion);
-    }
-);*/
-
-/*(function($) {
-    $("#edit-field-institucion-und-0-target-id").keyup(function () {
-            var d = new Date();
-            var institucion = $(this).val();
-            $("#edit-title").val(d.getFullYear() + '-' + institucion);
-        }
-    );
-}(jQuery));
-*/
-
-
 (function($, Drupal){
     Drupal.behaviors.auto_fill_id = {
         attach: function (context, settings) {
