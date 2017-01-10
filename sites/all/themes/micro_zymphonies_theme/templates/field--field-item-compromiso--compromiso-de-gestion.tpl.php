@@ -74,7 +74,7 @@
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
 
           ?>
-          <?php print $delta % 2 ? 'odd' : 'even'; ?>
+          <?php $delta % 2 ? 'odd' : 'even'; ?>
           <?php print $item_attributes[$delta]; ?>
           <td><?php print render($element['field_id_item']); ?></td>
           <td><?php print render($element['field_codigo_eje']); ?></td>
