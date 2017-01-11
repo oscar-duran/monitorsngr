@@ -1337,6 +1337,7 @@ select.form-select {
 }
 
 .form-item, .form-actions {
+  font-size: large;
   margin: 10px 0;
 }
 

@@ -134,7 +134,7 @@ function references_dialog_node_reference_add_link($element, $widget_settings, $
       $node_type = node_type_load($type);
       if (node_access('create', $node_type->type)) {
         $add_links[] = array(
-          'title' => t('Create @type', array('@type' => $node_type->name)),
+          'title' => t('Crear @type', array('@type' => $node_type->name)),
           'href' => 'node/add/' . strtr($type, array('_' => '-')),
         );
       }
@@ -305,7 +305,7 @@ function references_dialog_entityreference_link_helper($entity_type, $bundle = N
 
   if ($access && $path) {
     $link = array(
-      'title' => t('Create @type', array('@type' => $label)),
+      'title' => t('Crear @type', array('@type' => $label)),
       'href' => $path,
     );
     return $link;
@@ -371,7 +371,7 @@ function references_dialog_term_reference_add_link($element, $widget_settings, $
   $add_links = array();
   if (user_access('administer taxonomy') || (module_exists('taxonomy_access_fix') && taxonomy_access_fix_access('add terms', $vocabulary))) {
     $add_links[] = array(
-      'title' => t('Create @type', array('@type' => taxonomy_vocabulary_machine_name_load($vocabulary)->name)),
+      'title' => t('Crear @type', array('@type' => taxonomy_vocabulary_machine_name_load($vocabulary)->name)),
       'href' => 'admin/structure/taxonomy/' . $field['settings']['allowed_values'][0]['vocabulary'] . '/add',
     );
   }
