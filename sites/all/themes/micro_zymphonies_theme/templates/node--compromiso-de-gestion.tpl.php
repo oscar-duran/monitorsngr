@@ -98,10 +98,10 @@
     <?php
       // Hide comments, tags, and links now so that we can render them later.
       hide($content['comments']);
-      //hide($content['links']);
+      hide($content['links']);
 
 
-      //dpm($content);
+      //dpm($content['field_item_compromiso']);
       print render($content);
 
 //      print render($content['field_estado']);
