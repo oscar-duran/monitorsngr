@@ -3,13 +3,11 @@
  * Implements hook_html_head_alter().
  * This will overwrite the default meta character type tag with HTML5 version.
  */
-
 function micro_zymphonies_theme_html_head_alter(&$head_elements) {
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8'
   );
 }
-
 /**
  * Insert themed breadcrumb page navigation at top of the node content.
  */
@@ -19,12 +17,11 @@ function micro_zymphonies_theme_breadcrumb($variables) {
     // Use CSS to hide titile .element-invisible.
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
     // comment below line to hide current page to breadcrumb
-	$breadcrumb[] = drupal_get_title();
+    $breadcrumb[] = drupal_get_title();
     $output .= '<nav class="breadcrumb">' . implode(' » ', $breadcrumb) . '</nav>';
     return $output;
   }
 }
-
 /**
  * Override or insert variables into the page template.
  */
@@ -62,13 +59,11 @@ function micro_zymphonies_theme_preprocess_page(&$vars) {
     $vars['secondary_menu'] = FALSE;
   }
 }
-
 /**
  * Duplicate of theme_menu_local_tasks() but adds clearfix to tabs.
  */
 function micro_zymphonies_theme_menu_local_tasks(&$variables) {
   $output = '';
-
   if (!empty($variables['primary'])) {
     $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
@@ -83,7 +78,6 @@ function micro_zymphonies_theme_menu_local_tasks(&$variables) {
   }
   return $output;
 }
-
 /**
  * Override or insert variables into the node template.
  */
@@ -93,20 +87,18 @@ function micro_zymphonies_theme_preprocess_node(&$variables) {
     $variables['classes_array'][] = 'node-full';
   }
 }
-
 function micro_zymphonies_theme_page_alter($page) {
   // <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
   $viewport = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
     '#attributes' => array(
-    'name' =>  'viewport',
-    'content' =>  'width=device-width'
+      'name' =>  'viewport',
+      'content' =>  'width=device-width'
     )
   );
   drupal_add_html_head($viewport, 'viewport');
 }
-
 
 function micro_zymphonies_theme_form_element($variables) {
   $element = &$variables['element'];
@@ -161,15 +153,13 @@ function micro_zymphonies_theme_form_element($variables) {
       break;
   }
 
+
   if (!empty($element['#description'])) {
     $output .= '<div class="description">' . $element['#description'] . "</div>\n";
   }
-
   $output .= "</div>\n";
-
   return $output;
 }
-
 
 function micro_zymphonies_theme_table($variables) {
   $header = $variables['header'];
@@ -189,7 +179,6 @@ function micro_zymphonies_theme_table($variables) {
   }
 
   $output = '<table' . drupal_attributes($attributes) . ">\n";
-
   if (isset($caption)) {
     $output .= '<caption>' . $caption . "</caption>\n";
   }

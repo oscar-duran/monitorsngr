@@ -8,12 +8,14 @@
 }
 
 #field-item-compromiso-values .draggable td .field-type-taxonomy-term-reference {
-/*    float: left;*/
+
+    /*float: left;*/
     padding-right: 1.45rem;
 }
 
 .draggable td .field-type-taxonomy-term-reference {
-/*    float: left;*/
+
+    /*float: left;*/
     padding-right: 1.45rem;
 }
 
@@ -60,22 +62,30 @@ fieldset.action-tab fieldset.form-wrapper {
 }
 
 
+fieldset.action-tab > .fieldset-wrapper {
+    display: flex;
+}
 
-/********************/
+fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
+    padding-left: 20px;
+}
+
+/***********************************/
 
 .field-label {
     /*background-color: aqua;*/
-    background-color: #1272b9;
+    background-color: #1272b9 ;
 }
 
 .clearfix > .field-add-more-submit {
-    
-    border: 2px solid #1272b9;
+
+    border: 2px solid #1272b9 ;
     border-radius: 25px;
     margin-top: 10px;
 }
 
 html tbody tr td input[type="submit"] {
+
     border: 2px solid #1272b9;
     border-radius: 25px;
 }

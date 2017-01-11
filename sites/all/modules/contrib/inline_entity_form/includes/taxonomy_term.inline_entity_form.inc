@@ -8,9 +8,9 @@
 class TaxonomyTermInlineEntityFormController extends EntityInlineEntityFormController {
 
   /**
-   * Overrides EntityInlineEntityFormController::labels().
+   * Overrides EntityInlineEntityFormController::defaultLabels().
    */
-  public function labels() {
+  public function defaultLabels() {
     $labels = array(
       'singular' => t('term'),
       'plural' => t('terms'),
@@ -82,7 +82,7 @@ class TaxonomyTermInlineEntityFormController extends EntityInlineEntityFormContr
       '#title' => t('Description'),
       '#default_value' => $term->description,
       '#format' => $term->format,
-      '#weight' => $extra_fields['description']['weight'],
+      '#weight' => !empty($extra_fields['description']) ? $extra_fields['description']['weight'] : -4,
     );
 
     $langcode = entity_language('taxonomy_term', $term);

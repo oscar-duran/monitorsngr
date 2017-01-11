@@ -1,7 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 /* --------------------------------------------- 
-
 * Filename:     style.css
 * Version:      1.0.0 (2015-03-10)
 * Website:      http://www.zymphonies.com
@@ -9,7 +8,6 @@
 * Description:  System Styles
 * Author:       Zymphonies Dev Team
                 info@zymphonies.com
-
 -----------------------------------------------*/
 
 html, body, div, span, applet, object, iframe,
@@ -21,8 +19,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -33,7 +31,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -357,7 +355,7 @@ b {
   position: relative;
   z-index: 9;
   background-color: #cee9f4;
-  }
+}
 
 
 
@@ -372,7 +370,7 @@ b {
 #header {
   max-width: 1024px;
   margin: 0 auto;
-  }
+}
 
 .top_left {
   float: left;
@@ -429,7 +427,7 @@ b {
   float: left;
   background: #1272b9;
   width: 1003px;
-  font-size: 13px;	
+  font-size: 13px;
 }
 
 #main-menu ul {
@@ -466,16 +464,16 @@ b {
 }
 
 #main-menu li > ul li a {
-    color: #FFF;
-	padding: 10px 10px;
-	text-transform: inherit;
+  color: #FFF;
+  padding: 10px 10px;
+  text-transform: inherit;
 }
 #main-menu  li > ul li:hover {
   background-color: #ed6d25;
 
 }
 
-#main-menu ul > li li.expanded { 
+#main-menu ul > li li.expanded {
   padding-right: 0px;
   background-image: url(../images/arrow.png);
   background-repeat: no-repeat;
@@ -496,8 +494,8 @@ ul.menu {
   font-size: 17px;
 }
 
-.region ul.menu li, 
-.region ul.links li, 
+.region ul.menu li,
+.region ul.links li,
 .region .item-list ul li {
   background: url("../images/marker.png") no-repeat scroll 4px center rgba(0, 0, 0, 0);
   list-style: none outside none;
@@ -579,8 +577,8 @@ ul.menu {
   display: none;
 }
 
-#main-menu ul li.leaf, 
-#main-menu ul li.expanded, 
+#main-menu ul li.leaf,
+#main-menu ul li.expanded,
 #main-menu ul li.collapsed {
   list-style: none;
 }
@@ -891,7 +889,7 @@ input.form-checkbox, input.form-radio {
 }
 
 /*-------------------------------------------*
-  Menus and item lists 
+  Menus and item lists
 /*-------------------------------------------*/
 
 .item-list ul {
@@ -1003,7 +1001,7 @@ ul.secondary a.active {
 }
 
 .field-item {
-	width: 200px;
+  width: 200px;
 
 }
 /*-------------------------------------------*
@@ -1468,12 +1466,12 @@ ol.search-results {
 
 .footer_credit a {
   color: #ffffff;
-  }
-  
- .footer_credit a:hover {
+}
+
+.footer_credit a:hover {
   color: #91c6f5;
-  }
-  
+}
+
 
 #footer-area .column {
   float: left;
@@ -1504,9 +1502,9 @@ ol.search-results {
   padding: 7px 0;
   display: block;
   background-color:#2273b9;
-    display: inline-block;
+  display: inline-block;
 
-  }
+}
 
 
 .social-icons ul {
@@ -1532,30 +1530,30 @@ ol.search-results {
 }
 
 .social-icons .icon-facebook{
-	background: url(../images/facebook.png) center no-repeat;
-	}
-	
+  background: url(../images/facebook.png) center no-repeat;
+}
+
 .social-icons .icon-facebook:hover{
-	
-	background:url(../images/facebook-white.png) center no-repeat;
-	}
-	
+
+  background:url(../images/facebook-white.png) center no-repeat;
+}
+
 .social-icons .icon-twitter{
-	background: url(../images/twitter.png) center no-repeat;
-	}
-	
+  background: url(../images/twitter.png) center no-repeat;
+}
+
 .social-icons .icon-twitter:hover{
-	
-	background:url(../images/twitter-white.png) center no-repeat;
-	}
+
+  background:url(../images/twitter-white.png) center no-repeat;
+}
 .social-icons .icon-youtube{
-	background: url(../images/youtube.png) center no-repeat;
-	}
-	
+  background: url(../images/youtube.png) center no-repeat;
+}
+
 .social-icons .icon-youtube:hover{
-	
-	background:url(../images/youtube-white.png) center no-repeat;
-	}
+
+  background:url(../images/youtube-white.png) center no-repeat;
+}
 /*---------------------------
   User Menu
 ----------------------------*/
@@ -1574,8 +1572,8 @@ ol.search-results {
 
 .region-user-menu ul li.last {
   border: 0;
-   padding-right: 0;
-} 
+  padding-right: 0;
+}
 
 /*---------------------------
   Footer
