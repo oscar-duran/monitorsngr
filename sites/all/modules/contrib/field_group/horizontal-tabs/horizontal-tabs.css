@@ -13,7 +13,7 @@ div.horizontal-tabs {
   position: relative; /* IE6 */
   list-style: none;
   list-style-image: none; /* IE6 */
-  background-color: #dedede;
+  /*background-color: #dedede;*/
   border-right: 1px solid #dedede; /* LTR */
   width: 100%;
   height: auto;
@@ -32,7 +32,7 @@ fieldset.vertical-tabs-pane fieldset.horizontal-tabs-pane > legend {
 
 /* Layout of each tab */
 .horizontal-tabs ul.horizontal-tabs-list li {
-  background: #eee;
+/*  background: #eee;*/
   border-right: 1px solid #ccc; /* LTR */
   padding: 1px;
   padding-top: 0;
@@ -41,7 +41,7 @@ fieldset.vertical-tabs-pane fieldset.horizontal-tabs-pane > legend {
   float: left; /* LTR */
 }
 .horizontal-tabs ul.horizontal-tabs-list li.selected {
-  background-color: #fff;
+  background-color: #fffcea;
   padding: 0 0 1px 0;
 }
 .horizontal-tabs ul.horizontal-tabs-list li a {
