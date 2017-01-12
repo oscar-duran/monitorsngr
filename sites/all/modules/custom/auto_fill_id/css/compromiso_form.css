@@ -93,3 +93,20 @@ html tbody tr td input[type="submit"] {
 .fieldset-wrapper .form-wrapper .form-type-textfield {
     margin: 10px 0px;
 }
+
+/***********************************/
+fieldset.group-compromiso-items-tab {
+    margin-top: 0;
+}
+
+table.field-multiple-table {
+    border: 0;
+}
+
+table.field-multiple-table > thead {
+    display: none;
+}
+
+table.field-multiple-table tbody > tr.draggable >  td {
+    border: 0;
+}

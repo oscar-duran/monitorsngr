@@ -81,8 +81,11 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
   $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
 
-  foreach($form['field_item_compromiso'][LANGUAGE_NONE] as $item_id => $item) {
-    if(is_numeric($item_id)) {
+  $items_array = array_filter($form['field_item_compromiso'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+  $items_size = sizeof($items_array);
+  //$groups = array();
+
+  foreach($items_array as $item_id => $item) {
       $item['field_id_item']['#disabled'] = TRUE;
       $item_title = 'Item #' . ($item_id + 1);
       $group = $item_id > 0 ? clone_group($item['#fieldgroups']['group_items']) : $item['#fieldgroups']['group_items'];
@@ -98,6 +101,64 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
         //'wrapper' => 'codigo_accion_id',
         'method' => 'replace',
       );
+
+
+      /*Groups*************************************************************************************************************************************/
+      $groups = field_group_read_groups(array(
+        'entity_type' => 'field_collection_item',
+        'bundle' => 'field_item_compromiso',
+        'mode' => 'form'));
+      dpm($groups);
+
+      //$group_v = $groups['field_collection_item']['field_item_compromiso']['form']['group_item_v_tab'];
+
+      //$group_v->group_name = 'group_muy_loco';
+      //field_group_group_save($group_v);
+
+
+      /*$tab_group = $item_id > 0 ? clone_group($item['#groups']['group_item_v_tab']) : $item['#groups']['group_item_v_tab'];
+      $identifier = explode('|', $tab_group->identifier);
+
+      $tab_group->group_name = 'group_item_v_tab_' . $item_id;
+      $identifier[0] = $tab_group->group_name;
+      $tab_group->identifier = implode('|', $identifier);
+
+
+
+      unset($item['#groups']['group_item_v_tab']);
+      unset($item['#fieldgroups']['group_item_v_tab']);
+      $item['#groups'][$tab_group->group_name] = $tab_group;
+      $item['#fieldgroups'][$tab_group->group_name] = $tab_group;
+
+
+
+      $children = array_slice($item['#group_children'], 1);
+      $children = array_map(function ($element) use ($tab_group) { return $tab_group->group_name; }, $children );
+      $children = array($tab_group->group_name => 'group_items_v_tabs') + $children;
+      //dpm($children);
+      //$item['#group_children'] = array_map(function ($element) use ($tab_group) { return $tab_group->group_name; }, $item['#group_children']);
+
+    if(!empty($groups)) {
+      $item['#groups'] =  $item['#groups'] + $groups;
+      $item['#fieldgroups'] = $item['#fieldgroups'] + $groups;
+
+      foreach ($groups as $item_group) {
+        $children[$item_group->group_name] = 'group_items_v_tabs';
+      }
+    }
+
+    $groups[$tab_group->group_name] = $tab_group;
+
+      $item['#group_children'] = $children;
+
+      $item['#groups']['group_items_v_tabs']->children[$item_id] = $tab_group->group_name;
+
+      dpm('Item id: ' . $item_id);
+     //dpm($item['#groups']['group_items']);
+      dpm($item['#groups'][$tab_group->group_name]);
+      /*End Groups**********************************************************************************************************************************/
+
+      //dpm($item['#groups']['group_items_v_tabs']);
 
       $item['field_codigo_eje'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
       $item['field_codigo_ambito'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
@@ -135,11 +196,10 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
         }
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
-    }
   }
 
-  //dpm($form);
-  //dpm($form_state);
+  dpm($form);
+  dpm($form_state);
 }
 
 /**
