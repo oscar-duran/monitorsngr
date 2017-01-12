@@ -156,7 +156,7 @@
     <div class="container-wrap">
       <div class="content-sidebar-wrap">
         <div id="content">
-          <h1>Hola, en page tlp de add compromiso!!!</h1>
+<!--          <h1>Hola, en page tlp de add compromiso!!!</h1>-->
           <?php if (theme_get_setting('breadcrumbs', 'micro_zymphonies_theme')): ?>
             <div id="breadcrumbs">
               <?php if ($breadcrumb): print $breadcrumb; endif;?>
