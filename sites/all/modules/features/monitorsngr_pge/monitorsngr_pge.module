@@ -54,16 +54,17 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_theme().
  */
 function monitorsngr_pge_theme($existing, $type, $theme, $path) {
-return array(
-  'monitorsngr_pge_supplie_form_author_info' => array(
-    'variables' => array(
-      'bottom_text' => array(),
-      'download_link' => array(),
+  return array(
+    'monitorsngr_pge_supplie_form_author_info' => array(
+      'variables' => array(
+        'bottom_text' => array(),
+        'download_link' => array(),
+      ),
+      'template' => 'monitorsngr-pge-supplie-form-author-info',
+      'path' => drupal_get_path('module', 'monitorsngr_pge') . '/templates',
     ),
-    'template' => 'monitorsngr-pge-supplie-form-author-info',
-    'path' => drupal_get_path('module', 'monitorsngr_pge') . '/templates',
-  ),
-);
+  );
+}
 
 /**
  * After build function for peg_ficha_tecnica_compromiso_node_form form.
