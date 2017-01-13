@@ -911,7 +911,11 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->subtype = 'compromisos_pge-panel_pane_1';
   $pane->shown = TRUE;
   $pane->access = array();
-  $pane->configuration = array();
+  $pane->configuration = array(
+    'arguments' => array(
+      'field_decreto_emergencia_target_id' => '%node:nid',
+    ),
+  );
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
