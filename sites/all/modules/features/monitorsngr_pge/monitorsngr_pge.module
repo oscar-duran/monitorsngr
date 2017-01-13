@@ -33,10 +33,19 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
         $institution_name = $user_wrapper->field_institucion->label();
         $form['title']['#default_value'] = $consecutive . '-' . $decree_year . ' ' . $institution_name;
         $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = '"' . $wrapper->label() . ' (' . $wrapper->getIdentifier() . ')"';
-
+        $form['#after_build'][] = 'peg_ficha_tecnica_compromiso_node_form_after_build';
       }
     }
   }
+}
+
+/**
+ * After build function for peg_ficha_tecnica_compromiso_node_form form.
+ */
+function peg_ficha_tecnica_compromiso_node_form_after_build($form, &$form_state) {
+  $form['title']['#attributes']['readonly'] = 'readonly';
+  $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#attributes']['readonly'] = 'readonly';
+  return $form;
 }
 
 /**
