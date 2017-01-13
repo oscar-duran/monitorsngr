@@ -11,6 +11,21 @@ function auto_fill_id_node_insert($node)
 }
 
 /**
+ * Implements hook_theme_registry_alter().
+ */
+function auto_fill_id_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'auto_fill_id');
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+  foreach ($template_file_objects as $key => $template_file) {
+    if(!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+      $theme_registry[$key]['theme path'] = $module_path;
+      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file);
+      $theme_registry[$key]['type'] = 'module';
+    }
+  }
+}
+
+/**
  * Implements hook_node_presave().
  */
 function auto_fill_id_node_presave($node) {
@@ -108,7 +123,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
         'entity_type' => 'field_collection_item',
         'bundle' => 'field_item_compromiso',
         'mode' => 'form'));
-      dpm($groups);
+      //dpm($groups);
 
       //$group_v = $groups['field_collection_item']['field_item_compromiso']['form']['group_item_v_tab'];
 
@@ -198,8 +213,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
 
-  dpm($form);
-  dpm($form_state);
+  //dpm($form);
+  //dpm($form_state);
 }
 
 /**

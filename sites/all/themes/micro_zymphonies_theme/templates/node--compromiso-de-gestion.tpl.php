@@ -102,7 +102,7 @@
       //print render($content['field_item']);
       //print render($content['field_institucion']);
       //print render($content['field_accion_a_seguir']);
-      dpm($content);
+      //dpm($content);
       print render($content);
       //print render($content['field_estado']);
       //print render($content['field_item_compromiso']);

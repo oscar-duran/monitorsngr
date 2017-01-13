@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file field--field-item-compromiso--compromiso-de-gestion--stand-by.tpl.php
+ * @file field--field-item-compromiso--compromiso-de-gestion.tpl.php
  * Default template implementation to display the value of a field.
  *
  * This file is not used and is here as a starting point for customization only.
@@ -43,6 +43,7 @@
  *
  * @ingroup themeable
  */
+drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_table.css');
 ?>
 
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
@@ -51,16 +52,14 @@
   <?php endif; ?>
   <?php //dpm($items) ?>
   <div class="field-items"<?php print $content_attributes; ?>>
-    <table>
+    <table class="compromisos_table">
       <thead>
-        <th>Item</th>
         <th>Eje</th>
         <th>Ambito</th>
         <th>Lineamiento</th>
         <th>Acción Estratégica</th>
         <th>Meta</th>
         <th>Productos</th>
-        <th>Opciones</th>
       </thead>
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
@@ -75,17 +74,23 @@
             dpm($accion_estrategica);
           ?>
           <!--<div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>-->
-          <td><?php print render($element['field_id_item']); ?></td>
           <td><?php print render($element['field_codigo_eje']); ?></td>
           <td><?php print render($element['field_codigo_ambito']); ?></td>
           <td><?php print render($element['field_codigo_lineamiento']); ?></td>
           <td>
+              <!--Accion Estrategias-->
+              <table>
             <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
+              <tr>
+                  <td>
               <?php
                 print render($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_codigo_accion_estrategica']);
               ?>
-              </br>
+                  </td>
+              </tr>
+
             <?php endforeach; ?>
+              </table>
           </td>
           <td>
             <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
@@ -115,9 +120,6 @@
                 <?php endif; ?>
               <?php endforeach; ?>
             <?php endforeach; ?>
-          </td>
-          <td>
-            <?php print render($item['links']); ?>
           </td>
           <!--<td>
             <?php
