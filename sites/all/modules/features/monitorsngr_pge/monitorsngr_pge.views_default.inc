@@ -105,6 +105,12 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Contenido: Sector estructural afectado */
+  $handler->display->display_options['fields']['field_sector_estructural_afectad']['id'] = 'field_sector_estructural_afectad';
+  $handler->display->display_options['fields']['field_sector_estructural_afectad']['table'] = 'field_data_field_sector_estructural_afectad';
+  $handler->display->display_options['fields']['field_sector_estructural_afectad']['field'] = 'field_sector_estructural_afectad';
+  $handler->display->display_options['fields']['field_sector_estructural_afectad']['label'] = 'Sector';
+  $handler->display->display_options['fields']['field_sector_estructural_afectad']['type'] = 'taxonomy_term_reference_plain';
   /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
@@ -162,7 +168,7 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['argument_input'] = array(
     'field_decreto_emergencia_target_id' => array(
-      'type' => 'context',
+      'type' => 'user',
       'context' => 'node_edit_form.nid',
       'context_optional' => 0,
       'panel' => '0',
@@ -189,6 +195,7 @@ function monitorsngr_pge_views_default_views() {
     t('Content pane'),
     t('Compromisos'),
     t('author'),
+    t('Sector'),
     t('Nombre del informante'),
     t('Institución '),
     t('View panes'),
