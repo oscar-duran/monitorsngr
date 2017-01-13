@@ -31,8 +31,9 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
         $consecutive = monitorsngr_pge_get_compromise_consecutive($decree_id) + 1;
         $decree_year = date('Y', $wrapper->field_fecha->value());
         $institution_name = $user_wrapper->field_institucion->label();
-        $form['title']['#disabled'] = TRUE;
         $form['title']['#default_value'] = $consecutive . '-' . $decree_year . ' ' . $institution_name;
+        $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = '"' . $wrapper->label() . ' (' . $wrapper->getIdentifier() . ')"';
+
       }
     }
   }
