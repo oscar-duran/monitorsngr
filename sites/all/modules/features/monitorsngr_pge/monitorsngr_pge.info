@@ -322,6 +322,7 @@ features[variable][] = node_submitted_pge_formulario_insumos
 features[variable][] = page_manager_node_view_disabled
 features[views_view][] = compromisos_pge
 features[views_view][] = formularios_insumos_pge
+features[views_view][] = insumos_pge
 features[views_view][] = pge_compromisos_acciones_obras
 features_exclude[dependencies][features] = features
 features_exclude[field_instance][node-peg_ficha_tecnica_compromiso-body] = node-peg_ficha_tecnica_compromiso-body
