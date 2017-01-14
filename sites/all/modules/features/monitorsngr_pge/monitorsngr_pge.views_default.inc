@@ -22,6 +22,7 @@ function monitorsngr_pge_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -97,6 +98,11 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['relationship'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -166,6 +172,68 @@ function monitorsngr_pge_views_default_views() {
     'peg_ficha_tecnica_compromiso' => 'peg_ficha_tecnica_compromiso',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Nombre Compromiso */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['ui_name'] = 'Nombre Compromiso';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Nombre del Compromiso';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  /* Filter criterion: Contenido: Sector (field_sector_estructural_afectad) */
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['id'] = 'field_sector_estructural_afectad_tid';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['table'] = 'field_data_field_sector_estructural_afectad';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['field'] = 'field_sector_estructural_afectad_tid';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['operator_id'] = 'field_sector_estructural_afectad_tid_op';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['label'] = 'Sector';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['operator'] = 'field_sector_estructural_afectad_tid_op';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['identifier'] = 'field_sector_estructural_afectad_tid';
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['vocabulary'] = 'sector_estructural_afectado';
+  /* Filter criterion: institución informante */
+  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['table'] = 'node';
+  $handler->display->display_options['filters']['title_1']['field'] = 'title';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title_1']['ui_name'] = 'institución informante';
+  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Institución informante';
+  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
   $handler->display->display_options['argument_input'] = array(
     'field_decreto_emergencia_target_id' => array(
       'type' => 'user',
@@ -195,9 +263,12 @@ function monitorsngr_pge_views_default_views() {
     t('Content pane'),
     t('Compromisos'),
     t('author'),
+    t('Contenido entity referenced from field_institucion'),
     t('Sector'),
     t('Nombre del informante'),
     t('Institución '),
+    t('Nombre del Compromiso'),
+    t('Institución informante'),
     t('View panes'),
   );
   $export['compromisos_pge'] = $view;
@@ -214,6 +285,7 @@ function monitorsngr_pge_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -221,6 +293,10 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '2';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
@@ -290,6 +366,69 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'pge_formulario_insumos' => 'pge_formulario_insumos',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Nombre Form */
+  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['table'] = 'node';
+  $handler->display->display_options['filters']['title_1']['field'] = 'title';
+  $handler->display->display_options['filters']['title_1']['ui_name'] = 'Nombre Form';
+  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title_1']['group'] = 1;
+  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Nombre de Formulario';
+  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  /* Filter criterion: Nombre institución */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['ui_name'] = 'Nombre institución';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  /* Filter criterion: Contenido: Tipo de Formulario (field_tipo_formulario) */
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['id'] = 'field_tipo_formulario_value';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['table'] = 'field_data_field_tipo_formulario';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['field'] = 'field_tipo_formulario_value';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['operator_id'] = 'field_tipo_formulario_value_op';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['label'] = 'Tipo de Formulario';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['operator'] = 'field_tipo_formulario_value_op';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['identifier'] = 'field_tipo_formulario_value';
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_tipo_formulario_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -305,6 +444,11 @@ function monitorsngr_pge_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['relationship'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -383,9 +527,12 @@ function monitorsngr_pge_views_default_views() {
     t('Nombre del informante'),
     t('Nombre del funcionario responsable'),
     t('Todo'),
+    t('Nombre de Formulario'),
+    t('Institución'),
     t('Content pane'),
     t('Formulario de Insumos'),
     t('author'),
+    t('Contenido entity referenced from field_institucion'),
     t('Informante'),
     t('Institución del informante'),
     t('View panes'),
