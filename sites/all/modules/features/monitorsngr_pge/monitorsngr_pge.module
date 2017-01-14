@@ -54,6 +54,25 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_node_presave().
+ */
+function monitorsngr_pge_node_presave($node) {
+  if ($node->type === 'pge_formulario_insumos') {
+    $query = drupal_get_query_parameters();
+    if (count($query) && !empty($query['decree'])) {
+      $decree_id = check_plain($query['decree']);
+      if (is_numeric($decree_id) && $node->is_new === TRUE) {
+        $consecutive = monitorsngr_pge_get_consecutive($decree_id, 'pge_formulario_insumos') + 1;
+        $form_type = $node->field_tipo_formulario[LANGUAGE_NONE][0]['value'];
+        $form_type = str_replace('pge_insumos_', '', $form_type);
+        $form_type = str_replace('_', '-', $form_type);
+        $node->title = 'formulario-' . $consecutive . '-' . $form_type . '-' . $decree_id;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_theme().
  */
 function monitorsngr_pge_theme($existing, $type, $theme, $path) {
