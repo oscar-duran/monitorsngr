@@ -99,13 +99,16 @@ function micro_zymphonies_theme_page_alter($page) {
   );
   drupal_add_html_head($viewport, 'viewport');
 }
+
 function micro_zymphonies_theme_form_element($variables) {
   $element = &$variables['element'];
+
   // This function is invoked as theme wrapper, but the rendered form element
   // may not necessarily have been processed by form_builder().
   $element += array(
     '#title_display' => 'before',
   );
+
   // Add element #id for #type 'item'.
   if (isset($element['#markup']) && !empty($element['#id'])) {
     $attributes['id'] = $element['#id'];
@@ -123,34 +126,41 @@ function micro_zymphonies_theme_form_element($variables) {
     $attributes['class'][] = 'form-disabled';
   }
   $output = '<div' . drupal_attributes($attributes) . '>' . "\n";
+
   // If #title is not set, we don't display any label or required marker.
   if (!isset($element['#title'])) {
     $element['#title_display'] = 'none';
   }
   $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . $element['#field_prefix'] . '</span> ' : '';
   $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . $element['#field_suffix'] . '</span>' : '';
+
   switch ($element['#title_display']) {
     case 'before':
     case 'invisible':
       $output .= ' ' . theme('form_element_label', $variables);
       $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       break;
+
     case 'after':
       $output .= ' ' . $prefix . $element['#children'] . $suffix;
       $output .= ' ' . theme('form_element_label', $variables) . "\n";
       break;
+
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
       $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       break;
   }
+
+
   if (!empty($element['#description'])) {
     $output .= '<div class="description">' . $element['#description'] . "</div>\n";
   }
   $output .= "</div>\n";
   return $output;
 }
+
 function micro_zymphonies_theme_table($variables) {
   $header = $variables['header'];
   $rows = $variables['rows'];
@@ -159,6 +169,7 @@ function micro_zymphonies_theme_table($variables) {
   $colgroups = $variables['colgroups'];
   $sticky = $variables['sticky'];
   $empty = $variables['empty'];
+
   // Add sticky headers, if applicable.
   if (count($header) && $sticky) {
     //drupal_add_js('misc/tableheader.js');
@@ -166,14 +177,17 @@ function micro_zymphonies_theme_table($variables) {
     // This is needed to target tables constructed by this function.
     $attributes['class'][] = 'no-sticky';
   }
+
   $output = '<table' . drupal_attributes($attributes) . ">\n";
   if (isset($caption)) {
     $output .= '<caption>' . $caption . "</caption>\n";
   }
+
   // Format the table columns:
   if (count($colgroups)) {
     foreach ($colgroups as $number => $colgroup) {
       $attributes = array();
+
       // Check if we're dealing with a simple or complex column
       if (isset($colgroup['data'])) {
         foreach ($colgroup as $key => $value) {
@@ -188,6 +202,7 @@ function micro_zymphonies_theme_table($variables) {
       else {
         $cols = $colgroup;
       }
+
       // Build colgroup
       if (is_array($cols) && count($cols)) {
         $output .= ' <colgroup' . drupal_attributes($attributes) . '>';
@@ -202,6 +217,7 @@ function micro_zymphonies_theme_table($variables) {
       }
     }
   }
+
   // Add the 'empty' row message if available.
   if (!count($rows) && $empty) {
     $header_count = 0;
@@ -215,6 +231,7 @@ function micro_zymphonies_theme_table($variables) {
     }
     $rows[] = array(array('data' => $empty, 'colspan' => $header_count, 'class' => array('empty', 'message')));
   }
+
   // Format the table header:
   if (count($header)) {
     $ts = tablesort_init($header);
@@ -231,6 +248,7 @@ function micro_zymphonies_theme_table($variables) {
   else {
     $ts = array();
   }
+
   // Format the table rows:
   if (count($rows)) {
     $output .= "<tbody>\n";
@@ -241,6 +259,7 @@ function micro_zymphonies_theme_table($variables) {
       if (isset($row['data'])) {
         $cells = $row['data'];
         $no_striping = isset($row['no_striping']) ? $row['no_striping'] : FALSE;
+
         // Set the attributes array and exclude 'data' and 'no_striping'.
         $attributes = $row;
         unset($attributes['data']);
@@ -257,6 +276,7 @@ function micro_zymphonies_theme_table($variables) {
           $class = $flip[$class];
           $attributes['class'][] = $class;
         }
+
         // Build row
         $output .= ' <tr' . drupal_attributes($attributes) . '>';
         $i = 0;
@@ -269,6 +289,7 @@ function micro_zymphonies_theme_table($variables) {
     }
     $output .= "</tbody>\n";
   }
+
   $output .= "</table>\n";
   return $output;
 }

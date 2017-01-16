@@ -95,7 +95,7 @@
 <?php endif; ?>
 
   <div class="content <?php print $classes_array['1']; ?>"<?php print $content_attributes; ?>>
-    <h1>TPL de add compromiso!!!!!!!!!!!!!!!</h1>
+
     <?php
     // Hide comments, tags, and links now so that we can render them later.
     hide($content['comments']);

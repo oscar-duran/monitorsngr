@@ -180,7 +180,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       $item['field_codigo_lineamiento'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
 
       //Acciones estratégicas
-      $item['field_accion_collect'][LANGUAGE_NONE]['#title'] = 'Acciones Estraégicas';
+      $item['field_accion_collect'][LANGUAGE_NONE]['#title'] = 'Acciones Estratégicas';
       $item['field_accion_collect'][LANGUAGE_NONE]['add_more']['#value'] = 'Agregar Acción Estratégica';
 
       foreach($item['field_accion_collect'][LANGUAGE_NONE] as $accion_id => $accion ) {
@@ -310,7 +310,9 @@ function check_meta_form(&$action, $form_state, $item_id, $action_id) {
   }
 }
 
+
 function generate_action_code($item_id, $action_id, $form) {
+
   $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
   $ambito = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value']) ?

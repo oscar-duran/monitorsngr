@@ -31,6 +31,15 @@
  *   the site, if they have been configured.
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * Page content (in order of occurrence in the default page.tpl.php):
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
@@ -147,7 +156,7 @@
     <div class="container-wrap">
       <div class="content-sidebar-wrap">
         <div id="content">
-          <h1>Hola, en page tlp de add compromiso!!!</h1>
+<!--          <h1>Hola, en page tlp de add compromiso!!!</h1>-->
           <?php if (theme_get_setting('breadcrumbs', 'micro_zymphonies_theme')): ?>
             <div id="breadcrumbs">
               <?php if ($breadcrumb): print $breadcrumb; endif;?>
@@ -168,7 +177,7 @@
             <?php if ($action_links): ?>
               <ul class="action-links"><?php print render($action_links); ?></ul>
             <?php endif; ?>
-            <?php dpm($page); ?>
+            <?php //dpm($page['content']); ?>
             <?php print render($page['content']); ?>
           </section>
         </div>

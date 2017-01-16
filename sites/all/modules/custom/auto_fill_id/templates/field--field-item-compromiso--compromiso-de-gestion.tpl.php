@@ -1,5 +1,5 @@
 <?php
-
+drupal_add_css('sites/all/modules/custom/auto_fill_id/css/compromiso_table.css');
 /**
  * @file field--field-item-compromiso--compromiso-de-gestion.tpl.php
  * Default template implementation to display the value of a field.
@@ -46,11 +46,14 @@
 drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_table.css');
 ?>
 
+
+
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
+   
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
-  <?php //dpm($items) ?>
+
   <div class="field-items"<?php print $content_attributes; ?>>
     <table id="single-compromiso-table" class="compromisos_table">
       <thead>
@@ -71,9 +74,10 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr id="<?php print $row_id ?>">
           <?php
-            dpm($element);
+
             $accion_id = $element['field_accion_collect']['#items'][0]['value'];
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
+
             $acciones_cant = sizeof($element['field_accion_collect']['#items']);
             /*$meta_cant = 0;
             $productos_cant = 0;

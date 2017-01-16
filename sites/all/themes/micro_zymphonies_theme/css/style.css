@@ -95,7 +95,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'Arial', 'Helvetica', sans-serif;
   font-weight: 300;
   margin-bottom: 8px;
   color: #333333;
@@ -138,7 +139,7 @@ table {
 }
 
 th, tr, td {
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 
@@ -170,7 +171,7 @@ table {
 }
 
 th {
-  background: #2E3D4A;
+  background: #1272b9;
   border-right: 1px solid #c8c7c7;
   color: #fff;
   padding: 10px;
@@ -775,7 +776,7 @@ body.sidebar-second #sidebar-second {
 }
 
 .node h2.title, .page-title {
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -1210,11 +1211,11 @@ img.scale-with-grid {
 fieldset {
   background: #ffffff;
   border: 1px solid #cccccc;
-  margin-top: 10px;
+/*  margin-top: 10px;*/
   margin-bottom: 32px;
   padding: 0 0 10px;
   position: relative;
-  top: 12px;
+/*  top: 12px;*/
   -khtml-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -1268,7 +1269,7 @@ fieldset.collapsed {
 }
 
 fieldset legend {
-  background: #dbdbdb;
+  background: #feffe2;
   border: 1px solid #ccc;
   border-bottom: none;
   display: block;
@@ -1334,6 +1335,7 @@ select.form-select {
 }
 
 .form-item, .form-actions {
+  font-size: large;
   margin: 10px 0;
 }
 

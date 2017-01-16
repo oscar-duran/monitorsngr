@@ -8,11 +8,13 @@
 }
 
 #field-item-compromiso-values .draggable td .field-type-taxonomy-term-reference {
+
     /*float: left;*/
     padding-right: 1.45rem;
 }
 
 .draggable td .field-type-taxonomy-term-reference {
+
     /*float: left;*/
     padding-right: 1.45rem;
 }
@@ -59,8 +61,10 @@ fieldset.action-tab fieldset.form-wrapper {
     border-top: 3px solid #0074BD;
 }
 
+
 fieldset.action-tab > .fieldset-wrapper {
     display: flex;
+    margin-left: 50px;
 }
 
 fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
@@ -82,7 +86,8 @@ fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
 }
 
 html tbody tr td input[type="submit"] {
-    border: 2px solid #1272b9 ;
+
+    border: 2px solid #1272b9;
     border-radius: 25px;
 }
 
@@ -94,6 +99,7 @@ html tbody tr td input[type="submit"] {
     margin: 10px 0px;
 }
 
+<<<<<<< HEAD
 /***********************************/
 fieldset.group-compromiso-items-tab {
     margin-top: 0;
@@ -109,4 +115,24 @@ table.field-multiple-table > thead {
 
 table.field-multiple-table tbody > tr.draggable >  td {
     border: 0;
+=======
+
+
+/**************************/
+
+fieldset.group-compromiso-items-tab {
+   margin-top: 0;
+}
+
+table.field-multiple-table {
+   border: 0;
+}
+
+table.field-multiple-table > thead {
+   display: none;
+}
+
+table.field-multiple-table tbody > tr.draggable >  td {
+   border: 0;
+>>>>>>> origin/feature/SNGR_Vistas_compromiso_actualizadas
 }
