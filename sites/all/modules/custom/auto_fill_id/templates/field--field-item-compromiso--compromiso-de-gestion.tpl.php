@@ -69,7 +69,7 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
         <?php
             $row_id = 'row-item-' . $delta;
-            dpm($item);
+            //dpm($item);
         ?>
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr id="<?php print $row_id ?>">
@@ -104,14 +104,20 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
                 ?>
               </td>
               <!--Meta-->
+                <?php if(!isset($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'])) : ?>
+                    <td></td>
+                    <td></td>
+            <?php else : ?>
               <?php foreach ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field) : ?>
                 <td><?php print $meta_field['#node']->title; ?></td>
 
             <!--Producto-->
                 <td><?php print render($meta_field['field_producto']); ?> </td>
               <?php endforeach; ?>
+            <?php endif; ?>
             <?php if ($i > 0) :  ?></tr> <?php endif; ?>
         <?php endforeach; ?>
+
 
         <!--</div>-->
         </tr>
