@@ -26,9 +26,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 0,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 0,
       ),
       'token' => array(
@@ -76,10 +77,14 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 1,
       ),
       'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => TRUE,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 1,
       ),
       'token' => array(
         'label' => 'above',
@@ -141,9 +146,12 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       ),
       'full' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 4,
       ),
       'token' => array(
         'label' => 'above',
@@ -184,10 +192,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 0,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
       ),
       'token' => array(
         'label' => 'above',
@@ -228,10 +237,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 1,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
       ),
       'token' => array(
         'label' => 'above',
@@ -272,10 +282,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 2,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
       ),
       'token' => array(
         'label' => 'above',
@@ -316,9 +327,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 3,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 0,
       ),
       'token' => array(
@@ -530,9 +542,9 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
+          'add' => '',
           'delete' => 'Eliminar',
-          'description' => TRUE,
+          'description' => 1,
           'edit' => 'Editar',
           'view_mode' => 'full',
         ),
@@ -1150,7 +1162,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'link' => 1,
