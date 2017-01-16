@@ -1,5 +1,5 @@
 <?php
-
+drupal_add_css('sites/all/modules/custom/auto_fill_id/css/compromiso_table.css');
 /**
  * @file field--field-item-compromiso--compromiso-de-gestion.tpl.php
  * Default template implementation to display the value of a field.
@@ -45,7 +45,10 @@
  */
 ?>
 
+
+
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
+   
   <?php if (!$label_hidden): ?>
     <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
   <?php endif; ?>
@@ -60,7 +63,6 @@
         <th>Acción Estratégica</th>
         <th>Meta</th>
         <th>Productos</th>
-        <th>Opciones</th>
       </thead>
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
