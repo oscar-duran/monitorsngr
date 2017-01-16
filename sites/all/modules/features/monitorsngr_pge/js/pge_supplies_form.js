@@ -10,9 +10,12 @@
       /**
        * Helper function to remove unnecessary options from the availibles paragraphs bundles.
        */
-      function setAvailibleSupplies(selectedSupplie) {
+      function setAvailableSupplies(selectedSupply) {
+        if (selectedSupply === 'pge_insumos_carreteras') {
+          selectedSupply = 'pge_insumos_puentes';
+        }
         $('#edit-field-formulario-insumos-pge-und-add-more-type option').each(function () {
-          if ($(this).val() != selectedSupplie) {
+          if ($(this).val() != selectedSupply) {
             $(this).remove();
           }
         });
@@ -21,9 +24,9 @@
        * Helper function to restore all paragraphs bundles options.
        */
        function restoreParagraphBundlesOptions() {
-        $.each(paragraphsOptions, function (key, option) {
-          $('#edit-field-formulario-insumos-pge-und-add-more-type').append(option);
-        });
+         $.each(paragraphsOptions, function (key, option) {
+           $('#edit-field-formulario-insumos-pge-und-add-more-type').append(option);
+         });
        }
 
       $('#edit-field-formulario-insumos-pge-und-add-more-type option').each(function () {
@@ -33,7 +36,7 @@
       $('#edit-field-tipo-formulario-und').change(function () {
         var selectedOption = $('#edit-field-tipo-formulario-und option:selected').val();
         restoreParagraphBundlesOptions();
-        setAvailibleSupplies(selectedOption);
+        setAvailableSupplies(selectedOption);
       });
 
     }
