@@ -20,6 +20,20 @@ function monitorsngr_pge_ctools_plugin_directory($owner, $plugin_type) {
  * Implements hook_form_alter().
  */
 function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === 'pge_formulario_insumos_node_form') {
+    $form['#attached']['js'][] = drupal_get_path('module', 'monitorsngr_pge') . '/js/pge_supplies_form.js';
+    $query = drupal_get_query_parameters();
+    if (count($query) && !empty($query['decree'])) {
+      $decree_id = check_plain($query['decree']);
+      if (is_numeric($decree_id)) {
+        $decree_wrapper = entity_metadata_wrapper('node', $decree_id);
+        $consecutive = monitorsngr_pge_get_consecutive($decree_id, 'pge_formulario_insumos') + 1;
+        $form['title']['#default_value'] = 'formulario-' . $consecutive . '-' . $decree_id;
+        $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#default_value'] = '"' . $decree_wrapper->label() . ' (' . $decree_wrapper->getIdentifier() . ')"';
+        $form['#after_build'][] = 'pge_formulario_insumos_node_form_after_build';
+      }
+    }
+  }
   if ($form_id === 'peg_ficha_tecnica_compromiso_node_form') {
     $query = drupal_get_query_parameters();
     if (count($query) && !empty($query['decree'])) {
@@ -28,7 +42,7 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
         global $user;
         $user_wrapper = entity_metadata_wrapper('user', $user);
         $wrapper = entity_metadata_wrapper('node', $decree_id);
-        $consecutive = monitorsngr_pge_get_compromise_consecutive($decree_id) + 1;
+        $consecutive = monitorsngr_pge_get_consecutive($decree_id, 'peg_ficha_tecnica_compromiso') + 1;
         $decree_year = date('Y', $wrapper->field_fecha->value());
         $institution_name = $user_wrapper->field_institucion->label();
         $form['title']['#default_value'] = $consecutive . '-' . $decree_year . ' ' . $institution_name;
@@ -37,6 +51,41 @@ function monitorsngr_pge_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function monitorsngr_pge_node_presave($node) {
+  if ($node->type === 'pge_formulario_insumos') {
+    $query = drupal_get_query_parameters();
+    if (count($query) && !empty($query['decree'])) {
+      $decree_id = check_plain($query['decree']);
+      if (is_numeric($decree_id) && $node->is_new === TRUE) {
+        $consecutive = monitorsngr_pge_get_consecutive($decree_id, 'pge_formulario_insumos') + 1;
+        $form_type = $node->field_tipo_formulario[LANGUAGE_NONE][0]['value'];
+        $form_type = str_replace('pge_insumos_', '', $form_type);
+        $form_type = str_replace('_', '-', $form_type);
+        $node->title = 'formulario-' . $consecutive . '-' . $form_type . '-' . $decree_id;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function monitorsngr_pge_theme($existing, $type, $theme, $path) {
+  return array(
+    'monitorsngr_pge_supplie_form_author_info' => array(
+      'variables' => array(
+        'bottom_text' => array(),
+        'download_link' => array(),
+      ),
+      'template' => 'monitorsngr-pge-supplie-form-author-info',
+      'path' => drupal_get_path('module', 'monitorsngr_pge') . '/templates',
+    ),
+  );
 }
 
 /**
@@ -49,14 +98,23 @@ function peg_ficha_tecnica_compromiso_node_form_after_build($form, &$form_state)
 }
 
 /**
- * Helper function to get the consecutive number of the PGE compromises.
+ * After build funtion for pge_formulario_insumos_node_form form.
  */
-function monitorsngr_pge_get_compromise_consecutive($emergency_decree_id) {
+function pge_formulario_insumos_node_form_after_build($form, &$form_state) {
+  $form['title']['#attributes']['readonly'] = 'readonly';
+  $form['field_decreto_emergencia'][LANGUAGE_NONE][0]['target_id']['#attributes']['readonly'] = 'readonly';
+  return $form;
+}
+
+/**
+ * Helper function to get the consecutive number of the PGE compromises and supplies form.
+ */
+function monitorsngr_pge_get_consecutive($emergency_decree_id, $bundle) {
   $query = db_select('field_data_field_decreto_emergencia', 'f')
     ->fields('f', array('field_decreto_emergencia_target_id'))
     ->condition('field_decreto_emergencia_target_id', $emergency_decree_id)
     ->condition('entity_type', 'node')
-    ->condition('bundle', 'peg_ficha_tecnica_compromiso')
+    ->condition('bundle', $bundle)
     ->execute();
   return $query->rowCount();
 }

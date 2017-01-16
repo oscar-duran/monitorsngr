@@ -822,10 +822,150 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'paragraphs_bundle_permissions',
   );
 
+  // Exported permission: 'create paragraph content pge_insumos_agro_sub_agricola'.
+  $permissions['create paragraph content pge_insumos_agro_sub_agricola'] = array(
+    'name' => 'create paragraph content pge_insumos_agro_sub_agricola',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_agro_sub_pecuario'.
+  $permissions['create paragraph content pge_insumos_agro_sub_pecuario'] = array(
+    'name' => 'create paragraph content pge_insumos_agro_sub_pecuario',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_alcantarillas_vados'.
+  $permissions['create paragraph content pge_insumos_alcantarillas_vados'] = array(
+    'name' => 'create paragraph content pge_insumos_alcantarillas_vados',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_danno_ambiental'.
+  $permissions['create paragraph content pge_insumos_danno_ambiental'] = array(
+    'name' => 'create paragraph content pge_insumos_danno_ambiental',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_edificios_publicos'.
+  $permissions['create paragraph content pge_insumos_edificios_publicos'] = array(
+    'name' => 'create paragraph content pge_insumos_edificios_publicos',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_obras_correctivas'.
+  $permissions['create paragraph content pge_insumos_obras_correctivas'] = array(
+    'name' => 'create paragraph content pge_insumos_obras_correctivas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_poblacion'.
+  $permissions['create paragraph content pge_insumos_poblacion'] = array(
+    'name' => 'create paragraph content pge_insumos_poblacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_puentes'.
+  $permissions['create paragraph content pge_insumos_puentes'] = array(
+    'name' => 'create paragraph content pge_insumos_puentes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_rios_quebradas'.
+  $permissions['create paragraph content pge_insumos_rios_quebradas'] = array(
+    'name' => 'create paragraph content pge_insumos_rios_quebradas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_sis_infocomunicacion'.
+  $permissions['create paragraph content pge_insumos_sis_infocomunicacion'] = array(
+    'name' => 'create paragraph content pge_insumos_sis_infocomunicacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_sistema_abaste_agua'.
+  $permissions['create paragraph content pge_insumos_sistema_abaste_agua'] = array(
+    'name' => 'create paragraph content pge_insumos_sistema_abaste_agua',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_sistema_electrico'.
+  $permissions['create paragraph content pge_insumos_sistema_electrico'] = array(
+    'name' => 'create paragraph content pge_insumos_sistema_electrico',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'create paragraph content pge_insumos_vivienda'.
+  $permissions['create paragraph content pge_insumos_vivienda'] = array(
+    'name' => 'create paragraph content pge_insumos_vivienda',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
   // Exported permission: 'create peg_ficha_tecnica_compromiso content'.
   $permissions['create peg_ficha_tecnica_compromiso content'] = array(
     'name' => 'create peg_ficha_tecnica_compromiso content',
     'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create pge_formulario_insumos content'.
+  $permissions['create pge_formulario_insumos content'] = array(
+    'name' => 'create pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
@@ -1007,6 +1147,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any pge_formulario_insumos content'.
+  $permissions['delete any pge_formulario_insumos content'] = array(
+    'name' => 'delete any pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any producto_meta content'.
   $permissions['delete any producto_meta content'] = array(
     'name' => 'delete any producto_meta content',
@@ -1155,6 +1304,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own pge_formulario_insumos content'.
+  $permissions['delete own pge_formulario_insumos content'] = array(
+    'name' => 'delete own pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own producto_meta content'.
   $permissions['delete own producto_meta content'] = array(
     'name' => 'delete own producto_meta content',
@@ -1202,6 +1361,136 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete paragraph content compromiso_pge_acciones_obras'.
   $permissions['delete paragraph content compromiso_pge_acciones_obras'] = array(
     'name' => 'delete paragraph content compromiso_pge_acciones_obras',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_agro_sub_agricola'.
+  $permissions['delete paragraph content pge_insumos_agro_sub_agricola'] = array(
+    'name' => 'delete paragraph content pge_insumos_agro_sub_agricola',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_agro_sub_pecuario'.
+  $permissions['delete paragraph content pge_insumos_agro_sub_pecuario'] = array(
+    'name' => 'delete paragraph content pge_insumos_agro_sub_pecuario',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_alcantarillas_vados'.
+  $permissions['delete paragraph content pge_insumos_alcantarillas_vados'] = array(
+    'name' => 'delete paragraph content pge_insumos_alcantarillas_vados',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_danno_ambiental'.
+  $permissions['delete paragraph content pge_insumos_danno_ambiental'] = array(
+    'name' => 'delete paragraph content pge_insumos_danno_ambiental',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_edificios_publicos'.
+  $permissions['delete paragraph content pge_insumos_edificios_publicos'] = array(
+    'name' => 'delete paragraph content pge_insumos_edificios_publicos',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_obras_correctivas'.
+  $permissions['delete paragraph content pge_insumos_obras_correctivas'] = array(
+    'name' => 'delete paragraph content pge_insumos_obras_correctivas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_poblacion'.
+  $permissions['delete paragraph content pge_insumos_poblacion'] = array(
+    'name' => 'delete paragraph content pge_insumos_poblacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_puentes'.
+  $permissions['delete paragraph content pge_insumos_puentes'] = array(
+    'name' => 'delete paragraph content pge_insumos_puentes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_rios_quebradas'.
+  $permissions['delete paragraph content pge_insumos_rios_quebradas'] = array(
+    'name' => 'delete paragraph content pge_insumos_rios_quebradas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_sis_infocomunicacion'.
+  $permissions['delete paragraph content pge_insumos_sis_infocomunicacion'] = array(
+    'name' => 'delete paragraph content pge_insumos_sis_infocomunicacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_sistema_abaste_agua'.
+  $permissions['delete paragraph content pge_insumos_sistema_abaste_agua'] = array(
+    'name' => 'delete paragraph content pge_insumos_sistema_abaste_agua',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_sistema_electrico'.
+  $permissions['delete paragraph content pge_insumos_sistema_electrico'] = array(
+    'name' => 'delete paragraph content pge_insumos_sistema_electrico',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'delete paragraph content pge_insumos_vivienda'.
+  $permissions['delete paragraph content pge_insumos_vivienda'] = array(
+    'name' => 'delete paragraph content pge_insumos_vivienda',
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
@@ -1436,6 +1725,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any pge_formulario_insumos content'.
+  $permissions['edit any pge_formulario_insumos content'] = array(
+    'name' => 'edit any pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any producto_meta content'.
   $permissions['edit any producto_meta content'] = array(
     'name' => 'edit any producto_meta content',
@@ -1600,6 +1898,16 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['edit own peg_ficha_tecnica_compromiso content'] = array(
     'name' => 'edit own peg_ficha_tecnica_compromiso content',
     'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own pge_formulario_insumos content'.
+  $permissions['edit own pge_formulario_insumos content'] = array(
+    'name' => 'edit own pge_formulario_insumos content',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
@@ -2012,6 +2320,136 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'paragraphs_bundle_permissions',
   );
 
+  // Exported permission: 'update paragraph content pge_insumos_agro_sub_agricola'.
+  $permissions['update paragraph content pge_insumos_agro_sub_agricola'] = array(
+    'name' => 'update paragraph content pge_insumos_agro_sub_agricola',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_agro_sub_pecuario'.
+  $permissions['update paragraph content pge_insumos_agro_sub_pecuario'] = array(
+    'name' => 'update paragraph content pge_insumos_agro_sub_pecuario',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_alcantarillas_vados'.
+  $permissions['update paragraph content pge_insumos_alcantarillas_vados'] = array(
+    'name' => 'update paragraph content pge_insumos_alcantarillas_vados',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_danno_ambiental'.
+  $permissions['update paragraph content pge_insumos_danno_ambiental'] = array(
+    'name' => 'update paragraph content pge_insumos_danno_ambiental',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_edificios_publicos'.
+  $permissions['update paragraph content pge_insumos_edificios_publicos'] = array(
+    'name' => 'update paragraph content pge_insumos_edificios_publicos',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_obras_correctivas'.
+  $permissions['update paragraph content pge_insumos_obras_correctivas'] = array(
+    'name' => 'update paragraph content pge_insumos_obras_correctivas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_poblacion'.
+  $permissions['update paragraph content pge_insumos_poblacion'] = array(
+    'name' => 'update paragraph content pge_insumos_poblacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_puentes'.
+  $permissions['update paragraph content pge_insumos_puentes'] = array(
+    'name' => 'update paragraph content pge_insumos_puentes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_rios_quebradas'.
+  $permissions['update paragraph content pge_insumos_rios_quebradas'] = array(
+    'name' => 'update paragraph content pge_insumos_rios_quebradas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_sis_infocomunicacion'.
+  $permissions['update paragraph content pge_insumos_sis_infocomunicacion'] = array(
+    'name' => 'update paragraph content pge_insumos_sis_infocomunicacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_sistema_abaste_agua'.
+  $permissions['update paragraph content pge_insumos_sistema_abaste_agua'] = array(
+    'name' => 'update paragraph content pge_insumos_sistema_abaste_agua',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_sistema_electrico'.
+  $permissions['update paragraph content pge_insumos_sistema_electrico'] = array(
+    'name' => 'update paragraph content pge_insumos_sistema_electrico',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'update paragraph content pge_insumos_vivienda'.
+  $permissions['update paragraph content pge_insumos_vivienda'] = array(
+    'name' => 'update paragraph content pge_insumos_vivienda',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
   // Exported permission: 'use PHP for title patterns'.
   $permissions['use PHP for title patterns'] = array(
     'name' => 'use PHP for title patterns',
@@ -2176,10 +2614,137 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['view paragraph content compromiso_pge_acciones_obras'] = array(
     'name' => 'view paragraph content compromiso_pge_acciones_obras',
     'roles' => array(
-      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-      'user-alternativo' => 'user-alternativo',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_agro_sub_agricola'.
+  $permissions['view paragraph content pge_insumos_agro_sub_agricola'] = array(
+    'name' => 'view paragraph content pge_insumos_agro_sub_agricola',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_agro_sub_pecuario'.
+  $permissions['view paragraph content pge_insumos_agro_sub_pecuario'] = array(
+    'name' => 'view paragraph content pge_insumos_agro_sub_pecuario',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_alcantarillas_vados'.
+  $permissions['view paragraph content pge_insumos_alcantarillas_vados'] = array(
+    'name' => 'view paragraph content pge_insumos_alcantarillas_vados',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_danno_ambiental'.
+  $permissions['view paragraph content pge_insumos_danno_ambiental'] = array(
+    'name' => 'view paragraph content pge_insumos_danno_ambiental',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_edificios_publicos'.
+  $permissions['view paragraph content pge_insumos_edificios_publicos'] = array(
+    'name' => 'view paragraph content pge_insumos_edificios_publicos',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_obras_correctivas'.
+  $permissions['view paragraph content pge_insumos_obras_correctivas'] = array(
+    'name' => 'view paragraph content pge_insumos_obras_correctivas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_poblacion'.
+  $permissions['view paragraph content pge_insumos_poblacion'] = array(
+    'name' => 'view paragraph content pge_insumos_poblacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_puentes'.
+  $permissions['view paragraph content pge_insumos_puentes'] = array(
+    'name' => 'view paragraph content pge_insumos_puentes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_rios_quebradas'.
+  $permissions['view paragraph content pge_insumos_rios_quebradas'] = array(
+    'name' => 'view paragraph content pge_insumos_rios_quebradas',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_sis_infocomunicacion'.
+  $permissions['view paragraph content pge_insumos_sis_infocomunicacion'] = array(
+    'name' => 'view paragraph content pge_insumos_sis_infocomunicacion',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_sistema_abaste_agua'.
+  $permissions['view paragraph content pge_insumos_sistema_abaste_agua'] = array(
+    'name' => 'view paragraph content pge_insumos_sistema_abaste_agua',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_sistema_electrico'.
+  $permissions['view paragraph content pge_insumos_sistema_electrico'] = array(
+    'name' => 'view paragraph content pge_insumos_sistema_electrico',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'paragraphs_bundle_permissions',
+  );
+
+  // Exported permission: 'view paragraph content pge_insumos_vivienda'.
+  $permissions['view paragraph content pge_insumos_vivienda'] = array(
+    'name' => 'view paragraph content pge_insumos_vivienda',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'paragraphs_bundle_permissions',
