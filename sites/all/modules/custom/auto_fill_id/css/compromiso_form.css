@@ -1,0 +1,112 @@
+.field-multiple-drag {
+    display: none;
+}
+
+#field-item-compromiso-values .draggable td:not(.field-multiple-drag) {
+    /*display: flex;*/
+    padding-left: 0;
+}
+
+#field-item-compromiso-values .draggable td .field-type-taxonomy-term-reference {
+    /*float: left;*/
+    padding-right: 1.45rem;
+}
+
+.draggable td .field-type-taxonomy-term-reference {
+    /*float: left;*/
+    padding-right: 1.45rem;
+}
+
+.tabledrag-toggle-weight {
+    display: none;
+}
+
+.form-item-title {
+    /*float: left;*/
+}
+
+.fieldset-wrapper .field-type-number-integer {
+    float: left;
+    margin-right: 20px;
+}
+
+/*Meta title
+.fieldset-wrapper > div.form-item {
+    display:none;
+}
+*/
+fieldset.item-fieldset, .action-tab {
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+}
+
+.form-wrapper > fieldset.ief-form.form-wrapper {
+    padding-left: 0;
+    border: none;
+    border-top: 3px solid #0074BD;
+}
+
+.form-wrapper > fieldset.ief-form.form-wrapper .fieldset-wrapper > div:nth-child(-n+3) {
+    padding-top: 0;
+    float: left;
+    margin-left: 10px;
+}
+
+fieldset.action-tab fieldset.form-wrapper {
+    padding-right: 0;
+    border: 0;
+    border-top: 3px solid #0074BD;
+}
+
+fieldset.action-tab > .fieldset-wrapper {
+    display: flex;
+}
+
+fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
+    padding-left: 20px;
+}
+
+/***********************************/
+
+.field-label {
+    /*background-color: aqua;*/
+    background-color: #1272b9 ;
+}
+
+.clearfix > .field-add-more-submit {
+
+    border: 2px solid #1272b9 ;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+html tbody tr td input[type="submit"] {
+    border: 2px solid #1272b9 ;
+    border-radius: 25px;
+}
+
+.fieldset-wrapper .form-wrapper .form-type-select {
+    margin: 10px 0px;
+}
+
+.fieldset-wrapper .form-wrapper .form-type-textfield {
+    margin: 10px 0px;
+}
+
+/***********************************/
+fieldset.group-compromiso-items-tab {
+    margin-top: 0;
+}
+
+table.field-multiple-table {
+    border: 0;
+}
+
+table.field-multiple-table > thead {
+    display: none;
+}
+
+table.field-multiple-table tbody > tr.draggable >  td {
+    border: 0;
+}
