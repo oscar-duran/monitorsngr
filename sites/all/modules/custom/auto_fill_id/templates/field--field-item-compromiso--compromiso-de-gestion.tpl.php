@@ -52,7 +52,7 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
   <?php endif; ?>
   <?php //dpm($items) ?>
   <div class="field-items"<?php print $content_attributes; ?>>
-    <table class="compromisos_table">
+    <table id="single-compromiso-table" class="compromisos_table">
       <thead>
         <th>Eje</th>
         <th>Ambito</th>
@@ -64,74 +64,65 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
       <tbody>
       <?php foreach ($items as $delta => $item): ?>
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
-        <?php dpm($item); ?>
+        <?php
+            $row_id = 'row-item-' . $delta;
+            dpm($item);
+        ?>
         <?php foreach ($fields_item_compromiso as $element): ?>
-        <tr>
+        <tr id="<?php print $row_id ?>">
           <?php
             dpm($element);
             $accion_id = $element['field_accion_collect']['#items'][0]['value'];
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
-            dpm($accion_estrategica);
+            $acciones_cant = sizeof($element['field_accion_collect']['#items']);
+            /*$meta_cant = 0;
+            $productos_cant = 0;
+            foreach($element['field_accion_collect']['#items'] as $i => $action_id) {
+              $meta_cant += sizeof($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta']['#items']);
+              //foreach($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta']['#items'] as $j => $meta_id) {
+                  foreach ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field){
+                      $productos_cant += sizeof($meta_field['field_producto']['#items']);
+                  }
+              //}
+            }*/
+
           ?>
           <!--<div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>-->
-          <td><?php print render($element['field_codigo_eje']); ?></td>
-          <td><?php print render($element['field_codigo_ambito']); ?></td>
-          <td><?php print render($element['field_codigo_lineamiento']); ?></td>
-          <td>
-              <!--Accion Estrategias-->
-              <table>
-            <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
-              <tr>
-                  <td>
-              <?php
-                print render($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_codigo_accion_estrategica']);
-              ?>
-                  </td>
-              </tr>
+          <td rowspan="<?php print $acciones_cant ?>" class="taxonomy-td-item-<?php print $delta ?>"><?php print render($element['field_codigo_eje']); ?></td>
+          <td rowspan="<?php print $acciones_cant ?>" class="taxonomy-td-item-<?php print $delta ?>"><?php print render($element['field_codigo_ambito']); ?></td>
+          <td rowspan="<?php print $acciones_cant ?>" class="taxonomy-td-item-<?php print $delta ?>"><?php print render($element['field_codigo_lineamiento']); ?></td>
 
-            <?php endforeach; ?>
-              </table>
-          </td>
-          <td>
-            <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
-              <?php foreach($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field) : ?>
+          <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
+            <?php if ($i > 0) :  ?><tr> <?php endif; ?>
+              <td>
                 <?php
-                  //dpm($i . ' ' . $action_id['value']);
-                  //dpm($meta_field);
+                    print render($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_codigo_accion_estrategica']);
                 ?>
-                <?php if(is_array($meta_field)): ?>
-                  <?php
-                    dpm($meta_field['#node']);
-                    print $meta_field['#node']->title;
-                  ?>
-                  </br>
-                <?php endif; ?>
+              </td>
+              <!--Meta-->
+              <?php foreach ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field) : ?>
+                <td><?php print $meta_field['#node']->title; ?></td>
+
+            <!--Producto-->
+                <td><?php print render($meta_field['field_producto']); ?> </td>
               <?php endforeach; ?>
-            <?php endforeach; ?>
-          </td>
-          <td>
-            <?php foreach($element['field_accion_collect']['#items'] as $i => $action_id) : ?>
-              <?php foreach($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][0]['node'] as $meta_field) : ?>
-                <?php if(is_array($meta_field)): ?>
-                  <?php
-                    print render($meta_field['field_producto']);
-                  ?>
-                  </br>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            <?php endforeach; ?>
-          </td>
-          <!--<td>
-            <?php
-              //dpm($item);
-              //print render($item);
-            ?>
-          </td>-->
+            <?php if ($i > 0) :  ?></tr> <?php endif; ?>
+        <?php endforeach; ?>
+
         <!--</div>-->
         </tr>
+
+        <!--<script>
+                  /*jQuery('#<?php// echo $row_id ?>').ready( function () {
+                   jQuery('.taxonomy-td-item-<?php// echo $delta ?>').each(function () {
+                   jQuery(this).attr("rowspan", "2");
+                   });
+                   console.log('helo console');    });*/
+              </script>-->
         <?php endforeach; ?>
       <?php endforeach; ?>
       </tbody>
     </table>
   </div>
 </div>
+

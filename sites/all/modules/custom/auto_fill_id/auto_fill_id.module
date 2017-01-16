@@ -119,7 +119,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
 
       /*Groups*************************************************************************************************************************************/
-      $groups = field_group_read_groups(array(
+      /*$groups = field_group_read_groups(array(
         'entity_type' => 'field_collection_item',
         'bundle' => 'field_item_compromiso',
         'mode' => 'form'));
