@@ -3,6 +3,8 @@
 sites/*/files
 sites/*/private
 sites/default/settings.local.inc
+sites/default/settings.inc
+sites/default/settings.php
 .idea
 
 .DS_Store
