@@ -202,17 +202,20 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion['#fieldgroups']['group_acciones'] = $accion_group;
 
           //Meta
+          $accion['field_meta'][LANGUAGE_NONE]['add_more']['#value'] = 'Agregar nueva meta';
           //unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
-          $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
-          $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#suffix'] = '</div>';
-          $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1"'  ;
-
+          $meta_array = array_filter($accion['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+          foreach ($meta_array as $meta_id => $meta) {
+            $meta['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_' . $accion_id . '_meta_' . $meta_id .'">';
+            $meta['target_id']['#suffix'] = '</div>';
+            $meta['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
+            $accion['field_meta'][LANGUAGE_NONE][$meta_id] = $meta;
+          }
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
         }
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
-
   //dpm($form);
   //dpm($form_state);
 }
@@ -331,9 +334,12 @@ function eal_ajax_callback($form, $form_state) {
       foreach ($item['field_accion_collect'][LANGUAGE_NONE] as $action_id => $action) {
         if (is_numeric($action_id)) {
           $commands[] = ajax_command_replace("#item_". $item_id . "_codigo_accion_" . $action_id, drupal_render($action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']));
-          $commands[] = ajax_command_replace('#item_' . $item_id . '_accion_meta_' . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE][0]['target_id']));
-          //$commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['title']));
-          //$commands[] = ajax_command_replace("#item_" . $item_id . "_accion_meta_" . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE]['form']['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value']));
+          //$commands[] = ajax_command_replace('#item_' . $item_id . '_accion_meta_' . $action_id, drupal_render($action['field_meta'][LANGUAGE_NONE][0]['target_id']));
+          $meta_array = array_filter($action['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+          foreach ($meta_array as $meta_id => $meta) {
+            $commands[] = ajax_command_replace('#item_' . $item_id . '_accion_' . $action_id . '_meta_' . $meta_id, drupal_render($meta['target_id']));
+            $accion['field_meta'][LANGUAGE_NONE][$meta_id] = $meta;
+          }
         }
         $item['field_accion_collect'][LANGUAGE_NONE][$action_id] = $action;
       }
@@ -408,10 +414,13 @@ function meta_id($action_node){
 
 function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
-  //$producto->field_cod_producto_meta = string_field_value($meta_node->title . 'P' . $producto_id);
-  $producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
-  $producto->revision = 1;
-  node_save($producto);
+  dpm($producto);
+  if(!$producto->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
+    //$producto->field_cod_producto_meta = string_field_value($meta_node->title . 'P' . $producto_id);
+    $producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
+    $producto->revision = 1;
+    node_save($producto);
+  }
 }
 
 function simple_string_field_value($value) {

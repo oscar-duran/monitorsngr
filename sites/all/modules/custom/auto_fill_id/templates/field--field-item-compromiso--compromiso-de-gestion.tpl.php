@@ -1,5 +1,4 @@
 <?php
-drupal_add_css('sites/all/modules/custom/auto_fill_id/css/compromiso_table.css');
 /**
  * @file field--field-item-compromiso--compromiso-de-gestion.tpl.php
  * Default template implementation to display the value of a field.
