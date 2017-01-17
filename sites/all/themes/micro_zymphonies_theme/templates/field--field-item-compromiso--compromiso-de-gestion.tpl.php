@@ -71,9 +71,9 @@ drupal_add_css('sites/all/modules/custom/auto_fill_id/css/compromiso_table.css')
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr>
           <?php
-
-            $accion_id = $element['field_accion_collect']['#items'][0]['value'];
-            $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
+//
+//            $accion_id = $element['field_accion_collect']['#items'][0]['value'];
+//            $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
 
           ?>
           <?php $delta % 2 ? 'odd' : 'even'; ?>
