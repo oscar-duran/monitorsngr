@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feature/Sngr: Vistas de Compromisos de Gestión feature.
+ */
+
+include_once 'feature_sngr_vistas_de_compromisos_de_gesti_n.features.inc';
