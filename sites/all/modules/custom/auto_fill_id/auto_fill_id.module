@@ -73,7 +73,6 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
-    $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#disabled'] = TRUE;
     $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
   }
 }
@@ -376,7 +375,7 @@ function compromiso_id($node) {
 }
 
 function action_id($compromiso_node) {
-  foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) {
+  foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) { 
     $item = field_collection_item_load($item_id['value']);
     if($item) {
       $eje = $item->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
