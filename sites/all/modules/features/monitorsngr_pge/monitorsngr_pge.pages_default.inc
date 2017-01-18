@@ -13,6 +13,226 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_283405f7-0bcc-45c0-8ab5-61035e6e801c';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 2;
+  $handler->conf = array(
+    'title' => 'Formulario de Insumos',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'pge_formulario_insumos' => 'pge_formulario_insumos',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = 'c0dcd503-8337-493d-b19d-ec075f1df651';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view__panel_context_283405f7-0bcc-45c0-8ab5-61035e6e801c';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-86c11a9c-756d-4aa0-b55e-ebe76175da06';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_decreto_emergencia';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'entityreference_label',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'link' => 1,
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '86c11a9c-756d-4aa0-b55e-ebe76175da06';
+  $display->content['new-86c11a9c-756d-4aa0-b55e-ebe76175da06'] = $pane;
+  $display->panels['middle'][0] = 'new-86c11a9c-756d-4aa0-b55e-ebe76175da06';
+  $pane = new stdClass();
+  $pane->pid = 'new-06665559-bd2b-4b24-a899-b1dd7c53902c';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_funcionario_responsable';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'text_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '06665559-bd2b-4b24-a899-b1dd7c53902c';
+  $display->content['new-06665559-bd2b-4b24-a899-b1dd7c53902c'] = $pane;
+  $display->panels['middle'][1] = 'new-06665559-bd2b-4b24-a899-b1dd7c53902c';
+  $pane = new stdClass();
+  $pane->pid = 'new-b22eaca3-934f-4a79-b6a2-51f89a505407';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_cargo_fun_responsable';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'text_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = 'b22eaca3-934f-4a79-b6a2-51f89a505407';
+  $display->content['new-b22eaca3-934f-4a79-b6a2-51f89a505407'] = $pane;
+  $display->panels['middle'][2] = 'new-b22eaca3-934f-4a79-b6a2-51f89a505407';
+  $pane = new stdClass();
+  $pane->pid = 'new-846c21a9-65d8-4b11-8fe7-cca77db1140b';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_tipo_formulario';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'above',
+    'formatter' => 'list_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 3;
+  $pane->locks = array();
+  $pane->uuid = '846c21a9-65d8-4b11-8fe7-cca77db1140b';
+  $display->content['new-846c21a9-65d8-4b11-8fe7-cca77db1140b'] = $pane;
+  $display->panels['middle'][3] = 'new-846c21a9-65d8-4b11-8fe7-cca77db1140b';
+  $pane = new stdClass();
+  $pane->pid = 'new-d98e7964-f549-4620-8fc2-8daa60a013a9';
+  $pane->panel = 'middle';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'insumos_pge-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'arguments' => array(
+      'nid' => '%node:nid',
+    ),
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 4;
+  $pane->locks = array();
+  $pane->uuid = 'd98e7964-f549-4620-8fc2-8daa60a013a9';
+  $display->content['new-d98e7964-f549-4620-8fc2-8daa60a013a9'] = $pane;
+  $display->panels['middle'][4] = 'new-d98e7964-f549-4620-8fc2-8daa60a013a9';
+  $pane = new stdClass();
+  $pane->pid = 'new-a7b5c9b9-163a-4c4e-be66-04af5fe5fce8';
+  $pane->panel = 'middle';
+  $pane->type = 'supplie_author';
+  $pane->subtype = 'supplie_author';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 5;
+  $pane->locks = array();
+  $pane->uuid = 'a7b5c9b9-163a-4c4e-be66-04af5fe5fce8';
+  $display->content['new-a7b5c9b9-163a-4c4e-be66-04af5fe5fce8'] = $pane;
+  $display->panels['middle'][5] = 'new-a7b5c9b9-163a-4c4e-be66-04af5fe5fce8';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-86c11a9c-756d-4aa0-b55e-ebe76175da06';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_283405f7-0bcc-45c0-8ab5-61035e6e801c'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view__panel_context_89a5b626-7348-40bd-a205-09a312cbf161';
   $handler->task = 'node_view';
   $handler->subtask = '';
@@ -721,7 +941,11 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->subtype = 'compromisos_pge-panel_pane_1';
   $pane->shown = TRUE;
   $pane->access = array();
-  $pane->configuration = array();
+  $pane->configuration = array(
+    'arguments' => array(
+      'field_decreto_emergencia_target_id' => '%node:nid',
+    ),
+  );
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
@@ -733,6 +957,48 @@ function monitorsngr_pge_default_page_manager_handlers() {
   $pane->uuid = '0df71b7a-4a46-4b2e-b8c3-b01b52ce016c';
   $display->content['new-0df71b7a-4a46-4b2e-b8c3-b01b52ce016c'] = $pane;
   $display->panels['middle'][9] = 'new-0df71b7a-4a46-4b2e-b8c3-b01b52ce016c';
+  $pane = new stdClass();
+  $pane->pid = 'new-8b8add00-3a15-40f3-aece-171a9bf258b0';
+  $pane->panel = 'middle';
+  $pane->type = 'add_form_button';
+  $pane->subtype = 'add_form_button';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 10;
+  $pane->locks = array();
+  $pane->uuid = '8b8add00-3a15-40f3-aece-171a9bf258b0';
+  $display->content['new-8b8add00-3a15-40f3-aece-171a9bf258b0'] = $pane;
+  $display->panels['middle'][10] = 'new-8b8add00-3a15-40f3-aece-171a9bf258b0';
+  $pane = new stdClass();
+  $pane->pid = 'new-1c719fb9-66f6-413d-bb31-c95a7adff46a';
+  $pane->panel = 'middle';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'formularios_insumos_pge-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'arguments' => array(
+      'nid' => '%node:nid',
+    ),
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 11;
+  $pane->locks = array();
+  $pane->uuid = '1c719fb9-66f6-413d-bb31-c95a7adff46a';
+  $display->content['new-1c719fb9-66f6-413d-bb31-c95a7adff46a'] = $pane;
+  $display->panels['middle'][11] = 'new-1c719fb9-66f6-413d-bb31-c95a7adff46a';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-54929c30-b44b-4fbd-82c9-d473c506e0d8';
   $handler->conf['display'] = $display;

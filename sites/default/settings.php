@@ -626,6 +626,7 @@ $conf['master_modules']['base'] = array(
   'block_class',
   'book',
   'bulk_export',
+  'conditional_fields',
   'contact',
   'date',
   'date_popup',

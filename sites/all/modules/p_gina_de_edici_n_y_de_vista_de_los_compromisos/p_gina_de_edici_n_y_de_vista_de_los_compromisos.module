@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Página de Edición y de Vista de los Compromisos feature.
- */
-
-include_once 'p_gina_de_edici_n_y_de_vista_de_los_compromisos.features.inc';

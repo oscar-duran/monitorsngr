@@ -602,14 +602,14 @@ ul.menu {
 
 #container {
   clear: both;
-  /*overflow: hidden;*/
+  overflow: hidden;
   padding: 10px 0;
 }
 
 .container-wrap {
   max-width: 1024px;
   margin: 0px auto;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .slideshow-wrap{
@@ -1001,7 +1001,7 @@ ul.secondary a.active {
 }
 
 .field-item {
-  width: 200px;
+  width: 800px;
 
 }
 /*-------------------------------------------*

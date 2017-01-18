@@ -1,0 +1,11 @@
+table.compromisos_table {
+    font-size: 13px;
+}
+
+table.compromisos_table tbody tr td:nth-child(1) .field.field-name-field-id-item {
+    width: 80px;
+}
+
+table.compromisos_table td .field-item {
+    width: 150px;
+}

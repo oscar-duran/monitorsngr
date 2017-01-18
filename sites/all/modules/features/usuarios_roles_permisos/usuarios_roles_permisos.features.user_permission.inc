@@ -812,25 +812,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create paragraph content compromiso_pge_acciones_obras'.
-  $permissions['create paragraph content compromiso_pge_acciones_obras'] = array(
-    'name' => 'create paragraph content compromiso_pge_acciones_obras',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'paragraphs_bundle_permissions',
-  );
-
-  // Exported permission: 'create peg_ficha_tecnica_compromiso content'.
-  $permissions['create peg_ficha_tecnica_compromiso content'] = array(
-    'name' => 'create peg_ficha_tecnica_compromiso content',
-    'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create producto_meta content'.
   $permissions['create producto_meta content'] = array(
     'name' => 'create producto_meta content',
@@ -1000,13 +981,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any peg_ficha_tecnica_compromiso content'.
-  $permissions['delete any peg_ficha_tecnica_compromiso content'] = array(
-    'name' => 'delete any peg_ficha_tecnica_compromiso content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any producto_meta content'.
   $permissions['delete any producto_meta content'] = array(
     'name' => 'delete any producto_meta content',
@@ -1148,13 +1122,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own peg_ficha_tecnica_compromiso content'.
-  $permissions['delete own peg_ficha_tecnica_compromiso content'] = array(
-    'name' => 'delete own peg_ficha_tecnica_compromiso content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own producto_meta content'.
   $permissions['delete own producto_meta content'] = array(
     'name' => 'delete own producto_meta content',
@@ -1197,16 +1164,6 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'webform',
-  );
-
-  // Exported permission: 'delete paragraph content compromiso_pge_acciones_obras'.
-  $permissions['delete paragraph content compromiso_pge_acciones_obras'] = array(
-    'name' => 'delete paragraph content compromiso_pge_acciones_obras',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'paragraphs_bundle_permissions',
   );
 
   // Exported permission: 'delete revisions'.
@@ -1293,13 +1250,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
     ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in zona_intervencion_pge'.
-  $permissions['delete terms in zona_intervencion_pge'] = array(
-    'name' => 'delete terms in zona_intervencion_pge',
-    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -1426,13 +1376,6 @@ function usuarios_roles_permisos_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any peg_ficha_tecnica_compromiso content'.
-  $permissions['edit any peg_ficha_tecnica_compromiso content'] = array(
-    'name' => 'edit any peg_ficha_tecnica_compromiso content',
-    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1596,15 +1539,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own peg_ficha_tecnica_compromiso content'.
-  $permissions['edit own peg_ficha_tecnica_compromiso content'] = array(
-    'name' => 'edit own peg_ficha_tecnica_compromiso content',
-    'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own producto_meta content'.
   $permissions['edit own producto_meta content'] = array(
     'name' => 'edit own producto_meta content',
@@ -1723,13 +1657,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
     ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in zona_intervencion_pge'.
-  $permissions['edit terms in zona_intervencion_pge'] = array(
-    'name' => 'edit terms in zona_intervencion_pge',
-    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -2002,16 +1929,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'feeds',
   );
 
-  // Exported permission: 'update paragraph content compromiso_pge_acciones_obras'.
-  $permissions['update paragraph content compromiso_pge_acciones_obras'] = array(
-    'name' => 'update paragraph content compromiso_pge_acciones_obras',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'paragraphs_bundle_permissions',
-  );
-
   // Exported permission: 'use PHP for title patterns'.
   $permissions['use PHP for title patterns'] = array(
     'name' => 'use PHP for title patterns',
@@ -2170,19 +2087,6 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'panels',
-  );
-
-  // Exported permission: 'view paragraph content compromiso_pge_acciones_obras'.
-  $permissions['view paragraph content compromiso_pge_acciones_obras'] = array(
-    'name' => 'view paragraph content compromiso_pge_acciones_obras',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-      'user-alternativo' => 'user-alternativo',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'paragraphs_bundle_permissions',
   );
 
   // Exported permission: 'view revisions'.
