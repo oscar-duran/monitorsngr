@@ -347,7 +347,7 @@ function sngr_field_bases_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'mediafield',
+    'module' => 'media',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'media',
@@ -387,51 +387,6 @@ function sngr_field_bases_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_long',
-  );
-
-  // Exported field_base: 'field_auto_inc_ambito'.
-  $field_bases['field_auto_inc_ambito'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_auto_inc_ambito',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'serial',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'serial',
-  );
-
-  // Exported field_base: 'field_auto_inc_eje'.
-  $field_bases['field_auto_inc_eje'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_auto_inc_eje',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'serial',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'serial',
-  );
-
-  // Exported field_base: 'field_auto_inc_lin'.
-  $field_bases['field_auto_inc_lin'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_auto_inc_lin',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'serial',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'serial',
   );
 
   // Exported field_base: 'field_autoevaluacion'.
@@ -1038,7 +993,7 @@ function sngr_field_bases_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'mediafield',
+    'module' => 'media',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'media',
@@ -2532,7 +2487,7 @@ function sngr_field_bases_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'mediafield',
+    'module' => 'media',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'media',
