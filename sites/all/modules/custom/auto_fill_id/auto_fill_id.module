@@ -279,11 +279,11 @@ function action_default_value($item_id, $action_id, $form) {
   $ambito = !empty($item_entity->field_codigo_ambito) ? $item_entity->field_codigo_ambito[LANGUAGE_NONE][0]['tid']  :'0';
   $lineamiento = !empty($item_entity->field_codigo_lineamiento) ? $item_entity->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'] : '0';
   
-  $cod_eje_ema = taxonomy_term_load($eje);
-  $cod_ambito_ema = taxonomy_term_load($ambito);
-  $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
+  $cod_eje = taxonomy_term_load($eje);
+  $cod_ambito = taxonomy_term_load($ambito);
+  $cod_lineamiento = taxonomy_term_load($lineamiento);
   
-  return 'E'. $cod_eje_ema->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito_ema->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
+  return 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
 }
 
 function meta_callback($form, $form_state) {
@@ -299,16 +299,16 @@ function generate_action_code($item_id, $action_id, $form) {
   $lineamiento = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value'][0] : '0';
   
-      $cod_eje_ema = taxonomy_term_load($eje);
-      $cod_ambito_ema = taxonomy_term_load($ambito);
-      $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
+      $cod_eje = taxonomy_term_load($eje);
+      $cod_ambito = taxonomy_term_load($ambito);
+      $cod_lineamiento = taxonomy_term_load($lineamiento);
 
   
-      if ($cod_eje_ema==null&&$cod_ambito_ema==null&&$cod_lineamiento_ema==null){
+      if ($cod_eje==null&&$cod_ambito==null&&$cod_lineamiento==null){
           return 'E#-A#.L#.Ac#';
       }
       else {
-          return 'E'. $cod_eje_ema->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito_ema->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
+          return 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
       }
           
   
@@ -367,14 +367,14 @@ function action_id($compromiso_node) {
       $ambito = $item->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
       $lineamiento = $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
       
-      $cod_eje_ema = taxonomy_term_load($eje);
-      $cod_ambito_ema = taxonomy_term_load($ambito);
-      $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
+      $cod_eje = taxonomy_term_load($eje);
+      $cod_ambito = taxonomy_term_load($ambito);
+      $cod_lineamiento = taxonomy_term_load($lineamiento);
       
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
         if($action) {
-            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E'. $cod_eje_ema->field_autoincrementalid['und'][0]['value'] . '-A' . $cod_ambito_ema->field_autoincrementalid_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_autoincrementalid_linea['und'][0]['value'] . '.Ae' . ($action_key + 1);
+            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_key + 1);
           //$action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
           if(!empty($action->field_meta)) {
             meta_id($action);

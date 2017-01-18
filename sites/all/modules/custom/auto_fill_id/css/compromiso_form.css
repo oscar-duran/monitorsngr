@@ -99,25 +99,6 @@ html tbody tr td input[type="submit"] {
     margin: 10px 0px;
 }
 
-<<<<<<< HEAD
-/***********************************/
-fieldset.group-compromiso-items-tab {
-    margin-top: 0;
-}
-
-table.field-multiple-table {
-    border: 0;
-}
-
-table.field-multiple-table > thead {
-    display: none;
-}
-
-table.field-multiple-table tbody > tr.draggable >  td {
-    border: 0;
-=======
-
-
 /**************************/
 
 fieldset.group-compromiso-items-tab {
@@ -134,5 +115,5 @@ table.field-multiple-table > thead {
 
 table.field-multiple-table tbody > tr.draggable >  td {
    border: 0;
->>>>>>> origin/feature/SNGR_Vistas_compromiso_actualizadas
+
 }

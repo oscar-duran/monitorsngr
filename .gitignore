@@ -9,4 +9,6 @@ sites/default/settings.inc
 
 .DS_Store
 
-/nbproject/private/
+/nbproject/
+
+_sites/
