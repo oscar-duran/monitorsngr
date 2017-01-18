@@ -33,8 +33,7 @@ function auto_fill_id_node_update($node)
  * Implements hook_form_alter().
  */
 function auto_fill_id_form_alter(&$form, &$form_state, $form_id) {
-  //dpm($form_id);
-  //dpm($form);
+
 }
 
 /**
@@ -68,7 +67,7 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
  */
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
-  //dpm($form_state['node']);
+
   //Add css
   $form['#attached'] = array(
     'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
@@ -93,9 +92,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       $item['#groups']['group_items'] = $group;
 
       $ajax_eal = array(
-        //'callback' => 'method_1',
+
         'callback' => 'eal_ajax_callback',
-        //'wrapper' => 'codigo_accion_id',
         'method' => 'replace',
       );
 
@@ -121,18 +119,15 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion_group = $accion_id > 0 ? clone_group($accion['#groups']['group_acciones']) : $accion['#groups']['group_acciones'];
           $accion_group->label = 'Ae' . ($accion_id + 1);
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion_code;
-          //dpm($accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value']);
-          //dpm($accion_code);
 
           $accion['#groups']['group_acciones'] = $accion_group;
           $accion['#fieldgroups']['group_acciones'] = $accion_group;
 
           //Meta
-          //unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
           $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_meta_' . $accion_id . '">';
           $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#suffix'] = '</div>';
           $accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . '.(M1)"'  ;
-//dpm($accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value']);
+;
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
         }
       }
@@ -140,8 +135,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
     }
   }
 
-  //dpm($form);
-  //dpm($form_state);
+
 }
 
 /**
@@ -150,12 +144,10 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 function auto_fill_id_field_collection_item_insert(FieldCollectionItemEntity $field_collection_item)
 {
   if($field_collection_item->field_name == "field_item_compromiso") {
-    //9dpm($field_collection_item);
 //      item_id($field_collection_item);
   }
 
   if($field_collection_item->field_name == "field_accion_collect") {
-    //dpm($field_collection_item);
     //accion_id($field_collection_item);
   }
 }
@@ -215,40 +207,15 @@ function action_default_value($item_id, $action_id, $form) {
   $cod_eje_ema = taxonomy_term_load($eje);
   $cod_ambito_ema = taxonomy_term_load($ambito);
   $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
-
-
-  //return 'Exxxx'. $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_id + 1);
-  return 'E'. $cod_eje_ema->field_autoincrementalid['und'][0]['value'] . '-A' . $cod_ambito_ema->field_autoincrementalid_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_autoincrementalid_linea['und'][0]['value'] . '.Ae' . ($action_id + 1);
+  
+  return 'E'. $cod_eje_ema->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito_ema->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
 }
-
-//function change_new_meta_code(&$action) {
-//  if(!empty($action['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id'])) {
-//    $meta_id = $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id'];
-//    $meta = node_load($meta_id);
-//    $meta->title = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1yyy' ;
-//    $meta->revision = 1;
-//    node_save($meta);
-//  }
-//}
 
 function meta_callback($form, $form_state) {
   return $form['field_item_de_compromiso'][LANGUAGE_NONE][0]['field_accion_collect'][LANGUAGE_NONE][0]['field_meta'][LANGUAGE_NONE]['form']['title']['value'];
 }
 
-//function check_meta_form(&$action, $form_state, $item_id, $action_id) {
-//  if(!empty($form_state['values']['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_accion_collect'][LANGUAGE_NONE][$action_id]['field_meta'][LANGUAGE_NONE][0])) {
-//    $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
-//    $action['field_meta'][LANGUAGE_NONE][0]['target_id']['#value'] = $action['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M1' ;
-//    //$action['field_meta'][LANGUAGE_NONE][0]['target_id']['#default_value'] =  'M1' . rand(0, 50) ;
-//  }
-//}
-
-
 function generate_action_code($item_id, $action_id, $form) {
-
-    //dpm($form);
-    //dpm($item_id);
-    //dpm($action_id);
     
   $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
@@ -256,27 +223,20 @@ function generate_action_code($item_id, $action_id, $form) {
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value'][0] : '0';
   $lineamiento = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value']) ?
     $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value'][0] : '0';
-
-  
-  
-  //print_r($eje);
   
       $cod_eje_ema = taxonomy_term_load($eje);
       $cod_ambito_ema = taxonomy_term_load($ambito);
       $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
-      
-  //print_r($cod_eje_ema);
-  //dpm($cod_eje_ema);
-  //print_r('TOMALA '.$cod_eje_ema->field_autoincrementalid['und'][0]['value']);
-  //$cod_ambito_ema->field_autoincrementalid['und'][0]['value']);
-  //$cod_lineamiento_ema->field_autoincrementalid['und'][0]['value']);
-  //print_r('chachacha '.$cod_eje_ema.' jejeje '.$eje);
-    //print_r($eje);
+
   
+      if ($cod_eje_ema==null&&$cod_ambito_ema==null&&$cod_lineamiento_ema==null){
+          return 'E#-A#.L#.Ac#';
+      }
+      else {
+          return 'E'. $cod_eje_ema->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito_ema->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
+      }
+          
   
-  
-  
-  return 'E'. $cod_eje_ema->field_autoincrementalid['und'][0]['value'] . '-A' . $cod_ambito_ema->field_autoincrementalid_ambito['und'][0]['value'] . '.L' . $cod_lineamiento_ema->field_autoincrementalid_linea['und'][0]['value'] . '.Ae' . ($action_id + 1);
 }
 
 //Form ajax callback
@@ -311,7 +271,6 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
     $size = sizeof($field_collection_item->field_meta[LANGUAGE_NONE]);
     if ($size > 1) {
       $array = array_slice($field_collection_item->field_meta[LANGUAGE_NONE], $size - 1);
-      //dpm($array);
       $field_collection_item->field_meta[LANGUAGE_NONE] = $array;
     }
   }
@@ -321,7 +280,7 @@ function compromiso_id($node) {
     if($node->field_id_compromiso) {
         $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
         $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
+        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ; //<----------------------------------------
     }
 }
 
@@ -337,8 +296,6 @@ function action_id($compromiso_node) {
       $cod_ambito_ema = taxonomy_term_load($ambito);
       $cod_lineamiento_ema = taxonomy_term_load($lineamiento);
       
-      
-
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
         if($action) {
@@ -388,4 +345,3 @@ function simple_string_field_value($value) {
     ),
   );
 }
-
