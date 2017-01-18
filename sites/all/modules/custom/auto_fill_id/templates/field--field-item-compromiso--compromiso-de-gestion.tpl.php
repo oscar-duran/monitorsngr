@@ -74,9 +74,9 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr id="<?php print $row_id ?>">
           <?php
-
-            $accion_id = $element['field_accion_collect']['#items'][0]['value'];
-            $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
+//
+//            $accion_id = $element['field_accion_collect']['#items'][0]['value'];
+//            $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
 
             $acciones_cant = sizeof($element['field_accion_collect']['#items']);
             /*$meta_cant = 0;
