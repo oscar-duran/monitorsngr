@@ -64,7 +64,7 @@
 
     <div id="main-content">
         
-            <?php dpm($page['content']);?>
+
 	    <?php
             print render($page['content']['system_main']['title']);
             print render($page['content']['system_main']['field_institucion']);

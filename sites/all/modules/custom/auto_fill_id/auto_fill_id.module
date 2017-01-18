@@ -353,9 +353,33 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
+        
+        
+        dpm('tafcsygvhbd');
+        
+//        $var_anho_actual = date('Y');
+//        $flag_anho = 2017;
+//        
+//        $instancex = field_info_instance('node', 'field_auto_inc_eje', 'compromiso_de_gestion');
+//        field_delete_instance($instance, FALSE);
+        
         $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
         $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ; //<----------------------------------------
+        $node->title = $id . '-' . $flag_anho . '-' . $ins->title  ;
+        
+//        if($flag_anho!=$var_anho_actual){
+//            //reset serial
+//
+//            /**
+//             * borrar campo serial del nodo
+//             * guardar nodo
+//             * agregar nuevamente el campo serial
+//             * guardar nodo
+//             */
+//        }else{
+//            //keep serial
+//
+//            }
     }
 }
 
