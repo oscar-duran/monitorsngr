@@ -68,7 +68,7 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
         <?php $fields_item_compromiso = $item['entity']['field_collection_item']; ?>
         <?php
             $row_id = 'row-item-' . $delta;
-            //dpm($item);
+            dpm($item);
         ?>
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr id="<?php print $row_id ?>">

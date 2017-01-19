@@ -26,6 +26,20 @@ function auto_fill_id_theme_registry_alter(&$theme_registry) {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ */
+function auto_fill_id_preprocess_page(&$vars, $hook) {
+
+}
+
+/**
+ * Implements hook_field_attach_preprocess_alter().
+ */
+function auto_fill_id_field_attach_preprocess_alter(&$variables, $context) {
+  dpm($context);
+}
+
+/**
  * Implements hook_node_presave().
  */
 function auto_fill_id_node_presave($node) {
@@ -90,6 +104,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
+  $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
 
   //Items de compromiso
   $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
@@ -215,8 +230,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
-  //dpm($form);
-  //dpm($form_state);
+  dpm($form);
+  dpm($form_state);
 }
 
 /**
@@ -368,19 +383,24 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
+        dpm($node);
         $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-        $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
+        $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+        $ins_name = $ins ? $ins->title : '';
+        $node->title = $id . '-' . date('Y') . '-' . $ins_name;
+        $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
     }
 }
 
 function action_id($compromiso_node) {
+  compromiso_percentage($compromiso_node);
   foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) { 
     $item = field_collection_item_load($item_id['value']);
     if($item) {
-      $eje = $item->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
-      $ambito = $item->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
-      $lineamiento = $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
+      dpm($item);
+      $eje = !empty($item->field_codigo_eje) ? $item->field_codigo_eje[LANGUAGE_NONE][0]['tid'] : '0';
+      $ambito = !empty($item->field_codigo_ambito) ? $item->field_codigo_ambito[LANGUAGE_NONE][0]['tid'] : '0';
+      $lineamiento = !empty($item->field_codigo_lineamiento) ? $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'] : '0';
 
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
@@ -400,10 +420,10 @@ function action_id($compromiso_node) {
 
 function meta_id($meta_id, $meta_nid, $action_id){
   $meta = node_load($meta_nid);
+  dpm($meta);
   $meta->title = $action_id . 'M' . ($meta_id + 1);
   $meta->revision = 1;
   node_save($meta);
-
   if(!empty($meta->field_producto)) {
     foreach ($meta->field_producto[LANGUAGE_NONE] as $key => $productos) {
       producto_id($meta, $productos['target_id'], ($key + 1));
@@ -421,6 +441,43 @@ function producto_id($meta_node, $producto_nid, $producto_id){
     node_save($producto);
   }
 }
+
+function compromiso_percentage($compromis_node) {
+  if(!empty($compromis_node->field_item_compromiso)) {
+    $total = 0;
+    $cant = 0;
+    foreach ($compromis_node->field_item_compromiso[LANGUAGE_NONE] as $item) {
+      if(!empty($item['field_accion_collect'])) {
+        foreach ($item['field_accion_collect'][LANGUAGE_NONE] as $action) {
+          if(!empty($action['field_meta'])) {
+            $cant += sizeof($action['field_meta'][LANGUAGE_NONE]);
+            foreach ($action['field_meta'][LANGUAGE_NONE] as $meta) {
+              $meta_node = node_load($meta['target_id']);
+              $total += $meta_node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'];
+            }
+          }
+        }
+      }
+    }
+    return $cant > 0 ? ($total * 25) /$cant : 0;
+  }
+  return 0;
+}
+
+/*
+function action_percentage($action_field) {
+  if(!empty($action_field->field_meta)) {
+    $percentage = 0;
+    foreach ($action_field->field_meta[LANGUAGE_NONE] as $meta_id) {
+      //$meta = node_load($meta_id['target_id']);
+      return array('size' => sizeof($action_field->field_meta[LANGUAGE_NONE]),
+        'total' => array_replace($meta[LANGUAGE_NONE], function () {
+          return
+        }));
+    }
+  }
+  else { return 0; }
+}*/
 
 function simple_string_field_value($value) {
   return array(
