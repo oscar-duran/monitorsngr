@@ -244,7 +244,7 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
   }
 
   if($field_collection_item->field_name == "field_accion_collect") {
-    check_action($field_collection_item);
+    //check_action($field_collection_item);
   }
 }
 
@@ -387,7 +387,9 @@ function action_id($compromiso_node) {
         if($action) {
           $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
           if(!empty($action->field_meta)) {
-            meta_id($action);
+            foreach ($action->field_meta[LANGUAGE_NONE] as $meta_id => $meta) {
+              meta_id($meta_id, $meta['target_id'], $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value']);
+            }
           }
           $action->save(TRUE);
         }
@@ -396,11 +398,9 @@ function action_id($compromiso_node) {
   }
 }
 
-function meta_id($action_node){
-  $meta_id = $action_node->field_meta[LANGUAGE_NONE][0]['target_id'];
-  $action_id = $action_node->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'];
-  $meta = node_load($meta_id);
-  $meta->title = $action_id . 'M1';
+function meta_id($meta_id, $meta_nid, $action_id){
+  $meta = node_load($meta_nid);
+  $meta->title = $action_id . 'M' . ($meta_id + 1);
   $meta->revision = 1;
   node_save($meta);
 
@@ -415,8 +415,8 @@ function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
   dpm($producto);
   if(!$producto->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
-    //$producto->field_cod_producto_meta = string_field_value($meta_node->title . 'P' . $producto_id);
-    $producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
+    $producto->field_cod_producto_meta = simple_string_field_value($meta_node->title . 'P' . $producto_id);
+    //$producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
     $producto->revision = 1;
     node_save($producto);
   }
