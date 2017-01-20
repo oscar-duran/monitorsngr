@@ -73,7 +73,6 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
         <?php foreach ($fields_item_compromiso as $element): ?>
         <tr id="<?php print $row_id ?>">
           <?php
-
             $accion_id = $element['field_accion_collect']['#items'][0]['value'];
             $accion_estrategica = $element['field_accion_collect'][0]['entity']['field_collection_item'][$accion_id];
 
@@ -116,12 +115,15 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
               <?php foreach ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta']['#items'] as $meta_id => $meta_field) : ?>
                 <?php if($meta_id > 0): ?> <tr> <?php endif; ?>
                     <td class="<?php print $odd_even_class; ?>">
-                      <?php print render ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]); ?>
+                      <?php //print $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]['#markup']; ?>
+                      <?php print t('<a href="/node/@nid">E1176A1173L1181Ae1M1(@percent%)</a>', ['@nid' => $meta_field['entity']->nid, '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 )]) ?>
                     </td>
                     <!--Producto-->
                     <td class="<?php print $odd_even_class; ?>">
                         <?php
-                            //dpm($meta_field);
+                        dpm($meta_field['entity']);
+
+                        //dpm($meta_field);
                             if(!empty($meta_field['entity']->field_producto)) {
                                 foreach ($meta_field['entity']->field_producto[LANGUAGE_NONE] as $producto_id) {
                                     $product = node_load($producto_id['target_id']);

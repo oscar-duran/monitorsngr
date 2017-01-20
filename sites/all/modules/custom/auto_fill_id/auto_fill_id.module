@@ -96,6 +96,11 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
  */
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
+  $query = new EntityFieldQuery();
+  $id = 296; //Meta
+
+  /*$query->entityCondition('entity_type', )
+    ->enti*/
   //dpm($form_state['node']);
   //Add css
   $form['#attached'] = array(
@@ -104,6 +109,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
+  $form['field_porcentaje_de_avance_compr']['#access'] = 0;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
 
   //Items de compromiso
@@ -453,12 +459,13 @@ function compromiso_percentage($compromis_node) {
             $cant += sizeof($action['field_meta'][LANGUAGE_NONE]);
             foreach ($action['field_meta'][LANGUAGE_NONE] as $meta) {
               $meta_node = node_load($meta['target_id']);
-              $total += $meta_node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'];
+              $total += $meta_node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] ;
             }
           }
         }
       }
     }
+    dpm($total);
     return $cant > 0 ? ($total * 25) /$cant : 0;
   }
   return 0;
