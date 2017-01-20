@@ -351,12 +351,15 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
   }
 }
 
+
+
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
         
-        
-        $var_anho_actual = 2017;//date('Y');
-        $flag_anho = 2017;
+        variable_set('var_anho_actual', date('Y'));
+        variable_set('flag_anho', 2017);
+        //$var_anho_actual = 2018;//date('Y');
+        //$flag_anho = 2017;
         
 //        if (empty($node_field[0]['value'])) {
 //        $count = db_result(db_query("select max(field_client_number_value) from {content_type_customer}"));
@@ -372,25 +375,33 @@ function compromiso_id($node) {
         //$count = 
         //select * from field_data_field_id_compromiso;
         
-        if ($flag_anho!=$var_anho_actual) {
+        //if ($flag_anho!=$var_anho_actual) {
+        if (variable_get('flag_anho')!=variable_get('var_anho_actual')) {
             //reset auto_inc
+            //variable_set('flag_anho', 2018);
+            dpm('entro reset');
+            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
+            
+            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
         }else{
             if($count==null){
-                dpm('entro null');
+
             //field_id_compromiso=1
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . $var_anho_actual . '-' . $ins->title  ;
+            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
             }else{
-                dpm('entro else');
+
             //field_id_compromiso=$count++
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . $var_anho_actual . '-' . $ins->title  ;
+            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title  ;
             }
 
 //        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
