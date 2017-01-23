@@ -396,7 +396,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -433,7 +433,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -445,13 +445,13 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
@@ -459,17 +459,21 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'node',
     'field_name' => 'field_id_compromiso',
-    'label' => 'Id compromiso',
+    'label' => 'id_compromiso',
     'required' => 0,
     'settings' => array(
+      'max' => '',
+      'min' => 1,
+      'prefix' => '',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'serial',
+      'module' => 'number',
       'settings' => array(),
-      'type' => 'serial_widget_default',
-      'weight' => 1,
+      'type' => 'number',
+      'weight' => 3,
     ),
   );
 
@@ -526,7 +530,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 3,
+      'weight' => 1,
     ),
   );
 
@@ -1597,7 +1601,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('En el presente año, su organización ha recibido asesoría o capacitación en el tema de gestión del riesgo que sea pertinente a la ejecución de la meta asignada en el Plan NGR.');
   t('Estado');
   t('Fuente de verificación');
-  t('Id compromiso');
   t('Id-item');
   t('Institución ');
   t('Institución coordinadora');
@@ -1609,6 +1612,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Porcentaje avance');
   t('Producto esperado');
   t('Tema de necesidades en asesoría');
+  t('id_compromiso');
   t('¿Cuánto ha avanzado su organización en el cumplimiento de la meta?');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');

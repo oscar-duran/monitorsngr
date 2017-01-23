@@ -52,8 +52,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Horizontal Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_compromiso_items_tab',
-      1 => 'group_compromiso_info_tab',
+      0 => 'group_compromiso_info_tab',
+      1 => 'group_compromiso_items_tab',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -80,10 +80,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_estado',
-      1 => 'field_id_compromiso',
-      2 => 'field_institucion',
-      3 => 'field_accion_a_seguir',
-      4 => 'title',
+      1 => 'field_institucion',
+      2 => 'field_accion_a_seguir',
+      3 => 'title',
+      4 => 'field_id_compromiso',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
