@@ -372,8 +372,6 @@ function compromiso_id($node) {
         
         $splitted_title = explode('-', $node_loaded_with_id->title);  
         
-        dpm($splitted_title);
-        
         if ($splitted_title[1] != date('Y')) {
             //reset autoincremental
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
