@@ -362,16 +362,15 @@ function compromiso_id($node) {
         $query->fields('comp', array('field_id_compromiso_value'));
         $query->orderBy('entity_id', 'DESC');
         $query->range(0, 1);
-        //$query->addExpression('MAX(field_id_compromiso_value)');
         $count = $query->execute()->fetchField();
         
-
-        $another_query=db_select('node');
+        $another_query = db_select('node');
         $another_query->addExpression('MAX(nid)');
         $another_query->condition('type', 'compromiso_de_gestion', '=');
         $executed_query=$another_query->execute()->fetchField();
         $node_loaded_with_id = node_load($executed_query);
-        $splitted_title=explode('-', $node_loaded_with_id->title);  
+        
+        $splitted_title = explode('-', $node_loaded_with_id->title);  
         
         dpm($splitted_title);
         
@@ -383,7 +382,7 @@ function compromiso_id($node) {
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
             $node->title = $id . '-' . date('Y') . '-' . $ins->title;
         }else {
-            if($count==null){
+            if($count == null){
 
             //field_id_compromiso=1
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
@@ -393,7 +392,6 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title;
             }else{
 
-            //field_id_compromiso=$count++
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
@@ -401,48 +399,7 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
             }            
         }
-
-        //$count = db_query("select max(field_id_compromiso) from {compromiso_de_gestion}");
-/***************************************************************************************************************************/
-//        variable_set('var_anho_actual', date('Y'));
-//        variable_set('flag_anho', 2017);
-//        
-//        $query = db_select('field_data_field_id_compromiso', 'comp');
-//        $query->addExpression('MAX(field_id_compromiso_value)');
-//        $count = $query->execute()->fetchField();
-//
-//        //if ($flag_anho!=$var_anho_actual) {
-//        if (variable_get('flag_anho')!=variable_get('var_anho_actual')) {
-//            //reset auto_inc
-//            dpm('entro reset');
-//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
-//            
-//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
-//        }else{
-//            if($count==null){
-//
-//            //field_id_compromiso=1
-//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
-//            
-//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
-//            }else{
-//
-//            //field_id_compromiso=$count++
-//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
-//            
-//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title  ;
-//            }
-//
-////        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-////        dpm($node->field_id_compromiso);
-////        dpm($node->field_id_compromiso[LANGUAGE_NONE][0]["value"]);
-//        }        
+      
     }
 
 }
