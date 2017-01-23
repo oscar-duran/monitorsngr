@@ -356,36 +356,32 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
         
-        variable_set('var_anho_actual', date('Y'));
-        variable_set('flag_anho', 2017);
-        //$var_anho_actual = 2018;//date('Y');
-        //$flag_anho = 2017;
-        
-//        if (empty($node_field[0]['value'])) {
-//        $count = db_result(db_query("select max(field_client_number_value) from {content_type_customer}"));
-//        $count++;
-//        $node_field[0]['value'] = $count;
-//        }
-        
-        //$count = db_query("select max(field_id_compromiso) from {compromiso_de_gestion}");
+        //Queries
         $query = db_select('field_data_field_id_compromiso', 'comp');
-        $query->addExpression('MAX(field_id_compromiso_value)');
+        $query->fields('comp', array('field_id_compromiso_value'));
+        $query->orderBy('entity_id', 'DESC');
+        $query->range(0, 1);
+        //$query->addExpression('MAX(field_id_compromiso_value)');
         $count = $query->execute()->fetchField();
         
-        //$count = 
-        //select * from field_data_field_id_compromiso;
+
+        $another_query=db_select('node');
+        $another_query->addExpression('MAX(nid)');
+        $another_query->condition('type', 'compromiso_de_gestion', '=');
+        $executed_query=$another_query->execute()->fetchField();
+        $node_loaded_with_id = node_load($executed_query);
+        $splitted_title=explode('-', $node_loaded_with_id->title);  
         
-        //if ($flag_anho!=$var_anho_actual) {
-        if (variable_get('flag_anho')!=variable_get('var_anho_actual')) {
-            //reset auto_inc
-            //variable_set('flag_anho', 2018);
-            dpm('entro reset');
+        dpm($splitted_title);
+        
+        if ($splitted_title[1] != date('Y')) {
+            //reset autoincremental
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
-        }else{
+            $node->title = $id . '-' . date('Y') . '-' . $ins->title;
+        }else {
             if($count==null){
 
             //field_id_compromiso=1
@@ -393,7 +389,7 @@ function compromiso_id($node) {
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
+            $node->title = $id . '-' . date('Y') . '-' . $ins->title;
             }else{
 
             //field_id_compromiso=$count++
@@ -401,98 +397,53 @@ function compromiso_id($node) {
             
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title  ;
-            }
-
-//        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//        dpm($node->field_id_compromiso);
-//        dpm($node->field_id_compromiso[LANGUAGE_NONE][0]["value"]);
+            $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
+            }            
         }
 
-        /******************************************************************************************************/
-        
-        
-        //recien despues d crear el compromiso
-        
-          //$var_anho_actual = 2018;//date('Y');
-//        $flag_anho = 2017;
-        
-//        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//        dpm($node->field_id_compromiso);
-//        dpm($node->field_id_compromiso[LANGUAGE_NONE][0]["value"]);
-//        $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//        $node->title = $id . '-' . $flag_anho . '-' . $ins->title  ;
-        
-//        if($flag_anho!=$var_anho_actual){
-//            //reset serial
-//            
-//            
-//            
-//              // Retrieve all bundles for an entity.
-//  $bundles = field_info_bundles('node'); // The name of your entity type, for example, 'node'.
-//  foreach ($bundles as $bundle => $properties) {
+        //$count = db_query("select max(field_id_compromiso) from {compromiso_de_gestion}");
+/***************************************************************************************************************************/
+//        variable_set('var_anho_actual', date('Y'));
+//        variable_set('flag_anho', 2017);
+//        
+//        $query = db_select('field_data_field_id_compromiso', 'comp');
+//        $query->addExpression('MAX(field_id_compromiso_value)');
+//        $count = $query->execute()->fetchField();
 //
-//    // Retrieve all the fields for a given bundle.
-//    $instances = field_info_instances('node', $bundle);
-//    foreach ($instances as $instancex) {
-//      field_delete_instance($instancex, TRUE);
-//      field_purge_batch(1);
-//    }
-//  }
-////            field_delete_field('field_id_compromiso');
-////            field_purge_batch(10);
-////            field_delete_field('field_id_compromiso');
-////            field_purge_batch(10);
+//        //if ($flag_anho!=$var_anho_actual) {
+//        if (variable_get('flag_anho')!=variable_get('var_anho_actual')) {
+//            //reset auto_inc
+//            dpm('entro reset');
+//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
 //            
-//  $field_name = 'field_id_compromiso';
-// 
-// 
-//    // Create the field.
-//    $field = array(
-//      'field_name' => $field_name,
-//      'type' => 'serial',
-//    );
-//    field_create_field($field);
+//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
+//        }else{
+//            if($count==null){
 //
-//    // Create the instance.
-//    $instance = array( 'field_name' => $field_name,
-//      'entity_type' => 'node',
-//      'bundle' => 'compromiso_de_gestion',
-//      //'label' => 'Alias',
-//      //'description' => 'The article alias.',
-//      //'required' => TRUE,
-//    );
-//    field_create_instance($instance);
-//    //node_save($node);
-//               $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+//            //field_id_compromiso=1
+//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
+//            
+//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title;
+//            }else{
+//
+//            //field_id_compromiso=$count++
+//            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
+//            
+//            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+//            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+//            $node->title = $id . '-' . variable_get('var_anho_actual') . '-' . $ins->title  ;
+//            }
+//
+////        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
 ////        dpm($node->field_id_compromiso);
 ////        dpm($node->field_id_compromiso[LANGUAGE_NONE][0]["value"]);
-//        $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//        $node->title = $id . '-' . $var_anho_actual . '-' . $ins->title  ;  
-//
-// 
-//  
-//            /**
-//             * borrar campo serial del nodo
-//             * guardar nodo
-//             * agregar nuevamente el campo serial
-//             * guardar nodo
-//             */
-//        }else{
-            //keep serial
-//        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-//        dpm($node->field_id_compromiso);
-//        dpm($node->field_id_compromiso[LANGUAGE_NONE][0]["value"]);
-//        $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-//        $node->title = $id . '-' . date('Y') . '-' . $ins->title  ; 
-            //}
-        
-        /************************************************************************************************************/        
+//        }        
     }
-    
-//delete this later    
-//            $instancex = field_info_instance('node', 'field_id_compromiso', 'compromiso_de_gestion');
-//            field_delete_instance($instancex, FALSE);
+
 }
 
 function action_id($compromiso_node) {
