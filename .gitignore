@@ -3,8 +3,12 @@
 sites/*/files
 sites/*/private
 sites/default/settings.local.inc
+sites/default/settings.inc
+
 .idea
 
 .DS_Store
 
-/nbproject/private/
+/nbproject/
+
+_sites/
