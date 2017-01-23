@@ -70,20 +70,18 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'links' => 1,
-          'view_mode' => 'default',
+          'link' => 0,
         ),
-        'type' => 'entityreference_entity_view',
+        'type' => 'entityreference_label',
         'weight' => 1,
       ),
       'full' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'links' => TRUE,
-          'view_mode' => 'default',
+          'link' => 1,
         ),
-        'type' => 'entityreference_entity_view',
+        'type' => 'entityreference_label',
         'weight' => 1,
       ),
       'token' => array(
@@ -448,7 +446,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -530,6 +528,63 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
+  // Exported field_instance: 'node-compromiso_de_gestion-field_item'.
+  $field_instances['node-compromiso_de_gestion-field_item'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 0,
+        'unload_edit_button' => 0,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_item',
+    'label' => 'Matriz de compromiso',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance:
   // 'node-compromiso_de_gestion-field_item_compromiso'.
   $field_instances['node-compromiso_de_gestion-field_item_compromiso'] = array(
@@ -549,7 +604,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -571,6 +626,53 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_porcentaje_de_avance_compr'.
+  $field_instances['node-compromiso_de_gestion-field_porcentaje_de_avance_compr'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_porcentaje_de_avance_compr',
+    'label' => 'Porcentaje de Avance',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 7,
     ),
   );
 
@@ -1399,7 +1501,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1410,7 +1512,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'node',
     'field_name' => 'field_cod_producto_meta',
-    'label' => 'Código producto',
+    'label' => 'Código Producto',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1423,7 +1525,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -1463,7 +1565,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -1520,7 +1622,50 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 4,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-producto_meta-field_nombre_manual'.
+  $field_instances['node-producto_meta-field_nombre_manual'] = array(
+    'bundle' => 'producto_meta',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_nombre_manual',
+    'label' => 'Nombre manual',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 0,
     ),
   );
 
@@ -1571,7 +1716,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1588,7 +1733,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
   t('Código Eje');
   t('Código Lineamiento');
-  t('Código producto');
+  t('Código Producto');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
   t('Descripción');
@@ -1602,11 +1747,14 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Institución ');
   t('Institución coordinadora');
   t('Item de Compromiso');
+  t('Matriz de compromiso');
   t('Meta');
+  t('Nombre manual');
   t('Observaciones del analista');
   t('Obstáculo');
   t('Organización asesora');
   t('Porcentaje avance');
+  t('Porcentaje de Avance');
   t('Producto esperado');
   t('Tema de necesidades en asesoría');
   t('¿Cuánto ha avanzado su organización en el cumplimiento de la meta?');

@@ -36,7 +36,6 @@ function auto_fill_id_preprocess_page(&$vars, $hook) {
  * Implements hook_field_attach_preprocess_alter().
  */
 function auto_fill_id_field_attach_preprocess_alter(&$variables, $context) {
-  dpm($context);
 }
 
 /**
@@ -95,13 +94,6 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
  */
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
-  $query = new EntityFieldQuery();
-  $id = 296; //Meta
-
-  /*$query->entityCondition('entity_type', )
-    ->enti*/
-  //dpm($form_state['node']);
-
   //Add css
   $form['#attached'] = array(
     'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
@@ -123,76 +115,23 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   foreach($items_array as $item_id => $item) {
       $item['field_id_item']['#disabled'] = TRUE;
       $item_title = 'Item #' . ($item_id + 1);
-      $group = $item_id > 0 ? clone_group($item['#fieldgroups']['group_items']) : $item['#fieldgroups']['group_items'];
+      $group1 = $item_id > 0 ? clone_group($item['#fieldgroups']['group_muy_loco']) : $item['#fieldgroups']['group_muy_loco'];
+      $group2 = $item_id > 0 ? clone_group($item['#fieldgroups']['group_items_v_tabs']) : $item['#fieldgroups']['group_items_v_tabs'];
 
       $item['field_id_item'][LANGUAGE_NONE][0]['value']['#default_value'] = $item_title;
-      $group->label = $item_title;
-      $item['#fieldgroups']['group_items'] = $group;
-      $item['#groups']['group_items'] = $group;
+      $group1->label = $item_title;
+      $group2->label = $item_title;
+
+      $item['#fieldgroups']['group_muy_loco'] = $group1;
+      $item['#groups']['group_muy_loco'] = $group1;
+      $item['#fieldgroups']['group_items_v_tabs'] = $group2;
+      $item['#groups']['group_items_v_tabs'] = $group2;
 
       $ajax_eal = array(
 
         'callback' => 'eal_ajax_callback',
         'method' => 'replace',
       );
-
-
-      /*Groups*************************************************************************************************************************************/
-      /*$groups = field_group_read_groups(array(
-        'entity_type' => 'field_collection_item',
-        'bundle' => 'field_item_compromiso',
-        'mode' => 'form'));
-      //dpm($groups);
-
-      //$group_v = $groups['field_collection_item']['field_item_compromiso']['form']['group_item_v_tab'];
-
-      //$group_v->group_name = 'group_muy_loco';
-      //field_group_group_save($group_v);
-
-
-      /*$tab_group = $item_id > 0 ? clone_group($item['#groups']['group_item_v_tab']) : $item['#groups']['group_item_v_tab'];
-      $identifier = explode('|', $tab_group->identifier);
-
-      $tab_group->group_name = 'group_item_v_tab_' . $item_id;
-      $identifier[0] = $tab_group->group_name;
-      $tab_group->identifier = implode('|', $identifier);
-
-
-
-      unset($item['#groups']['group_item_v_tab']);
-      unset($item['#fieldgroups']['group_item_v_tab']);
-      $item['#groups'][$tab_group->group_name] = $tab_group;
-      $item['#fieldgroups'][$tab_group->group_name] = $tab_group;
-
-
-
-      $children = array_slice($item['#group_children'], 1);
-      $children = array_map(function ($element) use ($tab_group) { return $tab_group->group_name; }, $children );
-      $children = array($tab_group->group_name => 'group_items_v_tabs') + $children;
-      //dpm($children);
-      //$item['#group_children'] = array_map(function ($element) use ($tab_group) { return $tab_group->group_name; }, $item['#group_children']);
-
-    if(!empty($groups)) {
-      $item['#groups'] =  $item['#groups'] + $groups;
-      $item['#fieldgroups'] = $item['#fieldgroups'] + $groups;
-
-      foreach ($groups as $item_group) {
-        $children[$item_group->group_name] = 'group_items_v_tabs';
-      }
-    }
-
-    $groups[$tab_group->group_name] = $tab_group;
-
-      $item['#group_children'] = $children;
-
-      $item['#groups']['group_items_v_tabs']->children[$item_id] = $tab_group->group_name;
-
-      dpm('Item id: ' . $item_id);
-     //dpm($item['#groups']['group_items']);
-      dpm($item['#groups'][$tab_group->group_name]);
-      /*End Groups**********************************************************************************************************************************/
-
-      //dpm($item['#groups']['group_items_v_tabs']);
 
       $item['field_codigo_eje'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
       $item['field_codigo_ambito'][LANGUAGE_NONE]['#ajax'] = $ajax_eal;
@@ -235,8 +174,6 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
-  dpm($form);
-  dpm($form_state);
 }
 
 /**
@@ -382,7 +319,6 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
-        dpm($node);
         $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
         $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
         $ins_name = $ins ? $ins->title : '';
@@ -423,7 +359,6 @@ function action_id($compromiso_node) {
 
 function meta_id($meta_id, $meta_nid, $action_id){
   $meta = node_load($meta_nid);
-  dpm($meta);
   $meta->title = $action_id . '.(M' . ($meta_id + 1) . ')';
   $meta->revision = 1;
   node_save($meta);
@@ -436,8 +371,8 @@ function meta_id($meta_id, $meta_nid, $action_id){
 
 function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
-  dpm($producto);
   if(!$producto->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
+    //$producto->field_cod_producto_meta = simple_string_field_value('.P' . $producto_id);
     $producto->field_cod_producto_meta = simple_string_field_value($meta_node->title .  '.P' . $producto_id);
     //$producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
     $producto->revision = 1;
@@ -453,8 +388,11 @@ function compromiso_percentage($compromis_node) {
       if(!empty($item['field_accion_collect'])) {
         foreach ($item['field_accion_collect'][LANGUAGE_NONE] as $action) {
           if(!empty($action['field_meta'])) {
-            $cant += sizeof($action['field_meta'][LANGUAGE_NONE]);
-            foreach ($action['field_meta'][LANGUAGE_NONE] as $meta) {
+            $metas = array_filter($action['field_meta'][LANGUAGE_NONE], function ($v, $k) {
+              return is_numeric($k) && !empty($v['target_id']);
+            }, ARRAY_FILTER_USE_BOTH);
+            $cant += sizeof($metas);
+            foreach ($metas as $meta) {
               $meta_node = node_load($meta['target_id']);
               $total += $meta_node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] ;
             }
@@ -462,26 +400,10 @@ function compromiso_percentage($compromis_node) {
         }
       }
     }
-    dpm($total);
-    return $cant > 0 ? ($total * 25) /$cant : 0;
+    return $cant > 0 ? (($total - 1) * 25) /$cant : 0;
   }
   return 0;
 }
-
-/*
-function action_percentage($action_field) {
-  if(!empty($action_field->field_meta)) {
-    $percentage = 0;
-    foreach ($action_field->field_meta[LANGUAGE_NONE] as $meta_id) {
-      //$meta = node_load($meta_id['target_id']);
-      return array('size' => sizeof($action_field->field_meta[LANGUAGE_NONE]),
-        'total' => array_replace($meta[LANGUAGE_NONE], function () {
-          return
-        }));
-    }
-  }
-  else { return 0; }
-}*/
 
 function simple_string_field_value($value) {
   return array(

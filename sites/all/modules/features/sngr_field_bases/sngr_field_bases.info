@@ -91,7 +91,6 @@ features[field_base][] = field_institucion
 features[field_base][] = field_instituciones_involucradas
 features[field_base][] = field_insumos
 features[field_base][] = field_inversion_estimada
-features[field_base][] = field_item
 features[field_base][] = field_item_compromiso
 features[field_base][] = field_lineamiento
 features[field_base][] = field_lugar_movilizacion

@@ -52,8 +52,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Horizontal Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_compromiso_items_tab',
-      1 => 'group_compromiso_info_tab',
+      0 => 'group_compromiso_info_tab',
+      1 => 'group_compromiso_items_tab',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -81,8 +81,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'children' => array(
       0 => 'field_estado',
       1 => 'field_id_compromiso',
-      2 => 'field_institucion',
-      3 => 'field_accion_a_seguir',
+      2 => 'field_accion_a_seguir',
+      3 => 'field_institucion',
       4 => 'title',
     ),
     'format_type' => 'htab',
@@ -137,8 +137,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Item V tab',
     'weight' => '2',
     'children' => array(
-      0 => 'field_codigo_ambito',
-      1 => 'field_codigo_lineamiento',
+      0 => 'field_codigo_lineamiento',
+      1 => 'field_codigo_ambito',
       2 => 'field_id_item',
       3 => 'field_accion_collect',
       4 => 'field_codigo_eje',
@@ -166,7 +166,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Item V tabs',
-    'weight' => '1',
+    'weight' => '0',
     'children' => array(
       0 => 'group_muy_loco',
     ),
@@ -192,14 +192,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'items',
-    'weight' => '0',
-    'children' => array(
-      0 => 'field_accion_collect',
-      1 => 'field_codigo_ambito',
-      2 => 'field_codigo_eje',
-      3 => 'field_codigo_lineamiento',
-      4 => 'field_id_item',
-    ),
+    'weight' => '1',
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'items',
