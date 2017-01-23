@@ -27,7 +27,7 @@ function sngr_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_auto_inc_ambito',
-    'label' => 'auto-inc-ambito',
+    'label' => 'Auto inc ambito',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -58,7 +58,7 @@ function sngr_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_auto_inc_eje',
-    'label' => 'auto-inc-eje',
+    'label' => 'Auto inc eje',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -89,7 +89,7 @@ function sngr_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_auto_inc_lin',
-    'label' => 'auto-inc-lin',
+    'label' => 'Auto inc lineamiento',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -105,9 +105,9 @@ function sngr_field_bases_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('auto-inc-ambito');
-  t('auto-inc-eje');
-  t('auto-inc-lin');
+  t('Auto inc ambito');
+  t('Auto inc eje');
+  t('Auto inc lineamiento');
 
   return $field_instances;
 }
