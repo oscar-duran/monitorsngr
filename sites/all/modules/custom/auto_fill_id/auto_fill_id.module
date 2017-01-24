@@ -374,20 +374,14 @@ function compromiso_id($node) {
         
         if ($splitted_title[1] != date('Y')) {
             //reset autoincremental
-            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
-            
-            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . date('Y') . '-' . $ins->title;
+            autoinc_compromiso($node);
+
         }else {
             if($count == null){
 
             //field_id_compromiso=1
-            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;
-            
-            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-            $node->title = $id . '-' . date('Y') . '-' . $ins->title;
+            autoinc_compromiso($node);
+
             }else{
 
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
@@ -396,10 +390,15 @@ function compromiso_id($node) {
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;
             }            
-        }
-      
+        } 
     }
+}
 
+function autoinc_compromiso($node){
+    $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
+    $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+    $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+    $node->title = $id . '-' . date('Y') . '-' . $ins->title;
 }
 
 function action_id($compromiso_node) {
