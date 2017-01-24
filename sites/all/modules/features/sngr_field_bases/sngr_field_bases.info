@@ -35,7 +35,6 @@ features[field_base][] = field_anno_fin_meta
 features[field_base][] = field_anno_ini_meta
 features[field_base][] = field_apellido1
 features[field_base][] = field_apellido2
-features[field_base][] = field_archivo_evidencia
 features[field_base][] = field_area_afectada
 features[field_base][] = field_aspecto_positivo
 features[field_base][] = field_auto_inc_ambito

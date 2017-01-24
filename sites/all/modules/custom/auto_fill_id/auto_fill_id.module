@@ -400,7 +400,7 @@ function compromiso_percentage($compromis_node) {
         }
       }
     }
-    return $cant > 0 ? (($total - 1) * 25) /$cant : 0;
+    return $cant > 0 ? (($total - $cant) * 25) /$cant : 0;
   }
   return 0;
 }
