@@ -334,25 +334,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_archivo_evidencia'.
-  $field_bases['field_archivo_evidencia'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_archivo_evidencia',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'mediafield',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'media',
-  );
-
   // Exported field_base: 'field_area_afectada'.
   $field_bases['field_area_afectada'] = array(
     'active' => 1,
@@ -649,7 +630,7 @@ function sngr_field_bases_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
-      'max_length' => 10,
+      'max_length' => 155,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -1038,7 +1019,7 @@ function sngr_field_bases_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'mediafield',
+    'module' => 'media',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'media',
@@ -1538,41 +1519,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_float',
   );
 
-  // Exported field_base: 'field_item'.
-  $field_bases['field_item'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_item',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'item_compromiso' => 'item_compromiso',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_item_compromiso'.
   $field_bases['field_item_compromiso'] = array(
     'active' => 1,
@@ -1704,7 +1650,7 @@ function sngr_field_bases_field_default_field_bases() {
   // Exported field_base: 'field_meta'.
   $field_bases['field_meta'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_meta',
@@ -2532,7 +2478,7 @@ function sngr_field_bases_field_default_field_bases() {
       ),
     ),
     'locked' => 0,
-    'module' => 'mediafield',
+    'module' => 'media',
     'settings' => array(),
     'translatable' => 0,
     'type' => 'media',

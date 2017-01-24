@@ -64,10 +64,11 @@ fieldset.action-tab fieldset.form-wrapper {
 
 fieldset.action-tab > .fieldset-wrapper {
     display: flex;
-    margin-left: 50px;
+    /*margin-left: 50px;*/
 }
 
 fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
+    padding-top: 15px;
     padding-left: 20px;
 }
 
@@ -115,5 +116,4 @@ table.field-multiple-table > thead {
 
 table.field-multiple-table tbody > tr.draggable >  td {
    border: 0;
-
 }

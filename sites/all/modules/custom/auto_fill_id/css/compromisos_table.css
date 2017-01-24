@@ -9,3 +9,13 @@ table.compromisos_table tbody tr td:nth-child(1) .field.field-name-field-id-item
 table.compromisos_table td .field-item {
     width: 150px;
 }
+
+table.compromisos_table td {
+    /*text-align: center;*/
+    border: 1px solid #8697b5;
+    vertical-align: middle;
+}
+
+table.compromisos_table td.odd {
+    background-color: #ebedff;
+}
