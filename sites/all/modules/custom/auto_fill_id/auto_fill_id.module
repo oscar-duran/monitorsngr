@@ -358,16 +358,16 @@ function compromiso_id($node) {
     if($node->field_id_compromiso) {
         
         //Queries
-        $query = db_select('field_data_field_id_compromiso', 'comp');
-        $query->fields('comp', array('field_id_compromiso_value'));
-        $query->orderBy('entity_id', 'DESC');
-        $query->range(0, 1);
-        $count = $query->execute()->fetchField();
+        $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
+        $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
+        $query_id_compromiso->orderBy('entity_id', 'DESC');
+        $query_id_compromiso->range(0, 1);
+        $count = $query_id_compromiso->execute()->fetchField();
         
-        $another_query = db_select('node');
-        $another_query->addExpression('MAX(nid)');
-        $another_query->condition('type', 'compromiso_de_gestion', '=');
-        $executed_query=$another_query->execute()->fetchField();
+        $query_node_title = db_select('node');
+        $query_node_title->addExpression('MAX(nid)');
+        $query_node_title->condition('type', 'compromiso_de_gestion', '=');
+        $executed_query=$query_node_title->execute()->fetchField();
         $node_loaded_with_id = node_load($executed_query);
         
         $splitted_title = explode('-', $node_loaded_with_id->title);  
