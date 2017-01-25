@@ -101,8 +101,11 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
+
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
+  $form['field_id_compromiso']['#access']= FALSE;
+
 
   //Items de compromiso
   $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
@@ -317,14 +320,59 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
   }
 }
 
+
+
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
-        $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-        $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
-        $ins_name = $ins ? $ins->title : '';
-        $node->title = $id . '-' . date('Y') . '-' . $ins_name;
-        $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
+        
+        //Queries
+        $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
+        $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
+        $query_id_compromiso->orderBy('entity_id', 'DESC');
+        $query_id_compromiso->range(0, 1);
+        $count = $query_id_compromiso->execute()->fetchField();
+        
+        $query_node_title = db_select('node');
+        $query_node_title->addExpression('MAX(nid)');
+        $query_node_title->condition('type', 'compromiso_de_gestion', '=');
+        $executed_query=$query_node_title->execute()->fetchField();
+        $node_loaded_with_id = node_load($executed_query);
+        
+        $splitted_title = explode('-', $node_loaded_with_id->title);  
+        
+        if ($splitted_title[1] != date('Y')) {
+            //reset autoincremental
+            autoinc_compromiso($node);
+
+        }else {
+            if($count == null){
+
+            //field_id_compromiso=1
+            autoinc_compromiso($node);
+
+            }else{
+
+            $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
+            
+            /*$id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+            $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+            $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
+
+            $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+            $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+            $ins_name = $ins ? $ins->title : '';
+            $node->title = $id . '-' . date('Y') . '-' . $ins_name;
+            $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node))
+            }            
+        }
     }
+}
+
+function autoinc_compromiso($node){
+    $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
+    $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+    $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+    $node->title = $id . '-' . date('Y') . '-' . $ins->title;
 }
 
 function action_id($compromiso_node) {

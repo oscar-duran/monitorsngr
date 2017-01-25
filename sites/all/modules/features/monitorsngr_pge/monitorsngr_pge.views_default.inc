@@ -192,7 +192,7 @@ function monitorsngr_pge_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Contenido: Sector (field_sector_estructural_afectad) */
+  /* Filter criterion: Contenido: Sector estructural afectado (field_sector_estructural_afectad) */
   $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['id'] = 'field_sector_estructural_afectad_tid';
   $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['table'] = 'field_data_field_sector_estructural_afectad';
   $handler->display->display_options['filters']['field_sector_estructural_afectad_tid']['field'] = 'field_sector_estructural_afectad_tid';
