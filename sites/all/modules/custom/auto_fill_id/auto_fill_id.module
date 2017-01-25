@@ -156,7 +156,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           $accion_code = is_add_form($form_state) || isset($form_state['values']) ? generate_action_code($item_id, $accion_id, $form) : action_default_value($item_id, $accion_id, $form);
 
           $accion_group = $accion_id > 0 ? clone_group($accion['#groups']['group_acciones']) : $accion['#groups']['group_acciones'];
-          $accion_group->label = 'Ae' . ($accion_id + 1);
+          $accion_group->label = 'Accion estrategica ' . ($accion_id + 1);
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion_code;
 
           $accion['#groups']['group_acciones'] = $accion_group;
@@ -340,7 +340,7 @@ function compromiso_id($node) {
         
         $splitted_title = explode('-', $node_loaded_with_id->title);  
         
-        if ($splitted_title[1] != date('Y') + 1) {
+        if ($splitted_title[1] != date('Y')) {
             //reset autoincremental
             autoinc_compromiso($node);
 
