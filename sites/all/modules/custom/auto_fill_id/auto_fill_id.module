@@ -332,18 +332,18 @@ function action_id($compromiso_node) {
   foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) { 
     $item = field_collection_item_load($item_id['value']);
     if($item) {
-      $eje = $item->field_codigo_eje[LANGUAGE_NONE][0]['tid'];
-      $ambito = $item->field_codigo_ambito[LANGUAGE_NONE][0]['tid'];
-      $lineamiento = $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid'];
-      
-      $cod_eje = taxonomy_term_load($eje);
-      $cod_ambito = taxonomy_term_load($ambito);
-      $cod_lineamiento = taxonomy_term_load($lineamiento);
+      $eje = !empty($item->field_codigo_eje) ? taxonomy_term_load($item->field_codigo_eje[LANGUAGE_NONE][0]['tid']) : FALSE;
+      $ambito = !empty($item->field_codigo_ambito) ? taxonomy_term_load($item->field_codigo_ambito[LANGUAGE_NONE][0]['tid']) : FALSE;
+      $lineamiento = !empty($item->field_codigo_lineamiento) ? taxonomy_term_load($item->field_codigo_lineamiento[LANGUAGE_NONE][0]['tid']) : FALSE;
+
+      $cod_eje = $eje ? $eje->field_auto_inc_eje['und'][0]['value'] : '';
+      $cod_ambito = $ambito ? $ambito->field_auto_inc_ambito['und'][0]['value'] : '';
+      $cod_lineamiento = $lineamiento ? $lineamiento->field_auto_inc_lin['und'][0]['value'] : '';
 
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
         if($action) {
-            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_key + 1);
+            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E'. $cod_eje . '-A' . $cod_ambito . '.L' . $cod_lineamiento . '.Ae' . ($action_key + 1);
           //$action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
           if(!empty($action->field_meta)) {
             foreach ($action->field_meta[LANGUAGE_NONE] as $meta_id => $meta) {
