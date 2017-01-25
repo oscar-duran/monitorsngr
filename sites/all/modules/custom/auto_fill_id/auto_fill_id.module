@@ -331,16 +331,16 @@ function compromiso_id($node) {
         $query_id_compromiso->orderBy('entity_id', 'DESC');
         $query_id_compromiso->range(0, 1);
         $count = $query_id_compromiso->execute()->fetchField();
-        
+
         $query_node_title = db_select('node');
         $query_node_title->addExpression('MAX(nid)');
         $query_node_title->condition('type', 'compromiso_de_gestion', '=');
         $executed_query=$query_node_title->execute()->fetchField();
         $node_loaded_with_id = node_load($executed_query);
-        
-        $splitted_title = explode('-', $node_loaded_with_id->title);  
-        
-        if ($splitted_title[1] != date('Y') + 1) {
+
+        $splitted_title = explode('-', $node_loaded_with_id->title);
+
+        if ($splitted_title[1] != date('Y')) {
             //reset autoincremental
             autoinc_compromiso($node);
 
@@ -353,7 +353,7 @@ function compromiso_id($node) {
             }else{
 
             $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=++$count;
-            
+
             /*$id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
             $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
@@ -363,7 +363,7 @@ function compromiso_id($node) {
             $ins_name = $ins ? $ins->title : '';
             $node->title = $id . '-' . date('Y') . '-' . $ins_name;
             $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
-            }            
+            }
         }
 
     }
@@ -379,7 +379,7 @@ function autoinc_compromiso($node){
 
 function action_id($compromiso_node) {
   compromiso_percentage($compromiso_node);
-  foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) { 
+  foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) {
     $item = field_collection_item_load($item_id['value']);
     if($item) {
       $eje = !empty($item->field_codigo_eje) ? taxonomy_term_load($item->field_codigo_eje[LANGUAGE_NONE][0]['tid']) : FALSE;
