@@ -19,10 +19,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_bases
     'field_name' => 'field_id_compromiso',
     'indexes' => array(),
     'locked' => 0,
-    'module' => 'serial',
+    'module' => 'number',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'serial',
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_nombre_manual'.
