@@ -1476,14 +1476,14 @@ function vistas_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'view instituciones';
+  $view->human_name = 'Lista de instituciones';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'View compromisos';
+  $handler->display->display_options['title'] = 'Lista de compromisos';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1537,10 +1537,10 @@ function vistas_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'lista_de_compromisos';
+  $handler->display->display_options['path'] = 'lista-de-compromisos';
   $translatables['view_instituciones'] = array(
     t('Master'),
-    t('View compromisos'),
+    t('Lista de compromisos'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -1565,14 +1565,14 @@ function vistas_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'users';
-  $view->human_name = 'view listas';
+  $view->human_name = 'Instituciones por usuario';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'view listas';
+  $handler->display->display_options['title'] = 'Instituciones por usuario';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -1646,7 +1646,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['path'] = 'compromisos';
   $translatables['view_listas'] = array(
     t('Master'),
-    t('view listas'),
+    t('Instituciones por usuario'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
