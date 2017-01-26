@@ -95,6 +95,16 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
  */
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
+  //dpm($form);
+
+  global $user;
+  $user_full = user_load($user->uid, true);
+  $titulox = $user_full->field_institucion[LANGUAGE_NONE][0]['target_id'];
+  $tituloy = node_load($titulox);
+  //dpm($tituloy);
+  $form['field_institucion']['#disabled'] = TRUE;
+  $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $tituloy->title;
+
   //Add css
   $form['#attached'] = array(
     'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
@@ -102,6 +112,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
+  $form['title']['#default_value'] = date('Y').'-'.$tituloy->title;
 
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
@@ -341,7 +352,7 @@ function compromiso_id($node) {
 
         $splitted_title = explode('-', $node_loaded_with_id->title);  
         
-        if ($splitted_title[1] != 2018) {
+        if ($splitted_title[1] != date('Y')) {
             //reset autoincremental
             autoinc_compromiso($node);
 
@@ -360,9 +371,11 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
 
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-            $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+              global $user;
+              $user_full = user_load($user->uid, true);
+            $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
             $ins_name = $ins ? $ins->title : '';
-            $node->title = $id . '-' . 2018 . '-' . $ins_name;
+            $node->title = $id . '-' . date('Y') . '-' . $ins_name;
             //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
             }            
         }
@@ -374,8 +387,10 @@ function compromiso_id($node) {
 function autoinc_compromiso($node){
     $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
     $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-    $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
-    $node->title = $id . '-' . 2018 . '-' . $ins->title;
+  global $user;
+  $user_full = user_load($user->uid, true);
+    $ins = node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+    $node->title = $id . '-' . date('Y') . '-' . $ins->title;
     //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
 }
 
