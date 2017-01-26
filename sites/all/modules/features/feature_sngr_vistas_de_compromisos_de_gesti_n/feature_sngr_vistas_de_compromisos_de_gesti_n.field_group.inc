@@ -80,10 +80,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_estado',
-      1 => 'field_institucion',
-      2 => 'field_accion_a_seguir',
-      3 => 'title',
-      4 => 'field_id_compromiso',
+      1 => 'field_accion_a_seguir',
+      2 => 'field_institucion',
+      3 => 'field_id_compromiso',
+      4 => 'title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

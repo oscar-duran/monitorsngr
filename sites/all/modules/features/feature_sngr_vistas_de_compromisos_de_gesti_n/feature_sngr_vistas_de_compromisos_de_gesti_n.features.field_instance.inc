@@ -532,63 +532,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
-  // Exported field_instance: 'node-compromiso_de_gestion-field_item'.
-  $field_instances['node-compromiso_de_gestion-field_item'] = array(
-    'bundle' => 'compromiso_de_gestion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'entityconnect' => array(
-      'button' => array(
-        'unload_add_button' => 0,
-        'unload_edit_button' => 0,
-      ),
-      'icon' => array(
-        'show_add_icon' => 0,
-        'show_edit_icon' => 0,
-      ),
-    ),
-    'field_name' => 'field_item',
-    'label' => 'Matriz de compromiso',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance:
   // 'node-compromiso_de_gestion-field_item_compromiso'.
   $field_instances['node-compromiso_de_gestion-field_item_compromiso'] = array(
@@ -677,6 +620,54 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'settings' => array(),
       'type' => 'number',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_year_compromiso'.
+  $field_instances['node-compromiso_de_gestion-field_year_compromiso'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_year_compromiso',
+    'label' => 'Año de Creación',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 8,
     ),
   );
 
@@ -1731,6 +1722,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Aspecto positivo');
   t('Año Final');
   t('Año Inicial');
+  t('Año de Creación');
   t('Codigo Ambito');
   t('Codigo de Acción estratégica');
   t('Cometario sobre el porcentaje avance');
@@ -1750,7 +1742,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Institución ');
   t('Institución coordinadora');
   t('Item de Compromiso');
-  t('Matriz de compromiso');
   t('Meta');
   t('Nombre manual');
   t('Observaciones del analista');
