@@ -175,7 +175,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
             $meta['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_' . $accion_id . '_meta_' . $meta_id .'">';
             $meta['target_id']['#suffix'] = '</div>';
-            $meta['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
+            $meta['target_id']['#description'] = 'El código de esta meta será: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
             $accion['field_meta'][LANGUAGE_NONE][$meta_id] = $meta;
           }
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
