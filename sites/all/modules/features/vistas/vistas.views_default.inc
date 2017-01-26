@@ -1497,6 +1497,16 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
+  /* Encabezado: Global: Unfiltered text */
+  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="https://163.178.170.162/monitorsngr/node/add/compromiso-de-gestion">+Nuevo Compromiso </a>
+<p>';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1534,6 +1544,48 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'compromiso_de_gestion' => 'compromiso_de_gestion',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1554,8 +1606,13 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
+    t('<a href="https://163.178.170.162/monitorsngr/node/add/compromiso-de-gestion">+Nuevo Compromiso </a>
+<p>'),
+    t('Contenido entity referenced from field_institucion'),
     t('Título'),
     t('Institución '),
+    t('Institución'),
+    t('Año'),
     t('Page'),
   );
   $export['view_instituciones'] = $view;
@@ -1565,14 +1622,14 @@ function vistas_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'users';
-  $view->human_name = 'view listas';
+  $view->human_name = 'Instituciones por usuario';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'view listas';
+  $handler->display->display_options['title'] = 'Instituciones por usuario';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -1646,7 +1703,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['path'] = 'compromisos';
   $translatables['view_listas'] = array(
     t('Master'),
-    t('view listas'),
+    t('Instituciones por usuario'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
