@@ -74,13 +74,10 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
     'css' => array('sites/all/modules/custom/auto_fill_id/css/meta_form.css'),
   );
 
-  $form['title']['#disabled'] = TRUE;
+  $form['field_meta_codigo']['#access'] = FALSE;
 
   $form['field_producto'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Añadir producto';
 
-  if(is_add_form($form_state)) {
-    $form['title']['#default_value'] = '(M1)';
-  }
 
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
@@ -166,9 +163,16 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           //Meta
           $accion['field_meta'][LANGUAGE_NONE]['add_more']['#value'] = 'Agregar nueva meta';
           //unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
+
+          //is_new_field_meta($accion['field_meta']);
+
           $meta_array = array_filter($accion['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
           foreach ($meta_array as $meta_id => $meta) {
             //$meta['target_id']['#disabled'] =TRUE;
+            dpm($meta['target_id']['#entity']);
+
+
+
             $meta['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_' . $accion_id . '_meta_' . $meta_id .'">';
             $meta['target_id']['#suffix'] = '</div>';
             $meta['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
@@ -216,6 +220,22 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
  */
 function auto_fill_id_field_collection_item_update(FieldCollectionItemEntity $field_collection_item) {
 
+}
+
+function is_new_field_meta(&$field_meta) {
+  dpm('Entra');
+  $metas = array_filter($field_meta[LANGUAGE_NONE], function($k) { return is_numeric($k); }, ARRAY_FILTER_USE_KEY);
+  $size = sizeof($metas);
+
+  foreach ($metas as $k => $meta) {
+    dpm('entra aca');
+    if((!$meta['target_id']['#entity']->is_new && $size > 1) || $k < ($size - 1) ) {
+      dpm('entra a if');
+        $meta_node = node_load($meta['target_id']['#entity']->field_meta[LANGUAGE_NONE][0]['target_id']);
+        dpm($meta_node);
+        $field_meta[LANGUAGE_NONE][$k]['target_id']['#value'] = $meta_node->field_detalle[LANGUAGE_NONE][0]['value'];
+    }
+  }
 }
 
 function clone_group($group_items){
@@ -326,7 +346,7 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 
 function compromiso_id($node) {
     if($node->field_id_compromiso) {
-
+      dpm($node);
         //Queries
         $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
         $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
@@ -412,7 +432,7 @@ function action_id($compromiso_node) {
 
 function meta_id($meta_id, $meta_nid, $action_id){
   $meta = node_load($meta_nid);
-  $meta->title = $action_id . '.(M' . ($meta_id + 1) . ')';
+  $meta->field_meta_codigo = simple_string_field_value($action_id . '.(M' . ($meta_id + 1) . ')');
   $meta->revision = 1;
   node_save($meta);
   if(!empty($meta->field_producto)) {
@@ -426,7 +446,7 @@ function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
   if(!$producto->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
     //$producto->field_cod_producto_meta = simple_string_field_value('.P' . $producto_id);
-    $producto->field_cod_producto_meta = simple_string_field_value($meta_node->title .  '.P' . $producto_id);
+    $producto->field_cod_producto_meta = simple_string_field_value($meta_node->field_meta_codigo[LANGUAGE_NONE][0]['value'] .  '.P' . $producto_id);
     //$producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
     $producto->revision = 1;
     node_save($producto);

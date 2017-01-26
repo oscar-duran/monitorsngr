@@ -25,6 +25,27 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_bases
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_meta_codigo'.
+  $field_bases['field_meta_codigo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_meta_codigo',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 155,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_nombre_manual'.
   $field_bases['field_nombre_manual'] = array(
     'active' => 1,

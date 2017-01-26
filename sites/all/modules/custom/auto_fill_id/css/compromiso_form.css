@@ -117,3 +117,7 @@ table.field-multiple-table > thead {
 table.field-multiple-table tbody > tr.draggable >  td {
    border: 0;
 }
+
+div.field-name-field-meta .form-item > input {
+    pointer-events: none;
+}

@@ -219,12 +219,12 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Asesorías',
-    'weight' => '10',
+    'weight' => '6',
     'children' => array(
-      0 => 'field_recibio_asesoria_meta',
-      1 => 'field_organizacion_capacitadora',
-      2 => 'field_tema_necesidad_meta',
-      3 => 'field_su_org_requiere_asesoria',
+      0 => 'field_tema_necesidad_meta',
+      1 => 'field_recibio_asesoria_meta',
+      2 => 'field_su_org_requiere_asesoria',
+      3 => 'field_organizacion_capacitadora',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -249,7 +249,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Avance',
-    'weight' => '8',
+    'weight' => '4',
     'children' => array(
       0 => 'field_porcentaje_avance',
       1 => 'field_porcentaje_avance_coment',
@@ -277,10 +277,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Estado',
-    'weight' => '11',
+    'weight' => '7',
     'children' => array(
-      0 => 'field_observacion_del_analista',
-      1 => 'field_estado',
+      0 => 'field_estado',
+      1 => 'field_observacion_del_analista',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -305,10 +305,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Observaciones',
-    'weight' => '9',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_aspecto_positivo',
-      1 => 'field_obstaculo',
+      0 => 'field_obstaculo',
+      1 => 'field_aspecto_positivo',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -333,7 +333,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Productos',
-    'weight' => '12',
+    'weight' => '8',
     'children' => array(
       0 => 'field_producto',
     ),
@@ -360,10 +360,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Periodo',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
-      0 => 'field_anno_fin_meta',
-      1 => 'field_anno_ini_meta',
+      0 => 'field_anno_ini_meta',
+      1 => 'field_anno_fin_meta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
