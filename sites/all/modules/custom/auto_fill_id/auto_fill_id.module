@@ -44,6 +44,7 @@ function auto_fill_id_field_attach_preprocess_alter(&$variables, $context) {
  */
 function auto_fill_id_node_presave($node) {
   if($node->type == "compromiso_de_gestion") {
+
     compromiso_id($node);
   }
 }
@@ -53,6 +54,7 @@ function auto_fill_id_node_presave($node) {
  */
 function auto_fill_id_node_update($node)
 {
+
     if($node->type == "compromiso_de_gestion") {
       action_id($node);
     }
@@ -112,7 +114,11 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
-  $form['title']['#default_value'] = date('Y').'-'.$tituloy->title;
+  //$node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+  $identificador = $form['field_id_compromiso'][LANGUAGE_NONE][0]['value']['#default_value'];
+  //dpm($identificador);
+  //dpm($form_state);
+  $form['title']['#default_value'] = $identificador.'-'.date('Y').'-'.$tituloy->title;
 
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
@@ -335,7 +341,9 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 
 
 function compromiso_id($node) {
+
   if($node->is_new){
+
     if($node->field_id_compromiso) {
         //Queries
         $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
