@@ -100,7 +100,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   $form['title']['#disabled'] = TRUE;
 
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
-  $form['field_year_compromiso']['#access'] =- FALSE;
+  $form['field_year_compromiso']['#access'] = FALSE;
+  $form['field_estado']['#access'] = FALSE;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
   $form['field_id_compromiso']['#access']= FALSE;
 
