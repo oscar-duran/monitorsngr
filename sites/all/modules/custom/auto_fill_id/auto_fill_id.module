@@ -8,6 +8,7 @@ function auto_fill_id_node_insert($node)
     if($node->type == "compromiso_de_gestion") {
 
         action_id($node);
+      //dpm($node);
     }
 }
 
@@ -195,6 +196,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
+  //dpm($form);
 }
 
 /**
@@ -384,12 +386,27 @@ function compromiso_id($node) {
             $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
             $ins_name = $ins ? $ins->title : '';
             $node->title = $id . '-' . date('Y') . '-' . $ins_name;
+              //aqui<--------------------------------
+              //dpm($ins);
+              //$node->field_institucion=$ins;
+              $node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
+
+
+              //$node->field_institucion[LANGUAGE_NONE][0]["target_id"] = $asd;
+              //$node->field_institucion[LANGUAGE_NONE][0]["target_id"]['#default_value']=$ins->title;
+              //AQUI---------------------------------
+
+
             //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
             }            
         }
 
     }}
   $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
+  global $user;
+  $user_full = user_load($user->uid, true);
+  $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+  $node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
 }
 
 function autoinc_compromiso($node){

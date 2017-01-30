@@ -64,6 +64,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'access content',
     'roles' => array(
       'administrator' => 'administrator',
+      'analista-sngr' => 'analista-sngr',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
@@ -700,7 +701,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create accion_estrategica_de_compromiso content'.
   $permissions['create accion_estrategica_de_compromiso content'] = array(
     'name' => 'create accion_estrategica_de_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+    ),
     'module' => 'node',
   );
 
@@ -738,7 +741,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create compromiso_de_gestion content'.
   $permissions['create compromiso_de_gestion content'] = array(
     'name' => 'create compromiso_de_gestion content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+    ),
     'module' => 'node',
   );
 
@@ -772,14 +777,18 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create item_compromiso content'.
   $permissions['create item_compromiso content'] = array(
     'name' => 'create item_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create meta content'.
   $permissions['create meta content'] = array(
     'name' => 'create meta content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+    ),
     'module' => 'node',
   );
 
@@ -1019,7 +1028,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own accion_estrategica_de_compromiso content'.
   $permissions['delete own accion_estrategica_de_compromiso content'] = array(
     'name' => 'delete own accion_estrategica_de_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1057,7 +1068,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own compromiso_de_gestion content'.
   $permissions['delete own compromiso_de_gestion content'] = array(
     'name' => 'delete own compromiso_de_gestion content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1091,14 +1105,19 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own item_compromiso content'.
   $permissions['delete own item_compromiso content'] = array(
     'name' => 'delete own item_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own meta content'.
   $permissions['delete own meta content'] = array(
     'name' => 'delete own meta content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1125,7 +1144,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own producto_meta content'.
   $permissions['delete own producto_meta content'] = array(
     'name' => 'delete own producto_meta content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1275,7 +1297,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any accion_estrategica_de_compromiso content'.
   $permissions['edit any accion_estrategica_de_compromiso content'] = array(
     'name' => 'edit any accion_estrategica_de_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1313,7 +1337,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any compromiso_de_gestion content'.
   $permissions['edit any compromiso_de_gestion content'] = array(
     'name' => 'edit any compromiso_de_gestion content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1348,14 +1375,19 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any item_compromiso content'.
   $permissions['edit any item_compromiso content'] = array(
     'name' => 'edit any item_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any meta content'.
   $permissions['edit any meta content'] = array(
     'name' => 'edit any meta content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1382,7 +1414,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any producto_meta content'.
   $permissions['edit any producto_meta content'] = array(
     'name' => 'edit any producto_meta content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1426,7 +1461,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own accion_estrategica_de_compromiso content'.
   $permissions['edit own accion_estrategica_de_compromiso content'] = array(
     'name' => 'edit own accion_estrategica_de_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1474,7 +1512,11 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own compromiso_de_gestion content'.
   $permissions['edit own compromiso_de_gestion content'] = array(
     'name' => 'edit own compromiso_de_gestion content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1508,14 +1550,21 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own item_compromiso content'.
   $permissions['edit own item_compromiso content'] = array(
     'name' => 'edit own item_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own meta content'.
   $permissions['edit own meta content'] = array(
     'name' => 'edit own meta content',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
@@ -1542,7 +1591,10 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own producto_meta content'.
   $permissions['edit own producto_meta content'] = array(
     'name' => 'edit own producto_meta content',
-    'roles' => array(),
+    'roles' => array(
+      'analista-sngr' => 'analista-sngr',
+      'user-institucional' => 'user-institucional',
+    ),
     'module' => 'node',
   );
 
