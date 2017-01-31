@@ -87,12 +87,8 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
   }
 
   global $user;
-  //foreach ($user->roles as $llave => $cant_roles) {
-  dpm($user->roles);
     if (in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles)){
-      dpm("yes");
     }else{
-      dpm("no");
       $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
       if(!empty($entities)) {
         foreach ($entities as $key => $entity) {
@@ -101,11 +97,7 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
         }
       }
     }
-  //}
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
-    //dpm($form);
-    //$form['field_producto'][LANGUAGE_NONE]['form']['title']['#disabled']=true;
-    //$form['field_producto'][LANGUAGE_NONE]['entities'][0]['form']['title']['#disabled']=true;
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
