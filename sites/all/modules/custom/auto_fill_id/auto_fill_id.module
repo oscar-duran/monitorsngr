@@ -101,13 +101,23 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
     }
   }
 
+  global $user;
+    if (in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles)){
+    }else{
+      $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+      if(!empty($entities)) {
+        foreach ($entities as $key => $entity) {
+          $form['field_producto'][LANGUAGE_NONE]['entities'][$key]['form']['title']['#disabled'] = TRUE;
+          $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Guardar Cambios';
+        }
+      }
+    }
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
     $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
   }
-  dpm($form);
 }
 
 /**
@@ -116,8 +126,9 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
   global $user;
+  $user_full = user_load($user->uid, TRUE);
+
   if (!in_array('administrator', $user->roles)) {
-    $user_full = user_load($user->uid, TRUE);
     $titulox = $user_full->field_institucion[LANGUAGE_NONE][0]['target_id'];
     $tituloy = node_load($titulox);
     //dpm($tituloy);
@@ -214,8 +225,19 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
-  //dpm($form);
-  //dpm($form_state);
+
+  //foreach que revisa los roles del usuario conectado actualmente, si el # d
+  //rol es mayor a los numeros de rol aceptados para poder ver los botones (3 y
+  //4 en este caso), el boton se ocultara. El rol 1 funge como usuario anonimo.
+  foreach ($user_full->roles as $llave => $cant_roles) {
+    if ($llave > 4 || $llave == 1) {
+      unset($form['field_item_compromiso']['und']['add_more']);
+      unset($form['field_item_compromiso']['und'][0]['remove_button']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und']['add_more']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['remove_button']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['field_meta']['und']['add_more']);
+    }
+  }
 }
 
 /**
