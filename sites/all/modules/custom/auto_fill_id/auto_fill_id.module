@@ -212,11 +212,21 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   //4 en este caso), el boton se ocultara. El rol 1 funge como usuario anonimo.
   foreach ($user_full->roles as $llave => $cant_roles) {
     if ($llave > 4 || $llave == 1){
-      unset($form['field_item_compromiso']['und']['add_more']);
-      unset($form['field_item_compromiso']['und'][0]['remove_button']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und']['add_more']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['remove_button']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['field_meta']['und']['add_more']);
+      $array_de_items = array_filter($form['field_item_compromiso'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+      foreach ($array_de_items as $items_ide => $items_val) {
+        unset($form['field_item_compromiso'][LANGUAGE_NONE]['add_more']);
+        unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['remove_button']);
+        foreach ($items_val['field_accion_collect'][LANGUAGE_NONE] as $accion_ide => $accion_val) {
+          if(is_numeric($accion_ide)){
+            unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE]['add_more']);
+            unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE][$accion_ide]['remove_button']);
+            $array_de_metas = array_filter($accion_val['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+            foreach ($array_de_metas as $meta_idx => $metax) {
+              unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE][$accion_ide]['field_meta'][LANGUAGE_NONE]['add_more']);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -247,7 +257,6 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
     //check_action($field_collection_item);
   }
 }
-
 
 /**
  * Implements hook_field_collection_item_update().
@@ -361,8 +370,6 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
     }
   }
 }
-
-
 
 function compromiso_id($node) {
 
