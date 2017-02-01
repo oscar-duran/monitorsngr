@@ -1,12 +1,24 @@
 <?php
 
 /**
+ * Implements hook_node_access().
+ */
+function auto_fill_id_node_access($node, $op, $account) {
+  if (!is_string($node) && in_array('user-institucional', $account->roles)  && $node->type == 'compromiso_de_gestion') {
+    $user_entity = user_load($account->uid);
+    return $user_entity->field_institucion != $node->field_institucion ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+  }
+}
+
+/**
  * Implements hook_node_insert().
  */
 function auto_fill_id_node_insert($node)
 {
     if($node->type == "compromiso_de_gestion") {
+
         action_id($node);
+      //dpm($node);
     }
 }
 
@@ -43,6 +55,7 @@ function auto_fill_id_field_attach_preprocess_alter(&$variables, $context) {
  */
 function auto_fill_id_node_presave($node) {
   if($node->type == "compromiso_de_gestion") {
+
     compromiso_id($node);
   }
 }
@@ -52,6 +65,7 @@ function auto_fill_id_node_presave($node) {
  */
 function auto_fill_id_node_update($node)
 {
+
     if($node->type == "compromiso_de_gestion") {
       action_id($node);
     }
@@ -74,14 +88,32 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
     'css' => array('sites/all/modules/custom/auto_fill_id/css/meta_form.css'),
   );
 
-  $form['title']['#disabled'] = TRUE;
+  $form['field_meta_codigo']['#access'] = FALSE;
 
   $form['field_producto'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Añadir producto';
 
-  if(is_add_form($form_state)) {
-    $form['title']['#default_value'] = '(M1)';
+  $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+
+  if(!empty($entities)) {
+    foreach ($entities as $key => $entity) {
+      $form['field_producto'][LANGUAGE_NONE]['entities'][$key]['form']['title']['#disabled'] = TRUE;
+      $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Guardar Cambios';
+    }
   }
 
+  global $user;
+  //Edit
+    if (!in_array("administrator", $user->roles) || !in_array("admin-sngr", $user->roles)){
+      $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+      if(!empty($entities)) {
+        foreach ($entities as $key => $entity) {
+          $form['field_producto'][LANGUAGE_NONE]['entities'][$key]['form']['title']['#disabled'] = TRUE;
+          $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Guardar Cambios';
+        }
+      }
+    }
+
+  //Add new product
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
@@ -94,6 +126,18 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
  */
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
+  global $user;
+  $user_full = user_load($user->uid, TRUE);
+
+  if (!in_array('administrator', $user->roles)) {
+    $titulox = $user_full->field_institucion[LANGUAGE_NONE][0]['target_id'];
+    $tituloy = node_load($titulox);
+    //dpm($tituloy);
+    $form['field_institucion']['#disabled'] = TRUE;
+    $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $tituloy->title;
+      $form['title']['#default_value'] = date('Y').'-'.$tituloy->title;
+  }
+
   //Add css
   $form['#attached'] = array(
     'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
@@ -101,20 +145,22 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
+  //$node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+  //$identificador = $form['field_id_compromiso'][LANGUAGE_NONE][0]['value']['#default_value'];
+  //dpm($identificador);
+  //dpm($form_state);
+  //$form['title']['#default_value'] = $identificador.'-'.date('Y').'-'.$tituloy->title;
 
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
-  $form['field_year_compromiso']['#access'] =- FALSE;
-  $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
+  $form['field_year_compromiso']['#access'] = FALSE;
+  $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
-
 
   //Items de compromiso
   $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
   $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
 
   $items_array = array_filter($form['field_item_compromiso'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
-  $items_size = sizeof($items_array);
-  //$groups = array();
 
   foreach($items_array as $item_id => $item) {
       $item['field_id_item']['#disabled'] = TRUE;
@@ -166,12 +212,14 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           //Meta
           $accion['field_meta'][LANGUAGE_NONE]['add_more']['#value'] = 'Agregar nueva meta';
           //unset($accion['field_meta'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path']);
+
           $meta_array = array_filter($accion['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
           foreach ($meta_array as $meta_id => $meta) {
             //$meta['target_id']['#disabled'] =TRUE;
+
             $meta['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_' . $accion_id . '_meta_' . $meta_id .'">';
             $meta['target_id']['#suffix'] = '</div>';
-            $meta['target_id']['#description'] = 'Este elemento será renombrado como: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
+            $meta['target_id']['#description'] = 'El código de esta meta será: "' . $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] . 'M' . ($meta_id + 1) . '"';
             $accion['field_meta'][LANGUAGE_NONE][$meta_id] = $meta;
           }
           $item['field_accion_collect'][LANGUAGE_NONE][$accion_id] = $accion;
@@ -179,8 +227,19 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
       $form['field_item_compromiso'][LANGUAGE_NONE][$item_id] = $item;
   }
-  //dpm($form);
-  //dpm($form_state);
+
+  //foreach que revisa los roles del usuario conectado actualmente, si el # d
+  //rol es mayor a los numeros de rol aceptados para poder ver los botones (3 y
+  //4 en este caso), el boton se ocultara. El rol 1 funge como usuario anonimo.
+  foreach ($user_full->roles as $llave => $cant_roles) {
+    if ($llave > 4 || $llave == 1) {
+      unset($form['field_item_compromiso']['und']['add_more']);
+      unset($form['field_item_compromiso']['und'][0]['remove_button']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und']['add_more']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['remove_button']);
+      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['field_meta']['und']['add_more']);
+    }
+  }
 }
 
 /**
@@ -215,6 +274,13 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
  * Implements hook_field_collection_item_update().
  */
 function auto_fill_id_field_collection_item_update(FieldCollectionItemEntity $field_collection_item) {
+
+}
+
+/**
+ * Implements hook_addressable_content().
+ */
+function auto_fill_id_addressable_content() {
 
 }
 
@@ -280,8 +346,6 @@ function generate_action_code($item_id, $action_id, $form) {
       else {
           return 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
       }
-          
-  
 }
 
 //Form ajax callback
@@ -325,8 +389,8 @@ function check_action(FieldCollectionItemEntity &$field_collection_item) {
 }
 
 function compromiso_id($node) {
+  if($node->is_new){
     if($node->field_id_compromiso) {
-
         //Queries
         $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
         $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
@@ -339,7 +403,7 @@ function compromiso_id($node) {
         $query_node_title->condition('type', 'compromiso_de_gestion', '=');
         $executed_query=$query_node_title->execute()->fetchField();
         $node_loaded_with_id = node_load($executed_query);
-        
+
         $splitted_title = explode('-', $node_loaded_with_id->title);  
 
         if ($splitted_title[1] != date('Y')) {
@@ -361,23 +425,45 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
 
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-            $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+              global $user;
+              $user_full = user_load($user->uid, true);
+            $ins = !empty($node->field_institucion[LANGUAGE_NONE]) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
             $ins_name = $ins ? $ins->title : '';
             $year = explode("-", $node->field_year_compromiso[LANGUAGE_NONE][0]['value'])[0];
-            $node->title = $id . '-' . $year . '-' . $ins_name;
-            $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
+            $node->title = $count . '-' . $year . '-' . $ins_name;
+              //aqui<--------------------------------
+              //dpm($ins);
+              //$node->field_institucion=$ins;
+              $node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
+
+
+              //$node->field_institucion[LANGUAGE_NONE][0]["target_id"] = $asd;
+              //$node->field_institucion[LANGUAGE_NONE][0]["target_id"]['#default_value']=$ins->title;
+              //AQUI---------------------------------
+
+
+            //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
             }
         }
-
     }
+  }
+  $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
+  global $user;
+  $user_full = user_load($user->uid, true);
+  if(in_array('administrator', $user_full->roles)) {
+      $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+      $node->field_institucion[LANGUAGE_NONE][0]["target_id"] = $ins->nid;
+  }
 }
 
 function autoinc_compromiso($node){
     $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
     $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-    $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+  global $user;
+  $user_full = user_load($user->uid, true);
+    $ins = node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]);
     $node->title = $id . '-' . date('Y') . '-' . $ins->title;
-    $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
+    //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
 }
 
 function action_id($compromiso_node) {
@@ -412,7 +498,7 @@ function action_id($compromiso_node) {
 
 function meta_id($meta_id, $meta_nid, $action_id){
   $meta = node_load($meta_nid);
-  $meta->title = $action_id . '.(M' . ($meta_id + 1) . ')';
+  $meta->field_meta_codigo = simple_string_field_value($action_id . '.(M' . ($meta_id + 1) . ')');
   $meta->revision = 1;
   node_save($meta);
   if(!empty($meta->field_producto)) {
@@ -426,7 +512,7 @@ function producto_id($meta_node, $producto_nid, $producto_id){
   $producto = node_load($producto_nid);
   if(!$producto->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
     //$producto->field_cod_producto_meta = simple_string_field_value('.P' . $producto_id);
-    $producto->field_cod_producto_meta = simple_string_field_value($meta_node->title .  '.P' . $producto_id);
+    $producto->field_cod_producto_meta = simple_string_field_value($meta_node->field_meta_codigo[LANGUAGE_NONE][0]['value'] .  '.P' . $producto_id);
     //$producto->field_cod_producto_meta = simple_string_field_value('M1P' . $producto_id);
     $producto->revision = 1;
     node_save($producto);
@@ -469,3 +555,21 @@ function simple_string_field_value($value) {
     ),
   );
 }
+
+function get_compromiso_from_meta($meta_id) {
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'field_collection_item')
+   // ->entityCondition('bundle', 'field_accion_collect')
+    ->fieldCondition('field_meta', 'target_id', $meta_id, '=')->execute();
+
+  //dpm($result);
+
+  $field_collections = field_collection_item_load('33');
+  //dpm($field_collections);
+
+  //$query_2 = db_select()*/
+}
+
+
+

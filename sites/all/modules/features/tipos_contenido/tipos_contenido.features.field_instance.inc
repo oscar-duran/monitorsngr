@@ -292,23 +292,19 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-institucion-field_montos_ejecucion_view'.
-  $field_instances['node-institucion-field_montos_ejecucion_view'] = array(
+  // Exported field_instance: 'node-institucion-field_montos_de_ejecucion'.
+  $field_instances['node-institucion-field_montos_de_ejecucion'] = array(
     'bundle' => 'institucion',
-    'default_value' => array(
-      0 => array(
-        'vname' => 'montos_ejecucion_x_institucion|page',
-        'vargs' => '',
-      ),
-    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'viewfield',
-        'settings' => array(),
-        'type' => 'viewfield_default',
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 7,
       ),
       'teaser' => array(
@@ -319,23 +315,39 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_montos_ejecucion_view',
-    'label' => 'Montos de ejecución',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_montos_de_ejecucion',
+    'label' => 'Montos de Ejecución',
     'required' => 0,
     'settings' => array(
-      'allowed_views' => array(
-        'feeds_log' => 0,
-        'instituciones' => 0,
-        'montos_ejecucion_x_institucion' => 'montos_ejecucion_x_institucion',
-      ),
-      'force_default' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'viewfield',
-      'settings' => array(),
-      'type' => 'viewfield_select',
+      'active' => 1,
+      'module' => 'inline_entity_form',
+      'settings' => array(
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_clone' => 0,
+          'allow_existing' => 0,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'nodes',
+          'label_singular' => 'nodo',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 0,
+        ),
+      ),
+      'type' => 'inline_entity_form',
       'weight' => 8,
     ),
   );
@@ -525,53 +537,6 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-monto_ejecucion-field_institucion'.
-  $field_instances['node-monto_ejecucion-field_institucion'] = array(
-    'bundle' => 'monto_ejecucion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Institución a la que pertenece el monto.',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_institucion',
-    'label' => 'Institución ',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 1,
-    ),
-  );
-
   // Exported field_instance: 'node-monto_ejecucion-field_monto_ejecucion'.
   $field_instances['node-monto_ejecucion-field_monto_ejecucion'] = array(
     'bundle' => 'monto_ejecucion',
@@ -661,53 +626,6 @@ function tipos_contenido_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-montos_ejecucion-field_institucion'.
-  $field_instances['node-montos_ejecucion-field_institucion'] = array(
-    'bundle' => 'montos_ejecucion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_institucion',
-    'label' => 'Institución ',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 1,
     ),
   );
 
@@ -857,12 +775,11 @@ function tipos_contenido_field_default_field_instances() {
   t('Dirección exacta');
   t('Enlace institucional');
   t('Institución ');
-  t('Institución a la que pertenece el monto.');
   t('Monto ejecución');
   t('Monto ejecutado');
   t('Monto presupuestado');
   t('Monto presupuestario');
-  t('Montos de ejecución');
+  t('Montos de Ejecución');
   t('Nombre del jerarca');
   t('Sitio web');
   t('Teléfono');
