@@ -102,8 +102,8 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
   }
 
   global $user;
-    if (in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles)){
-    }else{
+  //Edit
+    if (!in_array("administrator", $user->roles) || !in_array("admin-sngr", $user->roles)){
       $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
       if(!empty($entities)) {
         foreach ($entities as $key => $entity) {
@@ -112,9 +112,10 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
         }
       }
     }
+
+  //Add new product
   if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
     $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
-    $form['field_producto'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
     $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
     $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
   }
@@ -134,6 +135,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
     //dpm($tituloy);
     $form['field_institucion']['#disabled'] = TRUE;
     $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $tituloy->title;
+      $form['title']['#default_value'] = date('Y').'-'.$tituloy->title;
   }
 
   //Add css
@@ -448,8 +450,10 @@ function compromiso_id($node) {
   $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
   global $user;
   $user_full = user_load($user->uid, true);
-  $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
-  $node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
+  if(in_array('administrator', $user_full->roles)) {
+      $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+      $node->field_institucion[LANGUAGE_NONE][0]["target_id"] = $ins->nid;
+  }
 }
 
 function autoinc_compromiso($node){
