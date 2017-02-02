@@ -112,11 +112,17 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
   global $user;
   $user_full = user_load($user->uid, true);
-  $titulox = $user_full->field_institucion[LANGUAGE_NONE][0]['target_id'];
-  $tituloy = node_load($titulox);
+//  $titulox = $user_full->field_institucion[LANGUAGE_NONE][0]['target_id'];
+//  $tituloy = node_load($titulox);
   //dpm($tituloy);
-  $form['field_institucion']['#disabled'] = TRUE;
-  $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = $tituloy->title;
+  foreach ($user->roles as $llaveRol => $cant_rol) {
+    if ($llaveRol > 4 || $llaveRol == 1){
+      $form['field_institucion']['#disabled'] = TRUE;
+    }
+  }
+  //dpm($tituloy);
+  //$form['field_institucion'][LANGUAGE_NONE][0] = $tituloy;
+  //$form['field_institucion'] = $tituloy;
 
   //Add css
   $form['#attached'] = array(
@@ -129,7 +135,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   $identificador = $form['field_id_compromiso'][LANGUAGE_NONE][0]['value']['#default_value'];
   //dpm($identificador);
   //dpm($form_state);
-  $form['title']['#default_value'] = $identificador.'-'.date('Y').'-'.$tituloy->title;
+  $form['title']['#default_value'] = $identificador.'-'.date('Y').'-';
 
   $form['field_porcentaje_de_avance_compr']['#access'] = 0;
   $form['field_porcentaje_de_avance_compr']['#disabled'] = TRUE;
@@ -410,9 +416,9 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
 
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-              global $user;
-              $user_full = user_load($user->uid, true);
-            $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+              //global $user;
+              //$user_full = user_load($user->uid, true);
+            $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
             $ins_name = $ins ? $ins->title : '';
             $node->title = $id . '-' . date('Y') . '-' . $ins_name;
               //aqui<--------------------------------
@@ -431,19 +437,21 @@ function compromiso_id($node) {
         }
 
     }}
+    dpm($node);
   $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
-  global $user;
-  $user_full = user_load($user->uid, true);
-  $ins = !empty($node->field_institucion) ? node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
-  $node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
+  $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+  //$node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
+  $ins_name = $ins ? $ins->title : '';
+  if(!$node->is_new){
+    $node->title = $node->title . $ins_name;
+  }
+
 }
 
 function autoinc_compromiso($node){
     $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
     $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-  global $user;
-  $user_full = user_load($user->uid, true);
-    $ins = node_load($user_full->field_institucion[LANGUAGE_NONE][0]["target_id"]);
+    $ins = node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]);
     $node->title = $id . '-' . date('Y') . '-' . $ins->title;
     //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
 }
