@@ -3,12 +3,12 @@
 /**
  * Implements hook_node_access().
  */
-function auto_fill_id_node_access($node, $op, $account) {
-  if (!is_string($node) && in_array('user-institucional', $account->roles)  && $node->type == 'compromiso_de_gestion') {
-    $user_entity = user_load($account->uid);
-    return $user_entity->field_institucion != $node->field_institucion ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
-  }
-}
+//function auto_fill_id_node_access($node, $op, $account) {
+//  if (!is_string($node) && in_array('user-institucional', $account->roles)  && $node->type == 'compromiso_de_gestion') {
+//    $user_entity = user_load($account->uid);
+//    return $user_entity->field_institucion != $node->field_institucion ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+//  }
+//}
 
 /**
  * Implements hook_node_insert().
@@ -476,14 +476,12 @@ function compromiso_id($node) {
 
 
     }}
-    dpm($node);
   $node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
   $ins = !empty($node->field_institucion) ? node_load($node->field_institucion[LANGUAGE_NONE][0]["target_id"]) : null;
+  $xploded_title = explode('-', $node->title);
+  $xploded_title[2]=$ins->title;
+  $node->title=$xploded_title[0].'-'.$xploded_title[1].'-'.$xploded_title[2];
   //$node->field_institucion[LANGUAGE_NONE][0]["target_id"]=$ins->nid;
-  $ins_name = $ins ? $ins->title : '';
-  if(!$node->is_new){
-    $node->title = $node->title . $ins_name;
-  }
 
 
 //    }
