@@ -15,7 +15,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => 'Ámbito de gestión ',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -9,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -38,7 +38,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => '',
       'hierarchy' => 1,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -8,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -61,7 +61,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => 'Eje de gestión',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -7,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -84,7 +84,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => 'Lineamiento de gestión',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -5,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -107,7 +107,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => 'Vocabulary created automatically by Taxonomy csv import/export module',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -4,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -130,7 +130,7 @@ function sngr_field_bases_taxonomy_default_vocabularies() {
       'description' => 'Usado para los Decreto de Emergencia',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => 0,
+      'weight' => -3,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',

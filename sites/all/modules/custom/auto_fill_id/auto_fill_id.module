@@ -124,6 +124,7 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
 function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
   global $user;
+
   $user_full = user_load($user->uid, TRUE);
 
   if (is_add_form($form_state) && in_array('usuario-institucional', $user->roles)) {
@@ -219,12 +220,22 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   //rol es mayor a los numeros de rol aceptados para poder ver los botones (3 y
   //4 en este caso), el boton se ocultara. El rol 1 funge como usuario anonimo.
   foreach ($user_full->roles as $llave => $cant_roles) {
-    if ($llave > 4 || $llave == 1) {
-      unset($form['field_item_compromiso']['und']['add_more']);
-      unset($form['field_item_compromiso']['und'][0]['remove_button']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und']['add_more']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['remove_button']);
-      unset($form['field_item_compromiso']['und'][0]['field_accion_collect']['und'][0]['field_meta']['und']['add_more']);
+    if ($llave > 4 || $llave == 1){
+      $array_de_items = array_filter($form['field_item_compromiso'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+      foreach ($array_de_items as $items_ide => $items_val) {
+        unset($form['field_item_compromiso'][LANGUAGE_NONE]['add_more']);
+        unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['remove_button']);
+        foreach ($items_val['field_accion_collect'][LANGUAGE_NONE] as $accion_ide => $accion_val) {
+          if(is_numeric($accion_ide)){
+            unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE]['add_more']);
+            unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE][$accion_ide]['remove_button']);
+            $array_de_metas = array_filter($accion_val['field_meta'][LANGUAGE_NONE], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
+            foreach ($array_de_metas as $meta_idx => $metax) {
+              unset($form['field_item_compromiso'][LANGUAGE_NONE][$items_ide]['field_accion_collect'][LANGUAGE_NONE][$accion_ide]['field_meta'][LANGUAGE_NONE]['add_more']);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -259,7 +270,6 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
   }
 }
 
-
 /**
  * Implements hook_field_collection_item_update().
  */
@@ -271,7 +281,7 @@ function auto_fill_id_field_collection_item_update(FieldCollectionItemEntity $fi
  * Implements hook_mail_alter().
  */
 function auto_fill_id_mail_alter(&$message) {
-  dpm($message);
+  //dpm($message);
 }
 
 function get_mail_user_by_institution($id) {
@@ -436,9 +446,11 @@ function compromiso_id($node) {
             $node->title = $id . '-' . date('Y') . '-' . $ins->title  ;*/
 
             $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+
             global $user;
             $user_full = user_load($user->uid, true);
             $ins = !empty($node->field_institucion[LANGUAGE_NONE]) ? node_load(field_target_id($node->field_institucion, 0)) : null;
+
             $ins_name = $ins ? $ins->title : '';
             $year = explode("-", $node->field_year_compromiso[LANGUAGE_NONE][0]['value'])[0];
             $node->title = $count . '-' . $year . '-' . $ins_name;
@@ -464,9 +476,7 @@ function compromiso_id($node) {
 function autoinc_compromiso($node){
     $node->field_id_compromiso[LANGUAGE_NONE][0]["value"]=1;        
     $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
-  global $user;
-  $user_full = user_load($user->uid, true);
-    $ins = node_load(field_target_id($user_full->field_institucion, 0));
+    $ins = node_load(field_target_id($node->field_institucion, 0));
     $node->title = $id . '-' . date('Y') . '-' . $ins->title;
     //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
 }

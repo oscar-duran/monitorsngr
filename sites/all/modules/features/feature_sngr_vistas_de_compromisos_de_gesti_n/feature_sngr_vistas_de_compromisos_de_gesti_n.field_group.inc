@@ -34,7 +34,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
         'classes' => 'action-tab',
         'description' => '',
       ),
-      'formatter' => 'closed',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_acciones|field_collection_item|field_accion_collect|form'] = $field_group;
@@ -118,6 +118,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
       2 => 'field_institucion',
       3 => 'field_id_compromiso',
       4 => 'title',
+      5 => 'field_accion_ejecutar',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -172,11 +173,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Item V tab',
     'weight' => '2',
     'children' => array(
-      0 => 'field_codigo_lineamiento',
+      0 => 'field_accion_collect',
       1 => 'field_codigo_ambito',
-      2 => 'field_id_item',
-      3 => 'field_accion_collect',
-      4 => 'field_codigo_eje',
+      2 => 'field_codigo_eje',
+      3 => 'field_codigo_lineamiento',
+      4 => 'field_id_item',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -254,11 +255,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Asesorías',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_tema_necesidad_meta',
-      1 => 'field_recibio_asesoria_meta',
-      2 => 'field_su_org_requiere_asesoria',
+      1 => 'field_su_org_requiere_asesoria',
+      2 => 'field_recibio_asesoria_meta',
       3 => 'field_organizacion_capacitadora',
     ),
     'format_type' => 'tab',
@@ -285,6 +286,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->data = array(
     'label' => 'Avance',
     'weight' => '4',
+    'weight' => '3',
     'children' => array(
       0 => 'field_porcentaje_avance',
       1 => 'field_porcentaje_avance_coment',
@@ -340,7 +342,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Observaciones',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
       0 => 'field_obstaculo',
       1 => 'field_aspecto_positivo',
@@ -387,6 +389,33 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_meta_status_auto|node|meta|form';
+  $field_group->group_name = 'group_meta_status_auto';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'meta';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Status autoevaluacion',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_status_autoevaluacion',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-meta-status-auto field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_meta_status_auto|node|meta|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_periodo|node|meta|form';
   $field_group->group_name = 'group_periodo';
   $field_group->entity_type = 'node';
@@ -427,6 +456,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   t('Observaciones');
   t('Periodo');
   t('Productos');
+  t('Status autoevaluacion');
   t('items');
 
   return $field_groups;

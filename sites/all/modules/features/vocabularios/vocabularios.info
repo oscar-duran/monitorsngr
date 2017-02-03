@@ -6,5 +6,6 @@ version = 7.x-1.0
 dependencies[] = features
 dependencies[] = taxonomy
 features[features_api][] = api:2
+features[taxonomy][] = accion_a_ejecutar
 features[taxonomy][] = tipos_de_institucion
 features[taxonomy][] = tipos_instancia
