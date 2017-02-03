@@ -37,7 +37,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_node_info() {
       'base' => 'node_content',
       'description' => t('Meta de un compromiso de gestión.'),
       'has_title' => '1',
-      'title_label' => t('Código - Nombre de Meta'),
+      'title_label' => t('Detalle'),
       'help' => '',
     ),
     'producto_meta' => array(

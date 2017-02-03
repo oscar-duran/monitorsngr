@@ -54,7 +54,42 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_accion_collect-field_descripcion_accion'.
+  $field_instances['field_collection_item-field_accion_collect-field_descripcion_accion'] = array(
+    'bundle' => 'field_accion_collect',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_descripcion_accion',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
     ),
   );
 
@@ -121,7 +156,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 2,
+      'weight' => 9,
     ),
   );
 
@@ -623,6 +658,54 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_year_compromiso'.
+  $field_instances['node-compromiso_de_gestion-field_year_compromiso'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_year_compromiso',
+    'label' => 'Año de Creación',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-meta-field_anno_fin_meta'.
   $field_instances['node-meta-field_anno_fin_meta'] = array(
     'bundle' => 'meta',
@@ -882,6 +965,46 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
+  // Exported field_instance: 'node-meta-field_meta_codigo'.
+  $field_instances['node-meta-field_meta_codigo'] = array(
+    'bundle' => 'meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_meta_codigo',
+    'label' => 'Código',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'node-meta-field_meta_descripcion'.
   $field_instances['node-meta-field_meta_descripcion'] = array(
     'bundle' => 'meta',
@@ -932,7 +1055,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1680,9 +1803,14 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Aspecto positivo');
   t('Año Final');
   t('Año Inicial');
+  t('Año de Creación');
+  t('Codigo Ambito');
   t('Codigo de Acción estratégica');
   t('Cometario sobre el porcentaje avance');
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
+  t('Código');
+  t('Código Eje');
+  t('Código Lineamiento');
   t('Código Producto');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
