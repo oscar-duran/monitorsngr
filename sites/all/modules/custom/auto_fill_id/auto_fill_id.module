@@ -182,7 +182,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
         if(is_numeric($accion_id)) {
 
           //Acción estrategica
-          $accion['field_codigo_accion_estrategica']['#disabled'] = TRUE;
+          //$accion['field_codigo_accion_estrategica']['#disabled'] = TRUE;
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#prefix'] = '<div id="item_' . $item_id . '_codigo_accion_'. $accion_id .'">';
           //$accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#prefix'] = '<div id="codigo_accion_id">';
           $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#suffix'] = '</div>';
@@ -265,6 +265,25 @@ function auto_fill_id_field_collection_item_presave(FieldCollectionItemEntity $f
  */
 function auto_fill_id_field_collection_item_update(FieldCollectionItemEntity $field_collection_item) {
 
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function auto_fill_id_mail_alter(&$message) {
+  dpm($message);
+}
+
+function get_mail_user_by_institution($id) {
+  $query = db_select('users', 'u');
+  $query->fields('u', array('uid', 'mail'))
+        ->leftJoin('field_data_field_enlace_institucional', 'fei', 'u.uid = fei.field_enlace_institucional_target_id AND fei.entity_type = \'node\'' );
+  $query->leftJoin('node', 'ins', 'fei.entity_id = ins.nid');
+  $query->innerJoin('users_roles', 'ur', 'u.uid = ur.uid');
+  $query->leftJoin('field_data_field_institucion', 'fi', 'u.uid = fi.entity_id AND fi.entity_type = \'user\'');
+  $query->condition('ur.rid', 7)
+        ->condition('fi.field_institucion_target_id', $id);
+  return $query->execute()->fetchAll();
 }
 
 function auto_compromiso_form_title($user, &$form, &$form_state) {
@@ -468,7 +487,9 @@ function action_id($compromiso_node) {
       foreach($item->field_accion_collect[LANGUAGE_NONE] as $action_key => $action_id) {
         $action = field_collection_item_load($action_id['value']);
         if($action) {
-            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E'. $cod_eje . '-A' . $cod_ambito . '.L' . $cod_lineamiento . '.Ae' . ($action_key + 1);
+          if ($action->field_nombre_manual[LANGUAGE_NONE][0]['value'] > 0) {
+            $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $cod_eje . '-A' . $cod_ambito . '.L' . $cod_lineamiento . '.Ae' . ($action_key + 1);
+          }
           //$action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value'] = 'E' . $eje . 'A' . $ambito . 'L' . $lineamiento . 'Ae' . ($action_key + 1);
           if(!empty($action->field_meta)) {
             foreach ($action->field_meta[LANGUAGE_NONE] as $meta_id => $meta) {
