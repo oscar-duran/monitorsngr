@@ -116,10 +116,12 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'children' => array(
       0 => 'field_estado',
       1 => 'field_accion_a_seguir',
-      2 => 'field_institucion',
-      3 => 'field_id_compromiso',
-      4 => 'title',
-      5 => 'field_accion_ejecutar',
+      2 => 'field_id_compromiso',
+      3 => 'field_accion_ejecutar',
+      4 => 'field_institucion',
+      5 => 'field_notificar_analista',
+      6 => 'field_notificar_institucional',
+      7 => 'title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

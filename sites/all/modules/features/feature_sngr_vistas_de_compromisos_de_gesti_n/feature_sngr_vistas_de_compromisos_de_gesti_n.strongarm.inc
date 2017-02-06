@@ -191,7 +191,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(),

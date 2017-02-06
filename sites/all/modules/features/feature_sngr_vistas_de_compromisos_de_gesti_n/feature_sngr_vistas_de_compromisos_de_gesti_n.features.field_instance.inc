@@ -467,7 +467,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -544,7 +544,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -646,6 +646,82 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_analista'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_analista'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notificar_analista',
+    'label' => 'Notificar analista',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_institucional'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_institucional'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notificar_institucional',
+    'label' => 'Notificar institucional',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
     ),
   );
 
@@ -1845,6 +1921,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Codigo de Acción estratégica');
   t('Cometario sobre el porcentaje avance');
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
+  t('Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".');
   t('Código');
   t('Código Producto');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
@@ -1863,6 +1940,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Lineamiento');
   t('Meta');
   t('Nombre manual');
+  t('Notificar analista');
+  t('Notificar institucional');
   t('Observaciones del analista');
   t('Obstáculo');
   t('Organización asesora');

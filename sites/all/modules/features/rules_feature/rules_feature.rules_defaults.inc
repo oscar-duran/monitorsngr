@@ -9,6 +9,29 @@
  */
 function rules_feature_default_rules_configuration() {
   $items = array();
+  $items['rules_regla_4'] = entity_import('rules_config', '{ "rules_regla_4" : {
+      "LABEL" : "Regla de moderacion 4",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
+      "IF" : [
+        { "data_is" : {
+            "data" : [ "node:field-notificar-analista" ],
+            "value" : "Autoevaluacion lista"
+          }
+        }
+      ],
+      "DO" : [
+        { "mail_to_users_of_role" : {
+            "roles" : { "value" : { "8" : "8" } },
+            "subject" : "Compromiso listo para autoevaluacion \\r\\n[site:name]",
+            "message" : "El compromiso ya se encuentra en estado listo para revision."
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_regla_de_moderaci_n_1'] = entity_import('rules_config', '{ "rules_regla_de_moderaci_n_1" : {
       "LABEL" : "Regla de Moderaci\\u00f3n 1",
       "PLUGIN" : "reaction rule",
@@ -27,6 +50,37 @@ function rules_feature_default_rules_configuration() {
             "roles" : { "value" : { "4" : "4" } },
             "subject" : "Solicitud de cuenta.",
             "message" : "Se ha hecho una nueva solicitud de cuenta para el Sistema Nacional de Gesti\\u00f3n de Riesgos, para poder visualizarla puede ingresar al siguiente link: [node:url]\\/webform-results"
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_rule_5'] = entity_import('rules_config', '{ "rules_rule_5" : {
+      "LABEL" : "Regla de moderacion 5",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
+      "IF" : [
+        { "OR" : [
+            { "data_is" : {
+                "data" : [ "node:field-notificar-institucional" ],
+                "value" : "Aprobado"
+              }
+            },
+            { "data_is" : {
+                "data" : [ "node:field-notificar-institucional" ],
+                "value" : "Sin aprobacion"
+              }
+            }
+          ]
+        }
+      ],
+      "DO" : [
+        { "mail_to_users_of_role" : {
+            "roles" : { "value" : { "8" : "8" } },
+            "subject" : "Autoevaluacion revisada",
+            "message" : "Su autoevaluacion ha sido revisada.\\r\\nEstado: [node:field-notificar-institucional]"
           }
         }
       ]

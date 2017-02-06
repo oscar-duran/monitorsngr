@@ -2206,6 +2206,62 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_notificar_analista'.
+  $field_bases['field_notificar_analista'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_notificar_analista',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'En proceso de revision' => 'En proceso de revision',
+        'Autoevaluacion lista' => 'Autoevaluacion lista',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_notificar_institucional'.
+  $field_bases['field_notificar_institucional'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_notificar_institucional',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Aprobado' => 'Aprobado',
+        'Sin aprobacion' => 'Sin aprobacion',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_numero_cedula'.
   $field_bases['field_numero_cedula'] = array(
     'active' => 1,
