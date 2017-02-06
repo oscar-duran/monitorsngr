@@ -32,14 +32,14 @@ function messages_type_default_message_type() {
     "arguments" : null,
     "message_text" : { "es" : [
         {
-          "value" : "MENSAJE DE MONITORSNGR",
+          "value" : "Nuevo Compromiso de Gesti\\u00f3n",
           "format" : "filtered_html",
-          "safe_value" : "\\u003Cp\\u003EMENSAJE DE MONITORSNGR\\u003C\\/p\\u003E\\n"
+          "safe_value" : "\\u003Cp\\u003ENuevo Compromiso de Gesti\\u00f3n\\u003C\\/p\\u003E\\n"
         },
         {
-          "value" : "Buenas se\\u00f1or(a) encargada de la instituci\\u00f3n (nombre instituci\\u00f3n), se le comunica por este medio que a su instituci\\u00f3n se le asignado un nuevo compromiso de gesti\\u00f3n, por lo cual la invitamos a continuar con el proceso de autoevaluaci\\u00f3n y viste nuestro sistema lo antes posible.",
+          "value" : "Buenas se\\u00f1or(a) encargada de la instituci\\u00f3n [message:field-mss-nombre-institucion], se le comunica por este medio que a su instituci\\u00f3n se le asignado un nuevo compromiso de gesti\\u00f3n con el nombre de [message:field-mss-nombre-compromiso], por lo cual la invitamos a continuar con el proceso de autoevaluaci\\u00f3n y viste nuestro sistema lo antes posible. Puese ver el nuevo compromiso en el siguiente link: [message:field-link]",
           "format" : "filtered_html",
-          "safe_value" : "\\u003Cp\\u003EBuenas se\\u00f1or(a) encargada de la instituci\\u00f3n (nombre instituci\\u00f3n), se le comunica por este medio que a su instituci\\u00f3n se le asignado un nuevo compromiso de gesti\\u00f3n, por lo cual la invitamos a continuar con el proceso de autoevaluaci\\u00f3n y viste nuestro sistema lo antes posible.\\u003C\\/p\\u003E\\n"
+          "safe_value" : "\\u003Cp\\u003EBuenas se\\u00f1or(a) encargada de la instituci\\u00f3n [message:field-mss-nombre-institucion], se le comunica por este medio que a su instituci\\u00f3n se le asignado un nuevo compromiso de gesti\\u00f3n con el nombre de [message:field-mss-nombre-compromiso], por lo cual la invitamos a continuar con el proceso de autoevaluaci\\u00f3n y viste nuestro sistema lo antes posible. Puese ver el nuevo compromiso en el siguiente link: [message:field-link]\\u003C\\/p\\u003E\\n"
         }
       ]
     },

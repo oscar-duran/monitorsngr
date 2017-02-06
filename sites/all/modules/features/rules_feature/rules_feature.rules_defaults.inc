@@ -9,8 +9,31 @@
  */
 function rules_feature_default_rules_configuration() {
   $items = array();
+  $items['rules_regla_de_moderaci_n_1'] = entity_import('rules_config', '{ "rules_regla_de_moderaci_n_1" : {
+      "LABEL" : "Regla de Moderaci\\u00f3n 1",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "webform_rules", "rules" ],
+      "ON" : { "webform_rules_submit" : [] },
+      "IF" : [
+        { "webform_has_id" : {
+            "form_id" : [ "form_id" ],
+            "selected_webform" : { "value" : { "webform-client-form-150" : "webform-client-form-150" } }
+          }
+        }
+      ],
+      "DO" : [
+        { "mail_to_users_of_role" : {
+            "roles" : { "value" : { "4" : "4" } },
+            "subject" : "Solicitud de cuenta.",
+            "message" : "Se ha hecho una nueva solicitud de cuenta para el Sistema Nacional de Gesti\\u00f3n de Riesgos, para poder visualizarla puede ingresar al siguiente link: [node:url]\\/webform-results"
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_rule_regla_3'] = entity_import('rules_config', '{ "rules_rule_regla_3" : {
-      "LABEL" : "Regla de Moderaci\\u00f3n 3: Nuevo Compromiso",
+      "LABEL" : "Regla de Moderaci\\u00f3n 3",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
       "REQUIRES" : [ "rules", "message_notify" ],
@@ -31,6 +54,11 @@ function rules_feature_default_rules_configuration() {
         { "data_set" : {
             "data" : [ "entity-created:field-mss-nombre-compromiso" ],
             "value" : "[node:title]"
+          }
+        },
+        { "data_set" : {
+            "data" : [ "entity-created:field-mss-nombre-institucion" ],
+            "value" : [ "node:field-institucion:title" ]
           }
         },
         { "data_set" : { "data" : [ "entity-created:field-link" ], "value" : "[node:url]" } },

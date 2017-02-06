@@ -54,7 +54,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 14,
     ),
   );
 
@@ -89,7 +89,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 15,
     ),
   );
 
@@ -157,6 +157,44 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_accion_collect-field_nombre_manual'.
+  $field_instances['field_collection_item-field_accion_collect-field_nombre_manual'] = array(
+    'bundle' => 'field_accion_collect',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_nombre_manual',
+    'label' => 'Nombre manual',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 13,
     ),
   );
 
@@ -1804,13 +1842,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Año Final');
   t('Año Inicial');
   t('Año de Creación');
-  t('Codigo Ambito');
   t('Codigo de Acción estratégica');
   t('Cometario sobre el porcentaje avance');
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
   t('Código');
-  t('Código Eje');
-  t('Código Lineamiento');
   t('Código Producto');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
