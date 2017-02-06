@@ -471,43 +471,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
-  // Exported field_instance: 'node-compromiso_de_gestion-field_estado'.
-  $field_instances['node-compromiso_de_gestion-field_estado'] = array(
-    'bundle' => 'compromiso_de_gestion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_estado',
-    'label' => 'Estado',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-compromiso_de_gestion-field_id_compromiso'.
   $field_instances['node-compromiso_de_gestion-field_id_compromiso'] = array(
     'bundle' => 'compromiso_de_gestion',
