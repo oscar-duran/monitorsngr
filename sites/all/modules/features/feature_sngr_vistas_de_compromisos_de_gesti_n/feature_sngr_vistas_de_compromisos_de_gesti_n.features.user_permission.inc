@@ -46,7 +46,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_user_default_permissions(
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -57,7 +56,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_user_default_permissions(
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );

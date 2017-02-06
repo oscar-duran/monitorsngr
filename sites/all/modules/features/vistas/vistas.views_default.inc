@@ -1832,12 +1832,11 @@ function vistas_views_default_views() {
   $handler->display->display_options['sorts']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['sorts']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['sorts']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Sort criterion: Contenido: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['created']['granularity'] = 'hour';
+  $handler->display->display_options['sorts']['field_institucion_target_id']['order'] = 'DESC';
+  /* Sort criterion: Contenido: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1897,7 +1896,7 @@ function vistas_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'lista_de_compromisos';
+  $handler->display->display_options['path'] = 'lista-de-compromisos';
   $translatables['view_instituciones'] = array(
     t('Master'),
     t('View compromisos'),
