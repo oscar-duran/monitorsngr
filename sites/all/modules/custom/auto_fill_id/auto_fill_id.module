@@ -192,7 +192,7 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
 
           $accion_group = $accion_id > 0 ? clone_group($accion['#groups']['group_acciones']) : $accion['#groups']['group_acciones'];
           $accion_group->label = 'Acción Estratégica ' . ($accion_id + 1);
-          $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#default_value'] = $accion_code;
+          $accion['field_codigo_accion_estrategica'][LANGUAGE_NONE][0]['value']['#value'] = $accion_code;
 
           $accion['#groups']['group_acciones'] = $accion_group;
           $accion['#fieldgroups']['group_acciones'] = $accion_group;
