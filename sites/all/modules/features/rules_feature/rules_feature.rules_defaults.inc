@@ -16,15 +16,23 @@ function rules_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
       "IF" : [
-        { "data_is" : {
-            "data" : [ "node:field-notificar-analista" ],
-            "value" : "Autoevaluacion lista"
-          }
+        { "AND" : [
+            { "data_is" : {
+                "data" : [ "node:field-notificar-analista" ],
+                "value" : "Autoevaluacion lista"
+              }
+            },
+            { "user_has_role" : {
+                "account" : [ "site:current-user" ],
+                "roles" : { "value" : { "7" : "7" } }
+              }
+            }
+          ]
         }
       ],
       "DO" : [
         { "mail_to_users_of_role" : {
-            "roles" : { "value" : { "8" : "8" } },
+            "roles" : { "value" : { "5" : "5" } },
             "subject" : "Compromiso listo para autoevaluacion \\r\\n[site:name]",
             "message" : "El compromiso ya se encuentra en estado listo para revision."
           }
@@ -62,25 +70,30 @@ function rules_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
       "IF" : [
-        { "OR" : [
-            { "data_is" : {
-                "data" : [ "node:field-notificar-institucional" ],
-                "value" : "Aprobado"
-              }
-            },
-            { "data_is" : {
-                "data" : [ "node:field-notificar-institucional" ],
-                "value" : "Sin aprobacion"
-              }
+        { "AND" : [
+            { "data_is" : { "data" : [ "node:field-institucion:type" ], "value" : "institucion" } },
+            { "OR" : [
+                { "data_is" : {
+                    "data" : [ "node:field-notificar-institucional" ],
+                    "value" : "Aprobado"
+                  }
+                },
+                { "data_is" : {
+                    "data" : [ "node:field-notificar-institucional" ],
+                    "value" : "Sin aprobacion"
+                  }
+                }
+              ]
             }
           ]
         }
       ],
       "DO" : [
-        { "mail_to_users_of_role" : {
-            "roles" : { "value" : { "8" : "8" } },
-            "subject" : "Autoevaluacion revisada",
-            "message" : "Su autoevaluacion ha sido revisada.\\r\\nEstado: [node:field-notificar-institucional]"
+        { "mail" : {
+            "to" : [ "node:field-institucion:field-enlace-institucional:mail" ],
+            "subject" : "Correo de prueba",
+            "message" : "Este es un correo de prueba\\r\\n[node:field-notificar-institucional]",
+            "language" : [ "" ]
           }
         }
       ]
