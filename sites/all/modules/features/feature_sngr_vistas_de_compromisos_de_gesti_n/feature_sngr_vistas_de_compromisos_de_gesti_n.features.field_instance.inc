@@ -54,7 +54,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 14,
     ),
   );
 
@@ -89,7 +89,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 15,
     ),
   );
 
@@ -157,6 +157,44 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_accion_collect-field_nombre_manual'.
+  $field_instances['field_collection_item-field_accion_collect-field_nombre_manual'] = array(
+    'bundle' => 'field_accion_collect',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_nombre_manual',
+    'label' => 'Nombre manual',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 13,
     ),
   );
 
@@ -240,7 +278,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_ambito',
-    'label' => 'Codigo Ambito',
+    'label' => 'Ambito',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -285,7 +323,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_eje',
-    'label' => 'Código Eje',
+    'label' => 'Eje',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -330,7 +368,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_lineamiento',
-    'label' => 'Código Lineamiento',
+    'label' => 'Lineamiento',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -429,44 +467,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-compromiso_de_gestion-field_estado'.
-  $field_instances['node-compromiso_de_gestion-field_estado'] = array(
-    'bundle' => 'compromiso_de_gestion',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_estado',
-    'label' => 'Estado',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
@@ -484,7 +485,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'weight' => 5,
       ),
       'teaser' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
@@ -506,7 +507,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -546,7 +547,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'field_name' => 'field_institucion',
     'label' => 'Institución ',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -608,6 +609,82 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_analista'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_analista'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notificar_analista',
+    'label' => 'Notificar analista',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_institucional'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_institucional'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notificar_institucional',
+    'label' => 'Notificar institucional',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 7,
     ),
   );
 
@@ -1259,7 +1336,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'entity_type' => 'node',
     'field_name' => 'field_porcentaje_avance',
     'label' => 'Porcentaje avance',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -1370,8 +1447,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'entity_type' => 'node',
     'entityconnect' => array(
       'button' => array(
-        'unload_add_button' => 0,
-        'unload_edit_button' => 0,
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
       ),
       'icon' => array(
         'show_add_icon' => 0,
@@ -1389,10 +1466,16 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
       'module' => 'inline_entity_form',
       'settings' => array(
         'fields' => array(),
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-        'type_settings' => array(),
+        'type_settings' => array(
+          'allow_clone' => 0,
+          'allow_existing' => 0,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'nodes',
+          'label_singular' => 'nodo',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 0,
+        ),
       ),
       'type' => 'inline_entity_form',
       'weight' => 6,
@@ -1595,7 +1678,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1624,18 +1707,19 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'entity_type' => 'node',
     'field_name' => 'field_descripc_fuente_verifica',
     'label' => 'Descripción Fuente Verificación',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1647,13 +1731,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 2,
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1752,7 +1833,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
           'file_view_mode' => 'default',
         ),
         'type' => 'media',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1778,6 +1859,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
           'public' => 'public',
         ),
         'allowed_types' => array(
+          0 => 0,
           'audio' => 0,
           'default' => 0,
           'image' => 'image',
@@ -1786,7 +1868,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -1794,22 +1876,22 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   // Included for use with string extractors like potx.
   t('Acción Estratégica');
   t('Acción a seguir');
+  t('Ambito');
   t('Aspecto positivo');
   t('Año Final');
   t('Año Inicial');
   t('Año de Creación');
-  t('Codigo Ambito');
   t('Codigo de Acción estratégica');
   t('Cometario sobre el porcentaje avance');
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
+  t('Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".');
   t('Código');
-  t('Código Eje');
-  t('Código Lineamiento');
   t('Código Producto');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
   t('Descripción');
   t('Descripción Fuente Verificación');
+  t('Eje');
   t('En caso de respuesta positiva en la anterior pregunta:  ¿Qué organización le ha brindado capacitación?');
   t('En el presente año, su organización ha recibido asesoría o capacitación en el tema de gestión del riesgo que sea pertinente a la ejecución de la meta asignada en el Plan NGR.');
   t('Estado');
@@ -1818,8 +1900,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Institución ');
   t('Institución coordinadora');
   t('Item de Compromiso');
+  t('Lineamiento');
   t('Meta');
   t('Nombre manual');
+  t('Notificar analista');
+  t('Notificar institucional');
   t('Observaciones del analista');
   t('Obstáculo');
   t('Organización asesora');

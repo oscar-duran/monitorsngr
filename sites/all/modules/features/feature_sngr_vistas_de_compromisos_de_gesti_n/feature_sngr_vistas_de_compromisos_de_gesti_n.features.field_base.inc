@@ -74,6 +74,9 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_bases
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_nombre_manual',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',

@@ -125,3 +125,8 @@ table.field-multiple-table tbody > tr.draggable >  td {
 div.field-name-field-meta .form-item > input {
     pointer-events: none;
 }
+
+div.field.field-type-taxonomy-term-reference.field-label-hidden {
+    font-size: 15px;
+    width: 500px;
+}

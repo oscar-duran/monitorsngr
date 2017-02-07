@@ -416,15 +416,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Campo: Usuario: Nombre */
+  /* Campo: Campo: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
-  /* Campo: Usuario: Primer apellido */
+  /* Campo: Campo: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
-  /* Campo: Usuario: Segundo apellido */
+  /* Campo: Campo: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -467,7 +467,7 @@ function vistas_views_default_views() {
     7 => '7',
   );
   $handler->display->display_options['filters']['rid']['group'] = 1;
-  /* Filter criterion: Usuario: Nombre (field_nombre) */
+  /* Filter criterion: Campo: Nombre (field_nombre) */
   $handler->display->display_options['filters']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['filters']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['filters']['field_nombre_value']['field'] = 'field_nombre_value';
@@ -487,7 +487,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Usuario: Primer apellido (field_apellido1) */
+  /* Filter criterion: Campo: Primer apellido (field_apellido1) */
   $handler->display->display_options['filters']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['filters']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['filters']['field_apellido1_value']['field'] = 'field_apellido1_value';
@@ -529,21 +529,21 @@ function vistas_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Usuario: Nombre */
+  /* Campo: Campo: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['label'] = '';
   $handler->display->display_options['fields']['field_nombre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_nombre']['element_label_colon'] = FALSE;
-  /* Campo: Usuario: Primer apellido */
+  /* Campo: Campo: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['label'] = '';
   $handler->display->display_options['fields']['field_apellido1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_apellido1']['element_label_colon'] = FALSE;
-  /* Campo: Usuario: Segundo apellido */
+  /* Campo: Campo: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -558,15 +558,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_nombre] [field_apellido1] [field_apellido2]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Usuario: Nombre (field_nombre) */
+  /* Sort criterion: Campo: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Sort criterion: Usuario: Primer apellido (field_apellido1) */
+  /* Sort criterion: Campo: Primer apellido (field_apellido1) */
   $handler->display->display_options['sorts']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['sorts']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['sorts']['field_apellido1_value']['field'] = 'field_apellido1_value';
-  /* Sort criterion: Usuario: Segundo apellido (field_apellido2) */
+  /* Sort criterion: Campo: Segundo apellido (field_apellido2) */
   $handler->display->display_options['sorts']['field_apellido2_value']['id'] = 'field_apellido2_value';
   $handler->display->display_options['sorts']['field_apellido2_value']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['sorts']['field_apellido2_value']['field'] = 'field_apellido2_value';
@@ -674,20 +674,14 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Estado (editable) */
-  $handler->display->display_options['fields']['field_estado_editable']['id'] = 'field_estado_editable';
-  $handler->display->display_options['fields']['field_estado_editable']['table'] = 'field_data_field_estado';
-  $handler->display->display_options['fields']['field_estado_editable']['field'] = 'field_estado_editable';
-  $handler->display->display_options['fields']['field_estado_editable']['label'] = 'Estado';
-  $handler->display->display_options['fields']['field_estado_editable']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_estado_editable']['settings'] = array(
-    'click_to_edit' => 0,
-    'empty_text' => '',
-    'fallback_format' => 'list_default',
-  );
-  $handler->display->display_options['fields']['field_estado_editable']['widget_type'] = 'options_select';
-  $handler->display->display_options['fields']['field_estado_editable']['suppress_label'] = 0;
-  $handler->display->display_options['fields']['field_estado_editable']['suppress_description'] = 0;
+  /* Campo: Contenido: Notificar institucional (editable) */
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['id'] = 'field_notificar_institucional_editable';
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['field'] = 'field_notificar_institucional_editable';
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['label'] = 'Notificar institucional';
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['widget_type'] = '0';
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['suppress_label'] = 0;
+  $handler->display->display_options['fields']['field_notificar_institucional_editable']['suppress_description'] = 0;
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -749,31 +743,31 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Contenido: Estado (field_estado) */
-  $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
-  $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
-  $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
-  $handler->display->display_options['filters']['field_estado_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_estado_value']['expose']['operator_id'] = 'field_estado_value_op';
-  $handler->display->display_options['filters']['field_estado_value']['expose']['label'] = 'Estado (field_estado)';
-  $handler->display->display_options['filters']['field_estado_value']['expose']['operator'] = 'field_estado_value_op';
-  $handler->display->display_options['filters']['field_estado_value']['expose']['identifier'] = 'field_estado_value';
-  $handler->display->display_options['filters']['field_estado_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_estado_value']['group_info']['label'] = 'Estado';
-  $handler->display->display_options['filters']['field_estado_value']['group_info']['identifier'] = 'field_estado_value';
-  $handler->display->display_options['filters']['field_estado_value']['group_info']['group_items'] = array(
+  /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Notificar institucional (field_notificar_institucional)';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['label'] = 'Notificar institucional (field_notificar_institucional)';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['identifier'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['group_items'] = array(
     1 => array(
-      'title' => 'Rechazado',
-      'operator' => 'or',
-      'value' => array(
-        4 => '4',
-      ),
-    ),
-    2 => array(
       'title' => 'Aprobado',
       'operator' => 'or',
       'value' => array(
-        5 => '5',
+        'Aprobado' => 'Aprobado',
+      ),
+    ),
+    2 => array(
+      'title' => 'Sin aprobación',
+      'operator' => 'or',
+      'value' => array(
+        'Sin aprobacion' => 'Sin aprobacion',
       ),
     ),
     3 => array(
@@ -806,10 +800,10 @@ function vistas_views_default_views() {
     t('Nombre'),
     t('Acción a seguir'),
     t('Porcentaje de Avance'),
-    t('Estado'),
+    t('Notificar institucional'),
     t('Institución'),
     t('Año'),
-    t('Estado (field_estado)'),
+    t('Notificar institucional (field_notificar_institucional)'),
     t('Page'),
   );
   $export['evaluaci_n_compromisos'] = $view;
@@ -1595,7 +1589,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['id'] = 'field_montos_de_ejecucion_target_id';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['table'] = 'field_data_field_montos_de_ejecucion';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['field'] = 'field_montos_de_ejecucion_target_id';
@@ -1678,7 +1672,7 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('Contenido entity referenced from field_montos_de_ejecucion'),
+    t('field_montos_de_ejecucion_target_id'),
     t('Año'),
     t('Monto ejecución'),
     t('Monto presupuestario'),
@@ -1832,12 +1826,11 @@ function vistas_views_default_views() {
   $handler->display->display_options['sorts']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['sorts']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['sorts']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Sort criterion: Contenido: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['created']['granularity'] = 'hour';
+  $handler->display->display_options['sorts']['field_institucion_target_id']['order'] = 'DESC';
+  /* Sort criterion: Contenido: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1897,7 +1890,7 @@ function vistas_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'lista_de_compromisos';
+  $handler->display->display_options['path'] = 'lista-de-compromisos';
   $translatables['view_instituciones'] = array(
     t('Master'),
     t('View compromisos'),
@@ -1941,6 +1934,8 @@ function vistas_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
+    4 => '4',
+    5 => '5',
     7 => '7',
   );
   $handler->display->display_options['cache']['type'] = 'none';

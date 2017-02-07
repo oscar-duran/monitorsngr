@@ -34,7 +34,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
         'classes' => 'action-tab',
         'description' => '',
       ),
-      'formatter' => 'closed',
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_acciones|field_collection_item|field_accion_collect|form'] = $field_group;
@@ -54,6 +54,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'children' => array(
       0 => 'field_codigo_accion_estrategica',
       1 => 'field_descripcion_accion',
+      2 => 'field_nombre_manual',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -115,9 +116,12 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'children' => array(
       0 => 'field_estado',
       1 => 'field_accion_a_seguir',
-      2 => 'field_institucion',
-      3 => 'field_id_compromiso',
-      4 => 'title',
+      2 => 'field_id_compromiso',
+      3 => 'field_accion_ejecutar',
+      4 => 'field_institucion',
+      5 => 'field_notificar_analista',
+      6 => 'field_notificar_institucional',
+      7 => 'title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -172,11 +176,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Item V tab',
     'weight' => '2',
     'children' => array(
-      0 => 'field_codigo_lineamiento',
+      0 => 'field_accion_collect',
       1 => 'field_codigo_ambito',
-      2 => 'field_id_item',
-      3 => 'field_accion_collect',
-      4 => 'field_codigo_eje',
+      2 => 'field_codigo_eje',
+      3 => 'field_codigo_lineamiento',
+      4 => 'field_id_item',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -254,11 +258,11 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Asesorías',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_tema_necesidad_meta',
-      1 => 'field_recibio_asesoria_meta',
-      2 => 'field_su_org_requiere_asesoria',
+      1 => 'field_su_org_requiere_asesoria',
+      2 => 'field_recibio_asesoria_meta',
       3 => 'field_organizacion_capacitadora',
     ),
     'format_type' => 'tab',
@@ -284,7 +288,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Avance',
-    'weight' => '4',
+    'weight' => '3',
     'children' => array(
       0 => 'field_porcentaje_avance',
       1 => 'field_porcentaje_avance_coment',
@@ -340,7 +344,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Observaciones',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
       0 => 'field_obstaculo',
       1 => 'field_aspecto_positivo',

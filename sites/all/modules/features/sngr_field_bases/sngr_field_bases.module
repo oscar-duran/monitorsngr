@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the SNGR field bases feature.
  */
+
+include_once 'sngr_field_bases.features.inc';

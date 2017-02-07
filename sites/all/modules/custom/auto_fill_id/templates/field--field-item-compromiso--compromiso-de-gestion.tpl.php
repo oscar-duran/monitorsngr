@@ -117,7 +117,7 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
                       <?php
                       $path = drupal_get_path_alias('/node/' . $meta_field['entity']->nid);
                       //print $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]['#markup']; ?>
-                      <?php print t('<a href="@path">@meta_name(@percent%)</a>', ['@path' => $path, '@meta_name' => $meta_field['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value'], '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 )]) ?>
+                      <?php print t('<a href="/monitorsngr@path">@meta_name(@percent%)</a>', ['@path' => $path, '@meta_name' => $meta_field['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value'], '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 )]) ?>
                     </td>
                     <!--Producto-->
                     <td class="<?php print $odd_even_class; ?>">

@@ -1028,9 +1028,7 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own accion_estrategica_de_compromiso content'.
   $permissions['delete own accion_estrategica_de_compromiso content'] = array(
     'name' => 'delete own accion_estrategica_de_compromiso content',
-    'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1105,9 +1103,7 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own item_compromiso content'.
   $permissions['delete own item_compromiso content'] = array(
     'name' => 'delete own item_compromiso content',
-    'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1116,7 +1112,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete own meta content',
     'roles' => array(
       'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
   );
