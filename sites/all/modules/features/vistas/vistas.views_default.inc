@@ -416,15 +416,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Nombre */
+  /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
-  /* Campo: Campo: Primer apellido */
+  /* Campo: Usuario: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
-  /* Campo: Campo: Segundo apellido */
+  /* Campo: Usuario: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -467,7 +467,7 @@ function vistas_views_default_views() {
     7 => '7',
   );
   $handler->display->display_options['filters']['rid']['group'] = 1;
-  /* Filter criterion: Campo: Nombre (field_nombre) */
+  /* Filter criterion: Usuario: Nombre (field_nombre) */
   $handler->display->display_options['filters']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['filters']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['filters']['field_nombre_value']['field'] = 'field_nombre_value';
@@ -487,7 +487,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Campo: Primer apellido (field_apellido1) */
+  /* Filter criterion: Usuario: Primer apellido (field_apellido1) */
   $handler->display->display_options['filters']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['filters']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['filters']['field_apellido1_value']['field'] = 'field_apellido1_value';
@@ -529,21 +529,21 @@ function vistas_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Campo: Nombre */
+  /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['label'] = '';
   $handler->display->display_options['fields']['field_nombre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_nombre']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Primer apellido */
+  /* Campo: Usuario: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['label'] = '';
   $handler->display->display_options['fields']['field_apellido1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_apellido1']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Segundo apellido */
+  /* Campo: Usuario: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -558,15 +558,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_nombre] [field_apellido1] [field_apellido2]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Campo: Nombre (field_nombre) */
+  /* Sort criterion: Usuario: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Sort criterion: Campo: Primer apellido (field_apellido1) */
+  /* Sort criterion: Usuario: Primer apellido (field_apellido1) */
   $handler->display->display_options['sorts']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['sorts']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['sorts']['field_apellido1_value']['field'] = 'field_apellido1_value';
-  /* Sort criterion: Campo: Segundo apellido (field_apellido2) */
+  /* Sort criterion: Usuario: Segundo apellido (field_apellido2) */
   $handler->display->display_options['sorts']['field_apellido2_value']['id'] = 'field_apellido2_value';
   $handler->display->display_options['sorts']['field_apellido2_value']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['sorts']['field_apellido2_value']['field'] = 'field_apellido2_value';
@@ -1116,6 +1116,1151 @@ function vistas_views_default_views() {
   $export['instituciones'] = $view;
 
   $view = new view();
+  $view->name = 'lista_asesorias';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'lista asesorias';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'lista asesorias';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['label'] = 'accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Campo: Contenido: Tema de necesidades en asesoría */
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['id'] = 'field_tema_necesidad_meta';
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['table'] = 'field_data_field_tema_necesidad_meta';
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['field'] = 'field_tema_necesidad_meta';
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['relationship'] = 'field_meta_target_id';
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['delta_offset'] = '0';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Meta */
+  $handler->display->display_options['fields']['field_meta_1']['id'] = 'field_meta_1';
+  $handler->display->display_options['fields']['field_meta_1']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['fields']['field_meta_1']['field'] = 'field_meta';
+  $handler->display->display_options['fields']['field_meta_1']['relationship'] = 'field_accion_collect_value';
+  $handler->display->display_options['fields']['field_meta_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_meta_1']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['field_meta_1']['delta_offset'] = '0';
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institucion';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'lista-asesorias';
+  $translatables['lista_asesorias'] = array(
+    t('Master'),
+    t('lista asesorias'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('item_compromiso'),
+    t('accion_collect'),
+    t('Contenido entity referenced from field_meta'),
+    t('Contenido entity referenced from field_institucion'),
+    t('Tema de necesidades en asesoría'),
+    t('Compromiso'),
+    t('Meta'),
+    t('Institución '),
+    t('Año de Creación'),
+    t('Institucion'),
+    t('Page'),
+  );
+  $export['lista_asesorias'] = $view;
+
+  $view = new view();
+  $view->name = 'lista_productos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'lista productos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'lista productos';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_producto_target_id']['id'] = 'field_producto_target_id';
+  $handler->display->display_options['relationships']['field_producto_target_id']['table'] = 'field_data_field_producto';
+  $handler->display->display_options['relationships']['field_producto_target_id']['field'] = 'field_producto_target_id';
+  $handler->display->display_options['relationships']['field_producto_target_id']['relationship'] = 'field_meta_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Campo: Contenido: Producto esperado */
+  $handler->display->display_options['fields']['field_producto']['id'] = 'field_producto';
+  $handler->display->display_options['fields']['field_producto']['table'] = 'field_data_field_producto';
+  $handler->display->display_options['fields']['field_producto']['field'] = 'field_producto';
+  $handler->display->display_options['fields']['field_producto']['relationship'] = 'field_meta_target_id';
+  $handler->display->display_options['fields']['field_producto']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
+  /* Campo: Contenido: Descripción Fuente Verificación */
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_producto_target_id';
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'lista-productos';
+  $translatables['lista_productos'] = array(
+    t('Master'),
+    t('lista productos'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('field collection item from field_item_compromiso'),
+    t('field collection item from field_accion_collect'),
+    t('Contenido entity referenced from field_meta'),
+    t('Contenido entity referenced from field_producto'),
+    t('Contenido entity referenced from field_institucion'),
+    t('Producto esperado'),
+    t('Descripción Fuente Verificación'),
+    t('Institución '),
+    t('Compromiso'),
+    t('Año de Creación'),
+    t('Institución'),
+    t('Page'),
+  );
+  $export['lista_productos'] = $view;
+
+  $view = new view();
+  $view->name = 'listado_aspectos_positivos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'listado aspectos positivos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'listado aspectos positivos';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Campo: Contenido: Aspecto positivo */
+  $handler->display->display_options['fields']['field_aspecto_positivo']['id'] = 'field_aspecto_positivo';
+  $handler->display->display_options['fields']['field_aspecto_positivo']['table'] = 'field_data_field_aspecto_positivo';
+  $handler->display->display_options['fields']['field_aspecto_positivo']['field'] = 'field_aspecto_positivo';
+  $handler->display->display_options['fields']['field_aspecto_positivo']['relationship'] = 'field_meta_target_id';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'listado-aspectos-positivos';
+  $translatables['listado_aspectos_positivos'] = array(
+    t('Master'),
+    t('listado aspectos positivos'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('field collection item from field_item_compromiso'),
+    t('field collection item from field_accion_collect'),
+    t('Contenido entity referenced from field_meta'),
+    t('Contenido entity referenced from field_institucion'),
+    t('Aspecto positivo'),
+    t('Compromiso'),
+    t('Institución '),
+    t('Año de Creación'),
+    t('Institución'),
+    t('Page'),
+  );
+  $export['listado_aspectos_positivos'] = $view;
+
+  $view = new view();
+  $view->name = 'listado_de_revisiones_de_compromisos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Listado de revisiones de compromisos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Listado de revisiones de compromisos';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Campo: Contenido: Notificar institucional */
+  $handler->display->display_options['fields']['field_notificar_institucional']['id'] = 'field_notificar_institucional';
+  $handler->display->display_options['fields']['field_notificar_institucional']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['fields']['field_notificar_institucional']['field'] = 'field_notificar_institucional';
+  $handler->display->display_options['fields']['field_notificar_institucional']['label'] = 'Estado';
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'listado-de-revisiones-de-compromisos';
+  $translatables['listado_de_revisiones_de_compromisos'] = array(
+    t('Master'),
+    t('Listado de revisiones de compromisos'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('Contenido entity referenced from field_institucion'),
+    t('Título'),
+    t('Institución '),
+    t('Estado'),
+    t('Año de Creación'),
+    t('Institución'),
+    t('Page'),
+  );
+  $export['listado_de_revisiones_de_compromisos'] = $view;
+
+  $view = new view();
+  $view->name = 'listado_metas';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'listado metas';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'listado metas';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['id'] = 'field_item_compromiso_value_1';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['label'] = 'item_compromiso_lineamiento';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['delta'] = '-1';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['id'] = 'field_item_compromiso_value_2';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['label'] = 'item_compromiso_ambito';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['delta'] = '-1';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['id'] = 'field_item_compromiso_value_3';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['label'] = 'item_compromiso_eje';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['delta'] = '-1';
+  /* Campo: Campo: Meta */
+  $handler->display->display_options['fields']['field_meta']['id'] = 'field_meta';
+  $handler->display->display_options['fields']['field_meta']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['fields']['field_meta']['field'] = 'field_meta';
+  $handler->display->display_options['fields']['field_meta']['relationship'] = 'field_accion_collect_value';
+  $handler->display->display_options['fields']['field_meta']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['relationship'] = 'field_item_compromiso_value_3';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['operator_id'] = 'field_codigo_eje_tid_op';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['label'] = 'Eje';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['operator'] = 'field_codigo_eje_tid_op';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['identifier'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
+  /* Filter criterion: Campo: Ambito (field_codigo_ambito) */
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['relationship'] = 'field_item_compromiso_value_2';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['operator_id'] = 'field_codigo_ambito_tid_op';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['label'] = 'Ambito';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['operator'] = 'field_codigo_ambito_tid_op';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['identifier'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
+  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['relationship'] = 'field_item_compromiso_value_1';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['operator_id'] = 'field_codigo_lineamiento_tid_op';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['label'] = 'Lineamiento';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['operator'] = 'field_codigo_lineamiento_tid_op';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['identifier'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['group_info']['label'] = 'Lineamiento (field_codigo_lineamiento)';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['group_info']['identifier'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => '',
+      'operator' => 'or',
+      'value' => '',
+    ),
+    2 => array(
+      'title' => '',
+      'operator' => 'or',
+      'value' => '',
+    ),
+    3 => array(
+      'title' => '',
+      'operator' => 'or',
+      'value' => '',
+    ),
+  );
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['vocabulary'] = 'lineamiento';
+  /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Porcentaje de Avance (field_porcentaje_de_avance_compr) */
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['id'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['table'] = 'field_data_field_porcentaje_de_avance_compr';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['field'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['operator'] = 'between';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator_id'] = 'field_porcentaje_de_avance_compr_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['label'] = 'Porcentaje de Avance';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator'] = 'field_porcentaje_de_avance_compr_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['identifier'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'listado-metas';
+  $translatables['listado_metas'] = array(
+    t('Master'),
+    t('listado metas'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('field collection item from field_item_compromiso'),
+    t('field collection item from field_accion_collect'),
+    t('Contenido entity referenced from field_meta'),
+    t('Contenido entity referenced from field_institucion'),
+    t('item_compromiso_lineamiento'),
+    t('item_compromiso_ambito'),
+    t('item_compromiso_eje'),
+    t('Meta'),
+    t('Institución '),
+    t('Compromiso'),
+    t('Año de Creación'),
+    t('Institución'),
+    t('Eje'),
+    t('Ambito'),
+    t('Lineamiento'),
+    t('Lineamiento (field_codigo_lineamiento)'),
+    t('Estado'),
+    t('Porcentaje de Avance'),
+    t('Page'),
+  );
+  $export['listado_metas'] = $view;
+
+  $view = new view();
+  $view->name = 'listado_obstaculos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'listado obstaculos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'listado obstaculos';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Campo: Contenido: Obstáculo */
+  $handler->display->display_options['fields']['field_obstaculo']['id'] = 'field_obstaculo';
+  $handler->display->display_options['fields']['field_obstaculo']['table'] = 'field_data_field_obstaculo';
+  $handler->display->display_options['fields']['field_obstaculo']['field'] = 'field_obstaculo';
+  $handler->display->display_options['fields']['field_obstaculo']['relationship'] = 'field_meta_target_id';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 1,
+  );
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'listado-obstaculos';
+  $translatables['listado_obstaculos'] = array(
+    t('Master'),
+    t('listado obstaculos'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('field collection item from field_item_compromiso'),
+    t('field collection item from field_accion_collect'),
+    t('Contenido entity referenced from field_meta'),
+    t('Contenido entity referenced from field_institucion'),
+    t('Obstáculo'),
+    t('Compromiso'),
+    t('Institución '),
+    t('Año de Creación'),
+    t('Institución'),
+    t('Page'),
+  );
+  $export['listado_obstaculos'] = $view;
+
+  $view = new view();
   $view->name = 'matriz_cumplimiento';
   $view->description = '';
   $view->tag = 'default';
@@ -1589,7 +2734,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['id'] = 'field_montos_de_ejecucion_target_id';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['table'] = 'field_data_field_montos_de_ejecucion';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['field'] = 'field_montos_de_ejecucion_target_id';
@@ -1672,7 +2817,7 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field_montos_de_ejecucion_target_id'),
+    t('Contenido entity referenced from field_montos_de_ejecucion'),
     t('Año'),
     t('Monto ejecución'),
     t('Monto presupuestario'),
@@ -1790,6 +2935,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['pager']['type'] = 'full';
@@ -1809,6 +2955,24 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'field_item_compromiso_eje';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['id'] = 'field_item_compromiso_value_1';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['label'] = 'field_item_compromiso_ambito';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['delta'] = '-1';
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['id'] = 'field_item_compromiso_value_2';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['label'] = 'field_item_compromiso_lineamiento';
+  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['delta'] = '-1';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1846,6 +3010,26 @@ function vistas_views_default_views() {
     'compromiso_de_gestion' => 'compromiso_de_gestion',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
   /* Filter criterion: Contenido: Título */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -1867,18 +3051,18 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
-  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['operator_id'] = 'field_codigo_eje_tid_op';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['label'] = 'Eje';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['operator'] = 'field_codigo_eje_tid_op';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['identifier'] = 'field_codigo_eje_tid';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -1886,6 +3070,93 @@ function vistas_views_default_views() {
     5 => 0,
     7 => 0,
     6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
+  /* Filter criterion: Campo: Ambito (field_codigo_ambito) */
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['relationship'] = 'field_item_compromiso_value_1';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['operator_id'] = 'field_codigo_ambito_tid_op';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['label'] = 'Ambito';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['operator'] = 'field_codigo_ambito_tid_op';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['identifier'] = 'field_codigo_ambito_tid';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
+  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['relationship'] = 'field_item_compromiso_value_2';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['operator_id'] = 'field_codigo_lineamiento_tid_op';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['label'] = 'Lineamiento';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['operator'] = 'field_codigo_lineamiento_tid_op';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['identifier'] = 'field_codigo_lineamiento_tid';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['vocabulary'] = 'lineamiento';
+  /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
+  );
+  /* Filter criterion: Contenido: Porcentaje de Avance (field_porcentaje_de_avance_compr) */
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['id'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['table'] = 'field_data_field_porcentaje_de_avance_compr';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['field'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['operator'] = 'between';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator_id'] = 'field_porcentaje_de_avance_compr_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['label'] = 'Porcentaje de Avance';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator'] = 'field_porcentaje_de_avance_compr_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['identifier'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+    8 => 0,
   );
 
   /* Display: Page */
@@ -1910,10 +3181,18 @@ function vistas_views_default_views() {
     t('<a href="https://163.178.170.162/monitorsngr/node/add/compromiso-de-gestion">+Nuevo Compromiso </a>
 <p>'),
     t('Contenido entity referenced from field_institucion'),
+    t('field_item_compromiso_eje'),
+    t('field_item_compromiso_ambito'),
+    t('field_item_compromiso_lineamiento'),
     t('Título'),
     t('Institución '),
-    t('Institución'),
     t('Año'),
+    t('Institución'),
+    t('Eje'),
+    t('Ambito'),
+    t('Lineamiento'),
+    t('Estado'),
+    t('Porcentaje de Avance'),
     t('Page'),
   );
   $export['view_instituciones'] = $view;
