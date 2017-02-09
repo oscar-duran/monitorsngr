@@ -6,4 +6,5 @@ files[] = auto_fill_id.module
 dependencies[] = devel
 dependencies[] = field_collection
 dependencies[] = field_group
+dependencies[] = print
 scripts[] = js/auto_fill_id.js
