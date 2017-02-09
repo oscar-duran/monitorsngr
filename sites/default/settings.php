@@ -645,10 +645,8 @@ $conf['master_modules']['base'] = array(
   'views',
   'views_content',
   'views_field_view',
-  'webform_features',
   'webform_layout',
   'webform_matrix_component',
-  'webform_rules',
   'webform_shs',
   'wysiwyg',
 
@@ -663,13 +661,11 @@ $conf['master_modules']['base'] = array(
   'lista_modulos',
   'monitorsngr_pge',
   'references_dialog',
-  'rules_feature',
   'sngr_field_bases',
   'tipos_contenido',
   'usuarios_roles_permisos',
   'vistas',
   'vocabularios',
-  'webforms_feature',
 );
 
 $conf['master_modules']['local'] = $conf['master_modules']['local'] = array(
