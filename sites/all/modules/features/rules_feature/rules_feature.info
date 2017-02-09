@@ -6,6 +6,7 @@ dependencies[] = message_notify
 dependencies[] = messages_type
 dependencies[] = rules
 dependencies[] = webform_rules
+dependencies[] = webforms_feature
 features[features_api][] = api:2
 features[rules_config][] = rules_regla_4
 features[rules_config][] = rules_regla_de_moderaci_n_1

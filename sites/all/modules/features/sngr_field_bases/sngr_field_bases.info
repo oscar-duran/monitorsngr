@@ -113,6 +113,7 @@ features[field_base][] = field_monto_estimado_perdidas
 features[field_base][] = field_monto_presupuestado
 features[field_base][] = field_monto_presupuestario
 features[field_base][] = field_monto_total_asigando
+features[field_base][] = field_montos_de_ejecucion
 features[field_base][] = field_naturaleza_actividades
 features[field_base][] = field_naturaleza_dannos
 features[field_base][] = field_naturaleza_uso

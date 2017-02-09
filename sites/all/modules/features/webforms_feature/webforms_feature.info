@@ -1,0 +1,15 @@
+name = Webforms feature
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = node
+dependencies[] = strongarm
+dependencies[] = webform
+__drupal_alter_by_ref[][node][webform] = webform
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[node][] = webform
+features[variable][] = comment_webform
+features[variable][] = field_bundle_settings_node__webform
+features[webform][] = solicitud_de_usuario_institucion

@@ -11,3 +11,11 @@ and open the template in the editor.
 thead th {
     background: #1272b9;
 }
+
+div.print-content {
+    color: #0A6700;
+}
+
+#title-h1-loco {
+    color: red;
+}

@@ -60,7 +60,6 @@ features[field_instance][] = field_collection_item-field_item_compromiso-field_c
 features[field_instance][] = field_collection_item-field_item_compromiso-field_codigo_lineamiento
 features[field_instance][] = field_collection_item-field_item_compromiso-field_id_item
 features[field_instance][] = node-compromiso_de_gestion-field_accion_a_seguir
-features[field_instance][] = node-compromiso_de_gestion-field_estado
 features[field_instance][] = node-compromiso_de_gestion-field_id_compromiso
 features[field_instance][] = node-compromiso_de_gestion-field_institucion
 features[field_instance][] = node-compromiso_de_gestion-field_item_compromiso
