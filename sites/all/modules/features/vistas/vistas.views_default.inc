@@ -2019,17 +2019,18 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['vocabulary'] = 'lineamiento';
-  /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Estado';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['remember_roles'] = array(
+  /* Filter criterion: Contenido: Estado (field_estado) */
+  $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
+  $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
+  $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
+  $handler->display->display_options['filters']['field_estado_value']['relationship'] = 'field_meta_target_id';
+  $handler->display->display_options['filters']['field_estado_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_estado_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_estado_value']['expose']['operator_id'] = 'field_estado_value_op';
+  $handler->display->display_options['filters']['field_estado_value']['expose']['label'] = 'Estado';
+  $handler->display->display_options['filters']['field_estado_value']['expose']['operator'] = 'field_estado_value_op';
+  $handler->display->display_options['filters']['field_estado_value']['expose']['identifier'] = 'field_estado_value';
+  $handler->display->display_options['filters']['field_estado_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -2039,18 +2040,17 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Contenido: Porcentaje de Avance (field_porcentaje_de_avance_compr) */
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['id'] = 'field_porcentaje_de_avance_compr_value';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['table'] = 'field_data_field_porcentaje_de_avance_compr';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['field'] = 'field_porcentaje_de_avance_compr_value';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['operator'] = 'between';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator_id'] = 'field_porcentaje_de_avance_compr_value_op';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['label'] = 'Porcentaje de Avance';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['operator'] = 'field_porcentaje_de_avance_compr_value_op';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['identifier'] = 'field_porcentaje_de_avance_compr_value';
-  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['expose']['remember_roles'] = array(
+  /* Filter criterion: Contenido: Porcentaje avance (field_porcentaje_avance) */
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['id'] = 'field_porcentaje_avance_value';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['table'] = 'field_data_field_porcentaje_avance';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['field'] = 'field_porcentaje_avance_value';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['relationship'] = 'field_meta_target_id';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['expose']['operator_id'] = 'field_porcentaje_avance_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['expose']['label'] = 'Nivel de avance';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['expose']['operator'] = 'field_porcentaje_avance_value_op';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['expose']['identifier'] = 'field_porcentaje_avance_value';
+  $handler->display->display_options['filters']['field_porcentaje_avance_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -2097,7 +2097,7 @@ function vistas_views_default_views() {
     t('Lineamiento'),
     t('Lineamiento (field_codigo_lineamiento)'),
     t('Estado'),
-    t('Porcentaje de Avance'),
+    t('Nivel de avance'),
     t('Page'),
   );
   $export['listado_metas'] = $view;

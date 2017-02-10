@@ -33,8 +33,8 @@ function rules_feature_default_rules_configuration() {
       "DO" : [
         { "mail_to_users_of_role" : {
             "roles" : { "value" : { "5" : "5" } },
-            "subject" : "Compromiso listo para autoevaluacion \\r\\n[site:name]",
-            "message" : "El compromiso ya se encuentra en estado listo para revision."
+            "subject" : "Autoevaluacion completada",
+            "message" : "Estimado equipo de la Unidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo              \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.\\r\\n\\r\\nSeg\\u00fan los compromisos institucionales que tiene la instituci\\u00f3n que represento ante el Sistema Nacional de Gestion del Riesgo, notifico que he realizado la autoevaluaci\\u00f3n  de un compromiso institucional correspondiente, disponible para su respectiva revisi\\u00f3n.  \\r\\n\\r\\nAtentamente, \\r\\n[site:current-user:field-nombre]\\r\\nEnlace institucional,  \\r\\n[site:current-user:field-institucion]"
           }
         }
       ]
@@ -91,9 +91,8 @@ function rules_feature_default_rules_configuration() {
       "DO" : [
         { "mail" : {
             "to" : [ "node:field-institucion:field-enlace-institucional:mail" ],
-            "subject" : "Correo de prueba",
-            "message" : "Este es un correo de prueba\\r\\n[node:field-notificar-institucional]",
-            "language" : [ "" ]
+            "subject" : "Autoevaluacion revisada",
+            "message" : "Estimado(a) [node:field-institucion:field-enlace-institucional:field-nombre]\\r\\nEnlace institucional                                    \\r\\n[node:field-institucion]\\r\\n\\r\\nLa autoevaluaci\\u00f3n que usted realiz\\u00f3 respecto a los compromisos de gesti\\u00f3n  que su instituci\\u00f3n tiene como integrante del Sistema Nacional de Gesti\\u00f3n del Riesgo se encuentra: [node:field-notificar-institucional].\\r\\nLe invitamos a revisar las observaciones, en caso de estar sin aprobacion.   \\r\\n\\r\\nGracias por el tiempo tomado en la realizaci\\u00f3n de la autoevaluaci\\u00f3n de su compromiso de gesti\\u00f3n. \\r\\n\\r\\nAtentamente,                               \\r\\nUnidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo  \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.   "
           }
         }
       ]
