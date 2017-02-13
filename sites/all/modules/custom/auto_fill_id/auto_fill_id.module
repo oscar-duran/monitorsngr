@@ -477,7 +477,7 @@ function compromiso_percentage($compromis_node) {
             $cant += sizeof($metas);
             foreach ($metas as $meta) {
               $meta_node = node_load($meta['target_id']);
-              dpm($meta_node);
+              //dpm($meta_node);
               $total += empty($meta_node->field_porcentaje_avance) ? 1 : $meta_node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] ;
             }
           }
@@ -524,7 +524,7 @@ function field_target_id(&$array, $id) {
  * Implements hook_preprocess_HOOK().
  */
 function auto_fill_id_preprocess_HOOK(&$variables) {
-  dpm($variables);
+  //dpm($variables);
 }
 
 
