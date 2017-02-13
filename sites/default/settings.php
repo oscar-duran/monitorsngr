@@ -644,6 +644,8 @@ $conf['master_modules']['base'] = array(
   'print_pdf',
   'print_pdf_dompdf',
   'print_ui',
+  'rules',
+  'rules_admin',
   'site_map',
   'strongarm',
   'views',
