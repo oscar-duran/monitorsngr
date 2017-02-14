@@ -10,16 +10,6 @@
 function sngr_field_bases_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'create field_accion_a_seguir'.
-  $permissions['create field_accion_a_seguir'] = array(
-    'name' => 'create field_accion_a_seguir',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_anno_fin_meta'.
   $permissions['create field_anno_fin_meta'] = array(
     'name' => 'create field_anno_fin_meta',
@@ -116,7 +106,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -261,15 +250,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_accion_a_seguir'.
-  $permissions['edit field_accion_a_seguir'] = array(
-    'name' => 'edit field_accion_a_seguir',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit field_anno_fin_meta'.
   $permissions['edit field_anno_fin_meta'] = array(
     'name' => 'edit field_anno_fin_meta',
@@ -359,8 +339,8 @@ function sngr_field_bases_user_default_permissions() {
   $permissions['edit field_institucion'] = array(
     'name' => 'edit field_institucion',
     'roles' => array(
+      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -504,16 +484,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_accion_a_seguir'.
-  $permissions['edit own field_accion_a_seguir'] = array(
-    'name' => 'edit own field_accion_a_seguir',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_anno_fin_meta'.
   $permissions['edit own field_anno_fin_meta'] = array(
     'name' => 'edit own field_anno_fin_meta',
@@ -610,7 +580,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -755,17 +724,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_accion_a_seguir'.
-  $permissions['view field_accion_a_seguir'] = array(
-    'name' => 'view field_accion_a_seguir',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view field_anno_fin_meta'.
   $permissions['view field_anno_fin_meta'] = array(
     'name' => 'view field_anno_fin_meta',
@@ -824,6 +782,7 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
+      'anonymous user' => 'anonymous user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -864,6 +823,7 @@ function sngr_field_bases_user_default_permissions() {
   $permissions['view field_institucion'] = array(
     'name' => 'view field_institucion',
     'roles' => array(
+      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
@@ -1010,18 +970,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_accion_a_seguir'.
-  $permissions['view own field_accion_a_seguir'] = array(
-    'name' => 'view own field_accion_a_seguir',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view own field_anno_fin_meta'.
   $permissions['view own field_anno_fin_meta'] = array(
     'name' => 'view own field_anno_fin_meta',
@@ -1084,6 +1032,7 @@ function sngr_field_bases_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
+      'anonymous user' => 'anonymous user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
