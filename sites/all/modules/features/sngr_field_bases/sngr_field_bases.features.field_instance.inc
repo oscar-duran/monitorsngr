@@ -34,7 +34,7 @@ function sngr_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_accion_ejecutar',
-    'label' => 'Accion ejecutar',
+    'label' => 'Accion a seguir',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -238,7 +238,7 @@ function sngr_field_bases_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Accion ejecutar');
+  t('Accion a seguir');
   t('Auto inc ambito');
   t('Auto inc eje');
   t('Auto inc lineamiento');
