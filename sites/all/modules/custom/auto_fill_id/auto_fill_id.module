@@ -228,8 +228,8 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
     }
   }
-  //dpm($form);
-  //dpm($form_state);
+  dpm($form);
+  dpm($form_state);
 }
 
 function get_mail_user_by_institution($id) {
