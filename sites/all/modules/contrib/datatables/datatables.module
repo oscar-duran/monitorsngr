@@ -34,7 +34,7 @@ function datatables_library() {
     $libraries['datatables'] = array(
       'title' => 'DataTables',
       'website' => 'http://http://datatables.net/',
-      'version' => '1.9',
+      'version' => '1.10',
       'js' => array(
         $lib_path . '/media/js/jquery.dataTables.js' => array(),
         drupal_get_path('module', 'datatables') . '/js/datatables.js' => array(),
@@ -218,7 +218,9 @@ function theme_datatable($variables) {
       foreach ($header as $key => $cell) {
         if (isset($cell['datatable_options'])) {
           $datatable_options['aoColumns'][] = $cell['datatable_options'];
-          unset($header[$key]['datatable_options']);
+          if (is_array($header[$key])) {
+            unset($header[$key]['datatable_options']);
+          }
         }
       }
     }
@@ -301,6 +303,7 @@ function template_preprocess_datatables_view(&$vars) {
     }
 
     // Set default sort order.
+    $datatable_options['aaSorting'] = array();
     if ($options['default'] == $field) {
       $datatable_options['aaSorting'] = array(array($position, $options['order']));
     }
@@ -312,6 +315,7 @@ function template_preprocess_datatables_view(&$vars) {
   $datatable_options['bInfo'] = $options['elements']['table_info'];
   $datatable_options['bFilter'] = $options['elements']['search_box'];
   $datatable_options['bStateSave'] = $options['elements']['save_state'];
+  $datatable_options['bMultiFilter'] = $options['elements']['multi_filter'];
 
   $datatable_options['bLengthChange'] = $options['pages']['length_change'];
   $datatable_options['iDisplayLength'] = (int) $options['pages']['display_length'];
@@ -345,7 +349,7 @@ function template_preprocess_datatables_view(&$vars) {
   }
 
   // Enable TableTools plugin support, if necessary.
-  if (!empty($options['elements']['table_tools'])) {
+  if ($options['elements']['table_tools']) {
     $datatable_options['oTableTools'] = array(
       'sSwfPath' => base_path() . _datatables_get_path() . '/extras/TableTools/media/swf/copy_csv_xls_pdf.swf',
     );
@@ -358,6 +362,29 @@ function template_preprocess_datatables_view(&$vars) {
 
     drupal_add_library('datatables', 'datatables-tabletools');
   }
+
+  $datatable_options['oLanguage'] = array(
+    'sEmptyTable' => t('No data available in table'),
+    'sInfo' => t('Start !_START_ to !_END_ of !_TOTAL_ entries', array('!_START_' => '_START_', '!_END_' => '_END_', '!_TOTAL_' => '_TOTAL_')),
+    'sInfoEmpty' => t('Showing 0 to 0 of 0 entries'),
+    'sInfoFiltered' => t('(filtered from !_MAX_ total entries)', array('!_MAX_' => '_MAX_')),
+    'sInfoPostFix' => '',
+    'sProcessing' => t('Processing...'),
+    'sLengthMenu' => t('Show !_MENU_ entries', array('!_MENU_' => '_MENU_')),
+    'sLoadingRecords' => t('Loading...'),
+    'sZeroRecords' => t( 'No matching records found'),
+    'sSearch' => t('Search'),
+    'oPaginate' => array(
+        'sFirst' => t( 'First'),
+        'sPrevious' => t('Previous'),
+        'sNext' => t('Next'),
+        'sLast' => t('Last'),
+    ),
+    'oAria' => array(
+      'sSortAscending' => t(': activate to sort column ascending'),
+      'sSortDescending' => t(': activate to sort column descending'),
+    ),
+  );
 
   $vars['id'] = _datatables_get_id();
   $vars['classes_array'][] = 'display';

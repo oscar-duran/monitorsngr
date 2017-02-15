@@ -37,4 +37,16 @@
       </tr>
     <?php endforeach; ?>
   </tbody>
+    <?php $options = $view->style_plugin->options; ?>
+    <?php if ($options['elements']['multi_filter']): ?>
+        <tfoot>
+          <tr>
+              <?php foreach ($header as $field => $label): ?>
+                  <th>
+                      <input type="text" name="<?php print $field; ?>" value="<?php print $label; ?>" class="search_init" />
+                    </th>
+                <?php endforeach; ?>
+            </tr>
+        </tfoot>
+      <?php endif; ?>
 </table>

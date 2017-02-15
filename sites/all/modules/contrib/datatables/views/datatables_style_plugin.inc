@@ -24,6 +24,7 @@ class datatables_style_plugin extends views_plugin_style_table {
         'search_box' => TRUE,
         'table_info' => TRUE,
         'save_state' => FALSE,
+        'multi_filter' => FALSE,
       ),
     );
     $options['layout'] = array(
@@ -39,6 +40,9 @@ class datatables_style_plugin extends views_plugin_style_table {
         'length_change' => 0,
         'display_length' => 10,
       ),
+    );
+    $options['hidden_columns'] = array(
+      'default' => array(),
     );
     return $options;
   }
@@ -84,7 +88,13 @@ class datatables_style_plugin extends views_plugin_style_table {
       '#type' => 'checkbox',
       '#title' => t('Save State'),
       '#default_value' => !empty($this->options['elements']['save_state']),
-      '#description' => t("DataTables can use cookies in the end user's web-browser in order to store it's state after each change in drawing. What this means is that if the user were to reload the page, the table should remain exactly as it was (length, filtering, pagination and sorting)"),
+      '#description' => t("DataTables can use cookies in the end user's web-browser in order to store its state after each change in drawing. What this means is that if the user were to reload the page, the table should remain exactly as it was (length, filtering, pagination and sorting)"),
+    );
+    $form['elements']['multi_filter'] = array(
+              '#type' => 'checkbox',
+              '#title' => t('Enable multi filter'),
+              '#default_value' => !empty($this->options['elements']['multi_filter']),
+              '#description' => t('The multi filter boxes allow users to dynamically filter each column in the table.  Disabling this option will hide the multi filter boxes from users.'),
     );
     $form['elements']['table_tools'] = array(
       '#type' => 'checkbox',
@@ -145,12 +155,13 @@ class datatables_style_plugin extends views_plugin_style_table {
       '#default_value' => !empty($this->options['pages']['length_change']),
       '#description' => t('Enable or page length selection menu'),
     );
+
     $form['pages']['display_length'] = array(
-      '#type' => 'select',
+      '#type' => 'textfield',
       '#title' => t('Default Page Length'),
-      '#default_value' => isset($this->options['pages']['display_length']) ? $this->options['pages']['display_length'] : 10,
-      '#options' => array(10 => 10, 25 => 25, 50 => 50, 100 => 100),
       '#description' => t('Default number of records to show per page. May be adjusted by users if Length Selection is enabled'),
+      '#default_value' => isset($this->options['pages']['display_length']) ? $this->options['pages']['display_length'] : 10,
+      '#element_validate' => array('element_validate_integer_positive'),
     );
 
     $columns = $this->display->handler->get_field_labels();

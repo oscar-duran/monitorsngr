@@ -9,7 +9,7 @@
             // Insert a "view more" column to the table.
             var nCloneTh = document.createElement('th');
             var nCloneTd = document.createElement('td');
-            nCloneTd.innerHTML = '<a href="#" class="datatables-expand datatables-closed">Show Details</a>';
+            nCloneTd.innerHTML = '<a href="#" class="datatables-expand datatables-closed">' + Drupal.t('Show Details') + '</a>';
 
             $(selector + ' thead tr').each( function () {
               this.insertBefore( nCloneTh, this.childNodes[0] );
@@ -23,6 +23,41 @@
           }
 
           var datatable = $(selector).dataTable(settings);
+
+          if (settings.bMultiFilter) {
+            // The code below is taken almost verbatim from the examples at datatables.net
+            // @see http://www.datatables.net/examples/api/multi_filter.html
+
+            // Apply the actual filter to the table.
+            $("tfoot input").keyup(function() {
+              // Filter on the column (the index) of this element.
+              datatable.fnFilter(this.value, $("tfoot input").index(this));
+            });
+            // Support functions to provide a little bit of 'user friendlyness' to the textboxes in the footer.
+            var asInitVals = new Array();
+            $("tfoot input").each(function(i) {
+              asInitVals[i] = this.value;
+            });
+
+            $("tfoot input").focus(function() {
+               if (this.className == "search_init") {
+                  this.className = "";
+                  this.value = "";
+                }
+             });
+
+             $("tfoot input").blur(function(i) {
+                if (this.value == "") {
+                   this.className = "search_init";
+                   this.value = asInitVals[$("tfoot input").index(this)];
+                 }
+             });
+
+
+            $("tfoot select")
+
+
+                        }
 
           if (settings.bExpandable) {
             // Add column headers to table settings.
@@ -41,11 +76,11 @@
                 var row = this.parentNode.parentNode;
                 if (datatable.fnIsOpen(row)) {
                   datatable.fnClose(row);
-                  $(this).html('Show Details');
+                  $(this).html(Drupal.t('Show Details'));
                 }
                 else {
                   datatable.fnOpen( row, Drupal.theme('datatablesExpandableRow', datatable, row), 'details' );
-                  $(this).html('Hide Details');
+                  $(this).html(Drupal.t('Hide Details'));
                 }
                 return false;
               });
