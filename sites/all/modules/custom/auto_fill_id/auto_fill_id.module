@@ -8,10 +8,10 @@ function auto_fill_id_node_access($node, $op, $account) {
     return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
   }
 }
-
+/*
 /**
  * Implements hook_node_insert().
- */
+ *//*
 function auto_fill_id_node_insert($node)
 {
     if($node->type == "compromiso_de_gestion") {
@@ -19,7 +19,7 @@ function auto_fill_id_node_insert($node)
       //dpm($node);
     }
 }
-
+*/
 /**
  * Implements hook_theme_registry_alter().
  */
@@ -37,20 +37,33 @@ function auto_fill_id_theme_registry_alter(&$theme_registry) {
 
 /**
  * Implements hook_node_presave().
- */
+ *//*
 function auto_fill_id_node_presave($node) {
   if($node->type == "compromiso_de_gestion") {
     compromiso_id($node);
   }
 }
-
+*/
 /**
  * Implements hook_node_update().
  */
 function auto_fill_id_node_update($node)
 {
-    if($node->type == "compromiso_de_gestion") {
+    /*if($node->type == "compromiso_de_gestion") {
       action_id($node);
+    }*/
+
+    if($node->type == "meta" && !empty($node->field_porcentaje_avance[LANGUAGE_NONE])) {
+      if($node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] != $node->original->field_porcentaje_avance[LANGUAGE_NONE][0]['value']) {
+        $compromisos = get_compromiso_by_meta($node->nid);
+        foreach ($compromisos as $compromiso_nid) {
+          $compromiso_node = node_load($compromiso_nid->nid);
+          dpm($compromiso_node);
+          $compromiso_node->field_porcentaje_de_avance_compr[LANGUAGE_NONE][0]['value'] = compromiso_percentage($compromiso_node);
+          $compromiso_node->revision = 1;
+          node_save($compromiso_node);
+        }
+      }
     }
 }
 
@@ -121,6 +134,9 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   $form['#attached'] = array(
     'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
   );
+
+  $query = get_compromiso_by_meta('164');
+  dpm($query);
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
@@ -242,6 +258,43 @@ function get_mail_user_by_institution($id) {
   $query->condition('ur.rid', 7)
         ->condition('fi.field_institucion_target_id', $id);
   return $query->execute()->fetchAll();
+}
+
+function get_compromiso_by_meta($meta_id) {
+  $query = db_select('node', 'n');
+  $query->fields('n', array('title', 'nid'))
+        ->leftJoin('field_data_field_item_compromiso', 'data_item', 'n.nid = data_item.entity_id AND data_item.entity_type = \'node\'');
+  $query->leftJoin('field_collection_item', 'citem', 'data_item.field_item_compromiso_value = citem.item_id');
+  $query->leftJoin('field_data_field_accion_collect', 'data_accion', 'citem.item_id = data_accion.entity_id AND data_accion.entity_type = \'field_collection_item\'');
+  $query->leftJoin('field_collection_item', 'item_accion', 'data_accion.field_accion_collect_value = item_accion.item_id');
+  $query->leftJoin('field_data_field_meta', 'meta', 'item_accion.item_id = meta.entity_id AND meta.entity_type = \'field_collection_item\'');
+  $query->leftJoin('node', 'nod', 'meta.field_meta_target_id = nod.nid');
+  $query->condition('n.status', 1)
+        //->condition('n.type', 'compromiso_de_gestion', 'IN')
+        ->condition('meta.field_meta_target_id', $meta_id);
+
+  return $query->execute()->fetchAll();
+}
+
+/**
+ * Implements hook_field_update().
+ */
+function auto_fill_id_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  dpm($entity_type);
+  dpm($entity);
+  dpm($field);
+  dpm($instance);
+  dpm($langcode);
+  dpm($items);
+}
+
+/**
+ * Implements hook_field_update_field().
+ */
+function auto_fill_id_field_update_field($field, $prior_field, $has_data) {
+  dpm($field);
+  dpm($prior_field);
+  dpm($has_data);
 }
 
 function auto_compromiso_form_title($user, &$form, &$form_state) {
@@ -411,11 +464,9 @@ function autoinc_compromiso($node){
     $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
     $ins = node_load(field_target_id($node->field_institucion, 0));
     $node->title = $id . '-' . date('Y') . '-' . $ins->title;
-    //$node->field_porcentaje_de_avance_compr = simple_string_field_value(compromiso_percentage($node));
 }
 
 function action_id($compromiso_node) {
-  compromiso_percentage($compromiso_node);
   foreach($compromiso_node->field_item_compromiso[LANGUAGE_NONE] as $item_id) {
     $item = field_collection_item_load($item_id['value']);
     if($item) {
