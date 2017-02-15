@@ -776,6 +776,8 @@ function sngr_field_bases_user_default_permissions() {
     'name' => 'view field_anno_ini_meta',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -889,6 +891,8 @@ function sngr_field_bases_user_default_permissions() {
     'name' => 'view field_meta_descripcion',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -949,6 +953,8 @@ function sngr_field_bases_user_default_permissions() {
     'name' => 'view field_porcentaje_avance',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -1041,6 +1047,8 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -1158,6 +1166,8 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -1218,6 +1228,8 @@ function sngr_field_bases_user_default_permissions() {
     'name' => 'view own field_porcentaje_avance',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
