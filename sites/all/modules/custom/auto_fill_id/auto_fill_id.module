@@ -140,15 +140,15 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
   foreach($items_array as $item_id => $item) {
       $item['field_id_item']['#access'] = FALSE;
       $item_title = 'Item #' . ($item_id + 1);
-      $group1 = $item_id > 0 ? clone_group($item['#fieldgroups']['group_muy_loco']) : $item['#fieldgroups']['group_muy_loco'];
+      $group1 = $item_id > 0 ? clone_group($item['#fieldgroups']['group_item_single_tab']) : $item['#fieldgroups']['group_item_single_tab'];
       $group2 = $item_id > 0 ? clone_group($item['#fieldgroups']['group_items_v_tabs']) : $item['#fieldgroups']['group_items_v_tabs'];
 
       $item['field_id_item'][LANGUAGE_NONE][0]['value']['#default_value'] = $item_title;
       $group1->label = $item_title;
       $group2->label = $item_title;
 
-      $item['#fieldgroups']['group_muy_loco'] = $group1;
-      $item['#groups']['group_muy_loco'] = $group1;
+      $item['#fieldgroups']['group_item_single_tab'] = $group1;
+      $item['#groups']['group_item_single_tab'] = $group1;
       $item['#fieldgroups']['group_items_v_tabs'] = $group2;
       $item['#groups']['group_items_v_tabs'] = $group2;
 

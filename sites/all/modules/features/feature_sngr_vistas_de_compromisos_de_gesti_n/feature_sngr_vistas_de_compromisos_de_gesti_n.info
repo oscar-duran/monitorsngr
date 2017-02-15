@@ -40,6 +40,7 @@ features[field_group][] = group_action_information|field_collection_item|field_a
 features[field_group][] = group_compromiso_h_tab|node|compromiso_de_gestion|form
 features[field_group][] = group_compromiso_info_tab|node|compromiso_de_gestion|form
 features[field_group][] = group_compromiso_items_tab|node|compromiso_de_gestion|form
+features[field_group][] = group_item_single_tab|field_collection_item|field_item_compromiso|form
 features[field_group][] = group_item_v_tab|field_collection_item|field_item_compromiso|form
 features[field_group][] = group_items_v_tabs|field_collection_item|field_item_compromiso|form
 features[field_group][] = group_items|field_collection_item|field_item_compromiso|form
