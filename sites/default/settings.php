@@ -644,6 +644,8 @@ $conf['master_modules']['base'] = array(
   'print_pdf',
   'print_pdf_dompdf',
   'print_ui',
+  'rules',
+  'rules_admin',
   'site_map',
   'strongarm',
   'views',
@@ -652,7 +654,6 @@ $conf['master_modules']['base'] = array(
   'webform_features',
   'webform_layout',
   'webform_matrix_component',
-  'webform_rules',
   'webform_shs',
   'wysiwyg',
 
@@ -666,6 +667,7 @@ $conf['master_modules']['base'] = array(
   'field_readonly',
   'lista_modulos',
   'monitorsngr_pge',
+  'plan_period',
   'references_dialog',
   'rules_feature',
   'sngr_field_bases',
@@ -673,7 +675,6 @@ $conf['master_modules']['base'] = array(
   'usuarios_roles_permisos',
   'vistas',
   'vocabularios',
-  'webforms_feature',
 );
 
 $conf['master_modules']['local'] = $conf['master_modules']['local'] = array(

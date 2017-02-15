@@ -166,6 +166,37 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_item_single_tab|field_collection_item|field_item_compromiso|form';
+  $field_group->group_name = 'group_item_single_tab';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_item_compromiso';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_items_v_tabs';
+  $field_group->data = array(
+    'label' => 'Item V tab',
+    'weight' => '8',
+    'children' => array(
+      0 => 'field_accion_collect',
+      1 => 'field_codigo_ambito',
+      2 => 'field_codigo_eje',
+      3 => 'field_codigo_lineamiento',
+      4 => 'field_id_item',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-item-single-tab field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_item_single_tab|field_collection_item|field_item_compromiso|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_item_v_tab|field_collection_item|field_item_compromiso|form';
   $field_group->group_name = 'group_muy_loco';
   $field_group->entity_type = 'field_collection_item';
@@ -207,7 +238,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Item V tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_muy_loco',
+      0 => 'group_item_single_tab',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -221,7 +252,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
   $field_groups['group_items_v_tabs|field_collection_item|field_item_compromiso|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_items|field_collection_item|field_item_compromiso|form';
   $field_group->group_name = 'group_items';
