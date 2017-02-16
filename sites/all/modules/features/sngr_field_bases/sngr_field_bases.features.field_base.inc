@@ -262,6 +262,9 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_anno',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -346,6 +349,25 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_archivo_evidencia'.
+  $field_bases['field_archivo_evidencia'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_archivo_evidencia',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'media',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'media',
   );
 
   // Exported field_base: 'field_area_afectada'.
@@ -1154,9 +1176,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_estado',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -1166,8 +1185,11 @@ function sngr_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        1 => 'Rechazado',
-        2 => 'Aprobada',
+        1 => 'En curso',
+        2 => 'Para autoevaluación',
+        3 => 'Lista para revisión',
+        4 => 'Sin aprobación',
+        5 => 'Aprobada',
       ),
       'allowed_values_function' => '',
     ),
@@ -1269,6 +1291,35 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'date',
+  );
+
+  // Exported field_base: 'field_financiero'.
+  $field_bases['field_financiero'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_financiero',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'hide_initial_item' => 0,
+      'path' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
   );
 
   // Exported field_base: 'field_formulario_insumos_pge'.
@@ -1797,9 +1848,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_meta_descripcion',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1829,38 +1877,26 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_float',
   );
 
-  // Exported field_base: 'field_monto_ejecucion'.
-  $field_bases['field_monto_ejecucion'] = array(
+  // Exported field_base: 'field_monto_de_ejecucion_gr'.
+  $field_bases['field_monto_de_ejecucion_gr'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_monto_ejecucion',
+    'field_name' => 'field_monto_de_ejecucion_gr',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
     'settings' => array(
       'decimal_separator' => '.',
+      'precision' => 20,
+      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'number_float',
-  );
-
-  // Exported field_base: 'field_monto_ejecutado'.
-  $field_bases['field_monto_ejecutado'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_monto_ejecutado',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_monto_estimado'.
@@ -1897,40 +1933,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_float',
   );
 
-  // Exported field_base: 'field_monto_presupuestado'.
-  $field_bases['field_monto_presupuestado'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_monto_presupuestado',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
-  );
-
-  // Exported field_base: 'field_monto_presupuestario'.
-  $field_bases['field_monto_presupuestario'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_monto_presupuestario',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
-  );
-
   // Exported field_base: 'field_monto_total_asigando'.
   $field_bases['field_monto_total_asigando'] = array(
     'active' => 1,
@@ -1948,44 +1950,6 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_decimal',
-  );
-
-  // Exported field_base: 'field_montos_de_ejecucion'.
-  $field_bases['field_montos_de_ejecucion'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_montos_de_ejecucion',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'monto_ejecucion' => 'monto_ejecucion',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_naturaleza_actividades'.
@@ -2220,62 +2184,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_notificar_analista'.
-  $field_bases['field_notificar_analista'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_notificar_analista',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'En proceso de revision' => 'En proceso de revision',
-        'Autoevaluacion lista' => 'Autoevaluacion lista',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_notificar_institucional'.
-  $field_bases['field_notificar_institucional'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_notificar_institucional',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'Aprobado' => 'Aprobado',
-        'Sin aprobacion' => 'Sin aprobacion',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
-  );
-
   // Exported field_base: 'field_numero_cedula'.
   $field_bases['field_numero_cedula'] = array(
     'active' => 1,
@@ -2427,9 +2335,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_observacion_del_analista',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2451,9 +2356,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_obstaculo',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2473,9 +2375,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_organizacion_capacitadora',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2589,9 +2488,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_porcentaje_avance',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -2620,9 +2516,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_porcentaje_avance_coment',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2635,6 +2528,28 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_presupuesto'.
+  $field_bases['field_presupuesto'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_presupuesto',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 20,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
   // Exported field_base: 'field_prod_fuente_verifica'.
   $field_bases['field_prod_fuente_verifica'] = array(
     'active' => 1,
@@ -2642,9 +2557,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prod_fuente_verifica',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -2664,9 +2576,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_producto',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -2746,9 +2655,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_recibio_asesoria_meta',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -2889,34 +2795,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_status_autoevaluacion'.
-  $field_bases['field_status_autoevaluacion'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_status_autoevaluacion',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        1 => 'En curso',
-        2 => 'Listo para revision',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_integer',
-  );
-
   // Exported field_base: 'field_su_org_requiere_asesoria'.
   $field_bases['field_su_org_requiere_asesoria'] = array(
     'active' => 1,
@@ -2924,9 +2802,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_su_org_requiere_asesoria',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -3012,9 +2887,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_tema_necesidad_meta',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
