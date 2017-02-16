@@ -1,0 +1,81 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function plan_period_menu() {
+  $items = array();
+  $items['admin/config/system/plan_period'] = array(
+    'title' => 'Site Period',
+    'description' => 'Configuration for Current Plan Period',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('admin_form'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function admin_form($form, $form_state) {
+  $form['period_init'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Start of the plan',
+    '#maxlength' => 4,
+    '#number_type' => 'integer',
+    '#default_value' => variable_get('period_init'),
+  );
+
+  $form['period_end'] = array(
+    '#type' => 'textfield',
+    '#title' => 'End of the plan',
+    '#maxlength' => 4,
+    '#number_type' => 'integer',
+    '#default_value' => variable_get('period_end'),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function plan_period_uninstall() {
+  variable_del('period_init');
+  variable_del('period_end');
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function plan_period_token_info() {
+  $info['tokens']['custom']['period_init'] = array(
+    'name' => t('Period Init'),
+    'description' => t('Start of the plan'),
+  );
+
+  $info['tokens']['custom']['period_end'] = array(
+    'name' => t('Period End'),
+    'description' => t('End of the plan'),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function plan_period_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+
+  if($type == 'custom') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'period_init' :
+          $replacements[$original] = variable_get('period_init');
+          break;
+        case 'period_end' :
+          $replacements[$original] = variable_get('period_end');
+          break;
+      }
+    }
+  }
+  return $replacements;
+}

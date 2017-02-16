@@ -1,0 +1,7 @@
+name = Plan Period
+description = Module for define and administrate the current plan period
+core = 7.x
+package = Custom
+files[] = plan_period.module
+dependencies[] = token
+configure = admin/config/content/plan_period
