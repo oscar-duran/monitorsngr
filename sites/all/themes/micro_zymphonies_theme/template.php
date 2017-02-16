@@ -293,3 +293,24 @@ function micro_zymphonies_theme_table($variables) {
   $output .= "</table>\n";
   return $output;
 }
+
+function return_lineamiento_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('lineamiento');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  return $terms;
+}
+
+function return_ambito_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('ambito');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  return $terms;
+}
+
+function return_eje_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('eje');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  return $terms;
+}

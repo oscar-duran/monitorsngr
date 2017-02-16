@@ -40,24 +40,32 @@
             });
 
             $("tfoot input").focus(function() {
-               if (this.className == "search_init") {
-                  this.className = "";
-                  this.value = "";
-                }
-             });
+              if (this.className == "search_init") {
+                this.className = "";
+                this.value = "";
+              }
+            });
 
-             $("tfoot input").blur(function(i) {
-                if (this.value == "") {
-                   this.className = "search_init";
-                   this.value = asInitVals[$("tfoot input").index(this)];
-                 }
-             });
+            $("tfoot input").blur(function(i) {
+              if (this.value == "") {
+                this.className = "search_init";
+                this.value = asInitVals[$("tfoot input").index(this)];
+              }
+            });
 
+            $("#select_lin").change(function () {
+              datatable.fnFilter(this.value, 3);
+            });
 
-            $("tfoot select")
+            $("#select_amb").change(function () {
+              datatable.fnFilter(this.value, 4);
+            });
 
+            $("#select_eje").change(function () {
+              datatable.fnFilter(this.value, 5);
+            });
 
-                        }
+          }
 
           if (settings.bExpandable) {
             // Add column headers to table settings.
@@ -68,9 +76,9 @@
             datatables_settings.aoColumnHeaders = settings.aoColumnHeaders;
 
             /* Add event listener for opening and closing details
-            * Note that the indicator for showing which row is open is not controlled by DataTables,
-            * rather it is done here
-            */
+             * Note that the indicator for showing which row is open is not controlled by DataTables,
+             * rather it is done here
+             */
             $('td a.datatables-expand', datatable.fnGetNodes() ).each( function () {
               $(this).click( function () {
                 var row = this.parentNode.parentNode;
@@ -92,15 +100,15 @@
   };
 
   /**
-  * Theme an expandable hidden row.
-  *
-  * @param object
-  *   The datatable object.
-  * @param array
-  *   The row array for which the hidden row is being displayed.
-  * @return
-  *   The formatted text (html).
-  */
+   * Theme an expandable hidden row.
+   *
+   * @param object
+   *   The datatable object.
+   * @param array
+   *   The row array for which the hidden row is being displayed.
+   * @return
+   *   The formatted text (html).
+   */
   Drupal.theme.prototype.datatablesExpandableRow = function(datatable, row) {
     var rowData = datatable.fnGetData(row);
     var settings = datatable.fnSettings();
