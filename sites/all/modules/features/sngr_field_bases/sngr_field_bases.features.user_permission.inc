@@ -99,16 +99,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_estado'.
-  $permissions['create field_estado'] = array(
-    'name' => 'create field_estado',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_institucion'.
   $permissions['create field_institucion'] = array(
     'name' => 'create field_institucion',
@@ -339,16 +329,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_estado'.
-  $permissions['edit field_estado'] = array(
-    'name' => 'edit field_estado',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
     ),
     'module' => 'field_permissions',
   );
@@ -587,16 +567,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_estado'.
-  $permissions['edit own field_estado'] = array(
-    'name' => 'edit own field_estado',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
     ),
     'module' => 'field_permissions',
   );
@@ -849,16 +819,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_estado'.
-  $permissions['view field_estado'] = array(
-    'name' => 'view field_estado',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
     ),
     'module' => 'field_permissions',
   );
@@ -1123,16 +1083,6 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_estado'.
-  $permissions['view own field_estado'] = array(
-    'name' => 'view own field_estado',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
     ),
     'module' => 'field_permissions',
   );
