@@ -1899,23 +1899,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_monto_ejecutado'.
-  $field_bases['field_monto_ejecutado'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_monto_ejecutado',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
-  );
-
   // Exported field_base: 'field_monto_estimado'.
   $field_bases['field_monto_estimado'] = array(
     'active' => 1,
@@ -1940,23 +1923,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_monto_estimado_perdidas',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-    ),
-    'translatable' => 0,
-    'type' => 'number_float',
-  );
-
-  // Exported field_base: 'field_monto_presupuestado'.
-  $field_bases['field_monto_presupuestado'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_monto_presupuestado',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
