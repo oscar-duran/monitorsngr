@@ -66,7 +66,6 @@ features[field_instance][] = node-compromiso_de_gestion-field_notificar_analista
 features[field_instance][] = node-compromiso_de_gestion-field_notificar_institucional
 features[field_instance][] = node-compromiso_de_gestion-field_porcentaje_de_avance_compr
 features[field_instance][] = node-compromiso_de_gestion-field_year_compromiso
-features[field_instance][] = node-institucion-field_montos_de_ejecucion
 features[field_instance][] = node-meta-field_anno_fin_meta
 features[field_instance][] = node-meta-field_anno_ini_meta
 features[field_instance][] = node-meta-field_aspecto_positivo

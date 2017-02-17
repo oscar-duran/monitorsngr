@@ -792,16 +792,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create monto_ejecucion content'.
-  $permissions['create monto_ejecucion content'] = array(
-    'name' => 'create monto_ejecucion content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create new books'.
   $permissions['create new books'] = array(
     'name' => 'create new books',
@@ -970,16 +960,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any monto_ejecucion content'.
-  $permissions['delete any monto_ejecucion content'] = array(
-    'name' => 'delete any monto_ejecucion content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any page content'.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
@@ -1112,16 +1092,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete own meta content',
     'roles' => array(
       'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own monto_ejecucion content'.
-  $permissions['delete own monto_ejecucion content'] = array(
-    'name' => 'delete own monto_ejecucion content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1386,16 +1356,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any monto_ejecucion content'.
-  $permissions['edit any monto_ejecucion content'] = array(
-    'name' => 'edit any monto_ejecucion content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any page content'.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
@@ -1559,16 +1519,6 @@ function usuarios_roles_permisos_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'analista-sngr' => 'analista-sngr',
       'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own monto_ejecucion content'.
-  $permissions['edit own monto_ejecucion content'] = array(
-    'name' => 'edit own monto_ejecucion content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
