@@ -68,6 +68,14 @@
   }
   ?>
 
+  <?php
+  $valores_institucion = return_institucion_entity();
+  ?>
+  <?php
+  $valores_porcent = return_porcent_field();
+  dpm($valores_porcent);
+  ?>
+
 <!--Fin de carga de taxonomias-->
 
   <?php
@@ -75,14 +83,20 @@
   <?php if ($options['elements']['multi_filter']): ?>
     <tfoot>
     <tr>
-        <th>
-          <input type="text" name="compro" placeholder="compromiso" />
-        </th>
       <th>
-        <input type="text" name="insti" placeholder="institucion" />
+        <input id="compro_input" type="text" name="compro" placeholder="compromiso" />
       </th>
       <th>
-        <input type="text" name="meta" placeholder="meta"  />
+<!--        <input id="insti_input" type="text" name="insti" placeholder="institucion" />-->
+        <select id="select_insti">
+          <option value="">--Seleccione una institucion--</option>
+          <?php foreach ($valores_institucion as $llave => $valReal): ?>
+            <option value="<?php print $valores_institucion[$llave]?>"><?php print $valores_institucion[$llave]?></option>
+          <?php endforeach; ?>
+        </select>
+      </th>
+      <th>
+        <input id="meta_input" type="text" name="meta" placeholder="meta"  />
       </th>
     </tr>
     <tr>
@@ -111,17 +125,17 @@
         </select>
       </th>
     </tr>
-<!--    <tr>-->
-<!--      <th>-->
-<!--        <input type="text" name="anho" placeholder="creacion" />-->
-<!--      </th>-->
-<!--      <th>-->
-<!--        <input type="text" name="porce" placeholder="porcentaje"  />-->
-<!--      </th>-->
-<!--      <th>-->
-<!--        <input type="text" name="estado" placeholder="estado"  />-->
-<!--      </th>-->
-<!--    </tr>-->
+    <tr>
+      <th>
+        <input id="creacion_input" type="text" name="anho" placeholder="creacion" />
+      </th>
+      <th>
+        <input type="text" name="porce" placeholder="porcentaje"  />
+      </th>
+      <th>
+        <input type="text" name="estado" placeholder="estado"  />
+      </th>
+    </tr>
     </tfoot>
   <?php endif; ?>
 </table>

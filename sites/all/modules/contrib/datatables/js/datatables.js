@@ -28,15 +28,37 @@
             // The code below is taken almost verbatim from the examples at datatables.net
             // @see http://www.datatables.net/examples/api/multi_filter.html
 
+            /*-------------------------     codigo original       -------------------------*/
             // Apply the actual filter to the table.
-            $("tfoot input").keyup(function() {
-              // Filter on the column (the index) of this element.
-              datatable.fnFilter(this.value, $("tfoot input").index(this));
-            });
+//             $("tfoot input").keyup(function() {
+//               // Filter on the column (the index) of this element.
+//               datatable.fnFilter(this.value, $("tfoot input").index(this));
+//             });
+
+
             // Support functions to provide a little bit of 'user friendlyness' to the textboxes in the footer.
-            var asInitVals = new Array();
-            $("tfoot input").each(function(i) {
-              asInitVals[i] = this.value;
+//             var asInitVals = new Array();
+//             $("tfoot input").each(function(i) {
+//               asInitVals[i] = this.value;
+//             });
+
+
+            /*-------------------------     codigo original       -------------------------*/
+
+            /*-------------------------     codigo customizado by xemaxemax       -------------------------*/
+
+            //inputs
+
+            $("#compro_input").keyup(function () {
+              datatable.fnFilter(this.value, $("#compro_input").index(this));
+            });
+
+            $("#meta_input").keyup(function () {
+              datatable.fnFilter(this.value, $("#meta_input").index(this));
+            });
+
+            $("#creacion_input").keyup(function () {
+              datatable.fnFilter(this.value, $("#creacion_input").index(this));
             });
 
             $("tfoot input").focus(function() {
@@ -53,6 +75,10 @@
               }
             });
 
+            //selects o dropdowns
+
+                //taxonomias
+
             $("#select_lin").change(function () {
               datatable.fnFilter(this.value, 3);
             });
@@ -65,7 +91,25 @@
               datatable.fnFilter(this.value, 5);
             });
 
+                //campos de institucion porcentaje y estado
+
+            $("#select_insti").change(function () {
+              datatable.fnFilter(this.value, 1);
+            });
+
+            $("#select_porcent").change(function () {
+              datatable.fnFilter(this.value, 7);
+            });
+
+            $("#select_estado").change(function () {
+              datatable.fnFilter(this.value, 8);
+            });
+
+
+
           }
+
+             /*-------------------------     codigo customizado by xemaxemax       -------------------------*/
 
           if (settings.bExpandable) {
             // Add column headers to table settings.
