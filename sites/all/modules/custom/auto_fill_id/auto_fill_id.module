@@ -3,9 +3,23 @@
  * Implements hook_node_access().
  */
 function auto_fill_id_node_access($node, $op, $account) {
-  if (!is_string($node) && in_array('user-institucional', $account->roles)  && $node->type == 'compromiso_de_gestion' && $op == 'update') {
-    $user_entity = user_load($account->uid);
-    return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+  if (!is_string($node) && in_array('user-institucional', $account->roles) && $op == 'update') {
+    if($node->type == 'compromiso_de_gestion') {
+      $user_entity = user_load($account->uid);
+      return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+    }
+    if($node->type == 'meta') {
+      $compromisos = get_compromiso_by_meta($node->nid);
+      foreach ($compromisos as $compromiso) {
+        $compromiso_node = node_load($compromiso->nid);
+        $user_entity = user_load($account->uid);
+        return field_target_id($user_entity->field_institucion, 0) != field_target_id($compromiso_node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+      }
+    }
+
+    //if($node->type == 'producto_meta') {
+      //return NODE_ACCESS_DENY;
+    //}
   }
 }
 
