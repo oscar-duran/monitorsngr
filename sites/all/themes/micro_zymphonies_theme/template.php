@@ -333,18 +333,11 @@ function return_institucion_entity () {
 }
 
 function return_porcent_field () {
-  $query = new EntityFieldQuery;
-  $nodes2=array();
-  $countt=0;
-  $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'meta');
-  $results = $query->execute();
-  if (isset($results['node'])) {
-    $nodes = node_load_multiple(array_keys($results['node']));
-    foreach ($nodes as $nid => $node) {
-      $nodes2[$countt]=$nodes[$nid]->field_porcentaje_avance[LANGUAGE_NONE][0]['value'];
-      $countt++;
-    }
-  }
-  return $nodes2;
+$field_porc = field_info_field("field_porcentaje_avance");
+  return $field_porc['settings']['allowed_values'];
+}
+
+function return_estado_field () {
+  $field_estad = field_info_field("field_estado");
+  return $field_estad['settings']['allowed_values'];
 }

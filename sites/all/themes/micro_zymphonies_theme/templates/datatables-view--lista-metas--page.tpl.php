@@ -70,10 +70,11 @@
 
   <?php
   $valores_institucion = return_institucion_entity();
-  ?>
-  <?php
   $valores_porcent = return_porcent_field();
-  dpm($valores_porcent);
+  $valores_estad = return_estado_field();
+//  dpm($valores_estad);
+
+//  dpm($valores_porcent);
   ?>
 
 <!--Fin de carga de taxonomias-->
@@ -81,62 +82,154 @@
   <?php
   ?>
   <?php if ($options['elements']['multi_filter']): ?>
+
     <tfoot>
     <tr>
       <th>
-        <input id="compro_input" type="text" name="compro" placeholder="compromiso" />
+<!--        <input id="compro_input" type="text" name="compro" placeholder="compromiso" />-->
       </th>
       <th>
 <!--        <input id="insti_input" type="text" name="insti" placeholder="institucion" />-->
-        <select id="select_insti">
-          <option value="">--Seleccione una institucion--</option>
-          <?php foreach ($valores_institucion as $llave => $valReal): ?>
-            <option value="<?php print $valores_institucion[$llave]?>"><?php print $valores_institucion[$llave]?></option>
-          <?php endforeach; ?>
-        </select>
+<!--        <select id="select_insti">-->
+<!--          <option value="">--Seleccione una institucion--</option>-->
+<!--          --><?php //foreach ($valores_institucion as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_institucion[$llave]?><!--">--><?php //print $valores_institucion[$llave]?><!--</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
       </th>
       <th>
-        <input id="meta_input" type="text" name="meta" placeholder="meta"  />
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <select id="select_lin">
-          <option value="">--Seleccione un lineamiento--</option>
-          <?php foreach ($valores_lineam as $llave => $valReal): ?>
-            <option value="<?php print $valores_lineam[$llave][0]?>"><?php print $valores_lineam[$llave][0]?></option>
-          <?php endforeach; ?>
-        </select>
-      </th>
-      <th>
-        <select id="select_amb">
-          <option value="">--Seleccione un ambito--</option>
-          <?php foreach ($valores_ambit as $llave => $valReal): ?>
-            <option value="<?php print $valores_ambit[$llave][0]?>"><?php print $valores_ambit[$llave][0]?></option>
-          <?php endforeach; ?>
-        </select>
-      </th>
-      <th>
-        <select id="select_eje">
-          <option value="">--Seleccione un eje--</option>
-          <?php foreach ($valores_ejes as $llave => $valReal): ?>
-            <option value="<?php print $valores_ejes[$llave][0]?>"><?php print $valores_ejes[$llave][0]?></option>
-          <?php endforeach; ?>
-        </select>
+<!--        <input id="meta_input" type="text" name="meta" placeholder="meta"  />-->
       </th>
     </tr>
     <tr>
       <th>
-        <input id="creacion_input" type="text" name="anho" placeholder="creacion" />
+<!--        <select id="select_lin">-->
+<!--          <option value="">--Seleccione un lineamiento--</option>-->
+<!--          --><?php //foreach ($valores_lineam as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_lineam[$llave][0]?><!--">--><?php //print $valores_lineam[$llave][0]?><!--</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
       </th>
       <th>
-        <input type="text" name="porce" placeholder="porcentaje"  />
+<!--        <select id="select_amb">-->
+<!--          <option value="">--Seleccione un ambito--</option>-->
+<!--          --><?php //foreach ($valores_ambit as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_ambit[$llave][0]?><!--">--><?php //print $valores_ambit[$llave][0]?><!--</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
       </th>
       <th>
-        <input type="text" name="estado" placeholder="estado"  />
+<!--        <select id="select_eje">-->
+<!--          <option value="">--Seleccione un eje--</option>-->
+<!--          --><?php //foreach ($valores_ejes as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_ejes[$llave][0]?><!--">--><?php //print $valores_ejes[$llave][0]?><!--</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
+      </th>
+    </tr>
+    <tr>
+      <th>
+<!--        <input id="creacion_input" type="text" name="anho" placeholder="creacion" />-->
+      </th>
+      <th>
+<!--        <select id="select_porcent">-->
+<!--          <option value="">--Seleccione un porcentaje--</option>-->
+<!--          --><?php //foreach ($valores_porcent as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_porcent[$llave]?><!--">1</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
+<!--        <input type="text" name="porce" placeholder="porcentaje"  />-->
+      </th>
+      <th>
+<!--        <select id="select_estado">-->
+<!--          <option value="">--Seleccione un estado--</option>-->
+<!--          --><?php //foreach ($valores_estad as $llave => $valReal): ?>
+<!--            <option value="--><?php //print $valores_estad[$llave]?><!--">--><?php //print $valores_estad[$llave]?><!--</option>-->
+<!--          --><?php //endforeach; ?>
+<!--        </select>-->
+<!--        <input type="text" name="estado" placeholder="estado"  />-->
       </th>
     </tr>
     </tfoot>
   <?php endif; ?>
 </table>
 
+<table style="width: auto;">
+  <tbody>
+    <tr>
+      <td>
+        <input id="compro_input" type="text" name="compro" placeholder="compromiso" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_insti">
+          <option value="">--Seleccione una institucion--</option>
+          <?php foreach ($valores_institucion as $llave => $valReal): ?>
+            <option value="<?php print $valores_institucion[$llave]?>"><?php print $valores_institucion[$llave]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input id="meta_input" type="text" name="meta" placeholder="meta"  />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_lin">
+          <option value="">--Seleccione un lineamiento--</option>
+          <?php foreach ($valores_lineam as $llave => $valReal): ?>
+            <option value="<?php print $valores_lineam[$llave][0]?>"><?php print $valores_lineam[$llave][0]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_amb">
+          <option value="">--Seleccione un ambito--</option>
+          <?php foreach ($valores_ambit as $llave => $valReal): ?>
+            <option value="<?php print $valores_ambit[$llave][0]?>"><?php print $valores_ambit[$llave][0]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_eje">
+          <option value="">--Seleccione un eje--</option>
+          <?php foreach ($valores_ejes as $llave => $valReal): ?>
+            <option value="<?php print $valores_ejes[$llave][0]?>"><?php print $valores_ejes[$llave][0]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input id="creacion_input" type="text" name="anho" placeholder="creacion" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_porcent">
+          <option value="">--Seleccione un porcentaje--</option>
+          <?php foreach ($valores_porcent as $llave => $valReal): ?>
+            <option value="<?php print $valores_porcent[$llave]?>"><?php print $valores_porcent[$llave]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="select_estado">
+          <option value="">--Seleccione un estado--</option>
+          <?php foreach ($valores_estad as $llave => $valReal): ?>
+            <option value="<?php print $valores_estad[$llave]?>"><?php print $valores_estad[$llave]?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
