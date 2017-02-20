@@ -17,9 +17,9 @@ function auto_fill_id_node_access($node, $op, $account) {
       }
     }
 
-    //if($node->type == 'producto_meta') {
-      //return NODE_ACCESS_DENY;
-    //}
+    if($node->type == 'producto_meta' && isset($node->entity_view_prepared)) {
+      return NODE_ACCESS_DENY;
+    }
   }
 }
 
@@ -582,6 +582,14 @@ function field_target_id(&$array, $id) {
 
 function field_value(&$array, $id) {
   return $array[LANGUAGE_NONE][$id]['value'];
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function auto_fill_id_menu_alter(&$items) {
+  dpm('Menu alter');
+  dpm($items);
 }
 
 
