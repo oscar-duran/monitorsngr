@@ -1,0 +1,12 @@
+name = Rules Feature
+core = 7.x
+package = Features
+dependencies[] = entity
+dependencies[] = message_notify
+dependencies[] = messages_type
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_regla_4
+features[rules_config][] = rules_regla_de_moderaci_n_1
+features[rules_config][] = rules_rule_5
+features[rules_config][] = rules_rule_regla_3

@@ -103,7 +103,10 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
                                     sizeof($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta']['#items']) : 1?>
               <td rowspan="<?php print $action_rowspan ?>" class="<?php print $odd_even_class; ?>">
                 <?php
-                    print render($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_codigo_accion_estrategica']);
+                    print t('@action_code: @detail', array(
+                           '@action_code' => $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_codigo_accion_estrategica'][0]['#markup'],
+                           '@detail' => $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_descripcion_accion'][0]['#markup'],
+                      ));
                 ?>
               </td>
               <!--Meta-->
@@ -114,8 +117,15 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
               <?php foreach ($element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta']['#items'] as $meta_id => $meta_field) : ?>
                 <?php if($meta_id > 0): ?> <tr> <?php endif; ?>
                     <td class="<?php print $odd_even_class; ?>">
-                      <?php //print $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]['#markup']; ?>
-                      <?php print t('<a href="/node/@nid">@meta_name(@percent%)</a>', ['@nid' => $meta_field['entity']->nid, '@meta_name' => $meta_field['entity']->title, '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 )]) ?>
+                      <?php
+                      $path = drupal_get_path_alias('/node/' . $meta_field['entity']->nid);
+                      //print $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]['#markup']; ?>
+                      <?php print t('<a href="/monitorsngr@path">@meta_name(@percent%): @detail</a>', array(
+                                                                                                        '@path' => $path, '@meta_name' => $meta_field['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value'],
+                                                                                                        '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 ),
+                                                                                                        '@detail' => $meta_field['entity']->title,
+                                                                                                      )
+                      );?>
                     </td>
                     <!--Producto-->
                     <td class="<?php print $odd_even_class; ?>">
@@ -139,14 +149,6 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
 
         <!--</div>-->
         </tr>
-
-        <!--<script>
-                  /*jQuery('#<?php// echo $row_id ?>').ready( function () {
-                   jQuery('.taxonomy-td-item-<?php// echo $delta ?>').each(function () {
-                   jQuery(this).attr("rowspan", "2");
-                   });
-                   console.log('helo console');    });*/
-              </script>-->
         <?php endforeach; ?>
       <?php endforeach; ?>
       </tbody>

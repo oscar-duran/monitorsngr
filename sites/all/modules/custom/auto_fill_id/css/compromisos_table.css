@@ -19,3 +19,26 @@ table.compromisos_table td {
 table.compromisos_table td.odd {
     background-color: #ebedff;
 }
+
+/**********************************************************************************************************************/
+
+.print-content h1 {
+    text-align: center;
+}
+
+.print-content li {
+    padding-bottom: 5px;
+}
+
+.print-content li > ul {
+//*padding-top: 10px;*/
+}
+
+.print-content ul {
+    padding-top : 10px;
+    padding-left: 15px;
+}
+
+li.sub-title span {
+    font-weight: bold;
+}

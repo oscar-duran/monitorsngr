@@ -191,7 +191,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
@@ -233,7 +233,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
       ),
       'display' => array(),
@@ -271,11 +271,14 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'field_readonly' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
       ),
       'display' => array(),
@@ -364,7 +367,9 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_meta';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'status',
+  );
   $export['node_options_meta'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -11,6 +11,16 @@ function tipos_contenido_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function tipos_contenido_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -24,22 +34,6 @@ function tipos_contenido_node_info() {
       'description' => t('El Sistema Nacional de Gestión del Riesgo se estructura por medio de las siguientes "instancias de coordinación". '),
       'has_title' => '1',
       'title_label' => t('Nombre de la instancia '),
-      'help' => '',
-    ),
-    'institucion' => array(
-      'name' => t('Institución'),
-      'base' => 'node_content',
-      'description' => t('Institución'),
-      'has_title' => '1',
-      'title_label' => t('Nombre de la institución'),
-      'help' => '',
-    ),
-    'monto_ejecucion' => array(
-      'name' => t('Monto ejecución'),
-      'base' => 'node_content',
-      'description' => t('Montos de ejecución total por institución por año'),
-      'has_title' => '1',
-      'title_label' => t('Nombre'),
       'help' => '',
     ),
   );
