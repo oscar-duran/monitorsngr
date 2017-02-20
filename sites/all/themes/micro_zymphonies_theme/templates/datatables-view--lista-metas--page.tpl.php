@@ -28,6 +28,8 @@ $valores_estad = return_estado_field();
 ?>
 
 <!--tabla de filtracion-->
+<?php if ($options['elements']['multi_filter']): ?>
+
 <table class="widthTable">
   <tbody>
   <tr>
@@ -107,6 +109,7 @@ $valores_estad = return_estado_field();
   </tr>
   </tbody>
 </table>
+
 <!--fin tabla filtracion-->
 
 <table id="<?php print $id ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
@@ -140,5 +143,5 @@ $valores_estad = return_estado_field();
   <?php if ($options['elements']['multi_filter']): ?>
   <?php endif; ?>
 <!--  -->
-
+  <?php endif; ?>
 </table>
