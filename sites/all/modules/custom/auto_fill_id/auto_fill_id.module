@@ -584,12 +584,3 @@ function field_value(&$array, $id) {
   return $array[LANGUAGE_NONE][$id]['value'];
 }
 
-/**
- * Implements hook_menu_alter().
- */
-function auto_fill_id_menu_alter(&$items) {
-  dpm('Menu alter');
-  dpm($items);
-}
-
-
