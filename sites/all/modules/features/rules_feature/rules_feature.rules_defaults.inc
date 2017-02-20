@@ -44,20 +44,13 @@ function rules_feature_default_rules_configuration() {
       "LABEL" : "Regla de Moderaci\\u00f3n 1",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "webform_rules", "rules" ],
-      "ON" : { "webform_rules_submit" : [] },
-      "IF" : [
-        { "webform_has_id" : {
-            "form_id" : [ "form_id" ],
-            "selected_webform" : { "value" : { "webform-client-form-150" : "webform-client-form-150" } }
-          }
-        }
-      ],
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "user_insert" : [] },
       "DO" : [
         { "mail_to_users_of_role" : {
             "roles" : { "value" : { "4" : "4" } },
-            "subject" : "Solicitud de cuenta.",
-            "message" : "Se ha hecho una nueva solicitud de cuenta para el Sistema Nacional de Gesti\\u00f3n de Riesgos, para poder visualizarla puede ingresar al siguiente link: [node:url]\\/webform-results"
+            "subject" : "Solicitud de cuenta de Usuario Institucional.",
+            "message" : "Estimado equipo de la Unidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo, \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.\\r\\n  \\r\\nEl usuario [account:name], ha solicitado permisos para ingresar al Sistema Monitor de Compromisos de Gesti\\u00f3n como Usuario Institucional (Enlace institucional). \\r\\n\\r\\n Atentamente,  \\r\\n[account:name]\\r\\nEnlace institucional \\r\\n[account:field_institucion]"
           }
         }
       ]
@@ -128,6 +121,11 @@ function rules_feature_default_rules_configuration() {
           }
         },
         { "data_set" : { "data" : [ "entity-created:field-link" ], "value" : "[node:url]" } },
+        { "data_set" : {
+            "data" : [ "entity-created:field-mss-dirigido-a" ],
+            "value" : [ "node:field-institucion:field-enlace-institucional:name" ]
+          }
+        },
         { "message_notify_process" : {
             "message" : [ "entity-created" ],
             "mail" : [ "node:field-institucion:field-enlace-institucional:mail" ]
