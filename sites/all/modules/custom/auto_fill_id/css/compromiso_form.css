@@ -37,42 +37,42 @@
     display:none;
 }
 */
-fieldset.item-fieldset, .action-tab {
+.item-fieldset, .action-tab {
     padding-left: 0;
     padding-right: 0;
     border: 0;
 }
 
-.form-wrapper > fieldset.ief-form.form-wrapper {
+.form-wrapper > .ief-form.form-wrapper {
     padding-left: 0;
     border: none;
     border-top: 3px solid #0074BD;
 }
 
-.form-wrapper > fieldset.ief-form.form-wrapper .fieldset-wrapper > div:nth-child(-n+3) {
+.form-wrapper > .ief-form.form-wrapper .fieldset-wrapper > div:nth-child(-n+3) {
     padding-top: 0;
     float: left;
     margin-left: 10px;
 }
-
+/*
 fieldset.action-tab fieldset.form-wrapper {
     padding-right: 0;
     border: 0;
     border-top: 3px solid #0074BD;
-}
+}*/
 
 
-fieldset.action-tab > .fieldset-wrapper {
+.action-tab > .fieldset-wrapper {
     display: flex;
     /*margin-left: 50px;*/
 }
 
-fieldset.action-tab .group-action-information {
+.action-tab .group-action-information {
     width: 310px;
     padding-right: 10px;
 }
 
-fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
+.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
     padding-top: 15px;
     /*padding-left: 20px;*/
 }
@@ -91,7 +91,7 @@ fieldset.action-tab > .fieldset-wrapper .form-wrapper:nth-child(2) {
     margin-top: 10px;
 }
 
-html tbody tr td input[type="submit"] {
+tbody tr td input[type="submit"] {
 
     border: 2px solid #1272b9;
     border-radius: 25px;
@@ -107,38 +107,42 @@ html tbody tr td input[type="submit"] {
 
 /**************************/
 
-fieldset.group-compromiso-items-tab {
+.group-compromiso-items-tab {
    margin-top: 0;
 }
 
-table.field-multiple-table {
+.field-multiple-table {
    border: 0;
 }
 
-table.field-multiple-table > thead {
+.field-multiple-table > thead {
    display: none;
 }
 
-table.field-multiple-table tbody > tr.draggable >  td {
+.field-multiple-table tbody > tr.draggable >  td {
    border: 0;
 }
 
-div.field-name-field-meta .form-item > input {
+.field-name-field-meta .form-item > input {
     pointer-events: none;
 }
 
-div.field.field-type-taxonomy-term-reference.field-label-hidden {
+.field.field-type-taxonomy-term-reference.field-label-hidden {
     font-size: 15px;
     width: 500px;
 }
 
-div.fieldset-wrapper .field-label {
+.fieldset-wrapper .field-label {
     font-weight: 300;
     font-size: 18px;
     background-color: transparent;
 }
 
-div.fieldset-wrapper .group-action-information .field-items .field-item {
+.fieldset-wrapper .group-action-information .field-items .field-item {
     width: auto;
     white-space: initial;
+}
+
+.field-multiple-table tbody tr:last-child {
+    border: none ;
 }

@@ -30,8 +30,6 @@ function auto_fill_id_node_insert($node)
 {
     if($node->type == "compromiso_de_gestion") {
       update_compromiso_de_gestion($node);
-        //action_id($node);
-      //dpm($node);
     }
 }
 
@@ -113,9 +111,8 @@ function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) 
     }
   }
 
-  global $user;
   //Edit
-    if (!in_array("administrator", $user->roles) || !in_array("admin-sngr", $user->roles)){
+    if (allowed_edit_any_content()){
       $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
       if(!empty($entities)) {
         foreach ($entities as $key => $entity) {
@@ -224,6 +221,10 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
           foreach ($meta_array as $meta_id => $meta) {
             //$meta['target_id']['#disabled'] =TRUE;
 
+            if(!allowed_edit_any_content() && empty($meta['target_id']['#default_value'])) {
+              $meta['target_id']['#access'] = FALSE;
+            }
+
             $meta['target_id']['#prefix'] = '<div id="item_' . $item_id . '_accion_' . $accion_id . '_meta_' . $meta_id .'">';
             $meta['target_id']['#suffix'] = '</div>';
             $meta['target_id']['#description'] = 'El código de esta meta será: "' . $accion_code . 'M' . ($meta_id + 1) . '"';
@@ -257,8 +258,6 @@ function auto_fill_id_form_compromiso_de_gestion_node_form_alter(&$form, &$form_
       }
     }
   }
-  //dpm($form);
-  //dpm($form_state);
 }
 
 function get_mail_user_by_institution($id) {
@@ -574,6 +573,11 @@ function simple_string_field_value($value) {
       ),
     ),
   );
+}
+
+function allowed_edit_any_content() {
+  global $user;
+  return in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles);
 }
 
 function field_target_id(&$array, $id) {
