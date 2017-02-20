@@ -358,6 +358,6 @@ $field_porc = field_info_field("field_porcentaje_avance");
 }
 
 function return_estado_field () {
-  $field_estad = field_info_field("field_estado");
+  $field_estad = field_info_field("field_status_autoevaluacion");
   return $field_estad['settings']['allowed_values'];
 }

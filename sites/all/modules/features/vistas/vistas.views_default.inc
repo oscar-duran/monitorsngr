@@ -1288,6 +1288,264 @@ function vistas_views_default_views() {
   $export['lista_asesorias'] = $view;
 
   $view = new view();
+  $view->name = 'lista_metas';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'lista metas';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'lista metas';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'datatables';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_institucion' => 'field_institucion',
+    'field_meta' => 'field_meta',
+    'field_codigo_lineamiento' => 'field_codigo_lineamiento',
+    'field_codigo_ambito' => 'field_codigo_ambito',
+    'field_codigo_eje' => 'field_codigo_eje',
+    'field_year_compromiso' => 'field_year_compromiso',
+    'field_porcentaje_avance' => 'field_porcentaje_avance',
+    'field_status_autoevaluacion' => 'field_status_autoevaluacion',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_institucion' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_meta' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_codigo_lineamiento' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_codigo_ambito' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_codigo_eje' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_year_compromiso' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_porcentaje_avance' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_status_autoevaluacion' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['elements'] = array(
+    'search_box' => 1,
+    'table_info' => 1,
+    'save_state' => 0,
+    'multi_filter' => 1,
+    'table_tools' => 0,
+  );
+  $handler->display->display_options['style_options']['layout'] = array(
+    'autowidth' => 0,
+    'themeroller' => 0,
+    'sdom' => '',
+  );
+  $handler->display->display_options['style_options']['pages'] = array(
+    'pagination_style' => 'full_numbers',
+    'length_change' => 0,
+    'display_length' => '10',
+  );
+  $handler->display->display_options['style_options']['hidden_columns'] = array(
+    'title' => '0',
+    'field_institucion' => '0',
+    'field_meta' => '0',
+    'field_codigo_lineamiento' => 'hidden',
+    'field_codigo_ambito' => 'hidden',
+    'field_codigo_eje' => 'hidden',
+    'field_year_compromiso' => 'hidden',
+    'field_porcentaje_avance' => 'hidden',
+    'field_status_autoevaluacion' => 'hidden',
+  );
+  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'item_compromiso';
+  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['label'] = 'field_accion_collect';
+  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
+  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
+  $handler->display->display_options['relationships']['field_meta_target_id']['label'] = 'field_meta';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromisos';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Institución  */
+  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
+  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
+    'link' => 0,
+  );
+  /* Campo: Campo: Meta */
+  $handler->display->display_options['fields']['field_meta']['id'] = 'field_meta';
+  $handler->display->display_options['fields']['field_meta']['table'] = 'field_data_field_meta';
+  $handler->display->display_options['fields']['field_meta']['field'] = 'field_meta';
+  $handler->display->display_options['fields']['field_meta']['relationship'] = 'field_accion_collect_value';
+  $handler->display->display_options['fields']['field_meta']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
+  /* Campo: Campo: Lineamiento */
+  $handler->display->display_options['fields']['field_codigo_lineamiento']['id'] = 'field_codigo_lineamiento';
+  $handler->display->display_options['fields']['field_codigo_lineamiento']['table'] = 'field_data_field_codigo_lineamiento';
+  $handler->display->display_options['fields']['field_codigo_lineamiento']['field'] = 'field_codigo_lineamiento';
+  $handler->display->display_options['fields']['field_codigo_lineamiento']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['fields']['field_codigo_lineamiento']['type'] = 'taxonomy_term_reference_plain';
+  /* Campo: Campo: Ámbito */
+  $handler->display->display_options['fields']['field_codigo_ambito']['id'] = 'field_codigo_ambito';
+  $handler->display->display_options['fields']['field_codigo_ambito']['table'] = 'field_data_field_codigo_ambito';
+  $handler->display->display_options['fields']['field_codigo_ambito']['field'] = 'field_codigo_ambito';
+  $handler->display->display_options['fields']['field_codigo_ambito']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['fields']['field_codigo_ambito']['type'] = 'taxonomy_term_reference_plain';
+  /* Campo: Campo: Eje */
+  $handler->display->display_options['fields']['field_codigo_eje']['id'] = 'field_codigo_eje';
+  $handler->display->display_options['fields']['field_codigo_eje']['table'] = 'field_data_field_codigo_eje';
+  $handler->display->display_options['fields']['field_codigo_eje']['field'] = 'field_codigo_eje';
+  $handler->display->display_options['fields']['field_codigo_eje']['relationship'] = 'field_item_compromiso_value';
+  $handler->display->display_options['fields']['field_codigo_eje']['type'] = 'taxonomy_term_reference_plain';
+  /* Campo: Contenido: Año de Creación */
+  $handler->display->display_options['fields']['field_year_compromiso']['id'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['field'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Campo: Contenido: Porcentaje avance */
+  $handler->display->display_options['fields']['field_porcentaje_avance']['id'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['table'] = 'field_data_field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['field'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['relationship'] = 'field_meta_target_id';
+  /* Campo: Contenido: Estado autoevaluación */
+  $handler->display->display_options['fields']['field_status_autoevaluacion']['id'] = 'field_status_autoevaluacion';
+  $handler->display->display_options['fields']['field_status_autoevaluacion']['table'] = 'field_data_field_status_autoevaluacion';
+  $handler->display->display_options['fields']['field_status_autoevaluacion']['field'] = 'field_status_autoevaluacion';
+  $handler->display->display_options['fields']['field_status_autoevaluacion']['relationship'] = 'field_meta_target_id';
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Contenido: Publicado */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Contenido: Tipo */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'compromiso_de_gestion' => 'compromiso_de_gestion',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'lista-metas';
+  $translatables['lista_metas'] = array(
+    t('Master'),
+    t('lista metas'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('item_compromiso'),
+    t('field_accion_collect'),
+    t('field_meta'),
+    t('Compromisos'),
+    t('Institución '),
+    t('Meta'),
+    t('Lineamiento'),
+    t('Ámbito'),
+    t('Eje'),
+    t('Año de Creación'),
+    t('Porcentaje avance'),
+    t('Estado autoevaluación'),
+    t('Page'),
+  );
+  $export['lista_metas'] = $view;
+
+  $view = new view();
   $view->name = 'lista_productos';
   $view->description = '';
   $view->tag = 'default';
@@ -1953,7 +2211,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ambito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -3074,7 +3332,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ambito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';

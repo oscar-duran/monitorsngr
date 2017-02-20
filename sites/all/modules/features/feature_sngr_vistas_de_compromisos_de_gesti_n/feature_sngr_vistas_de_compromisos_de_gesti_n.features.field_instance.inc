@@ -41,7 +41,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_accion_estrategica',
-    'label' => 'Codigo de Acción estratégica',
+    'label' => 'Código de Acción estratégica',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -278,7 +278,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_codigo_ambito',
-    'label' => 'Ambito',
+    'label' => 'Ámbito',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -577,7 +577,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     'bundle' => 'compromiso_de_gestion',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".',
+    'description' => 'Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1345,7 +1345,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'node',
     'field_name' => 'field_porcentaje_avance_coment',
-    'label' => 'Cometario sobre el porcentaje avance',
+    'label' => 'Comentario sobre el porcentaje avance',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1780,17 +1780,16 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción Estratégica');
-  t('Ambito');
   t('Aspecto positivo');
   t('Año Final');
   t('Año Inicial');
   t('Año de Creación');
-  t('Codigo de Acción estratégica');
-  t('Cometario sobre el porcentaje avance');
+  t('Comentario sobre el porcentaje avance');
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
-  t('Cuando haya completado la autoevaluacion, seleccione "Autoevaluacion lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revision".');
+  t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
   t('Código');
   t('Código Producto');
+  t('Código de Acción estratégica');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
   t('Descripción');
@@ -1819,6 +1818,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('¿Cuánto ha avanzado su organización en el cumplimiento de la meta?');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');
+  t('Ámbito');
 
   return $field_instances;
 }
