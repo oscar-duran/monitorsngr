@@ -54,12 +54,14 @@
             });
 
             $("#meta_input").keyup(function () {
-              datatable.fnFilter(this.value, $("#meta_input").index(this));
+              datatable.fnFilter(this.value, 2);
             });
 
             $("#creacion_input").keyup(function () {
-              datatable.fnFilter(this.value, $("#creacion_input").index(this));
+              datatable.fnFilter(this.value, 6);
             });
+
+            //clases de search
 
             $("tfoot input").focus(function() {
               if (this.className == "search_init") {

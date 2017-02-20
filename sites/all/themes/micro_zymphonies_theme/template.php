@@ -294,25 +294,45 @@ function micro_zymphonies_theme_table($variables) {
   return $output;
 }
 
+//funciones necesarias para la carga de datos en el tpl
+
 function return_lineamiento_tax () {
   $vocabulary = taxonomy_vocabulary_machine_name_load('lineamiento');
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   ksort($terms);
-  return $terms;
+  $count_lineam=0;
+  $valores_lineam=array();
+  foreach ($terms as $keys_lin => $values_lin) {
+    $valores_lineam[$count_lineam] = array($values_lin->name);
+    $count_lineam++;
+  }
+  return $valores_lineam;
 }
 
 function return_ambito_tax () {
   $vocabulary = taxonomy_vocabulary_machine_name_load('ambito');
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   ksort($terms);
-  return $terms;
+  $count_ambit=0;
+  $valores_ambit=array();
+  foreach ($terms as $keys_amb => $values_amb) {
+    $valores_ambit[$count_ambit] = array($values_amb->name);
+    $count_ambit++;
+  }
+  return $valores_ambit;
 }
 
 function return_eje_tax () {
   $vocabulary = taxonomy_vocabulary_machine_name_load('eje');
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   ksort($terms);
-  return $terms;
+  $count_ejes=0;
+  $valores_ejes=array();
+  foreach ($terms as $keys_eje => $values_eje) {
+    $valores_ejes[$count_ejes] = array($values_eje->name);
+    $count_ejes++;
+  }
+  return $valores_ejes;
 }
 
 function return_institucion_entity () {
