@@ -416,15 +416,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Nombre */
+  /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
-  /* Campo: Campo: Primer apellido */
+  /* Campo: Usuario: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
-  /* Campo: Campo: Segundo apellido */
+  /* Campo: Usuario: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -467,7 +467,7 @@ function vistas_views_default_views() {
     7 => '7',
   );
   $handler->display->display_options['filters']['rid']['group'] = 1;
-  /* Filter criterion: Campo: Nombre (field_nombre) */
+  /* Filter criterion: Usuario: Nombre (field_nombre) */
   $handler->display->display_options['filters']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['filters']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['filters']['field_nombre_value']['field'] = 'field_nombre_value';
@@ -487,7 +487,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Campo: Primer apellido (field_apellido1) */
+  /* Filter criterion: Usuario: Primer apellido (field_apellido1) */
   $handler->display->display_options['filters']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['filters']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['filters']['field_apellido1_value']['field'] = 'field_apellido1_value';
@@ -529,21 +529,21 @@ function vistas_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Campo: Nombre */
+  /* Campo: Usuario: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['label'] = '';
   $handler->display->display_options['fields']['field_nombre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_nombre']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Primer apellido */
+  /* Campo: Usuario: Primer apellido */
   $handler->display->display_options['fields']['field_apellido1']['id'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['field'] = 'field_apellido1';
   $handler->display->display_options['fields']['field_apellido1']['label'] = '';
   $handler->display->display_options['fields']['field_apellido1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_apellido1']['element_label_colon'] = FALSE;
-  /* Campo: Campo: Segundo apellido */
+  /* Campo: Usuario: Segundo apellido */
   $handler->display->display_options['fields']['field_apellido2']['id'] = 'field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['fields']['field_apellido2']['field'] = 'field_apellido2';
@@ -558,15 +558,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_nombre] [field_apellido1] [field_apellido2]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Campo: Nombre (field_nombre) */
+  /* Sort criterion: Usuario: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Sort criterion: Campo: Primer apellido (field_apellido1) */
+  /* Sort criterion: Usuario: Primer apellido (field_apellido1) */
   $handler->display->display_options['sorts']['field_apellido1_value']['id'] = 'field_apellido1_value';
   $handler->display->display_options['sorts']['field_apellido1_value']['table'] = 'field_data_field_apellido1';
   $handler->display->display_options['sorts']['field_apellido1_value']['field'] = 'field_apellido1_value';
-  /* Sort criterion: Campo: Segundo apellido (field_apellido2) */
+  /* Sort criterion: Usuario: Segundo apellido (field_apellido2) */
   $handler->display->display_options['sorts']['field_apellido2_value']['id'] = 'field_apellido2_value';
   $handler->display->display_options['sorts']['field_apellido2_value']['table'] = 'field_data_field_apellido2';
   $handler->display->display_options['sorts']['field_apellido2_value']['field'] = 'field_apellido2_value';
@@ -877,13 +877,11 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Nombre instancia';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Tipo instancia */
-  $handler->display->display_options['fields']['field_tipo_instancia']['id'] = 'field_tipo_instancia';
-  $handler->display->display_options['fields']['field_tipo_instancia']['table'] = 'field_data_field_tipo_instancia';
-  $handler->display->display_options['fields']['field_tipo_instancia']['field'] = 'field_tipo_instancia';
-  $handler->display->display_options['fields']['field_tipo_instancia']['settings'] = array(
-    'link' => 0,
-  );
+  /* Campo: Contenido: Tipo de instancia */
+  $handler->display->display_options['fields']['field_primera_lista']['id'] = 'field_primera_lista';
+  $handler->display->display_options['fields']['field_primera_lista']['table'] = 'field_data_field_primera_lista';
+  $handler->display->display_options['fields']['field_primera_lista']['field'] = 'field_primera_lista';
+  $handler->display->display_options['fields']['field_primera_lista']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -922,6 +920,27 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instancia_coordinacion' => 'instancia_coordinacion',
   );
+  /* Filter criterion: Contenido: Tipo de instancia (field_primera_lista) */
+  $handler->display->display_options['filters']['field_primera_lista_tid']['id'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['table'] = 'field_data_field_primera_lista';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['field'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator_id'] = 'field_primera_lista_tid_op';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['label'] = 'Tipo de instancia';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator'] = 'field_primera_lista_tid_op';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['identifier'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['field_primera_lista_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['vocabulary'] = 'tipo_instancia';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['hierarchy'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -945,7 +964,7 @@ function vistas_views_default_views() {
     t('Nueva instancia'),
     t('<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">Nueva instancia</a>'),
     t('Nombre instancia'),
-    t('Tipo instancia'),
+    t('Tipo de instancia'),
     t('Page'),
   );
   $export['instancias_coordinacion'] = $view;
@@ -1589,7 +1608,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['id'] = 'field_montos_de_ejecucion_target_id';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['table'] = 'field_data_field_montos_de_ejecucion';
   $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['field'] = 'field_montos_de_ejecucion_target_id';
@@ -1672,7 +1691,7 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field_montos_de_ejecucion_target_id'),
+    t('Contenido entity referenced from field_montos_de_ejecucion'),
     t('Año'),
     t('Monto ejecución'),
     t('Monto presupuestario'),
