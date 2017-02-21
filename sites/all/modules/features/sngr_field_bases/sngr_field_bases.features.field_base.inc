@@ -696,6 +696,9 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_cod_producto_meta',
+    'field_permissions' => array(
+       'type' => 2,
+    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -704,7 +707,7 @@ function sngr_field_bases_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
-      'max_length' => 10,
+      'max_length' => 155,
     ),
     'translatable' => 0,
     'type' => 'text',
