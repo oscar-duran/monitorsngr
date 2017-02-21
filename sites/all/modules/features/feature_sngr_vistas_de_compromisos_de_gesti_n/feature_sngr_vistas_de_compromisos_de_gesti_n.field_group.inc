@@ -87,8 +87,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Horizontal Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_compromiso_info_tab',
-      1 => 'group_compromiso_items_tab',
+      0 => 'group_compromiso_items_tab',
+      1 => 'group_compromiso_info_tab',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -291,10 +291,10 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Asesorías',
     'weight' => '5',
     'children' => array(
-      0 => 'field_tema_necesidad_meta',
+      0 => 'field_recibio_asesoria_meta',
       1 => 'field_su_org_requiere_asesoria',
-      2 => 'field_recibio_asesoria_meta',
-      3 => 'field_organizacion_capacitadora',
+      2 => 'field_organizacion_capacitadora',
+      3 => 'field_tema_necesidad_meta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -432,8 +432,8 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_group_info() {
     'label' => 'Periodo',
     'weight' => '3',
     'children' => array(
-      0 => 'field_anno_ini_meta',
-      1 => 'field_anno_fin_meta',
+      0 => 'field_anno_fin_meta',
+      1 => 'field_anno_ini_meta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

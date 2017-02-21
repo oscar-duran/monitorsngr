@@ -16,17 +16,25 @@ function rules_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
       "IF" : [
-        { "data_is" : {
-            "data" : [ "node:field-notificar-analista" ],
-            "value" : "Autoevaluacion lista"
-          }
+        { "AND" : [
+            { "data_is" : {
+                "data" : [ "node:field-notificar-analista" ],
+                "value" : "Autoevaluacion lista"
+              }
+            },
+            { "user_has_role" : {
+                "account" : [ "site:current-user" ],
+                "roles" : { "value" : { "7" : "7" } }
+              }
+            }
+          ]
         }
       ],
       "DO" : [
         { "mail_to_users_of_role" : {
-            "roles" : { "value" : { "8" : "8" } },
-            "subject" : "Compromiso listo para autoevaluacion \\r\\n[site:name]",
-            "message" : "El compromiso ya se encuentra en estado listo para revision."
+            "roles" : { "value" : { "5" : "5" } },
+            "subject" : "Autoevaluacion completada",
+            "message" : "Estimado equipo de la Unidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo              \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.\\r\\n\\r\\nSeg\\u00fan los compromisos institucionales que tiene la instituci\\u00f3n que represento ante el Sistema Nacional de Gestion del Riesgo, notifico que he realizado la autoevaluaci\\u00f3n  de un compromiso institucional correspondiente, disponible para su respectiva revisi\\u00f3n.  \\r\\n\\r\\nAtentamente, \\r\\n[site:current-user:field-nombre]\\r\\nEnlace institucional,  \\r\\n[site:current-user:field-institucion]"
           }
         }
       ]
@@ -55,25 +63,29 @@ function rules_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules" ],
       "ON" : { "node_update--compromiso_de_gestion" : { "bundle" : "compromiso_de_gestion" } },
       "IF" : [
-        { "OR" : [
-            { "data_is" : {
-                "data" : [ "node:field-notificar-institucional" ],
-                "value" : "Aprobado"
-              }
-            },
-            { "data_is" : {
-                "data" : [ "node:field-notificar-institucional" ],
-                "value" : "Sin aprobacion"
-              }
+        { "AND" : [
+            { "data_is" : { "data" : [ "node:field-institucion:type" ], "value" : "institucion" } },
+            { "OR" : [
+                { "data_is" : {
+                    "data" : [ "node:field-notificar-institucional" ],
+                    "value" : "Aprobado"
+                  }
+                },
+                { "data_is" : {
+                    "data" : [ "node:field-notificar-institucional" ],
+                    "value" : "Sin aprobacion"
+                  }
+                }
+              ]
             }
           ]
         }
       ],
       "DO" : [
-        { "mail_to_users_of_role" : {
-            "roles" : { "value" : { "8" : "8" } },
+        { "mail" : {
+            "to" : [ "node:field-institucion:field-enlace-institucional:mail" ],
             "subject" : "Autoevaluacion revisada",
-            "message" : "Su autoevaluacion ha sido revisada.\\r\\nEstado: [node:field-notificar-institucional]"
+            "message" : "Estimado(a) [node:field-institucion:field-enlace-institucional:field-nombre]\\r\\nEnlace institucional                                    \\r\\n[node:field-institucion]\\r\\n\\r\\nLa autoevaluaci\\u00f3n que usted realiz\\u00f3 respecto a los compromisos de gesti\\u00f3n  que su instituci\\u00f3n tiene como integrante del Sistema Nacional de Gesti\\u00f3n del Riesgo se encuentra: [node:field-notificar-institucional].\\r\\nLe invitamos a revisar las observaciones, en caso de estar sin aprobacion.   \\r\\n\\r\\nGracias por el tiempo tomado en la realizaci\\u00f3n de la autoevaluaci\\u00f3n de su compromiso de gesti\\u00f3n. \\r\\n\\r\\nAtentamente,                               \\r\\nUnidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo  \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.   "
           }
         }
       ]

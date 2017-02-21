@@ -293,3 +293,71 @@ function micro_zymphonies_theme_table($variables) {
   $output .= "</table>\n";
   return $output;
 }
+
+//funciones necesarias para la carga de datos en el tpl
+
+function return_lineamiento_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('lineamiento');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  $count_lineam=0;
+  $valores_lineam=array();
+  foreach ($terms as $keys_lin => $values_lin) {
+    $valores_lineam[$count_lineam] = array($values_lin->name);
+    $count_lineam++;
+  }
+  return $valores_lineam;
+}
+
+function return_ambito_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('ambito');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  $count_ambit=0;
+  $valores_ambit=array();
+  foreach ($terms as $keys_amb => $values_amb) {
+    $valores_ambit[$count_ambit] = array($values_amb->name);
+    $count_ambit++;
+  }
+  return $valores_ambit;
+}
+
+function return_eje_tax () {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('eje');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  ksort($terms);
+  $count_ejes=0;
+  $valores_ejes=array();
+  foreach ($terms as $keys_eje => $values_eje) {
+    $valores_ejes[$count_ejes] = array($values_eje->name);
+    $count_ejes++;
+  }
+  return $valores_ejes;
+}
+
+function return_institucion_entity () {
+  $query = new EntityFieldQuery;
+  $nodes2=array();
+  $countt=0;
+  $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'institucion');
+  $results = $query->execute();
+  if (isset($results['node'])) {
+    $nodes = node_load_multiple(array_keys($results['node']));
+    foreach ($nodes as $nid => $node) {
+      $nodes2[$countt]=$nodes[$nid]->title;
+      $countt++;
+    }
+  }
+  return $nodes2;
+}
+
+function return_porcent_field () {
+$field_porc = field_info_field("field_porcentaje_avance");
+  return $field_porc['settings']['allowed_values'];
+}
+
+function return_estado_field () {
+  $field_estad = field_info_field("field_status_autoevaluacion");
+  return $field_estad['settings']['allowed_values'];
+}
