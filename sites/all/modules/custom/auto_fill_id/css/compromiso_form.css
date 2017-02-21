@@ -68,6 +68,7 @@ fieldset.action-tab > .fieldset-wrapper {
 }
 
 fieldset.action-tab .group-action-information {
+    width: 310px;
     padding-right: 10px;
 }
 
@@ -129,4 +130,15 @@ div.field-name-field-meta .form-item > input {
 div.field.field-type-taxonomy-term-reference.field-label-hidden {
     font-size: 15px;
     width: 500px;
+}
+
+div.fieldset-wrapper .field-label {
+    font-weight: 300;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+div.fieldset-wrapper .group-action-information .field-items .field-item {
+    width: auto;
+    white-space: initial;
 }
