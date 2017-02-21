@@ -56,7 +56,7 @@ function sngr_field_bases_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
-      'module' => 'field_permissions',
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'create field_codigo_ambito'.
@@ -1104,7 +1104,7 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-    // Exported permission: 'view own field_codigo_ambito'.
+  // Exported permission: 'view own field_codigo_ambito'.
   $permissions['view own field_codigo_ambito'] = array(
     'name' => 'view own field_codigo_ambito',
     'roles' => array(
