@@ -741,6 +741,9 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_codigo_accion_estrategica',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2262,8 +2265,8 @@ function sngr_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'En proceso de revision' => 'En proceso de revision',
-        'Autoevaluacion lista' => 'Autoevaluacion lista',
+        'En proceso de revision' => 'En proceso de revisión',
+        'Autoevaluacion lista' => 'Autoevaluación lista',
       ),
       'allowed_values_function' => '',
     ),
@@ -2291,7 +2294,7 @@ function sngr_field_bases_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         'Aprobado' => 'Aprobado',
-        'Sin aprobacion' => 'Sin aprobacion',
+        'Sin aprobacion' => 'Sin aprobación',
       ),
       'allowed_values_function' => '',
     ),
@@ -2835,8 +2838,8 @@ function sngr_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        1 => 'Si',
-        0 => 'NO',
+        1 => 'Sí',
+        0 => 'No',
       ),
       'allowed_values_function' => '',
     ),
@@ -2986,7 +2989,7 @@ function sngr_field_bases_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         1 => 'En curso',
-        2 => 'Listo para revision',
+        2 => 'Listo para revisión',
       ),
       'allowed_values_function' => '',
     ),
@@ -3013,7 +3016,7 @@ function sngr_field_bases_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        1 => 'Si',
+        1 => 'Sí',
         0 => 'No',
       ),
       'allowed_values_function' => '',
