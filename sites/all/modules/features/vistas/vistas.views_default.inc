@@ -227,11 +227,11 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Año */
+  /* Campo: Campo: Año */
   $handler->display->display_options['fields']['field_anno']['id'] = 'field_anno';
   $handler->display->display_options['fields']['field_anno']['table'] = 'field_data_field_anno';
   $handler->display->display_options['fields']['field_anno']['field'] = 'field_anno';
-  /* Sort criterion: Contenido: Año (field_anno) */
+  /* Sort criterion: Campo: Año (field_anno) */
   $handler->display->display_options['sorts']['field_anno_value']['id'] = 'field_anno_value';
   $handler->display->display_options['sorts']['field_anno_value']['table'] = 'field_data_field_anno';
   $handler->display->display_options['sorts']['field_anno_value']['field'] = 'field_anno_value';
@@ -268,7 +268,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Contenido: Año (field_anno) */
+  /* Filter criterion: Campo: Año (field_anno) */
   $handler->display->display_options['filters']['field_anno_value']['id'] = 'field_anno_value';
   $handler->display->display_options['filters']['field_anno_value']['table'] = 'field_data_field_anno';
   $handler->display->display_options['filters']['field_anno_value']['field'] = 'field_anno_value';
@@ -1583,62 +1583,72 @@ function vistas_views_default_views() {
   $export['matriz_cumplimiento_lista'] = $view;
 
   $view = new view();
-  $view->name = 'montos_de_ejecuci_n';
+  $view->name = 'monto_instituci_n';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Montos de Ejecución';
+  $view->human_name = 'Monto Institución';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Montos de Ejecución';
+  $handler->display->display_options['title'] = 'Monto Institución';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['id'] = 'field_montos_de_ejecucion_target_id';
-  $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['table'] = 'field_data_field_montos_de_ejecucion';
-  $handler->display->display_options['relationships']['field_montos_de_ejecucion_target_id']['field'] = 'field_montos_de_ejecucion_target_id';
-  /* Campo: Contenido: Año */
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relationship: Contenido: Montos de Ejecución (field_financiamiento) */
+  $handler->display->display_options['relationships']['field_financiamiento_value']['id'] = 'field_financiamiento_value';
+  $handler->display->display_options['relationships']['field_financiamiento_value']['table'] = 'field_data_field_financiamiento';
+  $handler->display->display_options['relationships']['field_financiamiento_value']['field'] = 'field_financiamiento_value';
+  $handler->display->display_options['relationships']['field_financiamiento_value']['delta'] = '-1';
+  /* Campo: Campo: Año */
   $handler->display->display_options['fields']['field_anno']['id'] = 'field_anno';
   $handler->display->display_options['fields']['field_anno']['table'] = 'field_data_field_anno';
   $handler->display->display_options['fields']['field_anno']['field'] = 'field_anno';
-  $handler->display->display_options['fields']['field_anno']['relationship'] = 'field_montos_de_ejecucion_target_id';
+  $handler->display->display_options['fields']['field_anno']['relationship'] = 'field_financiamiento_value';
   $handler->display->display_options['fields']['field_anno']['settings'] = array(
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Monto ejecución */
-  $handler->display->display_options['fields']['field_monto_ejecucion']['id'] = 'field_monto_ejecucion';
-  $handler->display->display_options['fields']['field_monto_ejecucion']['table'] = 'field_data_field_monto_ejecucion';
-  $handler->display->display_options['fields']['field_monto_ejecucion']['field'] = 'field_monto_ejecucion';
-  $handler->display->display_options['fields']['field_monto_ejecucion']['relationship'] = 'field_montos_de_ejecucion_target_id';
-  $handler->display->display_options['fields']['field_monto_ejecucion']['settings'] = array(
-    'thousand_separator' => ',',
+  /* Campo: Field collection item: Monto de Ejecución */
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['id'] = 'field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['table'] = 'field_data_field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['field'] = 'field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['settings'] = array(
+    'thousand_separator' => '',
     'decimal_separator' => '.',
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Monto presupuestario */
+  /* Campo: Field collection item: Monto Presupuestario */
   $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
-  $handler->display->display_options['fields']['field_monto_presupuestario']['relationship'] = 'field_montos_de_ejecucion_target_id';
+  $handler->display->display_options['fields']['field_monto_presupuestario']['relationship'] = 'field_financiamiento_value';
   $handler->display->display_options['fields']['field_monto_presupuestario']['settings'] = array(
-    'thousand_separator' => ',',
+    'thousand_separator' => '',
     'decimal_separator' => '.',
     'scale' => '2',
     'prefix_suffix' => 1,
@@ -1673,124 +1683,25 @@ function vistas_views_default_views() {
     'institucion' => 'institucion',
   );
 
-  /* Display: Montos de Ejecución */
-  $handler = $view->new_display('block', 'Montos de Ejecución', 'block_1');
-  $translatables['montos_de_ejecuci_n'] = array(
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['monto_instituci_n'] = array(
     t('Master'),
-    t('Montos de Ejecución'),
+    t('Monto Institución'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
-    t('Contenido entity referenced from field_montos_de_ejecucion'),
+    t('field collection item from field_financiamiento'),
     t('Año'),
-    t('Monto ejecución'),
-    t('Monto presupuestario'),
+    t('Monto de Ejecución'),
+    t('Monto Presupuestario'),
     t('Todo'),
+    t('Block'),
   );
-  $export['montos_de_ejecuci_n'] = $view;
-
-  $view = new view();
-  $view->name = 'montos_ejecucion_x_institucion';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Montos ejecución por institución';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Montos ejecución por institución';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Contenido: Año (field_anno) */
-  $handler->display->display_options['sorts']['field_anno_value']['id'] = 'field_anno_value';
-  $handler->display->display_options['sorts']['field_anno_value']['table'] = 'field_data_field_anno';
-  $handler->display->display_options['sorts']['field_anno_value']['field'] = 'field_anno_value';
-  $handler->display->display_options['sorts']['field_anno_value']['order'] = 'DESC';
-  /* Sort criterion: Contenido: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Campo: Institución  (field_institucion) */
-  $handler->display->display_options['arguments']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['exception']['title'] = 'Todo';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_institucion_target_id']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Contenido: Publicado */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'monto_ejecucion' => 'monto_ejecucion',
-  );
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'sngr/montos-ejecucion-por-institucion';
-  $translatables['montos_ejecucion_x_institucion'] = array(
-    t('Master'),
-    t('Montos ejecución por institución'),
-    t('more'),
-    t('Apply'),
-    t('Reiniciar'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
-    t('Todo'),
-    t('Page'),
-  );
-  $export['montos_ejecucion_x_institucion'] = $view;
+  $export['monto_instituci_n'] = $view;
 
   $view = new view();
   $view->name = 'view_instituciones';
