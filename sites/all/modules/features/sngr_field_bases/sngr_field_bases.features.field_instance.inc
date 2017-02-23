@@ -11,6 +11,129 @@ function sngr_field_bases_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
+  // 'field_collection_item-field_financiamiento-field_anno'.
+  $field_instances['field_collection_item-field_financiamiento-field_anno'] = array(
+    'bundle' => 'field_financiamiento',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_anno',
+    'label' => 'Año',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_financiamiento-field_monto_de_ejecucion'.
+  $field_instances['field_collection_item-field_financiamiento-field_monto_de_ejecucion'] = array(
+    'bundle' => 'field_financiamiento',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_monto_de_ejecucion',
+    'label' => 'Monto de Ejecución',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_financiamiento-field_monto_presupuestario'.
+  $field_instances['field_collection_item-field_financiamiento-field_monto_presupuestario'] = array(
+    'bundle' => 'field_financiamiento',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_monto_presupuestario',
+    'label' => 'Monto Presupuestario',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-compromiso_de_gestion-field_accion_ejecutar'.
   $field_instances['node-compromiso_de_gestion-field_accion_ejecutar'] = array(
     'bundle' => 'compromiso_de_gestion',
@@ -303,6 +426,49 @@ function sngr_field_bases_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-institucion-field_financiamiento'.
+  $field_instances['node-institucion-field_financiamiento'] = array(
+    'bundle' => 'institucion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Agregar',
+          'delete' => 'Eliminar',
+          'description' => TRUE,
+          'edit' => 'Editar',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_financiamiento',
+    'label' => 'Montos de Ejecución',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-meta-field_status_autoevaluacion'.
   $field_instances['node-meta-field_status_autoevaluacion'] = array(
     'bundle' => 'meta',
@@ -336,7 +502,7 @@ function sngr_field_bases_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -497,9 +663,13 @@ function sngr_field_bases_field_default_field_instances() {
   t('Auto inc ambito');
   t('Auto inc eje');
   t('Auto inc lineamiento');
+  t('Año');
   t('Estado autoevaluación');
   t('Instituciones Involucradas');
   t('Integrantes');
+  t('Monto Presupuestario');
+  t('Monto de Ejecución');
+  t('Montos de Ejecución');
   t('Provincia, Cantón, Distrito');
   t('Status autoevaluacion');
   t('Subtipo instancia');

@@ -696,6 +696,9 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_cod_producto_meta',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -704,7 +707,7 @@ function sngr_field_bases_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
-      'max_length' => 10,
+      'max_length' => 155,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -1331,13 +1334,13 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'date',
   );
 
-  // Exported field_base: 'field_financiero'.
-  $field_bases['field_financiero'] = array(
+  // Exported field_base: 'field_financiamiento'.
+  $field_bases['field_financiamiento'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_financiero',
+    'field_name' => 'field_financiamiento',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -1918,13 +1921,13 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_float',
   );
 
-  // Exported field_base: 'field_monto_de_ejecucion_gr'.
-  $field_bases['field_monto_de_ejecucion_gr'] = array(
+  // Exported field_base: 'field_monto_de_ejecucion'.
+  $field_bases['field_monto_de_ejecucion'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_monto_de_ejecucion_gr',
+    'field_name' => 'field_monto_de_ejecucion',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -1933,11 +1936,9 @@ function sngr_field_bases_field_default_field_bases() {
     'module' => 'number',
     'settings' => array(
       'decimal_separator' => '.',
-      'precision' => 20,
-      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'number_decimal',
+    'type' => 'number_float',
   );
 
   // Exported field_base: 'field_monto_estimado'.
@@ -1964,6 +1965,26 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_monto_estimado_perdidas',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
+  // Exported field_base: 'field_monto_presupuestario'.
+  $field_bases['field_monto_presupuestario'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_monto_presupuestario',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
