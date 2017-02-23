@@ -10,6 +10,15 @@
 function usuarios_roles_permisos_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access PDF version'.
+  $permissions['access PDF version'] = array(
+    'name' => 'access PDF version',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'print_pdf',
+  );
+
   // Exported permission: 'access administration menu'.
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',
@@ -125,6 +134,17 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'webform',
+  );
+
+  // Exported permission: 'access print'.
+  $permissions['access print'] = array(
+    'name' => 'access print',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'print',
   );
 
   // Exported permission: 'access printer-friendly version'.
