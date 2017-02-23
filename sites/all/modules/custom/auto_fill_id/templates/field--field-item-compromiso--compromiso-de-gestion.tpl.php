@@ -120,11 +120,13 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
                       <?php
                       $path = drupal_get_path_alias('/node/' . $meta_field['entity']->nid);
                       //print $element['field_accion_collect'][$i]['entity']['field_collection_item'][$action_id['value']]['field_meta'][$meta_id]['#markup']; ?>
-                      <?php print t('<a href="/monitorsngr@path">@meta_name(@percent%): @detail</a>', array(
-                                                                                                        '@path' => $path, '@meta_name' => $meta_field['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value'],
-                                                                                                        '@percent' => (( $meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 ),
-                                                                                                        '@detail' => $meta_field['entity']->title,
-                                                                                                      )
+                      <?php print t('<a href="/monitorsngr@path">@meta_name(@percent%): @detail</a>',
+                        array(
+                          '@path' => $path,
+                          '@meta_name' => $meta_field['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value'],
+                          '@percent' => empty($meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE]) ? 0 : (($meta_field['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] -1) * 25 ),
+                          '@detail' => $meta_field['entity']->title,
+                          )
                       );?>
                     </td>
                     <!--Producto-->

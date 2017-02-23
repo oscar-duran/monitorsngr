@@ -259,7 +259,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 0,
       ),
       'full' => array(
@@ -304,7 +304,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 1,
       ),
       'full' => array(
@@ -349,7 +349,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 2,
       ),
       'full' => array(
