@@ -96,7 +96,7 @@
 <?php endif; ?>
 <div class="print-content">
   <?php //print $content; ?>
-    <h1><?php print $node->title; ?></h1>
+    <h1><?php print t('Compromiso de gestión @title', array('@title' => $node->title)); ?></h1>
     <p>Porcentaje de Avance: <?php print intval($node->field_porcentaje_de_avance_compr[LANGUAGE_NONE][0]['value']); ?>%</p>
     <h3>Items de compromiso:</h3>
     <?php foreach ($node->field_item_compromiso[LANGUAGE_NONE] as $key => $item_id) : ?>
