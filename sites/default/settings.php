@@ -653,6 +653,7 @@ $conf['master_modules']['base'] = array(
   'rules',
   'rules_admin',
   'site_map',
+  'smtp',
   'strongarm',
   'views',
   'views_content',

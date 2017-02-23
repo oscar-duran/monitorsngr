@@ -1297,7 +1297,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'lista metas';
+  $handler->display->display_options['title'] = 'Listado de metas';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1386,10 +1386,10 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['style_options']['elements'] = array(
     'search_box' => 1,
-    'table_info' => 1,
+    'table_info' => 0,
     'save_state' => 0,
     'multi_filter' => 1,
-    'table_tools' => 0,
+    'table_tools' => 1,
   );
   $handler->display->display_options['style_options']['layout'] = array(
     'autowidth' => 0,
@@ -1520,7 +1520,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['path'] = 'lista-metas';
   $translatables['lista_metas'] = array(
     t('Master'),
-    t('lista metas'),
+    t('Listado de metas'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -3046,7 +3046,7 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Field collection item: Monto Presupuestario */
+  /* Campo: Campo: Monto Presupuestario */
   $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
