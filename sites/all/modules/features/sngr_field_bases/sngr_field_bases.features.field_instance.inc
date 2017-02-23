@@ -469,43 +469,6 @@ function sngr_field_bases_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-meta-field_status_autoevaluacion'.
-  $field_instances['node-meta-field_status_autoevaluacion'] = array(
-    'bundle' => 'meta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 15,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_status_autoevaluacion',
-    'label' => 'Estado autoevaluación',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance:
   // 'node-producto_meta-field_institucion_administradora'.
   $field_instances['node-producto_meta-field_institucion_administradora'] = array(
@@ -698,7 +661,6 @@ function sngr_field_bases_field_default_field_instances() {
   t('Auto inc eje');
   t('Auto inc lineamiento');
   t('Año');
-  t('Estado autoevaluación');
   t('Instituciones Involucradas');
   t('Institución');
   t('Integrantes');

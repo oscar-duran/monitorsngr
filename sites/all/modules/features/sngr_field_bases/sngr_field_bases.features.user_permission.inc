@@ -236,16 +236,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_status_autoevaluacion'.
-  $permissions['create field_status_autoevaluacion'] = array(
-    'name' => 'create field_status_autoevaluacion',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_su_org_requiere_asesoria'.
   $permissions['create field_su_org_requiere_asesoria'] = array(
     'name' => 'create field_su_org_requiere_asesoria',
@@ -479,16 +469,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'edit field_recibio_asesoria_meta'.
   $permissions['edit field_recibio_asesoria_meta'] = array(
     'name' => 'edit field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_status_autoevaluacion'.
-  $permissions['edit field_status_autoevaluacion'] = array(
-    'name' => 'edit field_status_autoevaluacion',
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
@@ -735,16 +715,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'edit own field_recibio_asesoria_meta'.
   $permissions['edit own field_recibio_asesoria_meta'] = array(
     'name' => 'edit own field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_status_autoevaluacion'.
-  $permissions['edit own field_status_autoevaluacion'] = array(
-    'name' => 'edit own field_status_autoevaluacion',
     'roles' => array(
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
@@ -1019,16 +989,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_status_autoevaluacion'.
-  $permissions['view field_status_autoevaluacion'] = array(
-    'name' => 'view field_status_autoevaluacion',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view field_su_org_requiere_asesoria'.
   $permissions['view field_su_org_requiere_asesoria'] = array(
     'name' => 'view field_su_org_requiere_asesoria',
@@ -1298,16 +1258,6 @@ function sngr_field_bases_user_default_permissions() {
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_status_autoevaluacion'.
-  $permissions['view own field_status_autoevaluacion'] = array(
-    'name' => 'view own field_status_autoevaluacion',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
