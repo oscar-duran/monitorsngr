@@ -657,6 +657,40 @@ function sngr_field_bases_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_institucion_user'.
+  $field_instances['user-user-field_institucion_user'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_institucion_user',
+    'label' => 'Institución',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción a seguir');
@@ -666,12 +700,12 @@ function sngr_field_bases_field_default_field_instances() {
   t('Año');
   t('Estado autoevaluación');
   t('Instituciones Involucradas');
+  t('Institución');
   t('Integrantes');
   t('Monto Presupuestario');
   t('Monto de Ejecución');
   t('Montos de Ejecución');
   t('Provincia, Cantón, Distrito');
-  t('Status autoevaluacion');
   t('Subtipo instancia');
   t('Tipo de instancia');
 
