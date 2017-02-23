@@ -13,29 +13,33 @@ function sngr_field_bases_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_meta_autoevaluacion|node|meta|form';
-  $field_group->group_name = 'group_meta_autoevaluacion';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'meta';
+  $field_group->identifier = 'group_institucional_info|user|user|form';
+  $field_group->group_name = 'group_institucional_info';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Autoevaluación',
-    'weight' => '8',
+    'label' => 'Información institucional',
+    'weight' => '2',
     'children' => array(
-      0 => 'field_status_autoevaluacion',
+      0 => 'field_cargo',
+      1 => 'field_departamento',
+      2 => 'field_institucion',
+      3 => 'field_institucion_user',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-meta-autoevaluacion field-group-tab',
+        'classes' => 'group-institucional-info field-group-fieldset',
         'required_fields' => 1,
+        'id' => '',
       ),
     ),
   );
-  $field_groups['group_meta_autoevaluacion|node|meta|form'] = $field_group;
+  $field_groups['group_institucional_info|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -68,7 +72,7 @@ function sngr_field_bases_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Agregar Miembros Comités');
-  t('Autoevaluación');
+  t('Información institucional');
 
   return $field_groups;
 }
