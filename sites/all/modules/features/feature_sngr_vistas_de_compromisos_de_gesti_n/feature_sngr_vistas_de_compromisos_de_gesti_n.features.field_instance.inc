@@ -987,7 +987,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
     'entity_type' => 'node',
     'field_name' => 'field_estado',
-    'label' => 'Estado',
+    'label' => 'Estado de la meta',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1797,7 +1797,7 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Eje');
   t('En caso de respuesta positiva en la anterior pregunta:  ¿Qué organización le ha brindado capacitación?');
   t('En el presente año, su organización ha recibido asesoría o capacitación en el tema de gestión del riesgo que sea pertinente a la ejecución de la meta asignada en el Plan NGR.');
-  t('Estado');
+  t('Estado de la meta');
   t('Fuente de verificación');
   t('Id-item');
   t('Institución ');

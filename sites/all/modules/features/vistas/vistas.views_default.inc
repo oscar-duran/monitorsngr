@@ -943,7 +943,7 @@ function vistas_views_default_views() {
     t('Nueva instancia'),
     t('<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">Nueva instancia</a>'),
     t('Nombre instancia'),
-    t('Tipo instancia'),
+    t('Tipo de instancia'),
     t('Page'),
   );
   $export['instancias_coordinacion'] = $view;
@@ -2375,9 +2375,6 @@ function vistas_views_default_views() {
     t('Lineamiento (field_codigo_lineamiento)'),
     t('Estado'),
     t('Nivel de avance'),
-    t('Nueva instancia'),
-    t('<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">Nueva instancia</a>'),
-    t('Nombre instancia'),
     t('Tipo de instancia'),
     t('Page'),
   );
@@ -3349,6 +3346,56 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
     8 => 0,
+  );
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['is_grouped'] = TRUE;
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['group_info']['label'] = 'Porcentaje de Avance';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['group_info']['identifier'] = 'field_porcentaje_de_avance_compr_value';
+  $handler->display->display_options['filters']['field_porcentaje_de_avance_compr_value']['group_info']['group_items'] = array(
+    1 => array(
+      'title' => 'Igual a 0',
+      'operator' => '=',
+      'value' => array(
+        'value' => '0',
+        'min' => '',
+        'max' => '',
+      ),
+    ),
+    2 => array(
+      'title' => 'Mayor a 0% hasta 25%',
+      'operator' => 'between',
+      'value' => array(
+        'value' => '25',
+        'min' => '0.0000001',
+        'max' => '25',
+      ),
+    ),
+    3 => array(
+      'title' => 'Mayor a 25% hasta 50%',
+      'operator' => 'between',
+      'value' => array(
+        'value' => '50',
+        'min' => '25.0000001',
+        'max' => '50',
+      ),
+    ),
+    4 => array(
+      'title' => 'Mayor a 50% hasta 75%',
+      'operator' => 'between',
+      'value' => array(
+        'value' => '50,0000001',
+        'min' => '50.0000001',
+        'max' => '75',
+      ),
+    ),
+    5 => array(
+      'title' => 'Mayor a 75% hasta 100%',
+      'operator' => 'between',
+      'value' => array(
+        'value' => '100',
+        'min' => '75.0000001',
+        'max' => '100',
+      ),
+    ),
   );
 
   /* Display: Page */
