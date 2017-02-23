@@ -2088,7 +2088,7 @@ TableTools.buttonBase = {
 	"sFieldBoundary": "",
 	"sFieldSeperator": "\t",
 	"sNewLine": "auto",
-	"mColumns": "all", /* "all", "visible", "hidden" or array of column integers */
+	"mColumns": "visible", /* "all", "visible", "hidden" or array of column integers */
 	"bHeader": true,
 	"bFooter": true,
 	"bOpenRows": false,
@@ -2152,10 +2152,11 @@ TableTools.BUTTONS = {
 
 	"pdf": $.extend( {}, TableTools.buttonBase, {
 		"sAction": "flash_pdf",
+		"bShowAll": false,
 		"sNewLine": "\n",
 		"sFileName": "*.pdf",
 		"sButtonClass": "DTTT_button_pdf",
-		"sButtonText": "PDF",
+		"sButtonText": "Guardar en PDF",
 		"sPdfOrientation": "portrait",
 		"sPdfSize": "A4",
 		"sPdfMessage": "",
@@ -2173,13 +2174,13 @@ TableTools.BUTTONS = {
 	} ),
 
 	"print": $.extend( {}, TableTools.buttonBase, {
-		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
-		  "print this table. Press escape when finished.",
+		"sInfo": "<h6>Imprimir vista</h6><p>Use la funcion de impresion del navegador para "+
+		  "imprimir esta tabla. Presione ESC cuando finalice.",
 		"sMessage": null,
-		"bShowAll": true,
+		"bShowAll": false,
 		"sToolTip": "View print view",
 		"sButtonClass": "DTTT_button_print",
-		"sButtonText": "Print",
+		"sButtonText": "Imprimir",
 		"fnClick": function ( nButton, oConfig ) {
 			this.fnPrint( true, oConfig );
 		}
@@ -2353,7 +2354,7 @@ TableTools.DEFAULTS = {
 	"fnPreRowSelect":  null,
 	"fnRowSelected":   null,
 	"fnRowDeselected": null,
-	"aButtons":        [ "copy", "pdf", "print" ],
+	"aButtons":        [ "pdf", "print" ],
 	"oTags": {
 		"container": "div",
 		"button": "a", // We really want to use buttons here, but Firefox and IE ignore the
