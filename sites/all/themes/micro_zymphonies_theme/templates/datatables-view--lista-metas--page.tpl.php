@@ -141,6 +141,7 @@ $valores_estad = return_estado_field();
 
 <!--  -->
   <?php if ($options['elements']['multi_filter']): ?>
+    
   <?php endif; ?>
 <!--  -->
   <?php endif; ?>
