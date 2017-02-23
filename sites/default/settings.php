@@ -658,6 +658,7 @@ $conf['master_modules']['base'] = array(
   'views',
   'views_content',
   'views_field_view',
+  'views_pdf',
   'webform_layout',
   'webform_matrix_component',
   'webform_shs',
