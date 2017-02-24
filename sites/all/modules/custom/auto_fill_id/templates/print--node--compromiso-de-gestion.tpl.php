@@ -149,13 +149,25 @@
                                                     <li class="sub-title">Productos:
                                                         <?php if(!empty($meta['entity']->field_producto)) : ?>
                                                         <?php foreach ($meta['entity']->field_producto[LANGUAGE_NONE] as $product_id) : ?>
-                                                          <?php $product = node_load($product_id['target_id']); ?>
+                                                          <?php
+                                                            $product = node_load($product_id['target_id']);
+                                                          ?>
                                                           <ul>
                                                               <li class="sub-title"><span><?php print $product->field_cod_producto_meta[LANGUAGE_NONE][0]['value']; ?></span>
                                                                   <ul>
                                                                       <li>Producto Esperado: <?php print $product->title; ?></li>
-                                                                      <li>Descripción de Fuente de Verificación: <?php print field_value($product->field_descripc_fuente_verifica, 0); ?></li>
-                                                                      <li>Fuente de Verificación: </li>
+                                                                      <li>Descripción de la fuente de verificación:<?php print field_value($product->field_descripc_fuente_verifica, 0); ?></li>
+                                                                      <li>Fuentes de Verificación:
+                                                                          <ul>
+                                                                            <?php foreach ($product->field_prod_fuente_verifica[LANGUAGE_NONE] as $file) : ?>
+                                                                                <?php
+                                                                                    $file_data = file_load($file['fid']);
+                                                                                    $url_file = file_create_url($file_data->uri);
+                                                                                ?>
+                                                                              <li><?php print $url_file; ?></li>
+                                                                            <?php endforeach; ?>
+                                                                          </ul>
+                                                                      </li>
                                                                   </ul>
                                                               </li>
                                                           </ul>
