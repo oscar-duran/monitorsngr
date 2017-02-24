@@ -4863,6 +4863,7 @@ function vistas_views_default_views() {
     'page' => 'page',
     'default' => 0,
   );
+  $handler->display->display_options['css_file'] = 'sites/all/themes/micro_zymphonies_theme/css/view-pdf-styling.css';
   $translatables['view_instituciones'] = array(
     t('Master'),
     t('View compromisos'),
