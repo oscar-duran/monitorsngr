@@ -1466,19 +1466,19 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
-  /* Campo: Campo: Lineamiento */
+  /* Campo: Campo: Código Lineamiento */
   $handler->display->display_options['fields']['field_codigo_lineamiento']['id'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['field'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Ámbito */
+  /* Campo: Campo: Codigo Ambito */
   $handler->display->display_options['fields']['field_codigo_ambito']['id'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['field'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_ambito']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Eje */
+  /* Campo: Campo: Código Eje */
   $handler->display->display_options['fields']['field_codigo_eje']['id'] = 'field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['field'] = 'field_codigo_eje';
@@ -1529,411 +1529,6 @@ function vistas_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'lista-metas';
-
-  /* Display: PDF Page */
-  $handler = $view->new_display('pdf', 'PDF Page', 'pdf_1');
-  $handler->display->display_options['style_plugin'] = 'pdf_table';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_institucion' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_meta' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_codigo_lineamiento' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_codigo_ambito' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_codigo_eje' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_year_compromiso' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_porcentaje_avance' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-    'field_status_autoevaluacion' => array(
-      'header_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'body_style' => array(
-        'text' => array(
-          'font_size' => '',
-          'font_family' => 'default',
-          'font_style' => array(
-            'b' => 0,
-            'i' => 0,
-            'u' => 0,
-            'd' => 0,
-            'o' => 0,
-          ),
-          'align' => NULL,
-          'hyphenate' => NULL,
-          'color' => '',
-        ),
-        'render' => array(
-          'is_html' => 1,
-        ),
-      ),
-      'position' => array(
-        'width' => '',
-      ),
-    ),
-  );
-  $handler->display->display_options['style_options']['position'] = array(
-    'last_writing_position' => 1,
-    'x' => '',
-    'y' => '',
-    'width' => '',
-    'row_height' => '',
-  );
-  $handler->display->display_options['path'] = 'metas-pdf';
-  $handler->display->display_options['displays'] = array(
-    'page' => 'page',
-    'default' => 0,
-  );
   $translatables['lista_metas'] = array(
     t('Master'),
     t('Listado de metas'),
@@ -1949,14 +1544,13 @@ function vistas_views_default_views() {
     t('Compromisos'),
     t('Institución '),
     t('Meta'),
-    t('Lineamiento'),
-    t('Ámbito'),
-    t('Eje'),
+    t('Código Lineamiento'),
+    t('Codigo Ambito'),
+    t('Código Eje'),
     t('Año de Creación'),
     t('Porcentaje avance'),
     t('Estado autoevaluación'),
     t('Page'),
-    t('PDF Page'),
   );
   $export['lista_metas'] = $view;
 
@@ -2669,7 +2263,7 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  /* Filter criterion: Campo: Código Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -2692,7 +2286,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Codigo Ambito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -2715,7 +2309,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Campo: Código Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
@@ -3540,7 +3134,7 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Campo: Monto Presupuestario */
+  /* Campo: Campo: Monto presupuestario */
   $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
@@ -3595,7 +3189,7 @@ function vistas_views_default_views() {
     t('field collection item from field_financiamiento'),
     t('Año'),
     t('Monto de Ejecución'),
-    t('Monto Presupuestario'),
+    t('Monto presupuestario'),
     t('Todo'),
     t('Block'),
   );
@@ -3728,7 +3322,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  /* Filter criterion: Campo: Código Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -3751,7 +3345,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Codigo Ambito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -3774,7 +3368,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Campo: Código Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
