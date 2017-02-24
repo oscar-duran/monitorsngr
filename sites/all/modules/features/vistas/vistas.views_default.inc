@@ -1698,6 +1698,411 @@ function vistas_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'lista-metas';
+
+  /* Display: PDF Page */
+  $handler = $view->new_display('pdf', 'PDF Page', 'pdf_1');
+  $handler->display->display_options['style_plugin'] = 'pdf_table';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_institucion' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_meta' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_codigo_lineamiento' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_codigo_ambito' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_codigo_eje' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_year_compromiso' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_porcentaje_avance' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+    'field_status_autoevaluacion' => array(
+      'header_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'body_style' => array(
+        'text' => array(
+          'font_size' => '',
+          'font_family' => 'default',
+          'font_style' => array(
+            'b' => 0,
+            'i' => 0,
+            'u' => 0,
+            'd' => 0,
+            'o' => 0,
+          ),
+          'align' => NULL,
+          'hyphenate' => NULL,
+          'color' => '',
+        ),
+        'render' => array(
+          'is_html' => 1,
+        ),
+      ),
+      'position' => array(
+        'width' => '',
+      ),
+    ),
+  );
+  $handler->display->display_options['style_options']['position'] = array(
+    'last_writing_position' => 1,
+    'x' => '',
+    'y' => '',
+    'width' => '',
+    'row_height' => '',
+  );
+  $handler->display->display_options['path'] = 'metas-pdf';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
   $translatables['lista_metas'] = array(
     t('Master'),
     t('Listado de metas'),
@@ -1720,6 +2125,7 @@ function vistas_views_default_views() {
     t('Porcentaje avance'),
     t('Estado autoevaluación'),
     t('Page'),
+    t('PDF Page'),
   );
   $export['lista_metas'] = $view;
 
@@ -4457,6 +4863,7 @@ function vistas_views_default_views() {
     'page' => 'page',
     'default' => 0,
   );
+  $handler->display->display_options['css_file'] = 'sites/all/themes/micro_zymphonies_theme/css/view-pdf-styling.css';
   $translatables['view_instituciones'] = array(
     t('Master'),
     t('View compromisos'),
