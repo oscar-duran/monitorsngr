@@ -589,6 +589,6 @@ function field_target_id(&$array, $id) {
 }
 
 function field_value(&$array, $id) {
-  return $array[LANGUAGE_NONE][$id]['value'];
+  return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
 }
 

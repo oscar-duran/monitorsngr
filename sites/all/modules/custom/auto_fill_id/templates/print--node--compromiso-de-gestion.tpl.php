@@ -110,32 +110,32 @@
                   <li>Lineamiento: <?php print empty($item->field_codigo_lineamiento) ? '' : $item->field_codigo_lineamiento[LANGUAGE_NONE][0]['taxonomy_term']->name; ?></li>
                   <li class="sub-title">Acciones Estratégicas:
                       <?php foreach ($item->field_accion_collect[LANGUAGE_NONE] as $action_id) : ?>
-                      <?php $action = field_collection_item_load($action_id['value']); // dpm($action); ?>
+                      <?php $action = field_collection_item_load($action_id['value']); ?>
                       <ul>
-                          <li class="sub-title"><span><?php print empty($action->field_codigo_accion_estrategica) ? '' : $action->field_codigo_accion_estrategica[LANGUAGE_NONE][0]['value']; ?></span>
+                          <li class="sub-title"><span><?php print field_value($action->field_codigo_accion_estrategica, 0); ?></span>
                               <ul>
-                                  <li>Descripción: <?php print empty($action->field_descripcion_accion) ? '' : $action->field_descripcion_accion[LANGUAGE_NONE][0]['value']; ?></li>
+                                  <li>Descripción: <?php print field_value($action->field_descripcion_accion, 0); ?></li>
                                   <li class="sub-title">Metas:
                                       <?php foreach ($action->field_meta[LANGUAGE_NONE] as $meta) : ?>
                                         <ul>
-                                            <li class="sub-title"><span><?php print $meta['entity']->field_meta_codigo[LANGUAGE_NONE][0]['value']; ?></span>
+                                            <li class="sub-title"><span><?php print field_value($meta['entity']->field_meta_codigo, 0); ?></span>
                                                 <ul>
                                                     <li>Detalle: <?php print $meta['entity']->title; ?></li>
                                                     <li>Descripción:
-                                                        <p><?php print empty($meta['entity']->field_meta_descripcion) ? '' : $meta['entity']->field_meta_descripcion[LANGUAGE_NONE][0]['value']; ?></p>
+                                                        <p><?php print field_value($meta['entity']->field_meta_descripcion, 0); ?></p>
                                                     </li>
                                                     <li>Porcentaje de Avance: <?php print empty($meta['entity']->field_porcentaje_avance) ? 0 : (($meta['entity']->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25); ?>%</li>
                                                     <!--<li>Comentario sobre avance: </li>-->
-                                                    <li>Año de Inicio: <?php print empty($meta['entity']->field_anno_ini_meta) ? '' : $meta['entity']->field_anno_ini_meta[LANGUAGE_NONE][0]['value']; ?></li>
-                                                    <li>Año Final: <?php print empty($meta['entity']->field_anno_fin_meta) ? '' : $meta['entity']->field_anno_fin_meta[LANGUAGE_NONE][0]['value']; ?></li>
+                                                    <li>Año de Inicio: <?php print field_value($meta['entity']->field_anno_ini_meta, 0); ?></li>
+                                                    <li>Año Final: <?php print field_value($meta['entity']->field_anno_fin_meta, 0); ?></li>
                                                     <li>Apecto positivo:
-                                                        <p><?php print empty($meta['entity']->field_aspecto_positivo) ? '' : $meta['entity']->field_aspecto_positivo[LANGUAGE_NONE][0]['value']; ?></p>
+                                                        <p><?php print field_value($meta['entity']->field_aspecto_positivo, 0); ?></p>
                                                     </li>
                                                     <li>Obstáculo:
-                                                        <p><?php print empty($meta['entity']->field_obstaculo) ? '' : $meta['entity']->field_obstaculo[LANGUAGE_NONE][0]['value']; ?></p>
+                                                        <p><?php print field_value($meta['entity']->field_obstaculo, 0); ?></p>
                                                     </li>
                                                     <li>¿Reciben Asesoría? <?php print $meta['entity']->field_recibio_asesoria_meta[LANGUAGE_NONE][0]['value'] ? 'Sí' : 'No'; ?></li>
-                                                    <li>Organización Asesora: <?php print empty($meta['entity']->field_organizacion_capacitadora) ? '' : $meta['entity']->field_organizacion_capacitadora[LANGUAGE_NONE][0]['value']; ?></li>
+                                                    <li>Organización Asesora: <?php print field_value($meta['entity']->field_organizacion_capacitadora, 0); ?></li>
                                                     <li>¿Su organización requiere asesoría? <?php print $meta['entity']->field_su_org_requiere_asesoria[LANGUAGE_NONE][0]['value'] ? 'Sí' : 'No'; ?></li>
                                                     <li>Temas de necesidades en asesoría:
                                                         <?php if(!empty($meta['entity']->field_tema_necesidad_meta)) : ?>
@@ -145,16 +145,16 @@
                                                             <?php endforeach; ?>
                                                         </ul>
                                                         <?php endif; ?>
-                                                    <li>Observaciones del Analista: <?php print empty($meta['entity']->field_observacion_del_analista) ? '' : $meta['entity']->field_observacion_del_analista[LANGUAGE_NONE][0]['value']; ?></li>
+                                                    <li>Observaciones del Analista: <?php print field_value($meta['entity']->field_observacion_del_analista, 0); ?></li>
                                                     <li class="sub-title">Productos:
                                                         <?php if(!empty($meta['entity']->field_producto)) : ?>
                                                         <?php foreach ($meta['entity']->field_producto[LANGUAGE_NONE] as $product_id) : ?>
-                                                          <?php $product = node_load($product_id['target_id']); // dpm($product); ?>
+                                                          <?php $product = node_load($product_id['target_id']); ?>
                                                           <ul>
                                                               <li class="sub-title"><span><?php print $product->field_cod_producto_meta[LANGUAGE_NONE][0]['value']; ?></span>
                                                                   <ul>
                                                                       <li>Producto Esperado: <?php print $product->title; ?></li>
-                                                                      <li>Descripción de Fuente de Verificación: <?php print empty($product->field_descripc_fuente_verifica) ? '' : $product->field_descripc_fuente_verifica[LANGUAGE_NONE][0]['value']; ?></li>
+                                                                      <li>Descripción de Fuente de Verificación: <?php print field_value($product->field_descripc_fuente_verifica, 0); ?></li>
                                                                       <li>Fuente de Verificación: </li>
                                                                   </ul>
                                                               </li>
