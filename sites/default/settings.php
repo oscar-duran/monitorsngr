@@ -650,6 +650,7 @@ $conf['master_modules']['base'] = array(
   'page_manager',
   'panels',
   'paragraphs',
+  'print_pdf',
   'rules',
   'rules_admin',
   'site_map',

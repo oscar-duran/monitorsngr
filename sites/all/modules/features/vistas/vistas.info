@@ -8,6 +8,7 @@ dependencies[] = datatables
 dependencies[] = editableviews
 dependencies[] = entityreference
 dependencies[] = libraries
+dependencies[] = print_pdf
 dependencies[] = views
 dependencies[] = views_pdf
 features[ctools][] = views:views_default:3.0
