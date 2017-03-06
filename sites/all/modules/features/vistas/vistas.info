@@ -3,6 +3,7 @@ description = Views para el sistema Monitor SNGR
 core = 7.x
 package = CNE Features
 version = 7.x-1.0
+dependencies[] = ctools
 dependencies[] = datatables
 dependencies[] = editableviews
 dependencies[] = entityreference
