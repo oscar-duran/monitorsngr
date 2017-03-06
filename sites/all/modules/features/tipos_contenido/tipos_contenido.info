@@ -36,6 +36,7 @@ features[field_instance][] = node-miembros-field_correo
 features[field_instance][] = node-miembros-field_estado_miembro
 features[field_instance][] = node-miembros-field_fecha
 features[field_instance][] = node-miembros-field_fecha_fin
+features[field_instance][] = node-miembros-field_institucion
 features[field_instance][] = node-miembros-field_rol
 features[field_instance][] = node-miembros-field_telefono
 features[node][] = instancia_coordinacion
@@ -136,5 +137,4 @@ features_exclude[field_instance][node-instancia_coordinacion-field_subinstancia2
 features_exclude[field_instance][node-instancia_coordinacion-field_subtipo_instancia] = node-instancia_coordinacion-field_subtipo_instancia
 features_exclude[field_instance][node-instancia_coordinacion-field_subtipo_instancia3] = node-instancia_coordinacion-field_subtipo_instancia3
 features_exclude[field_instance][node-instancia_coordinacion-field_ubicaci_n_geogr_fica] = node-instancia_coordinacion-field_ubicaci_n_geogr_fica
-features_exclude[field_instance][node-miembros-field_institucion] = node-miembros-field_institucion
 project path = sites/all/modules/features

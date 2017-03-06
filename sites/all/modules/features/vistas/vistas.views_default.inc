@@ -920,6 +920,26 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instancia_coordinacion' => 'instancia_coordinacion',
   );
+  /* Filter criterion: Contenido: Tipo de instancia (field_primera_lista) */
+  $handler->display->display_options['filters']['field_primera_lista_tid']['id'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['table'] = 'field_data_field_primera_lista';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['field'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator_id'] = 'field_primera_lista_tid_op';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['label'] = 'Tipo de instancia';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator'] = 'field_primera_lista_tid_op';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['identifier'] = 'field_primera_lista_tid';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['field_primera_lista_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_primera_lista_tid']['vocabulary'] = 'tipo_instancia';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1466,19 +1486,19 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
-  /* Campo: Campo: Código Lineamiento */
+  /* Campo: Campo: Lineamiento */
   $handler->display->display_options['fields']['field_codigo_lineamiento']['id'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['field'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Codigo Ambito */
+  /* Campo: Campo: Ámbito */
   $handler->display->display_options['fields']['field_codigo_ambito']['id'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['field'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_ambito']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Código Eje */
+  /* Campo: Campo: Eje */
   $handler->display->display_options['fields']['field_codigo_eje']['id'] = 'field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['field'] = 'field_codigo_eje';
@@ -1544,9 +1564,9 @@ function vistas_views_default_views() {
     t('Compromisos'),
     t('Institución '),
     t('Meta'),
-    t('Código Lineamiento'),
-    t('Codigo Ambito'),
-    t('Código Eje'),
+    t('Lineamiento'),
+    t('Ámbito'),
+    t('Eje'),
     t('Año de Creación'),
     t('Porcentaje avance'),
     t('Estado autoevaluación'),
@@ -2263,7 +2283,7 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Campo: Código Eje (field_codigo_eje) */
+  /* Filter criterion: Campo: Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -2286,7 +2306,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Codigo Ambito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -2309,7 +2329,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Código Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
@@ -3123,7 +3143,7 @@ function vistas_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Field collection item: Monto de Ejecución */
+  /* Campo: Campo: Monto de Ejecución */
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['id'] = 'field_monto_de_ejecucion';
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['table'] = 'field_data_field_monto_de_ejecucion';
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['field'] = 'field_monto_de_ejecucion';
@@ -3134,7 +3154,7 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Campo: Monto presupuestario */
+  /* Campo: Campo: Monto Presupuestario */
   $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
@@ -3189,7 +3209,7 @@ function vistas_views_default_views() {
     t('field collection item from field_financiamiento'),
     t('Año'),
     t('Monto de Ejecución'),
-    t('Monto presupuestario'),
+    t('Monto Presupuestario'),
     t('Todo'),
     t('Block'),
   );
@@ -3322,7 +3342,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Campo: Código Eje (field_codigo_eje) */
+  /* Filter criterion: Campo: Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -3345,7 +3365,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Codigo Ambito (field_codigo_ambito) */
+  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -3368,7 +3388,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Código Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
