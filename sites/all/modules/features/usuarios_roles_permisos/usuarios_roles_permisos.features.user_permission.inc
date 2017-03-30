@@ -720,15 +720,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'feeds',
   );
 
-  // Exported permission: 'create accion_estrategica_de_compromiso content'.
-  $permissions['create accion_estrategica_de_compromiso content'] = array(
-    'name' => 'create accion_estrategica_de_compromiso content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create article content'.
   $permissions['create article content'] = array(
     'name' => 'create article content',
@@ -896,13 +887,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'webform',
   );
 
-  // Exported permission: 'delete any accion_estrategica_de_compromiso content'.
-  $permissions['delete any accion_estrategica_de_compromiso content'] = array(
-    'name' => 'delete any accion_estrategica_de_compromiso content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any article content'.
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
@@ -1023,13 +1007,6 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete any webform content'.
   $permissions['delete any webform content'] = array(
     'name' => 'delete any webform content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own accion_estrategica_de_compromiso content'.
-  $permissions['delete own accion_estrategica_de_compromiso content'] = array(
-    'name' => 'delete own accion_estrategica_de_compromiso content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1281,15 +1258,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'webform',
   );
 
-  // Exported permission: 'edit any accion_estrategica_de_compromiso content'.
-  $permissions['edit any accion_estrategica_de_compromiso content'] = array(
-    'name' => 'edit any accion_estrategica_de_compromiso content',
-    'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any article content'.
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
@@ -1433,16 +1401,6 @@ function usuarios_roles_permisos_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'media',
-  );
-
-  // Exported permission: 'edit own accion_estrategica_de_compromiso content'.
-  $permissions['edit own accion_estrategica_de_compromiso content'] = array(
-    'name' => 'edit own accion_estrategica_de_compromiso content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: 'edit own article content'.
