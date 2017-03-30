@@ -175,7 +175,46 @@ function vocabularios_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
-      'weight' => 31,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'taxonomy_term-meta-field_productos_relacionados'.
+  $field_instances['taxonomy_term-meta-field_productos_relacionados'] = array(
+    'bundle' => 'meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_productos_relacionados',
+    'label' => 'Productos Relacionados',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 1,
+        'references_dialog_edit' => 1,
+        'references_dialog_search' => 1,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 3,
     ),
   );
 
@@ -426,9 +465,10 @@ function vocabularios_field_default_field_instances() {
   t('Espacio para agregar una descripcion del producto');
   t('Instituciones Involucradas');
   t('Lineamiento');
-  t('Ámbito');
+  t('Productos Relacionados');
   t('descripcion del producto');
   t('detalle del producto');
+  t('Ámbito');
 
   return $field_instances;
 }

@@ -22,6 +22,7 @@ features[field_instance][] = taxonomy_term-accion_estrategica-field_ambito
 features[field_instance][] = taxonomy_term-accion_estrategica-field_eje
 features[field_instance][] = taxonomy_term-accion_estrategica-field_lineamiento
 features[field_instance][] = taxonomy_term-meta-field_accion_estrategica
+features[field_instance][] = taxonomy_term-meta-field_productos_relacionados
 features[field_instance][] = taxonomy_term-producto-field_anno_fin_meta
 features[field_instance][] = taxonomy_term-producto-field_anno_ini_meta
 features[field_instance][] = taxonomy_term-producto-field_cod_producto_meta
