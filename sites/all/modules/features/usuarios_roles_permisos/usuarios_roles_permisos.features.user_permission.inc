@@ -1220,6 +1220,13 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'delete terms in producto'.
+  $permissions['delete terms in producto'] = array(
+    'name' => 'delete terms in producto',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in provincia_canton_distrito'.
   $permissions['delete terms in provincia_canton_distrito'] = array(
     'name' => 'delete terms in provincia_canton_distrito',
@@ -1633,6 +1640,13 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit terms in lineamiento'.
   $permissions['edit terms in lineamiento'] = array(
     'name' => 'edit terms in lineamiento',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in producto'.
+  $permissions['edit terms in producto'] = array(
+    'name' => 'edit terms in producto',
     'roles' => array(),
     'module' => 'taxonomy',
   );

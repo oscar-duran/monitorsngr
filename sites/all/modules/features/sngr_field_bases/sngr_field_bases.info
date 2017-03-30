@@ -87,6 +87,7 @@ features[field_base][] = field_documento_referencia
 features[field_base][] = field_eje
 features[field_base][] = field_enlace_institucional
 features[field_base][] = field_estado
+features[field_base][] = field_evaluar_producto
 features[field_base][] = field_extension
 features[field_base][] = field_fase
 features[field_base][] = field_fecha
