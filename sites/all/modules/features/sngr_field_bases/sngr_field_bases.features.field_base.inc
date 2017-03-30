@@ -953,30 +953,6 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_descripc_fuente_verifica'.
-  $field_bases['field_descripc_fuente_verifica'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_descripc_fuente_verifica',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 100,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
   // Exported field_base: 'field_descripcion_del_producto'.
   $field_bases['field_descripcion_del_producto'] = array(
     'active' => 1,
@@ -2739,66 +2715,6 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_prod_fuente_verifica'.
-  $field_bases['field_prod_fuente_verifica'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_prod_fuente_verifica',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'media',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'media',
-  );
-
-  // Exported field_base: 'field_producto'.
-  $field_bases['field_producto'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_producto',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'producto_meta' => 'producto_meta',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_programas_proyectos_accion'.

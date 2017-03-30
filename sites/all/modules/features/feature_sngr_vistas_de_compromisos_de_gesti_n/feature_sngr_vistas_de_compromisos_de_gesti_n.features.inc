@@ -40,14 +40,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_node_info() {
       'title_label' => t('Detalle'),
       'help' => '',
     ),
-    'producto_meta' => array(
-      'name' => t('Producto meta'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Producto esperado'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
