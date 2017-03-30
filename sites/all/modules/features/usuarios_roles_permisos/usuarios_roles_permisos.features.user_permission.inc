@@ -1162,52 +1162,90 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete terms in accion_a_ejecutar'.
+  $permissions['delete terms in accion_a_ejecutar'] = array(
+    'name' => 'delete terms in accion_a_ejecutar',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in accion_estrategica'.
   $permissions['delete terms in accion_estrategica'] = array(
     'name' => 'delete terms in accion_estrategica',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in ambito'.
   $permissions['delete terms in ambito'] = array(
     'name' => 'delete terms in ambito',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in ambito_eje_lineamiento_accion'.
   $permissions['delete terms in ambito_eje_lineamiento_accion'] = array(
     'name' => 'delete terms in ambito_eje_lineamiento_accion',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in eje'.
   $permissions['delete terms in eje'] = array(
     'name' => 'delete terms in eje',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in lineamiento'.
   $permissions['delete terms in lineamiento'] = array(
     'name' => 'delete terms in lineamiento',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in meta'.
+  $permissions['delete terms in meta'] = array(
+    'name' => 'delete terms in meta',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in provincia_canton_distrito'.
   $permissions['delete terms in provincia_canton_distrito'] = array(
     'name' => 'delete terms in provincia_canton_distrito',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in sector_estructural_afectado'.
   $permissions['delete terms in sector_estructural_afectado'] = array(
     'name' => 'delete terms in sector_estructural_afectado',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1226,6 +1264,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete terms in tipos_de_institucion',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1235,6 +1274,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete terms in tipos_instancia',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1560,52 +1600,90 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'webform',
   );
 
+  // Exported permission: 'edit terms in accion_a_ejecutar'.
+  $permissions['edit terms in accion_a_ejecutar'] = array(
+    'name' => 'edit terms in accion_a_ejecutar',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit terms in accion_estrategica'.
   $permissions['edit terms in accion_estrategica'] = array(
     'name' => 'edit terms in accion_estrategica',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in ambito'.
   $permissions['edit terms in ambito'] = array(
     'name' => 'edit terms in ambito',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in ambito_eje_lineamiento_accion'.
   $permissions['edit terms in ambito_eje_lineamiento_accion'] = array(
     'name' => 'edit terms in ambito_eje_lineamiento_accion',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in eje'.
   $permissions['edit terms in eje'] = array(
     'name' => 'edit terms in eje',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in lineamiento'.
   $permissions['edit terms in lineamiento'] = array(
     'name' => 'edit terms in lineamiento',
-    'roles' => array(),
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in meta'.
+  $permissions['edit terms in meta'] = array(
+    'name' => 'edit terms in meta',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in provincia_canton_distrito'.
   $permissions['edit terms in provincia_canton_distrito'] = array(
     'name' => 'edit terms in provincia_canton_distrito',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in sector_estructural_afectado'.
   $permissions['edit terms in sector_estructural_afectado'] = array(
     'name' => 'edit terms in sector_estructural_afectado',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1624,6 +1702,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'edit terms in tipos_de_institucion',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1633,6 +1712,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'edit terms in tipos_instancia',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
