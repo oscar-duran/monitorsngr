@@ -140,8 +140,48 @@ function vocabularios_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-meta-field_accion_estrategica'.
+  $field_instances['taxonomy_term-meta-field_accion_estrategica'] = array(
+    'bundle' => 'meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_accion_estrategica',
+    'label' => 'Acción Estratégica',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 1,
+        'references_dialog_edit' => 1,
+        'references_dialog_search' => 1,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 31,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acción Estratégica');
   t('Eje');
   t('Lineamiento');
   t('Ámbito');

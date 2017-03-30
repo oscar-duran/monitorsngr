@@ -36,6 +36,7 @@ features[field_base][] = comment_body
 features[field_base][] = field_accion
 features[field_base][] = field_accion_collect
 features[field_base][] = field_accion_ejecutar
+features[field_base][] = field_accion_estrategica
 features[field_base][] = field_acciones_obras_realizar
 features[field_base][] = field_acuerdo_de_junta_directiva
 features[field_base][] = field_afecta_actividad_productos
