@@ -13,6 +13,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_evaluacion_de_metas';
+  $strongarm->value = 0;
+  $export['comment_anonymous_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_instancia_coordinacion';
   $strongarm->value = 0;
   $export['comment_anonymous_instancia_coordinacion'] = $strongarm;
@@ -23,6 +30,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_anonymous_miembros';
   $strongarm->value = 0;
   $export['comment_anonymous_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_evaluacion_de_metas';
+  $strongarm->value = 1;
+  $export['comment_default_mode_evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -41,6 +55,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_evaluacion_de_metas';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_instancia_coordinacion';
   $strongarm->value = '10';
   $export['comment_default_per_page_instancia_coordinacion'] = $strongarm;
@@ -51,6 +72,20 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_default_per_page_miembros';
   $strongarm->value = '50';
   $export['comment_default_per_page_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_evaluacion_de_metas';
+  $strongarm->value = '2';
+  $export['comment_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_evaluacion_de_metas';
+  $strongarm->value = 1;
+  $export['comment_form_location_evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -83,6 +118,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_evaluacion_de_metas';
+  $strongarm->value = '1';
+  $export['comment_preview_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_instancia_coordinacion';
   $strongarm->value = '0';
   $export['comment_preview_instancia_coordinacion'] = $strongarm;
@@ -97,6 +139,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_evaluacion_de_metas';
+  $strongarm->value = 1;
+  $export['comment_subject_field_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_instancia_coordinacion';
   $strongarm->value = 0;
   $export['comment_subject_field_instancia_coordinacion'] = $strongarm;
@@ -107,6 +156,39 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_subject_field_miembros';
   $strongarm->value = 1;
   $export['comment_subject_field_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_field_collection_item__field_evaluar_producto';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_field_collection_item__field_evaluar_producto'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__evaluacion_de_metas';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -207,6 +289,36 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_taxonomy_term__producto';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'path' => array(
+          'weight' => '2',
+        ),
+        'name' => array(
+          'weight' => '0',
+        ),
+        'description' => array(
+          'weight' => '1',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_taxonomy_term__producto'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_evaluacion_de_metas';
+  $strongarm->value = '0';
+  $export['language_content_type_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_instancia_coordinacion';
   $strongarm->value = '0';
   $export['language_content_type_instancia_coordinacion'] = $strongarm;
@@ -217,6 +329,15 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'language_content_type_miembros';
   $strongarm->value = '0';
   $export['language_content_type_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_evaluacion_de_metas';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -239,6 +360,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_evaluacion_de_metas';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_instancia_coordinacion';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_instancia_coordinacion'] = $strongarm;
@@ -249,6 +377,16 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'menu_parent_miembros';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_evaluacion_de_metas';
+  $strongarm->value = array(
+    0 => 'status',
+    1 => 'promote',
+  );
+  $export['node_options_evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -273,6 +411,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_evaluacion_de_metas';
+  $strongarm->value = '1';
+  $export['node_preview_evaluacion_de_metas'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_instancia_coordinacion';
   $strongarm->value = '1';
   $export['node_preview_instancia_coordinacion'] = $strongarm;
@@ -283,6 +428,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'node_preview_miembros';
   $strongarm->value = '1';
   $export['node_preview_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_evaluacion_de_metas';
+  $strongarm->value = 1;
+  $export['node_submitted_evaluacion_de_metas'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -311,34 +463,6 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'pathauto_node_miembros_pattern';
   $strongarm->value = 'integrantes/[node:title]';
   $export['pathauto_node_miembros_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_lista_2_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_lista_2_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_lista_3_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_lista_3_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_rol_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_rol_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_tipo_instancia_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_tipo_instancia_pattern'] = $strongarm;
 
   return $export;
 }

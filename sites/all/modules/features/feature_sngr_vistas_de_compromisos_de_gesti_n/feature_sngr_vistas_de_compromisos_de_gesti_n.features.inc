@@ -32,22 +32,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_node_info() {
       'title_label' => t('Compromiso de gestión'),
       'help' => '',
     ),
-    'meta' => array(
-      'name' => t('Meta'),
-      'base' => 'node_content',
-      'description' => t('Meta de un compromiso de gestión.'),
-      'has_title' => '1',
-      'title_label' => t('Detalle'),
-      'help' => '',
-    ),
-    'producto_meta' => array(
-      'name' => t('Producto meta'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Producto esperado'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
