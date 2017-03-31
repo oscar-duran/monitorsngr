@@ -90,6 +90,16 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_descripc_fuente_verifica'.
+  $permissions['create field_descripc_fuente_verifica'] = array(
+    'name' => 'create field_descripc_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_estado'.
   $permissions['create field_estado'] = array(
     'name' => 'create field_estado',
@@ -209,7 +219,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-
   // Exported permission: 'create field_recibio_asesoria_meta'.
   $permissions['create field_recibio_asesoria_meta'] = array(
     'name' => 'create field_recibio_asesoria_meta',
@@ -311,6 +320,16 @@ function sngr_field_bases_user_default_permissions() {
     'name' => 'edit field_codigo_lineamiento',
     'roles' => array(
       'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_descripc_fuente_verifica'.
+  $permissions['edit field_descripc_fuente_verifica'] = array(
+    'name' => 'edit field_descripc_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -444,7 +463,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-
   // Exported permission: 'edit field_su_org_requiere_asesoria'.
   $permissions['edit field_su_org_requiere_asesoria'] = array(
     'name' => 'edit field_su_org_requiere_asesoria',
@@ -464,7 +482,6 @@ function sngr_field_bases_user_default_permissions() {
     ),
     'module' => 'field_permissions',
   );
-
 
   // Exported permission: 'edit own field_accion_ejecutar'.
   $permissions['edit own field_accion_ejecutar'] = array(
@@ -542,6 +559,16 @@ function sngr_field_bases_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_descripc_fuente_verifica'.
+  $permissions['edit own field_descripc_fuente_verifica'] = array(
+    'name' => 'edit own field_descripc_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -695,7 +722,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-
   // Exported permission: 'view field_accion_ejecutar'.
   $permissions['view field_accion_ejecutar'] = array(
     'name' => 'view field_accion_ejecutar',
@@ -783,6 +809,16 @@ function sngr_field_bases_user_default_permissions() {
       'analista-sngr' => 'analista-sngr',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view field_descripc_fuente_verifica'.
+  $permissions['view field_descripc_fuente_verifica'] = array(
+    'name' => 'view field_descripc_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
@@ -1035,6 +1071,16 @@ function sngr_field_bases_user_default_permissions() {
       'analista-sngr' => 'analista-sngr',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_descripc_fuente_verifica'.
+  $permissions['view own field_descripc_fuente_verifica'] = array(
+    'name' => 'view own field_descripc_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',

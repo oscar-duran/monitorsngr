@@ -189,7 +189,7 @@ function tipos_contenido_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 10,
+      'weight' => 3,
     ),
   );
 
@@ -621,7 +621,7 @@ function tipos_contenido_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -666,7 +666,7 @@ function tipos_contenido_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
-      'weight' => 4,
+      'weight' => 1,
     ),
   );
 
@@ -1423,8 +1423,8 @@ function tipos_contenido_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción a seguir');
-  t('Año de Creación');
   t('Aspecto positivo');
+  t('Año de Creación');
   t('Body');
   t('Comentario porcentaje avance');
   t('Correo');
@@ -1438,11 +1438,11 @@ function tipos_contenido_field_default_field_instances() {
   t('Meta');
   t('Notificar analista');
   t('Notificar institucional');
-  t('Porcentaje de Avance');
   t('Observaciones del analista');
   t('Obstáculo');
   t('Organización asesora');
   t('Porcentaje avance');
+  t('Porcentaje de Avance');
   t('Porcentaje de avance de la meta');
   t('Referencia al producto');
   t('Referencia de la entidad evaluar metas');

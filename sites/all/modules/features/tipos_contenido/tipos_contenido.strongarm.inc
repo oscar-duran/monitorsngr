@@ -256,7 +256,7 @@ function tipos_contenido_strongarm() {
           'weight' => '2',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
@@ -276,7 +276,7 @@ function tipos_contenido_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '1',
+          'weight' => '5',
         ),
       ),
       'display' => array(),
