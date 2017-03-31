@@ -501,7 +501,84 @@ function tipos_contenido_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-evaluacion_de_metas-field_aspecto_positivo'.
+  $field_instances['node-evaluacion_de_metas-field_aspecto_positivo'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_aspecto_positivo',
+    'label' => 'Aspecto positivo',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-evaluacion_de_metas-field_estado'.
+  $field_instances['node-evaluacion_de_metas-field_estado'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_estado',
+    'label' => 'Estado de la meta',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 17,
     ),
   );
 
@@ -544,7 +621,370 @@ function tipos_contenido_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 32,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-evaluacion_de_metas-field_meta_tax'.
+  $field_instances['node-evaluacion_de_metas-field_meta_tax'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_meta_tax',
+    'label' => 'Meta',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_observacion_del_analista'.
+  $field_instances['node-evaluacion_de_metas-field_observacion_del_analista'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_observacion_del_analista',
+    'label' => 'Observaciones del analista',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance: 'node-evaluacion_de_metas-field_obstaculo'.
+  $field_instances['node-evaluacion_de_metas-field_obstaculo'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_obstaculo',
+    'label' => 'Obstáculo',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_organizacion_capacitadora'.
+  $field_instances['node-evaluacion_de_metas-field_organizacion_capacitadora'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_organizacion_capacitadora',
+    'label' => 'Organización asesora',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_porcentaje_avance'.
+  $field_instances['node-evaluacion_de_metas-field_porcentaje_avance'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Porcentaje de avance de la meta',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_porcentaje_avance',
+    'label' => 'Porcentaje avance',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_porcentaje_avance_coment'.
+  $field_instances['node-evaluacion_de_metas-field_porcentaje_avance_coment'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_porcentaje_avance_coment',
+    'label' => 'Comentario porcentaje avance',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_recibio_asesoria_meta'.
+  $field_instances['node-evaluacion_de_metas-field_recibio_asesoria_meta'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_recibio_asesoria_meta',
+    'label' => '¿Reciben Asesoría?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 12,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_su_org_requiere_asesoria'.
+  $field_instances['node-evaluacion_de_metas-field_su_org_requiere_asesoria'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_su_org_requiere_asesoria',
+    'label' => '¿Su organización requiere asesorías?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_tema_necesidad_meta'.
+  $field_instances['node-evaluacion_de_metas-field_tema_necesidad_meta'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_tema_necesidad_meta',
+    'label' => 'Tema de necesidades en asesoría',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 15,
     ),
   );
 
@@ -984,26 +1424,38 @@ function tipos_contenido_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Acción a seguir');
   t('Año de Creación');
+  t('Aspecto positivo');
   t('Body');
+  t('Comentario porcentaje avance');
   t('Correo');
   t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
   t('Estado actual del representante');
+  t('Estado de la meta');
   t('Fin');
   t('Fuente de verificación');
   t('Inicio');
   t('Institución ');
+  t('Meta');
   t('Notificar analista');
   t('Notificar institucional');
   t('Porcentaje de Avance');
+  t('Observaciones del analista');
+  t('Obstáculo');
+  t('Organización asesora');
+  t('Porcentaje avance');
+  t('Porcentaje de avance de la meta');
   t('Referencia al producto');
   t('Referencia de la entidad evaluar metas');
   t('Rol');
   t('Teléfono');
+  t('Tema de necesidades en asesoría');
   t('Tipo instancia');
   t('evaluar metas');
   t('evaluar producto');
   t('id_compromiso');
   t('producto');
+  t('¿Reciben Asesoría?');
+  t('¿Su organización requiere asesorías?');
 
   return $field_instances;
 }

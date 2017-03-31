@@ -11,6 +11,41 @@ function sngr_field_bases_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
+  // 'field_collection_item-field_evaluar_producto-field_descripc_fuente_verifica'.
+  $field_instances['field_collection_item-field_evaluar_producto-field_descripc_fuente_verifica'] = array(
+    'bundle' => 'field_evaluar_producto',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_descripc_fuente_verifica',
+    'label' => 'descripc fuente verifica',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_financiamiento-field_anno'.
   $field_instances['field_collection_item-field_financiamiento-field_anno'] = array(
     'bundle' => 'field_financiamiento',
@@ -572,6 +607,7 @@ function sngr_field_bases_field_default_field_instances() {
   t('Provincia, Cantón, Distrito');
   t('Subtipo instancia');
   t('Tipo de instancia');
+  t('descripc fuente verifica');
 
   return $field_instances;
 }
