@@ -32,6 +32,52 @@ function vocabularios_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'accion_estrategica' => array(
+      'name' => 'Acción estratégica',
+      'machine_name' => 'accion_estrategica',
+      'description' => 'Acción estratégica',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'meta' => array(
+      'name' => 'Meta',
+      'machine_name' => 'meta',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'producto' => array(
       'name' => 'Producto',
       'machine_name' => 'producto',

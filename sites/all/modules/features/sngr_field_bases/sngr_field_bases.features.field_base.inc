@@ -105,36 +105,30 @@ function sngr_field_bases_field_default_field_bases() {
   // Exported field_base: 'field_accion_estrategica'.
   $field_bases['field_accion_estrategica'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_accion_estrategica',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'entityreference',
+    'module' => 'taxonomy',
     'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'accion_estrategica_de_compromiso' => 'accion_estrategica_de_compromiso',
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'accion_estrategica',
+          'parent' => 0,
         ),
       ),
-      'target_type' => 'node',
     ),
     'translatable' => 0,
-    'type' => 'entityreference',
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_acciones_obras_realizar'.
@@ -2770,6 +2764,35 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_producto',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'producto',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_productos_relacionados'.
+  $field_bases['field_productos_relacionados'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_productos_relacionados',
     'field_permissions' => array(
       'type' => 0,
     ),

@@ -154,6 +154,7 @@ features[field_base][] = field_presupuesto
 features[field_base][] = field_primera_lista
 features[field_base][] = field_prod_fuente_verifica
 features[field_base][] = field_producto
+features[field_base][] = field_productos_relacionados
 features[field_base][] = field_programas_proyectos_accion
 features[field_base][] = field_recibio_asesoria
 features[field_base][] = field_recibio_asesoria_meta
