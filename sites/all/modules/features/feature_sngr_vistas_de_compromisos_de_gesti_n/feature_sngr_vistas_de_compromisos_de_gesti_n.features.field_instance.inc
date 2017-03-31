@@ -1362,85 +1362,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
-  // Exported field_instance: 'node-meta-field_producto'.
-  $field_instances['node-meta-field_producto'] = array(
-    'bundle' => 'meta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 10,
-      ),
-      'editable' => array(
-        'label' => 'inline',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 10,
-      ),
-      'full' => array(
-        'label' => 'inline',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => 1,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 12,
-      ),
-    ),
-    'entity_type' => 'node',
-    'entityconnect' => array(
-      'button' => array(
-        'unload_add_button' => 1,
-        'unload_edit_button' => 1,
-      ),
-      'icon' => array(
-        'show_add_icon' => 0,
-        'show_edit_icon' => 0,
-      ),
-    ),
-    'field_name' => 'field_producto',
-    'label' => 'Producto esperado',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'inline_entity_form',
-      'settings' => array(
-        'fields' => array(),
-        'type_settings' => array(
-          'allow_clone' => 0,
-          'allow_existing' => 0,
-          'allow_new' => 1,
-          'delete_references' => 0,
-          'label_plural' => 'nodes',
-          'label_singular' => 'nodo',
-          'match_operator' => 'CONTAINS',
-          'override_labels' => 0,
-        ),
-      ),
-      'type' => 'inline_entity_form',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'node-meta-field_recibio_asesoria_meta'.
   $field_instances['node-meta-field_recibio_asesoria_meta'] = array(
     'bundle' => 'meta',
@@ -1601,182 +1522,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
     ),
   );
 
-  // Exported field_instance: 'node-producto_meta-field_cod_producto_meta'.
-  $field_instances['node-producto_meta-field_cod_producto_meta'] = array(
-    'bundle' => 'producto_meta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 5,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_cod_producto_meta',
-    'label' => 'Código Producto',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-producto_meta-field_descripc_fuente_verifica'.
-  $field_instances['node-producto_meta-field_descripc_fuente_verifica'] = array(
-    'bundle' => 'producto_meta',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_descripc_fuente_verifica',
-    'label' => 'Descripción Fuente Verificación',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-producto_meta-field_nombre_manual'.
-  $field_instances['node-producto_meta-field_nombre_manual'] = array(
-    'bundle' => 'producto_meta',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_nombre_manual',
-    'label' => 'Nombre manual',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 0,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance: 'node-producto_meta-field_prod_fuente_verifica'.
-  $field_instances['node-producto_meta-field_prod_fuente_verifica'] = array(
-    'bundle' => 'producto_meta',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'media',
-        'settings' => array(
-          'file_view_mode' => 'default',
-        ),
-        'type' => 'media',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_prod_fuente_verifica',
-    'label' => 'Fuente de verificación',
-    'required' => 0,
-    'settings' => array(
-      'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'private' => 'private',
-          'public' => 'public',
-        ),
-        'allowed_types' => array(
-          0 => 0,
-          'audio' => 0,
-          'default' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'media_generic',
-      'weight' => 3,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción Estratégica');
@@ -1788,17 +1533,14 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Considera que su organización tiene necesidades de asesoría o de capacitación en gestión del riesgo.');
   t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
   t('Código');
-  t('Código Producto');
   t('Código de Acción estratégica');
   t('Describa tres aspectos positivos que han contribuido a que su organización cumpla las metas asignadas en el Plan NGR');
   t('Describa tres obstáculos que ha tenido su organización para el cumplimiento de la meta.');
   t('Descripción');
-  t('Descripción Fuente Verificación');
   t('Eje');
   t('En caso de respuesta positiva en la anterior pregunta:  ¿Qué organización le ha brindado capacitación?');
   t('En el presente año, su organización ha recibido asesoría o capacitación en el tema de gestión del riesgo que sea pertinente a la ejecución de la meta asignada en el Plan NGR.');
   t('Estado de la meta');
-  t('Fuente de verificación');
   t('Id-item');
   t('Institución ');
   t('Item de Compromiso');
@@ -1812,7 +1554,6 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_field_default_field_insta
   t('Organización asesora');
   t('Porcentaje avance');
   t('Porcentaje de Avance');
-  t('Producto esperado');
   t('Tema de necesidades en asesoría');
   t('id_compromiso');
   t('¿Cuánto ha avanzado su organización en el cumplimiento de la meta?');
