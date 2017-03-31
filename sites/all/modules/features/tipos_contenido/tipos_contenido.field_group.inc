@@ -57,13 +57,14 @@ function tipos_contenido_field_group_info() {
       0 => 'field_porcentaje_avance',
       1 => 'field_porcentaje_avance_coment',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-meta-avance field-group-tab',
+        'classes' => '',
         'required_fields' => 1,
+        'id' => '',
       ),
     ),
   );
@@ -82,8 +83,8 @@ function tipos_contenido_field_group_info() {
     'label' => 'Estado',
     'weight' => '19',
     'children' => array(
-      0 => 'field_observacion_del_analista',
-      1 => 'field_estado',
+      0 => 'field_estado',
+      1 => 'field_observacion_del_analista',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -114,13 +115,14 @@ function tipos_contenido_field_group_info() {
       0 => 'field_obstaculo',
       1 => 'field_aspecto_positivo',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-meta-obsevaciones field-group-tab',
+        'classes' => '',
         'required_fields' => 1,
+        'id' => '',
       ),
     ),
   );
