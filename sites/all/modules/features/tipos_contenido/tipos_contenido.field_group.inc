@@ -13,6 +13,94 @@ function tipos_contenido_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_basic_information|node|compromiso_de_gestion|form';
+  $field_group->group_name = 'group_basic_information';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'compromiso_de_gestion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_htabs_compromiso';
+  $field_group->data = array(
+    'label' => 'Información Básica',
+    'weight' => '11',
+    'children' => array(
+      0 => 'field_accion_ejecutar',
+      1 => 'field_institucion',
+      2 => 'field_year_compromiso',
+      3 => 'field_porcentaje_de_avance_compr',
+      4 => 'field_notificar_analista',
+      5 => 'field_notificar_institucional',
+      6 => 'field_id_compromiso',
+      7 => 'title',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_basic_information|node|compromiso_de_gestion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_htabs_compromiso|node|compromiso_de_gestion|form';
+  $field_group->group_name = 'group_htabs_compromiso';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'compromiso_de_gestion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Horizontal Tabs Group',
+    'weight' => '0',
+    'children' => array(
+      0 => 'group_metas',
+      1 => 'group_basic_information',
+    ),
+    'format_type' => 'htabs',
+    'format_settings' => array(
+      'formatter' => '',
+      'instance_settings' => array(
+        'classes' => 'group-htabs-compromiso field-group-htabs',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_htabs_compromiso|node|compromiso_de_gestion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_metas|node|compromiso_de_gestion|form';
+  $field_group->group_name = 'group_metas';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'compromiso_de_gestion';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_htabs_compromiso';
+  $field_group->data = array(
+    'label' => 'Metas Group',
+    'weight' => '12',
+    'children' => array(
+      0 => 'field_evaluar_metas',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-metas field-group-htab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_metas|node|compromiso_de_gestion|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_vigencia|node|miembros|form';
   $field_group->group_name = 'group_vigencia';
   $field_group->entity_type = 'node';
@@ -41,6 +129,9 @@ function tipos_contenido_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Horizontal Tabs Group');
+  t('Información Básica');
+  t('Metas Group');
   t('Vigencia');
 
   return $field_groups;

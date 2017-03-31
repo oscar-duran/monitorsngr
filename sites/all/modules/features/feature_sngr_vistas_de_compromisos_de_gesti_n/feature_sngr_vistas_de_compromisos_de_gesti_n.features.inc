@@ -18,21 +18,3 @@ function feature_sngr_vistas_de_compromisos_de_gesti_n_ctools_plugin_api($module
     return array("version" => "1");
   }
 }
-
-/**
- * Implements hook_node_info().
- */
-function feature_sngr_vistas_de_compromisos_de_gesti_n_node_info() {
-  $items = array(
-    'compromiso_de_gestion' => array(
-      'name' => t('Compromiso de gestión'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Compromiso de gestión'),
-      'help' => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
-}
