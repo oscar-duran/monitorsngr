@@ -36,7 +36,7 @@ function auto_fill_id_node_insert($node)
 /**
  * Implements hook_theme_registry_alter().
  */
-function auto_fill_id_theme_registry_alter(&$theme_registry) {
+/*function auto_fill_id_theme_registry_alter(&$theme_registry) {
   $module_path = drupal_get_path('module', 'auto_fill_id');
   $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
   foreach ($template_file_objects as $key => $template_file) {
@@ -46,15 +46,15 @@ function auto_fill_id_theme_registry_alter(&$theme_registry) {
       $theme_registry[$key]['type'] = 'module';
     }
   }
-}
+}*/
 
 /**
  * Implements hook_node_presave().
  */
 function auto_fill_id_node_presave($node) {
-  if($node->type == "compromiso_de_gestion") {
+  /*if($node->type == "compromiso_de_gestion") {
     new_compromiso_id($node);
-  }
+  }*/
 }
 
 /**
@@ -62,7 +62,7 @@ function auto_fill_id_node_presave($node) {
  */
 function auto_fill_id_node_update($node)
 {
-    if($node->type == "compromiso_de_gestion") {
+    /*if($node->type == "compromiso_de_gestion") {
       update_compromiso_de_gestion($node);
     }
 
@@ -78,7 +78,7 @@ function auto_fill_id_node_update($node)
           field_attach_update('node', $compromiso_node);
         }
       }
-    }
+    }*/
 }
 
 /**
@@ -86,52 +86,6 @@ function auto_fill_id_node_update($node)
  */
 function auto_fill_id_form_alter(&$form, &$form_state, $form_id) {
 
-}
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter().
- */
-function auto_fill_id_form_meta_node_form_alter(&$form, &$form_state, $form_id) {
-
-  //css
-  $form['#attached'] = array(
-    'css' => array('sites/all/modules/custom/auto_fill_id/css/meta_form.css'),
-  );
-
-  $form['field_meta_codigo']['#access'] = FALSE;
-
-  $form['field_producto'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Añadir producto';
-
-  if (!allowed_edit_any_content()) {
-    $form['title']['#disabled'] = TRUE;
-  }
-
-  $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
-
-  if(!empty($entities)) {
-    foreach ($entities as $key => $entity) {
-      $form['field_producto'][LANGUAGE_NONE]['entities'][$key]['form']['title']['#disabled'] = TRUE;
-      $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Guardar Cambios';
-    }
-  }
-
-  //Edit
-    if (allowed_edit_any_content()){
-      $entities = array_filter($form['field_producto'][LANGUAGE_NONE]['entities'], function ($k) { return is_numeric($k); },  ARRAY_FILTER_USE_KEY);
-      if(!empty($entities)) {
-        foreach ($entities as $key => $entity) {
-          $form['field_producto'][LANGUAGE_NONE]['entities'][$key]['form']['title']['#disabled'] = TRUE;
-          $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Guardar Cambios';
-        }
-      }
-    }
-
-  //Add new product
-  if(isset($form['field_producto'][LANGUAGE_NONE]['form'])) {
-    $form['field_producto'][LANGUAGE_NONE]['form']['#title'] = 'Nuevo producto';
-    $form['field_producto'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Producto';
-    $form['field_producto'][LANGUAGE_NONE]['form']['field_cod_producto_meta'][LANGUAGE_NONE][0]['value']['#default_value'] = 'E#A#L#M1P1';
-  }
 }
 
 /**
@@ -342,28 +296,6 @@ function action_default_value($item_id, $action_id, $form) {
 
 function meta_callback($form, $form_state) {
   return $form['field_item_de_compromiso'][LANGUAGE_NONE][0]['field_accion_collect'][LANGUAGE_NONE][0]['field_meta'][LANGUAGE_NONE]['form']['title']['value'];
-}
-
-function generate_action_code($item_id, $action_id, $form) {
-    
-  $eje = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value']) ?
-    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_eje'][LANGUAGE_NONE]['#default_value'][0] : '0';
-  $ambito = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value']) ?
-    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_ambito'][LANGUAGE_NONE]['#default_value'][0] : '0';
-  $lineamiento = !empty($form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value']) ?
-    $form['field_item_compromiso'][LANGUAGE_NONE][$item_id]['field_codigo_lineamiento'][LANGUAGE_NONE]['#default_value'][0] : '0';
-  
-      $cod_eje = taxonomy_term_load($eje);
-      $cod_ambito = taxonomy_term_load($ambito);
-      $cod_lineamiento = taxonomy_term_load($lineamiento);
-
-  
-      if ($cod_eje==null&&$cod_ambito==null&&$cod_lineamiento==null){
-          return 'E#-A#.L#.Ac#';
-      }
-      else {
-          return 'E'. $cod_eje->field_auto_inc_eje['und'][0]['value'] . '-A' . $cod_ambito->field_auto_inc_ambito['und'][0]['value'] . '.L' . $cod_lineamiento->field_auto_inc_lin['und'][0]['value'] . '.Ae' . ($action_id + 1);
-      }
 }
 
 //Form ajax callback

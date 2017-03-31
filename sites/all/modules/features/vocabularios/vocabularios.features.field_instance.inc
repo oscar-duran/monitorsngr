@@ -49,7 +49,41 @@ function vocabularios_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'taxonomy_term-accion_estrategica-field_codigo'.
+  $field_instances['taxonomy_term-accion_estrategica-field_codigo'] = array(
+    'bundle' => 'accion_estrategica',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Se recomienda que el código del acción estratégica lleve el siguiente formato: E#-A#.L#.Ae#',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_codigo',
+    'label' => 'Código',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
     ),
   );
 
@@ -92,7 +126,7 @@ function vocabularios_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -136,7 +170,7 @@ function vocabularios_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -168,13 +202,47 @@ function vocabularios_field_default_field_instances() {
       'settings' => array(
         'autocomplete_match' => 'starts_with',
         'autocomplete_path' => 'taxonomy/autocomplete',
-        'references_dialog_add' => 1,
-        'references_dialog_edit' => 1,
-        'references_dialog_search' => 1,
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'taxonomy_term-meta-field_codigo'.
+  $field_instances['taxonomy_term-meta-field_codigo'] = array(
+    'bundle' => 'meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Se recomienda que el código de la Meta lleve el siguiente formato: E#-A#.L#.Ae#.M#',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_codigo',
+    'label' => 'Código',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
       'weight' => 2,
     ),
   );
@@ -209,12 +277,12 @@ function vocabularios_field_default_field_instances() {
         'autocomplete_path' => 'taxonomy/autocomplete',
         'references_dialog_add' => 1,
         'references_dialog_edit' => 1,
-        'references_dialog_search' => 1,
+        'references_dialog_search' => 0,
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -460,12 +528,15 @@ function vocabularios_field_default_field_instances() {
   t('Año Final');
   t('Año Inicial');
   t('Campo para el detalle/nombre del producto');
+  t('Código');
   t('Código Producto');
   t('Eje');
   t('Espacio para agregar una descripcion del producto');
   t('Instituciones Involucradas');
   t('Lineamiento');
   t('Productos Relacionados');
+  t('Se recomienda que el código de la Meta lleve el siguiente formato: E#-A#.L#.Ae#.M#');
+  t('Se recomienda que el código del acción estratégica lleve el siguiente formato: E#-A#.L#.Ae#');
   t('descripcion del producto');
   t('detalle del producto');
   t('Ámbito');

@@ -688,35 +688,45 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'clear instancias_coordinacion feeds'.
   $permissions['clear instancias_coordinacion feeds'] = array(
     'name' => 'clear instancias_coordinacion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'clear instituciones feeds'.
   $permissions['clear instituciones feeds'] = array(
     'name' => 'clear instituciones feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'clear monto_ejecucion feeds'.
   $permissions['clear monto_ejecucion feeds'] = array(
     'name' => 'clear monto_ejecucion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'clear paginas_basicas feeds'.
   $permissions['clear paginas_basicas feeds'] = array(
     'name' => 'clear paginas_basicas feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'clear usuarios feeds'.
   $permissions['clear usuarios feeds'] = array(
     'name' => 'clear usuarios feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
@@ -733,21 +743,27 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create autoevaluacion content'.
   $permissions['create autoevaluacion content'] = array(
     'name' => 'create autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create bitacora_moderacion_contenido content'.
   $permissions['create bitacora_moderacion_contenido content'] = array(
     'name' => 'create bitacora_moderacion_contenido content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create book content'.
   $permissions['create book content'] = array(
     'name' => 'create book content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -756,6 +772,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'create compromiso_de_gestion content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -763,7 +780,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create decreto_de_emergencia content'.
   $permissions['create decreto_de_emergencia content'] = array(
     'name' => 'create decreto_de_emergencia content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -792,15 +811,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'create item_compromiso content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create meta content'.
-  $permissions['create meta content'] = array(
-    'name' => 'create meta content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -824,31 +835,30 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create producto_meta content'.
-  $permissions['create producto_meta content'] = array(
-    'name' => 'create producto_meta content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create respuestas_autoevaluacion content'.
   $permissions['create respuestas_autoevaluacion content'] = array(
     'name' => 'create respuestas_autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create sngr_compromiso content'.
   $permissions['create sngr_compromiso content'] = array(
     'name' => 'create sngr_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create sngr_compromiso_detalle content'.
   $permissions['create sngr_compromiso_detalle content'] = array(
     'name' => 'create sngr_compromiso_detalle content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -865,7 +875,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'create webform content'.
   $permissions['create webform content'] = array(
     'name' => 'create webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -900,35 +912,45 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete any autoevaluacion content'.
   $permissions['delete any autoevaluacion content'] = array(
     'name' => 'delete any autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any bitacora_moderacion_contenido content'.
   $permissions['delete any bitacora_moderacion_contenido content'] = array(
     'name' => 'delete any bitacora_moderacion_contenido content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any book content'.
   $permissions['delete any book content'] = array(
     'name' => 'delete any book content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any compromiso_de_gestion content'.
   $permissions['delete any compromiso_de_gestion content'] = array(
     'name' => 'delete any compromiso_de_gestion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any decreto_de_emergencia content'.
   $permissions['delete any decreto_de_emergencia content'] = array(
     'name' => 'delete any decreto_de_emergencia content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -955,14 +977,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete any item_compromiso content'.
   $permissions['delete any item_compromiso content'] = array(
     'name' => 'delete any item_compromiso content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any meta content'.
-  $permissions['delete any meta content'] = array(
-    'name' => 'delete any meta content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -976,38 +993,39 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any producto_meta content'.
-  $permissions['delete any producto_meta content'] = array(
-    'name' => 'delete any producto_meta content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any respuestas_autoevaluacion content'.
   $permissions['delete any respuestas_autoevaluacion content'] = array(
     'name' => 'delete any respuestas_autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any sngr_compromiso content'.
   $permissions['delete any sngr_compromiso content'] = array(
     'name' => 'delete any sngr_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any sngr_compromiso_detalle content'.
   $permissions['delete any sngr_compromiso_detalle content'] = array(
     'name' => 'delete any sngr_compromiso_detalle content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any webform content'.
   $permissions['delete any webform content'] = array(
     'name' => 'delete any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1024,21 +1042,27 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own autoevaluacion content'.
   $permissions['delete own autoevaluacion content'] = array(
     'name' => 'delete own autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own bitacora_moderacion_contenido content'.
   $permissions['delete own bitacora_moderacion_contenido content'] = array(
     'name' => 'delete own bitacora_moderacion_contenido content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own book content'.
   $permissions['delete own book content'] = array(
     'name' => 'delete own book content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1047,6 +1071,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete own compromiso_de_gestion content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
@@ -1055,7 +1080,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own decreto_de_emergencia content'.
   $permissions['delete own decreto_de_emergencia content'] = array(
     'name' => 'delete own decreto_de_emergencia content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1082,15 +1109,8 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own item_compromiso content'.
   $permissions['delete own item_compromiso content'] = array(
     'name' => 'delete own item_compromiso content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own meta content'.
-  $permissions['delete own meta content'] = array(
-    'name' => 'delete own meta content',
     'roles' => array(
-      'analista-sngr' => 'analista-sngr',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1105,41 +1125,39 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own producto_meta content'.
-  $permissions['delete own producto_meta content'] = array(
-    'name' => 'delete own producto_meta content',
-    'roles' => array(
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own respuestas_autoevaluacion content'.
   $permissions['delete own respuestas_autoevaluacion content'] = array(
     'name' => 'delete own respuestas_autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own sngr_compromiso content'.
   $permissions['delete own sngr_compromiso content'] = array(
     'name' => 'delete own sngr_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own sngr_compromiso_detalle content'.
   $permissions['delete own sngr_compromiso_detalle content'] = array(
     'name' => 'delete own sngr_compromiso_detalle content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own webform content'.
   $permissions['delete own webform content'] = array(
     'name' => 'delete own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1318,21 +1336,27 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any autoevaluacion content'.
   $permissions['edit any autoevaluacion content'] = array(
     'name' => 'edit any autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any bitacora_moderacion_contenido content'.
   $permissions['edit any bitacora_moderacion_contenido content'] = array(
     'name' => 'edit any bitacora_moderacion_contenido content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any book content'.
   $permissions['edit any book content'] = array(
     'name' => 'edit any book content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1340,6 +1364,7 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['edit any compromiso_de_gestion content'] = array(
     'name' => 'edit any compromiso_de_gestion content',
     'roles' => array(
+      'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
       'user-institucional' => 'user-institucional',
     ),
@@ -1349,7 +1374,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit any decreto_de_emergencia content'.
   $permissions['edit any decreto_de_emergencia content'] = array(
     'name' => 'edit any decreto_de_emergencia content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1378,16 +1405,7 @@ function usuarios_roles_permisos_user_default_permissions() {
   $permissions['edit any item_compromiso content'] = array(
     'name' => 'edit any item_compromiso content',
     'roles' => array(
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any meta content'.
-  $permissions['edit any meta content'] = array(
-    'name' => 'edit any meta content',
-    'roles' => array(
-      'analista-sngr' => 'analista-sngr',
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
@@ -1403,41 +1421,39 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any producto_meta content'.
-  $permissions['edit any producto_meta content'] = array(
-    'name' => 'edit any producto_meta content',
-    'roles' => array(
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any respuestas_autoevaluacion content'.
   $permissions['edit any respuestas_autoevaluacion content'] = array(
     'name' => 'edit any respuestas_autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any sngr_compromiso content'.
   $permissions['edit any sngr_compromiso content'] = array(
     'name' => 'edit any sngr_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any sngr_compromiso_detalle content'.
   $permissions['edit any sngr_compromiso_detalle content'] = array(
     'name' => 'edit any sngr_compromiso_detalle content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any webform content'.
   $permissions['edit any webform content'] = array(
     'name' => 'edit any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1463,21 +1479,27 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own autoevaluacion content'.
   $permissions['edit own autoevaluacion content'] = array(
     'name' => 'edit own autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own bitacora_moderacion_contenido content'.
   $permissions['edit own bitacora_moderacion_contenido content'] = array(
     'name' => 'edit own bitacora_moderacion_contenido content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own book content'.
   $permissions['edit own book content'] = array(
     'name' => 'edit own book content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1496,6 +1518,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'edit own compromiso_de_gestion content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
       'user-institucional' => 'user-institucional',
     ),
@@ -1505,7 +1528,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own decreto_de_emergencia content'.
   $permissions['edit own decreto_de_emergencia content'] = array(
     'name' => 'edit own decreto_de_emergencia content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1534,17 +1559,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'edit own item_compromiso content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own meta content'.
-  $permissions['edit own meta content'] = array(
-    'name' => 'edit own meta content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'analista-sngr' => 'analista-sngr',
+      'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
@@ -1560,41 +1575,39 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own producto_meta content'.
-  $permissions['edit own producto_meta content'] = array(
-    'name' => 'edit own producto_meta content',
-    'roles' => array(
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own respuestas_autoevaluacion content'.
   $permissions['edit own respuestas_autoevaluacion content'] = array(
     'name' => 'edit own respuestas_autoevaluacion content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own sngr_compromiso content'.
   $permissions['edit own sngr_compromiso content'] = array(
     'name' => 'edit own sngr_compromiso content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own sngr_compromiso_detalle content'.
   $permissions['edit own sngr_compromiso_detalle content'] = array(
     'name' => 'edit own sngr_compromiso_detalle content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own webform content'.
   $permissions['edit own webform content'] = array(
     'name' => 'edit own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -1799,14 +1812,18 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'import instancias_coordinacion feeds'.
   $permissions['import instancias_coordinacion feeds'] = array(
     'name' => 'import instancias_coordinacion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'import instituciones feeds'.
   $permissions['import instituciones feeds'] = array(
     'name' => 'import instituciones feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
@@ -1822,7 +1839,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'import monto_ejecucion feeds'.
   $permissions['import monto_ejecucion feeds'] = array(
     'name' => 'import monto_ejecucion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
@@ -1838,7 +1857,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'import paginas_basicas feeds'.
   $permissions['import paginas_basicas feeds'] = array(
     'name' => 'import paginas_basicas feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
@@ -1855,7 +1876,9 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'import usuarios feeds'.
   $permissions['import usuarios feeds'] = array(
     'name' => 'import usuarios feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
@@ -1968,35 +1991,45 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'unlock instancias_coordinacion feeds'.
   $permissions['unlock instancias_coordinacion feeds'] = array(
     'name' => 'unlock instancias_coordinacion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'unlock instituciones feeds'.
   $permissions['unlock instituciones feeds'] = array(
     'name' => 'unlock instituciones feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'unlock monto_ejecucion feeds'.
   $permissions['unlock monto_ejecucion feeds'] = array(
     'name' => 'unlock monto_ejecucion feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'unlock paginas_basicas feeds'.
   $permissions['unlock paginas_basicas feeds'] = array(
     'name' => 'unlock paginas_basicas feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
   // Exported permission: 'unlock usuarios feeds'.
   $permissions['unlock usuarios feeds'] = array(
     'name' => 'unlock usuarios feeds',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'feeds',
   );
 
