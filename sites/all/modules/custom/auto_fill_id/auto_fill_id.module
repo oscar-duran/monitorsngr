@@ -52,9 +52,9 @@ function auto_fill_id_node_insert($node)
  * Implements hook_node_presave().
  */
 function auto_fill_id_node_presave($node) {
-  /*if($node->type == "compromiso_de_gestion") {
+  if($node->type == "compromiso_de_gestion") {
     new_compromiso_id($node);
-  }*/
+  }
 }
 
 /**
@@ -345,7 +345,6 @@ function new_compromiso_id($node) {
         $compromiso_title = get_last_compromiso_title();
       if($compromiso_title != NULL) {
           $splitted_title = explode('-', $compromiso_title);
-
           if ($splitted_title[1] != date('Y')) {
             autoinc_compromiso($node);
 

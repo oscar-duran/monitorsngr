@@ -40,6 +40,24 @@ function msngr_compromisos_node_access($node, $op, $account) {
 }*/
 
 /**
+ * Implements hook_node_insert().
+ */
+function msngr_compromisos_node_insert($node) {
+  if($node->type == "compromiso_de_gestion") {
+    update_compromiso_de_gestion($node);
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function msngr_compromisos_node_presave($node) {
+  if($node->type == "compromiso_de_gestion") {
+    new_compromiso_id($node);
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
@@ -52,9 +70,9 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   }
 
   //Add css
-  /*$form['#attached'] = array(
-    'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
-  );*/
+  $form['#attached'] = array(
+    'css' => array(drupal_get_path('module', 'msngr_compromisos') . '/css/compromisos_form.css'),
+  );
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
@@ -82,4 +100,70 @@ function auto_compromiso_form_title($user, &$form, &$form_state) {
   $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = t('@institution (@nid)', array('@institution' => $ins->title, '@nid' => $ins_nid));
   $form_state['values']['field_institucion'][LANGUAGE_NONE][0]['target_id'] = $ins_nid;
   $form['title']['#default_value'] = date('Y').'-'.$ins->title;
+}
+
+function new_compromiso_id($node) {
+  if($node->is_new) {
+    if($node->field_id_compromiso) {
+      $compromiso_title = get_last_compromiso_title();
+      if($compromiso_title != NULL) {
+        $splitted_title = explode('-', $compromiso_title);
+
+        if ($splitted_title[1] != date('Y')) {
+          autoinc_compromiso($node);
+
+        } else {
+          $id_compromiso = $splitted_title[0] + 1;
+          $node->field_id_compromiso[LANGUAGE_NONE][0]["value"] = $id_compromiso;
+          $ins = !empty($node->field_institucion[LANGUAGE_NONE]) ? node_load(field_target_id($node->field_institucion, 0)) : NULL;
+          $ins_name = $ins ? $ins->title : '';
+          $year = explode("-", $node->field_year_compromiso[LANGUAGE_NONE][0]['value'])[0];
+          $node->title = $id_compromiso . '-' . $year . '-' . $ins_name;
+        }
+      } else {
+        autoinc_compromiso($node);
+      }
+    }
+  }
+}
+
+function get_last_compromiso_title() {
+  $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
+  $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
+  $query_id_compromiso->orderBy('entity_id', 'DESC');
+  $query_id_compromiso->range(0, 1);
+  $count = $query_id_compromiso->execute()->fetchField();
+
+  $query_node_title = db_select('node');
+  $query_node_title->addExpression('MAX(nid)');
+  $query_node_title->condition('type', 'compromiso_de_gestion', '=');
+  $executed_query=$query_node_title->execute()->fetchField();
+  $node_loaded_with_id = node_load($executed_query);
+
+  return $count != NULL ? $node_loaded_with_id->title : NULL;
+}
+
+function autoinc_compromiso($node){
+  $node->field_id_compromiso[LANGUAGE_NONE][0]["value"] = 1;
+  $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+  $ins = node_load(field_target_id($node->field_institucion, 0));
+  $node->title = $id . '-' . date('Y') . '-' . $ins->title;
+}
+
+function update_compromiso_de_gestion($node) {
+  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
+    check_compromiso_id($node);
+    //action_id($node);
+    //update_percentage_compromiso($node);
+    $node->is_new = FALSE;
+    $node->already_updated = TRUE;
+    field_attach_update('node', $node);
+  }
+}
+
+function check_compromiso_id($node) {
+  $ins = !empty($node->field_institucion) ? node_load(field_target_id($node->field_institucion, 0)) : null;
+  $xploded_title = explode('-', $node->title);
+  $xploded_title[2] = $ins->title;
+  $node->title = $xploded_title[0].'-'.$xploded_title[1].'-'.$xploded_title[2];
 }
