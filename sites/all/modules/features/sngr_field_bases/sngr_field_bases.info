@@ -188,6 +188,7 @@ features[field_base][] = field_usuario
 features[field_base][] = field_zona_intervencion
 features[field_group][] = group_institucional_info|user|user|form
 features[field_group][] = group_miembros|node|instancia_coordinacion|form
+features[field_instance][] = field_collection_item-field_evaluar_producto-field_descripc_fuente_verifica
 features[field_instance][] = field_collection_item-field_financiamiento-field_anno
 features[field_instance][] = field_collection_item-field_financiamiento-field_monto_de_ejecucion
 features[field_instance][] = field_collection_item-field_financiamiento-field_monto_presupuestario
