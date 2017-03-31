@@ -148,6 +148,7 @@ function tipos_contenido_field_group_info() {
         'id' => '',
       ),
     ),
+  );
   $field_groups['group_meta_estado|node|evaluacion_de_metas|form'] = $field_group;
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
