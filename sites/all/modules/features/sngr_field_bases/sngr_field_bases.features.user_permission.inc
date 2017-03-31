@@ -120,16 +120,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_meta_descripcion'.
-  $permissions['create field_meta_descripcion'] = array(
-    'name' => 'create field_meta_descripcion',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_notificar_analista'.
   $permissions['create field_notificar_analista'] = array(
     'name' => 'create field_notificar_analista',
@@ -143,16 +133,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'create field_notificar_institucional'.
   $permissions['create field_notificar_institucional'] = array(
     'name' => 'create field_notificar_institucional',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_observacion_del_analista'.
-  $permissions['create field_observacion_del_analista'] = array(
-    'name' => 'create field_observacion_del_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -200,41 +180,21 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_prod_fuente_verifica'.
+  $permissions['create field_prod_fuente_verifica'] = array(
+    'name' => 'create field_prod_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_recibio_asesoria'.
   $permissions['create field_recibio_asesoria'] = array(
     'name' => 'create field_recibio_asesoria',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_recibio_asesoria_meta'.
-  $permissions['create field_recibio_asesoria_meta'] = array(
-    'name' => 'create field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_su_org_requiere_asesoria'.
-  $permissions['create field_su_org_requiere_asesoria'] = array(
-    'name' => 'create field_su_org_requiere_asesoria',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_tema_necesidad_meta'.
-  $permissions['create field_tema_necesidad_meta'] = array(
-    'name' => 'create field_tema_necesidad_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -344,15 +304,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_meta_descripcion'.
-  $permissions['edit field_meta_descripcion'] = array(
-    'name' => 'edit field_meta_descripcion',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit field_notificar_analista'.
   $permissions['edit field_notificar_analista'] = array(
     'name' => 'edit field_notificar_analista',
@@ -366,16 +317,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'edit field_notificar_institucional'.
   $permissions['edit field_notificar_institucional'] = array(
     'name' => 'edit field_notificar_institucional',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_observacion_del_analista'.
-  $permissions['edit field_observacion_del_analista'] = array(
-    'name' => 'edit field_observacion_del_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -423,41 +364,21 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_prod_fuente_verifica'.
+  $permissions['edit field_prod_fuente_verifica'] = array(
+    'name' => 'edit field_prod_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_recibio_asesoria'.
   $permissions['edit field_recibio_asesoria'] = array(
     'name' => 'edit field_recibio_asesoria',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_recibio_asesoria_meta'.
-  $permissions['edit field_recibio_asesoria_meta'] = array(
-    'name' => 'edit field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_su_org_requiere_asesoria'.
-  $permissions['edit field_su_org_requiere_asesoria'] = array(
-    'name' => 'edit field_su_org_requiere_asesoria',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_tema_necesidad_meta'.
-  $permissions['edit field_tema_necesidad_meta'] = array(
-    'name' => 'edit field_tema_necesidad_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -572,16 +493,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_meta_descripcion'.
-  $permissions['edit own field_meta_descripcion'] = array(
-    'name' => 'edit own field_meta_descripcion',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_notificar_analista'.
   $permissions['edit own field_notificar_analista'] = array(
     'name' => 'edit own field_notificar_analista',
@@ -595,16 +506,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'edit own field_notificar_institucional'.
   $permissions['edit own field_notificar_institucional'] = array(
     'name' => 'edit own field_notificar_institucional',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_observacion_del_analista'.
-  $permissions['edit own field_observacion_del_analista'] = array(
-    'name' => 'edit own field_observacion_del_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -652,41 +553,21 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit own field_prod_fuente_verifica'.
+  $permissions['edit own field_prod_fuente_verifica'] = array(
+    'name' => 'edit own field_prod_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own field_recibio_asesoria'.
   $permissions['edit own field_recibio_asesoria'] = array(
     'name' => 'edit own field_recibio_asesoria',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_recibio_asesoria_meta'.
-  $permissions['edit own field_recibio_asesoria_meta'] = array(
-    'name' => 'edit own field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_su_org_requiere_asesoria'.
-  $permissions['edit own field_su_org_requiere_asesoria'] = array(
-    'name' => 'edit own field_su_org_requiere_asesoria',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_tema_necesidad_meta'.
-  $permissions['edit own field_tema_necesidad_meta'] = array(
-    'name' => 'edit own field_tema_necesidad_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -816,18 +697,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_meta_descripcion'.
-  $permissions['view field_meta_descripcion'] = array(
-    'name' => 'view field_meta_descripcion',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view field_notificar_analista'.
   $permissions['view field_notificar_analista'] = array(
     'name' => 'view field_notificar_analista',
@@ -841,16 +710,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'view field_notificar_institucional'.
   $permissions['view field_notificar_institucional'] = array(
     'name' => 'view field_notificar_institucional',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_observacion_del_analista'.
-  $permissions['view field_observacion_del_analista'] = array(
-    'name' => 'view field_observacion_del_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -900,42 +759,21 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_prod_fuente_verifica'.
+  $permissions['view field_prod_fuente_verifica'] = array(
+    'name' => 'view field_prod_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_recibio_asesoria'.
   $permissions['view field_recibio_asesoria'] = array(
     'name' => 'view field_recibio_asesoria',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_recibio_asesoria_meta'.
-  $permissions['view field_recibio_asesoria_meta'] = array(
-    'name' => 'view field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_su_org_requiere_asesoria'.
-  $permissions['view field_su_org_requiere_asesoria'] = array(
-    'name' => 'view field_su_org_requiere_asesoria',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_tema_necesidad_meta'.
-  $permissions['view field_tema_necesidad_meta'] = array(
-    'name' => 'view field_tema_necesidad_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );
@@ -1070,19 +908,6 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_meta_descripcion'.
-  $permissions['view own field_meta_descripcion'] = array(
-    'name' => 'view own field_meta_descripcion',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view own field_notificar_analista'.
   $permissions['view own field_notificar_analista'] = array(
     'name' => 'view own field_notificar_analista',
@@ -1096,16 +921,6 @@ function sngr_field_bases_user_default_permissions() {
   // Exported permission: 'view own field_notificar_institucional'.
   $permissions['view own field_notificar_institucional'] = array(
     'name' => 'view own field_notificar_institucional',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_observacion_del_analista'.
-  $permissions['view own field_observacion_del_analista'] = array(
-    'name' => 'view own field_observacion_del_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -1155,42 +970,21 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view own field_prod_fuente_verifica'.
+  $permissions['view own field_prod_fuente_verifica'] = array(
+    'name' => 'view own field_prod_fuente_verifica',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view own field_recibio_asesoria'.
   $permissions['view own field_recibio_asesoria'] = array(
     'name' => 'view own field_recibio_asesoria',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_recibio_asesoria_meta'.
-  $permissions['view own field_recibio_asesoria_meta'] = array(
-    'name' => 'view own field_recibio_asesoria_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_su_org_requiere_asesoria'.
-  $permissions['view own field_su_org_requiere_asesoria'] = array(
-    'name' => 'view own field_su_org_requiere_asesoria',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_tema_necesidad_meta'.
-  $permissions['view own field_tema_necesidad_meta'] = array(
-    'name' => 'view own field_tema_necesidad_meta',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'field_permissions',
   );

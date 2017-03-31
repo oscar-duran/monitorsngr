@@ -816,16 +816,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create meta content'.
-  $permissions['create meta content'] = array(
-    'name' => 'create meta content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create new books'.
   $permissions['create new books'] = array(
     'name' => 'create new books',
@@ -993,15 +983,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any meta content'.
-  $permissions['delete any meta content'] = array(
-    'name' => 'delete any meta content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any page content'.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
@@ -1130,16 +1111,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete own item_compromiso content',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own meta content'.
-  $permissions['delete own meta content'] = array(
-    'name' => 'delete own meta content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
     ),
     'module' => 'node',
   );
@@ -1440,17 +1411,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any meta content'.
-  $permissions['edit any meta content'] = array(
-    'name' => 'edit any meta content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any page content'.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
@@ -1600,18 +1560,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own meta content'.
-  $permissions['edit own meta content'] = array(
-    'name' => 'edit own meta content',
-    'roles' => array(
-      'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-      'analista-sngr' => 'analista-sngr',
       'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
