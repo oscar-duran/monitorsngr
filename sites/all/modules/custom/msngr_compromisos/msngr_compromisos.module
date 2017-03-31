@@ -24,7 +24,7 @@ function msngr_compromisos_node_access($node, $op, $account) {
   }
 }
 
-/**
+/*
  * Implements hook_theme_registry_alter().
  */
 /*function msngr_compromisos_theme_registry_alter(&$theme_registry) {
@@ -39,3 +39,47 @@ function msngr_compromisos_node_access($node, $op, $account) {
   }
 }*/
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  $user_full = user_load($user->uid, TRUE);
+
+  if (is_add_form($form_state) && in_array('usuario-institucional', $user->roles)) {
+    auto_compromiso_form_title($user_full, $form, $form_state);
+  }
+
+  //Add css
+  /*$form['#attached'] = array(
+    'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
+  );*/
+
+  //Compromiso de Gestión title disabled
+  $form['title']['#disabled'] = TRUE;
+
+  //Restrict access
+  $form['field_porcentaje_de_avance_compr']['#access'] = FALSE;
+  $form['field_year_compromiso']['#access'] = FALSE;
+  $form['field_estado']['#access'] = FALSE;
+  $form['field_id_compromiso']['#access']= FALSE;
+
+  //Items de compromiso
+  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
+  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+}
+
+function is_add_form($form_state){
+  return !isset($form_state['node']->nid);
+}
+
+function auto_compromiso_form_title($user, &$form, &$form_state) {
+  $ins_nid = field_target_id($user->field_institucion, 0);
+
+  $ins = node_load($ins_nid);
+  $form['field_institucion']['#disabled'] = TRUE;
+  $form['field_institucion'][LANGUAGE_NONE][0]['target_id']['#default_value'] = t('@institution (@nid)', array('@institution' => $ins->title, '@nid' => $ins_nid));
+  $form_state['values']['field_institucion'][LANGUAGE_NONE][0]['target_id'] = $ins_nid;
+  $form['title']['#default_value'] = date('Y').'-'.$ins->title;
+}
