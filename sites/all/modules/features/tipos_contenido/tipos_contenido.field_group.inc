@@ -21,7 +21,7 @@ function tipos_contenido_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Asesorias',
-    'weight' => '13',
+    'weight' => '7',
     'children' => array(
       0 => 'field_su_org_requiere_asesoria',
       1 => 'field_organizacion_capacitadora',
@@ -52,7 +52,7 @@ function tipos_contenido_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Avance',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_porcentaje_avance',
       1 => 'field_porcentaje_avance_coment',
@@ -81,7 +81,7 @@ function tipos_contenido_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Estado',
-    'weight' => '19',
+    'weight' => '8',
     'children' => array(
       0 => 'field_estado',
       1 => 'field_observacion_del_analista',
@@ -110,7 +110,7 @@ function tipos_contenido_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Observaciones',
-    'weight' => '10',
+    'weight' => '6',
     'children' => array(
       0 => 'field_obstaculo',
       1 => 'field_aspecto_positivo',
