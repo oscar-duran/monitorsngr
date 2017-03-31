@@ -1110,6 +1110,205 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-productos_adicionales-field_ambito_producto_adicional'.
+  $field_instances['node-productos_adicionales-field_ambito_producto_adicional'] = array(
+    'bundle' => 'productos_adicionales',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ambito_producto_adicional',
+    'label' => 'ambito',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-productos_adicionales-field_attachment'.
+  $field_instances['node-productos_adicionales-field_attachment'] = array(
+    'bundle' => 'productos_adicionales',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => NULL,
+        'settings' => array(),
+        'type' => 'media_large',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_attachment',
+    'label' => 'attachment',
+    'required' => 0,
+    'settings' => array(
+      'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'private' => 'private',
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'default' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'media_generic',
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-productos_adicionales-field_institucion_asociada'.
+  $field_instances['node-productos_adicionales-field_institucion_asociada'] = array(
+    'bundle' => 'productos_adicionales',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_institucion_asociada',
+    'label' => 'institucion asociada',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-productos_adicionales-field_lineamiento_producto_adici'.
+  $field_instances['node-productos_adicionales-field_lineamiento_producto_adici'] = array(
+    'bundle' => 'productos_adicionales',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_lineamiento_producto_adici',
+    'label' => 'lineamiento',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 32,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Aspecto positivo');
@@ -1134,8 +1333,12 @@ function tipos_contenido_field_default_field_instances() {
   t('Teléfono');
   t('Tema de necesidades en asesoría');
   t('Tipo instancia');
+  t('ambito');
+  t('attachment');
   t('evaluar metas');
   t('evaluar producto');
+  t('institucion asociada');
+  t('lineamiento');
   t('producto');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');
