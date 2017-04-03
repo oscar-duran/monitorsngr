@@ -1,5 +1,32 @@
 <?php
 
+function msngr_compromisos_menu () {
+  $items['productos/autocomplete'] = array(
+    'title' => t('Autocomplete for cities'),
+    'page callback' => '_productos_autocomplete',
+    'access arguments' => FALSE,  //MODIFICAR ESTO!!!! FALSE SOLO PARA PRUEBAS!!!!!!
+    'type' => MENU_CALLBACK
+  );
+  return $items;
+}
+
+function _productos_autocomplete ($string) {
+//  dpm('hola');
+  $matches = array();
+  $result = db_select('taxonomy_term_data', 'ttd')
+    ->fields('ttd', array('name'))
+    ->condition('name', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->name] = check_plain($row->name);
+  }
+
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
+
 /**
  * Implements hook_node_access().
  */
@@ -39,6 +66,14 @@ function msngr_compromisos_node_access($node, $op, $account) {
   }
 }*/
 
+
+function msngr_compromisos_form_evaluacion_de_metas_node_form_alter (&$form, &$form_state, $form_id) {
+
+//  dpm($form);
+
+}
+
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */
@@ -65,10 +100,58 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_year_compromiso']['#access'] = FALSE;
   $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
+  //
+  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']='productos/autocomplete';
+  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid']);
+
+//  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid'] = array(
+//    '#autocomplete_path' => 'productos/autocomplete',
+//  );
+
+
+
+
+  $ajax_producto = array(
+    'callback' => 'ajax_producto_callback',
+    'method' => 'blur',
+  );
+
+  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
+//  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax']);
+//  dpm($form);
+  $tax=taxonomy_get_term_by_name('meta 2', 'meta');
+  $tax=array_shift($tax);
+//dpm($tax);
+  foreach ($tax->field_productos_relacionados['und'] as $keyx => $valuex) {
+    $testing[$keyx] = $valuex;
+
+  }
+//  dpm($testing);
+
+//  dpm($tax);
+//
+//  $prod=$tax[1258]->field_productos_relacionados['und'][0]['tid'];
+//  dpm(taxonomy_term_load($prod));
+//  $...->field_productos_relacionados['und'][0]['tid']
 
   //Items de compromiso
   //$form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
   //$form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+
+
+}
+
+function ajax_producto_callback ($form, $form_state) {
+  $commands = array();
+  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+//  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
+//  $tax=array_shift($tax);
+//  dpm($tax->field_productos_relacionados['und'][0]['tid']);
+//  $commands[] = ajax_command_replace('#edit-field-evaluar-metas-und-form-field-meta-tax-und-0-tid', '<input type="text" id="edit-field-evaluar-metas-und-form-field-meta-tax-und-0-tid" name="field_evaluar_metas[und][form][field_meta_tax][und][0][tid]" value="" size="60" class="form-text form-autocomplete ajax-processed" autocomplete="OFF" aria-autocomplete="list">');
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
 }
 
 function is_add_form($form_state){
