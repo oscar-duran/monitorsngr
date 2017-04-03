@@ -72,7 +72,11 @@ HTML comment.
         <td><?php print $value['ambito'] ?></td>
         <td><?php print $value['lineamiento'] ?></td>
         <td><?php print $value['accion'] ?></td>
-        <td><?php print $value['meta'] ?></td>
+        <td>
+          <a href="<?php print $value['meta_url'] ?>">
+            <?php print $value['meta'] ?>
+          </a>
+        </td>
         <?php $last_key = end(array_keys($value['productos'])) ?>
         <td>
           <?php foreach ($value['productos'] as $key => $producto) : ?>
