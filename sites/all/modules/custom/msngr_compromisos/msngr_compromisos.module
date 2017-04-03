@@ -58,6 +58,13 @@ function msngr_compromisos_node_presave($node) {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
@@ -88,12 +95,13 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
 
   //Evaluar Metas
-  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) {
-    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
+  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
+   // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+   // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
   }
 
-  dpm($form);
-  dpm($form_state);
+  //dpm($form);
+  //xdpm($form_state);
 }
 
 function is_add_form($form_state){
@@ -174,4 +182,17 @@ function check_compromiso_id($node) {
   $xploded_title = explode('-', $node->title);
   $xploded_title[2] = $ins->title;
   $node->title = $xploded_title[0].'-'.$xploded_title[1].'-'.$xploded_title[2];
+}
+
+function allowed_edit_any_content() {
+  global $user;
+  return in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles);
+}
+
+function field_target_id(&$array, $id) {
+  return $array[LANGUAGE_NONE][$id]['target_id'];
+}
+
+function field_value(&$array, $id) {
+  return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
 }
