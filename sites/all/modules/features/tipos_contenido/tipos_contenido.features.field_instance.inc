@@ -142,10 +142,8 @@ function tipos_contenido_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
+        'settings' => array(),
+        'type' => 'entityreference_entity_id',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -167,7 +165,7 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'field_name' => 'field_evaluar_metas',
-    'label' => 'evaluar metas',
+    'label' => 'Metas a evaluar',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -567,7 +565,7 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_evaluar_producto',
-    'label' => 'evaluar producto',
+    'label' => 'Productos a evaluar',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1590,6 +1588,7 @@ function tipos_contenido_field_default_field_instances() {
   t('Inicio');
   t('Institución ');
   t('Meta');
+  t('Metas a evaluar');
   t('Notificar analista');
   t('Notificar institucional');
   t('Observaciones del analista');
@@ -1598,6 +1597,7 @@ function tipos_contenido_field_default_field_instances() {
   t('Porcentaje avance');
   t('Porcentaje de Avance');
   t('Porcentaje de avance de la meta');
+  t('Productos a evaluar');
   t('Referencia al producto');
   t('Referencia de la entidad evaluar metas');
   t('Rol');
@@ -1606,8 +1606,6 @@ function tipos_contenido_field_default_field_instances() {
   t('Tipo instancia');
   t('ambito');
   t('attachment');
-  t('evaluar metas');
-  t('evaluar producto');
   t('id_compromiso');
   t('institucion asociada');
   t('lineamiento');

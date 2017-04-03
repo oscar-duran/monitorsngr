@@ -41,7 +41,7 @@ function tipos_contenido_node_info() {
       'base' => 'node_content',
       'description' => t('Content type de evaluacion de metas'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
     'instancia_coordinacion' => array(

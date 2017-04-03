@@ -298,6 +298,9 @@ function tipos_contenido_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'field_readonly' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
