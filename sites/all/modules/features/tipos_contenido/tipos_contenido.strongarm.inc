@@ -41,6 +41,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_productos_adicionales';
+  $strongarm->value = 0;
+  $export['comment_anonymous_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_compromiso_de_gestion';
   $strongarm->value = '1';
   $export['comment_compromiso_de_gestion'] = $strongarm;
@@ -76,6 +83,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_productos_adicionales';
+  $strongarm->value = 1;
+  $export['comment_default_mode_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_compromiso_de_gestion';
   $strongarm->value = '50';
   $export['comment_default_per_page_compromiso_de_gestion'] = $strongarm;
@@ -100,6 +114,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_default_per_page_miembros';
   $strongarm->value = '50';
   $export['comment_default_per_page_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_productos_adicionales';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_productos_adicionales'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -135,6 +156,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_form_location_miembros';
   $strongarm->value = 1;
   $export['comment_form_location_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_productos_adicionales';
+  $strongarm->value = 1;
+  $export['comment_form_location_productos_adicionales'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -181,6 +209,20 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_productos_adicionales';
+  $strongarm->value = '1';
+  $export['comment_preview_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_productos_adicionales';
+  $strongarm->value = '2';
+  $export['comment_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_compromiso_de_gestion';
   $strongarm->value = 0;
   $export['comment_subject_field_compromiso_de_gestion'] = $strongarm;
@@ -205,6 +247,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'comment_subject_field_miembros';
   $strongarm->value = 1;
   $export['comment_subject_field_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_productos_adicionales';
+  $strongarm->value = 1;
+  $export['comment_subject_field_productos_adicionales'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -383,6 +432,26 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__productos_adicionales';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_taxonomy_term__producto';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -434,6 +503,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_productos_adicionales';
+  $strongarm->value = '0';
+  $export['language_content_type_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_compromiso_de_gestion';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -470,6 +546,15 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_productos_adicionales';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_compromiso_de_gestion';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_compromiso_de_gestion'] = $strongarm;
@@ -494,6 +579,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'menu_parent_miembros';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_productos_adicionales';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_productos_adicionales'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -538,6 +630,16 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_productos_adicionales';
+  $strongarm->value = array(
+    0 => 'status',
+    1 => 'promote',
+  );
+  $export['node_options_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_compromiso_de_gestion';
   $strongarm->value = '0';
   $export['node_preview_compromiso_de_gestion'] = $strongarm;
@@ -566,6 +668,13 @@ function tipos_contenido_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_productos_adicionales';
+  $strongarm->value = '1';
+  $export['node_preview_productos_adicionales'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_compromiso_de_gestion';
   $strongarm->value = 1;
   $export['node_submitted_compromiso_de_gestion'] = $strongarm;
@@ -590,6 +699,13 @@ function tipos_contenido_strongarm() {
   $strongarm->name = 'node_submitted_miembros';
   $strongarm->value = 0;
   $export['node_submitted_miembros'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_productos_adicionales';
+  $strongarm->value = 1;
+  $export['node_submitted_productos_adicionales'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

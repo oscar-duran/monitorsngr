@@ -1159,19 +1159,17 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'item_compromiso';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['label'] = 'accion_collect';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
@@ -1194,7 +1192,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Campo: Meta */
+  /* Campo: Contenido: Meta */
   $handler->display->display_options['fields']['field_meta_1']['id'] = 'field_meta_1';
   $handler->display->display_options['fields']['field_meta_1']['table'] = 'field_data_field_meta';
   $handler->display->display_options['fields']['field_meta_1']['field'] = 'field_meta';
@@ -1443,19 +1441,17 @@ function vistas_views_default_views() {
     'field_porcentaje_avance' => 'hidden',
     'field_status_autoevaluacion' => 'hidden',
   );
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'item_compromiso';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['label'] = 'field_accion_collect';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
@@ -1476,7 +1472,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_institucion']['settings'] = array(
     'link' => 0,
   );
-  /* Campo: Campo: Meta */
+  /* Campo: Contenido: Meta */
   $handler->display->display_options['fields']['field_meta']['id'] = 'field_meta';
   $handler->display->display_options['fields']['field_meta']['table'] = 'field_data_field_meta';
   $handler->display->display_options['fields']['field_meta']['field'] = 'field_meta';
@@ -1486,19 +1482,19 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
-  /* Campo: Campo: Lineamiento */
+  /* Campo: Contenido: Código Lineamiento */
   $handler->display->display_options['fields']['field_codigo_lineamiento']['id'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['field'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Ámbito */
+  /* Campo: Contenido: Codigo Ambito */
   $handler->display->display_options['fields']['field_codigo_ambito']['id'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['field'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['relationship'] = 'field_item_compromiso_value';
   $handler->display->display_options['fields']['field_codigo_ambito']['type'] = 'taxonomy_term_reference_plain';
-  /* Campo: Campo: Eje */
+  /* Campo: Contenido: Código Eje */
   $handler->display->display_options['fields']['field_codigo_eje']['id'] = 'field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['field'] = 'field_codigo_eje';
@@ -1564,9 +1560,9 @@ function vistas_views_default_views() {
     t('Compromisos'),
     t('Institución '),
     t('Meta'),
-    t('Lineamiento'),
-    t('Ámbito'),
-    t('Eje'),
+    t('Código Lineamiento'),
+    t('Codigo Ambito'),
+    t('Código Eje'),
     t('Año de Creación'),
     t('Porcentaje avance'),
     t('Estado autoevaluación'),
@@ -1600,23 +1596,21 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
   $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_producto_target_id']['id'] = 'field_producto_target_id';
   $handler->display->display_options['relationships']['field_producto_target_id']['table'] = 'field_data_field_producto';
   $handler->display->display_options['relationships']['field_producto_target_id']['field'] = 'field_producto_target_id';
@@ -1625,7 +1619,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Campo: Contenido: Producto esperado */
+  /* Campo: Field collection item: producto */
   $handler->display->display_options['fields']['field_producto']['id'] = 'field_producto';
   $handler->display->display_options['fields']['field_producto']['table'] = 'field_data_field_producto';
   $handler->display->display_options['fields']['field_producto']['field'] = 'field_producto';
@@ -1636,7 +1630,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Contenido: Descripción Fuente Verificación */
+  /* Campo: Field collection item: descripc fuente verifica */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -1720,7 +1714,7 @@ function vistas_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Producto esperado */
+  /* Campo: Field collection item: producto */
   $handler->display->display_options['fields']['field_producto']['id'] = 'field_producto';
   $handler->display->display_options['fields']['field_producto']['table'] = 'field_data_field_producto';
   $handler->display->display_options['fields']['field_producto']['field'] = 'field_producto';
@@ -1731,7 +1725,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Contenido: Descripción Fuente Verificación */
+  /* Campo: Field collection item: descripc fuente verifica */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -1777,19 +1771,19 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field collection item from field_item_compromiso'),
-    t('field collection item from field_accion_collect'),
+    t('field_item_compromiso_value'),
+    t('field_accion_collect_value'),
     t('Contenido entity referenced from field_meta'),
-    t('Contenido entity referenced from field_producto'),
+    t('field_producto_target_id'),
     t('Contenido entity referenced from field_institucion'),
-    t('Producto esperado'),
+    t('producto'),
     t('Descripción Fuente'),
     t('Institución '),
     t('Compromiso'),
     t('Año de Creación'),
     t('Institución'),
     t('Page'),
-    t('Descripción Fuente Verificación'),
+    t('descripc fuente verifica'),
     t('Data export'),
   );
   $export['lista_productos'] = $view;
@@ -1820,17 +1814,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
@@ -1949,8 +1941,8 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field collection item from field_item_compromiso'),
-    t('field collection item from field_accion_collect'),
+    t('field_item_compromiso_value'),
+    t('field_accion_collect_value'),
     t('Contenido entity referenced from field_meta'),
     t('Contenido entity referenced from field_institucion'),
     t('Aspecto positivo'),
@@ -2158,17 +2150,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
@@ -2178,25 +2168,22 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['id'] = 'field_item_compromiso_value_1';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['label'] = 'item_compromiso_lineamiento';
-  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['delta'] = '-1';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['id'] = 'field_item_compromiso_value_2';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['label'] = 'item_compromiso_ambito';
-  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['delta'] = '-1';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value_3']['id'] = 'field_item_compromiso_value_3';
   $handler->display->display_options['relationships']['field_item_compromiso_value_3']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value_3']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value_3']['label'] = 'item_compromiso_eje';
-  $handler->display->display_options['relationships']['field_item_compromiso_value_3']['delta'] = '-1';
-  /* Campo: Campo: Meta */
+  /* Campo: Contenido: Meta */
   $handler->display->display_options['fields']['field_meta']['id'] = 'field_meta';
   $handler->display->display_options['fields']['field_meta']['table'] = 'field_data_field_meta';
   $handler->display->display_options['fields']['field_meta']['field'] = 'field_meta';
@@ -2283,7 +2270,7 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  /* Filter criterion: Contenido: Código Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -2306,7 +2293,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
+  /* Filter criterion: Contenido: Codigo Ambito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -2329,7 +2316,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Contenido: Código Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
@@ -2454,8 +2441,8 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field collection item from field_item_compromiso'),
-    t('field collection item from field_accion_collect'),
+    t('field_item_compromiso_value'),
+    t('field_accion_collect_value'),
     t('Contenido entity referenced from field_meta'),
     t('Contenido entity referenced from field_institucion'),
     t('item_compromiso_lineamiento'),
@@ -2503,17 +2490,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Field collection item: Acción Estratégica (field_accion_collect) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
   $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
   $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
   $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
@@ -2632,8 +2617,8 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('field collection item from field_item_compromiso'),
-    t('field collection item from field_accion_collect'),
+    t('field_item_compromiso_value'),
+    t('field_accion_collect_value'),
     t('Contenido entity referenced from field_meta'),
     t('Contenido entity referenced from field_institucion'),
     t('Obstáculo'),
@@ -3143,7 +3128,7 @@ function vistas_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Campo: Monto de Ejecución */
+  /* Campo: Field collection item: Monto de Ejecución */
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['id'] = 'field_monto_de_ejecucion';
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['table'] = 'field_data_field_monto_de_ejecucion';
   $handler->display->display_options['fields']['field_monto_de_ejecucion']['field'] = 'field_monto_de_ejecucion';
@@ -3154,7 +3139,7 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
-  /* Campo: Campo: Monto Presupuestario */
+  /* Campo: Field collection item: Monto Presupuestario */
   $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
   $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
@@ -3216,6 +3201,253 @@ function vistas_views_default_views() {
   $export['monto_instituci_n'] = $view;
 
   $view = new view();
+  $view->name = 'taxonomias_metas';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Taxonomias metas';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Taxonomias metas';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Campo: Término de taxonomía: Acción Estratégica */
+  $handler->display->display_options['fields']['field_accion_estrategica']['id'] = 'field_accion_estrategica';
+  $handler->display->display_options['fields']['field_accion_estrategica']['table'] = 'field_data_field_accion_estrategica';
+  $handler->display->display_options['fields']['field_accion_estrategica']['field'] = 'field_accion_estrategica';
+  /* Campo: Término de taxonomía: Productos Relacionados */
+  $handler->display->display_options['fields']['field_productos_relacionados']['id'] = 'field_productos_relacionados';
+  $handler->display->display_options['fields']['field_productos_relacionados']['table'] = 'field_data_field_productos_relacionados';
+  $handler->display->display_options['fields']['field_productos_relacionados']['field'] = 'field_productos_relacionados';
+  $handler->display->display_options['fields']['field_productos_relacionados']['delta_offset'] = '0';
+  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'meta' => 'meta',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'taxonomias-metas';
+  $translatables['taxonomias_metas'] = array(
+    t('Master'),
+    t('Taxonomias metas'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('Nombre'),
+    t('Acción Estratégica'),
+    t('Productos Relacionados'),
+    t('Page'),
+  );
+  $export['taxonomias_metas'] = $view;
+
+  $view = new view();
+  $view->name = 'taxonomias_productos';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Taxonomias productos';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Taxonomias productos';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+    'field_anno_fin_meta' => 'field_anno_fin_meta',
+    'field_anno_ini_meta' => 'field_anno_ini_meta',
+    'field_cod_producto_meta' => 'field_cod_producto_meta',
+    'field_eje' => 'field_eje',
+    'field_institucion_administradora' => 'field_institucion_administradora',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_anno_fin_meta' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_anno_ini_meta' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_cod_producto_meta' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_eje' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_institucion_administradora' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Nombre del producto';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Campo: Campo: Código Producto */
+  $handler->display->display_options['fields']['field_cod_producto_meta']['id'] = 'field_cod_producto_meta';
+  $handler->display->display_options['fields']['field_cod_producto_meta']['table'] = 'field_data_field_cod_producto_meta';
+  $handler->display->display_options['fields']['field_cod_producto_meta']['field'] = 'field_cod_producto_meta';
+  /* Campo: Campo: Año Inicial */
+  $handler->display->display_options['fields']['field_anno_ini_meta']['id'] = 'field_anno_ini_meta';
+  $handler->display->display_options['fields']['field_anno_ini_meta']['table'] = 'field_data_field_anno_ini_meta';
+  $handler->display->display_options['fields']['field_anno_ini_meta']['field'] = 'field_anno_ini_meta';
+  $handler->display->display_options['fields']['field_anno_ini_meta']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Campo: Año Final */
+  $handler->display->display_options['fields']['field_anno_fin_meta']['id'] = 'field_anno_fin_meta';
+  $handler->display->display_options['fields']['field_anno_fin_meta']['table'] = 'field_data_field_anno_fin_meta';
+  $handler->display->display_options['fields']['field_anno_fin_meta']['field'] = 'field_anno_fin_meta';
+  $handler->display->display_options['fields']['field_anno_fin_meta']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Campo: Instituciones Involucradas */
+  $handler->display->display_options['fields']['field_institucion_administradora']['id'] = 'field_institucion_administradora';
+  $handler->display->display_options['fields']['field_institucion_administradora']['table'] = 'field_data_field_institucion_administradora';
+  $handler->display->display_options['fields']['field_institucion_administradora']['field'] = 'field_institucion_administradora';
+  $handler->display->display_options['fields']['field_institucion_administradora']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['field_institucion_administradora']['delta_offset'] = '0';
+  /* Campo: Término de taxonomía: descripcion del producto */
+  $handler->display->display_options['fields']['field_descripcion_del_producto']['id'] = 'field_descripcion_del_producto';
+  $handler->display->display_options['fields']['field_descripcion_del_producto']['table'] = 'field_data_field_descripcion_del_producto';
+  $handler->display->display_options['fields']['field_descripcion_del_producto']['field'] = 'field_descripcion_del_producto';
+  /* Campo: Término de taxonomía: detalle del producto */
+  $handler->display->display_options['fields']['field_detalle_del_producto']['id'] = 'field_detalle_del_producto';
+  $handler->display->display_options['fields']['field_detalle_del_producto']['table'] = 'field_data_field_detalle_del_producto';
+  $handler->display->display_options['fields']['field_detalle_del_producto']['field'] = 'field_detalle_del_producto';
+  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'producto' => 'producto',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'taxonomias-productos';
+  $translatables['taxonomias_productos'] = array(
+    t('Master'),
+    t('Taxonomias productos'),
+    t('more'),
+    t('Apply'),
+    t('Reiniciar'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« primero'),
+    t('‹ anterior'),
+    t('siguiente ›'),
+    t('última »'),
+    t('Nombre del producto'),
+    t('Código Producto'),
+    t('Año Inicial'),
+    t('Año Final'),
+    t('Instituciones Involucradas'),
+    t('descripcion del producto'),
+    t('detalle del producto'),
+    t('Page'),
+  );
+  $export['taxonomias_productos'] = $view;
+
+  $view = new view();
   $view->name = 'view_instituciones';
   $view->description = '';
   $view->tag = 'default';
@@ -3246,24 +3478,21 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'field_item_compromiso_eje';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['delta'] = '-1';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['id'] = 'field_item_compromiso_value_1';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value_1']['label'] = 'field_item_compromiso_ambito';
-  $handler->display->display_options['relationships']['field_item_compromiso_value_1']['delta'] = '-1';
-  /* Relationship: Contenido: Item de Compromiso (field_item_compromiso) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['id'] = 'field_item_compromiso_value_2';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['table'] = 'field_data_field_item_compromiso';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['field'] = 'field_item_compromiso_value';
   $handler->display->display_options['relationships']['field_item_compromiso_value_2']['label'] = 'field_item_compromiso_lineamiento';
-  $handler->display->display_options['relationships']['field_item_compromiso_value_2']['delta'] = '-1';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -3342,7 +3571,7 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Campo: Eje (field_codigo_eje) */
+  /* Filter criterion: Contenido: Código Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -3365,7 +3594,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_eje_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
-  /* Filter criterion: Campo: Ámbito (field_codigo_ambito) */
+  /* Filter criterion: Contenido: Codigo Ambito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -3388,7 +3617,7 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
-  /* Filter criterion: Campo: Lineamiento (field_codigo_lineamiento) */
+  /* Filter criterion: Contenido: Código Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
