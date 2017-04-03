@@ -44,6 +44,7 @@ function msngr_compromisos_node_access($node, $op, $account) {
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+//  dpm($form);
 
   $user_full = user_load($user->uid, TRUE);
 
@@ -66,8 +67,8 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_id_compromiso']['#access']= FALSE;
 
   //Items de compromiso
-  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
-  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+  //$form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
+  //$form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
 }
 
 function is_add_form($form_state){
