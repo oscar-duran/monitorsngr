@@ -86,6 +86,14 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   //Items de compromiso
   $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
   $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+
+  //Evaluar Metas
+  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) {
+    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#disabled'] = TRUE;
+  }
+
+  dpm($form);
+  dpm($form_state);
 }
 
 function is_add_form($form_state){

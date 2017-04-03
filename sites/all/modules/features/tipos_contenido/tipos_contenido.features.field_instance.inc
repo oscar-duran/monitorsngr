@@ -461,50 +461,6 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-evaluacion_de_metas-body'.
-  $field_instances['node-evaluacion_de_metas-body'] = array(
-    'bundle' => 'evaluacion_de_metas',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-evaluacion_de_metas-field_aspecto_positivo'.
   $field_instances['node-evaluacion_de_metas-field_aspecto_positivo'] = array(
     'bundle' => 'evaluacion_de_metas',
@@ -1425,7 +1381,6 @@ function tipos_contenido_field_default_field_instances() {
   t('Acción a seguir');
   t('Aspecto positivo');
   t('Año de Creación');
-  t('Body');
   t('Comentario porcentaje avance');
   t('Correo');
   t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
