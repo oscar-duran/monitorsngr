@@ -69,10 +69,23 @@ function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_node_update().
  */
 function msngr_compromisos_node_update($node) {
-  if($node->type == "compromiso_de_gestión") {
-    dpm('en update node!!!!');
+  dpm('en update node!!!!');
+  if($node->type == "compromiso_de_gestion") {
     update_percentage_compromiso($node);
+  }
 
+  if($node->type == 'evaluacion_de_metas') {
+    if($node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] != $node->original->field_porcentaje_avance[LANGUAGE_NONE][0]['value']) {
+      $meta_actual_node = node_load($node->nid);
+      $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = $node->field_porcentaje_avance['und'][0]['value'];
+      $compromisos = get_compromiso_by_meta($node->nid);
+      foreach ($compromisos as $compromiso_nid) {
+        $compromiso_node = node_load($compromiso_nid->nid);
+        $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
+        //update_percentage_compromiso($compromiso_node);
+        field_attach_update('node', $compromiso_node);
+      }
+    }
   }
 }
 
@@ -141,6 +154,7 @@ function msngr_compromisos_preprocess_field(&$variables) {
         'lineamiento' => $lineamiento->name,
         'accion' => $accion->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $accion->name,
         'meta' => $meta_tax->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $meta_node->title,
+        'meta_percent' => ($meta_node->field_porcentaje_avance['und'][0]['value'] - 1) * 25,
         'meta_url' => '/node/' . $meta_node->nid,
         'productos' => $productos,
       ];
@@ -244,6 +258,7 @@ function field_value(&$array, $id) {
 function update_percentage_compromiso($node) {
   $percentaje = get_compromiso_percentage($node);
   $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
+  dpm($node);
   $node->is_new = false;
   field_attach_update('node', $node);
 }
@@ -268,4 +283,18 @@ function simple_string_field_value($value) {
       ),
     ),
   );
+}
+
+//Consultas
+function get_compromiso_by_meta($meta_id) {
+  $query = db_select('node', 'n');
+  $query->fields('n', array('title', 'nid'))
+    ->leftJoin('field_data_field_evaluar_metas', 'meta', 'n.nid = meta.entity_id AND meta.entity_type = \'node\'');
+  $query->leftJoin('node', 'meta_node', 'meta.field_evaluar_metas_target_id = meta_node.nid');
+
+  $query->condition('n.status', 1)
+    //->condition('n.type', 'compromiso_de_gestion', 'IN')
+    ->condition('meta.field_evaluar_metas_target_id', $meta_id);
+
+  return $query->execute()->fetchAll();
 }
