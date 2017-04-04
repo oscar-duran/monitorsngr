@@ -52,6 +52,7 @@ function msngr_compromisos_node_insert($node) {
  * Implements hook_node_presave().
  */
 function msngr_compromisos_node_presave($node) {
+  //dpm($node);
   if($node->type == "compromiso_de_gestion") {
     new_compromiso_id($node);
   }
@@ -62,6 +63,17 @@ function msngr_compromisos_node_presave($node) {
  */
 function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
   //dpm($form_id);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function msngr_compromisos_node_update($node) {
+  if($node->type == "compromiso_de_gestión") {
+    dpm('en update node!!!!');
+    update_percentage_compromiso($node);
+
+  }
 }
 
 /**
@@ -202,7 +214,7 @@ function update_compromiso_de_gestion($node) {
   if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
     check_compromiso_id($node);
     //action_id($node);
-    //update_percentage_compromiso($node);
+    update_percentage_compromiso($node);
     $node->is_new = FALSE;
     $node->already_updated = TRUE;
     field_attach_update('node', $node);
@@ -227,4 +239,33 @@ function field_target_id(&$array, $id) {
 
 function field_value(&$array, $id) {
   return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
+}
+
+function update_percentage_compromiso($node) {
+  $percentaje = get_compromiso_percentage($node);
+  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
+  $node->is_new = false;
+  field_attach_update('node', $node);
+}
+
+function get_compromiso_percentage($node) {
+  $cant = sizeof($node->field_evaluar_metas[LANGUAGE_NONE]);
+  $sum = 0;
+  foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $meta_id) {
+    $node_meta = node_load($meta_id['target_id']);
+    $sum += ($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25;
+  }
+  return $sum / $cant;
+}
+
+function simple_string_field_value($value) {
+  return array(
+    LANGUAGE_NONE => array(
+      0 => array(
+        'value' => $value,
+        'format' => NULL,
+        'safe_value' => $value,
+      ),
+    ),
+  );
 }
