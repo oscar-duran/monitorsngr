@@ -69,7 +69,6 @@ function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_node_update().
  */
 function msngr_compromisos_node_update($node) {
-  dpm('en update node!!!!');
   if($node->type == "compromiso_de_gestion") {
     update_percentage_compromiso($node);
   }
@@ -137,7 +136,6 @@ function msngr_compromisos_preprocess_field(&$variables) {
     foreach ($variables['items'] as $id => $metas_id) {
       $meta_node = node_load($metas_id['#markup']);
       $meta_tax = taxonomy_term_load($meta_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
-      dpm($meta_node);
       $accion = taxonomy_term_load($meta_tax->field_accion_estrategica[LANGUAGE_NONE][0]['tid']);
       $eje = taxonomy_term_load($accion->field_eje[LANGUAGE_NONE][0]['target_id']);
       $ambito = taxonomy_term_load($accion->field_ambito[LANGUAGE_NONE][0]['target_id']);
@@ -258,7 +256,6 @@ function field_value(&$array, $id) {
 function update_percentage_compromiso($node) {
   $percentaje = get_compromiso_percentage($node);
   $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
-  dpm($node);
   $node->is_new = false;
   field_attach_update('node', $node);
 }
