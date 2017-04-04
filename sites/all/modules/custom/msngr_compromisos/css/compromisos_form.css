@@ -1,0 +1,11 @@
+.form-item .form-select {
+    width: 100%;
+}
+
+.draggable > .field-multiple-drag {
+    display: none;
+}
+
+.field-multiple-drag a .handle {
+    height: 25px;
+}
