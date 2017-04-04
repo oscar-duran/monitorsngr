@@ -2,7 +2,7 @@
 
 function msngr_compromisos_menu () {
   $items['productos/autocomplete'] = array(
-    'title' => t('Autocomplete for cities'),
+    'title' => t('Autocomplete for products'),
     'page callback' => '_productos_autocomplete',
     'access arguments' => FALSE,  //MODIFICAR ESTO!!!! FALSE SOLO PARA PRUEBAS!!!!!!
     'type' => MENU_CALLBACK
@@ -10,21 +10,31 @@ function msngr_compromisos_menu () {
   return $items;
 }
 
-function _productos_autocomplete ($string) {
-//  dpm('hola');
-  $matches = array();
-  $result = db_select('taxonomy_term_data', 'ttd')
-    ->fields('ttd', array('name'))
-    ->condition('name', '%' . db_like($string) . '%', 'LIKE')
-    ->execute();
+function _productos_autocomplete () {
 
-  // save the query to matches
-  foreach ($result as $row) {
-    $matches[$row->name] = check_plain($row->name);
-  }
+  $str='select field_productos_relacionados_tid from field_data_field_productos_relacionados where entity_id = '.variable_get('meta').'';
+  $result = db_query($str);
+//  $result=$result->fetchAllKeyed();
+//  $result=$result->fetchAssoc();
+//  $result=$result->fetchAllAssoc(1);
+//  $result=$result->fetchField();
+  $result=$result->fetchCol(0);
 
+
+//  $some = array();
+//
+//  foreach ($result as $keyy => $vall) {
+//
+//    $match[$vall]=taxonomy_term_load($vall);
+//
+//    $some[$keyy]=$match[$vall]->name;
+//
+//  }
+
+
+//  $asd=(object)$some;
   // Return the result to the form in json
-  drupal_json_output($matches);
+  drupal_json_output($result);
 }
 
 /**
@@ -36,35 +46,10 @@ function msngr_compromisos_node_access($node, $op, $account) {
       $user_entity = user_load($account->uid);
       return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
     }
-    /*if($node->type == 'meta') {
-      $compromisos = get_compromiso_by_meta($node->nid);
-      foreach ($compromisos as $compromiso) {
-        $compromiso_node = node_load($compromiso->nid);
-        $user_entity = user_load($account->uid);
-        return field_target_id($user_entity->field_institucion, 0) != field_target_id($compromiso_node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
-      }
-    }
 
-    if($node->type == 'producto_meta' && isset($node->entity_view_prepared)) {
-      return NODE_ACCESS_DENY;
-    }*/
   }
 }
 
-/*
- * Implements hook_theme_registry_alter().
- */
-/*function msngr_compromisos_theme_registry_alter(&$theme_registry) {
-  $module_path = drupal_get_path('module', 'auto_fill_id');
-  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
-  foreach ($template_file_objects as $key => $template_file) {
-    if(!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
-      $theme_registry[$key]['theme path'] = $module_path;
-      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file);
-      $theme_registry[$key]['type'] = 'module';
-    }
-  }
-}*/
 
 
 function msngr_compromisos_form_evaluacion_de_metas_node_form_alter (&$form, &$form_state, $form_id) {
@@ -102,11 +87,13 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_id_compromiso']['#access']= FALSE;
   //
   $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']='productos/autocomplete';
-  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid']);
+//  dpm($form);
 
 //  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE][0]['tid'] = array(
 //    '#autocomplete_path' => 'productos/autocomplete',
 //  );
+
+
 
 
 
@@ -117,33 +104,19 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   );
 
   $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
-//  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax']);
-//  dpm($form);
-  $tax=taxonomy_get_term_by_name('meta 2', 'meta');
-  $tax=array_shift($tax);
-//dpm($tax);
-  foreach ($tax->field_productos_relacionados['und'] as $keyx => $valuex) {
-    $testing[$keyx] = $valuex;
-
-  }
-//  dpm($testing);
-
-//  dpm($tax);
-//
-//  $prod=$tax[1258]->field_productos_relacionados['und'][0]['tid'];
-//  dpm(taxonomy_term_load($prod));
-//  $...->field_productos_relacionados['und'][0]['tid']
-
-  //Items de compromiso
-  //$form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
-  //$form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
-
 
 }
 
 function ajax_producto_callback ($form, $form_state) {
   $commands = array();
   $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
+  $tax=array_shift($tax);
+//  dpm($tax->tid);
+//  dpm($meta_capturada);
+  variable_del('meta');
+  variable_set('meta', $tax->tid);
+//  _productos_autocomplete($meta_capturada);
 //  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
 //  $tax=array_shift($tax);
 //  dpm($tax->field_productos_relacionados['und'][0]['tid']);
@@ -167,3 +140,102 @@ function auto_compromiso_form_title($user, &$form, &$form_state) {
   $form_state['values']['field_institucion'][LANGUAGE_NONE][0]['target_id'] = $ins_nid;
   $form['title']['#default_value'] = date('Y').'-'.$ins->title;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  dpm('hola');
+//$matches = array()array;
+//  $result = db_select('taxonomy_term_data', 'ttd')
+//            ->fields('ttd', array('name'))
+//            ->condition('name', '%' . db_like($string) . '%', 'LIKE')
+//
+////    ->condition('')
+//          ->execute();
+///////////////////////////////////
+//  $result = db_select('field_data_field_productos_relacionados', 'ttd')
+//    ->fields('ttd', array('entity_id'))
+//    ->condition('entity_id', '%' . db_like($string) . '%', 'LIKE')
+//
+////    ->condition('')
+//    ->execute();
+////////////////////////////////////
+//  $str='SELECT taxonomy_term_data.tid AS tid, \'taxonomy_term\' AS field_data_field_productos_relacionados_taxonomy_term_entity
+//FROM
+//{taxonomy_term_data} taxonomy_term_data
+//LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid
+//WHERE (( (taxonomy_vocabulary.machine_name IN  (\'meta\')) AND (taxonomy_term_data.name ILIKE \'%meta 2%\') ))
+//LIMIT 10 OFFSET 0';
+//  $pri='1258';
+/////////////////////////////
+
+//keyed
+//associa
+// save the query to matches
+//  foreach ($result as $row) {
+//    $matches[$row->field_productos_relacionados_tid] = check_plain($row->field_productos_relacionados_tid);
+//  }
+/*if($node->type == 'meta') {
+  $compromisos = get_compromiso_by_meta($node->nid);
+  foreach ($compromisos as $compromiso) {
+    $compromiso_node = node_load($compromiso->nid);
+    $user_entity = user_load($account->uid);
+    return field_target_id($user_entity->field_institucion, 0) != field_target_id($compromiso_node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+  }
+}
+
+if($node->type == 'producto_meta' && isset($node->entity_view_prepared)) {
+  return NODE_ACCESS_DENY;
+}*/
+/*
+ * Implements hook_theme_registry_alter().
+ */
+/*function msngr_compromisos_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'auto_fill_id');
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+  foreach ($template_file_objects as $key => $template_file) {
+    if(!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+      $theme_registry[$key]['theme path'] = $module_path;
+      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file);
+      $theme_registry[$key]['type'] = 'module';
+    }
+  }
+}*/
+//  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']);
+//  dpm($form);
+//  $tax=taxonomy_get_term_by_name('meta 2', 'meta');
+//  $tax=array_shift($tax);
+
+
+
+
+//dpm($tax);
+//  foreach ($tax->field_productos_relacionados['und'] as $keyx => $valuex) {
+//    $testing[$keyx] = $valuex;
+//
+//  }
+//  dpm($testing);
+
+//  dpm($tax);
+//
+//  $prod=$tax[1258]->field_productos_relacionados['und'][0]['tid'];
+//  dpm(taxonomy_term_load($prod));
+//  $...->field_productos_relacionados['und'][0]['tid']
+
+//Items de compromiso
+//$form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
+//$form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+
+//  dpm($form);
+
+//  $tax=array_shift($tax);
+//  dpm($tax->field_productos_relacionados['und'][0]['tid']);
