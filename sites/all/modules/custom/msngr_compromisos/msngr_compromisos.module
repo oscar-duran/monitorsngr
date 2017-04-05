@@ -9,18 +9,16 @@ function msngr_compromisos_node_access($node, $op, $account) {
       $user_entity = user_load($account->uid);
       return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
     }
-    /*if($node->type == 'meta') {
+    if($node->type == 'evaluacion_de_metas') {
+      $result = FALSE;
       $compromisos = get_compromiso_by_meta($node->nid);
       foreach ($compromisos as $compromiso) {
         $compromiso_node = node_load($compromiso->nid);
         $user_entity = user_load($account->uid);
-        return field_target_id($user_entity->field_institucion, 0) != field_target_id($compromiso_node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+        $result = (field_target_id($user_entity->field_institucion, 0) == field_target_id($compromiso_node->field_institucion, 0)) || $result;
       }
+      return $result ? NODE_ACCESS_ALLOW : NODE_ACCESS_DENY;
     }
-
-    if($node->type == 'producto_meta' && isset($node->entity_view_prepared)) {
-      return NODE_ACCESS_DENY;
-    }*/
   }
 }
 
@@ -52,7 +50,6 @@ function msngr_compromisos_node_insert($node) {
  * Implements hook_node_presave().
  */
 function msngr_compromisos_node_presave($node) {
-  //dpm($node);
   if($node->type == "compromiso_de_gestion") {
     new_compromiso_id($node);
   }
