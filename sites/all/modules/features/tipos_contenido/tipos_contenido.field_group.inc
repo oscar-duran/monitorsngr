@@ -85,9 +85,9 @@ function tipos_contenido_field_group_info() {
     'weight' => '8',
     'children' => array(
       0 => 'field_organizacion_capacitadora',
-      1 => 'field_su_org_requiere_asesoria',
-      2 => 'field_tema_necesidad_meta',
-      3 => 'field_recibio_asesoria_meta',
+      1 => 'field_tema_necesidad_meta',
+      2 => 'field_recibio_asesoria_meta',
+      3 => 'field_su_org_requiere_asesoria',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -281,8 +281,8 @@ function tipos_contenido_field_group_info() {
     'label' => 'Vertical Group',
     'weight' => '3',
     'children' => array(
-      0 => 'group_meta_asesorias',
-      1 => 'group_meta_avance',
+      0 => 'group_meta_avance',
+      1 => 'group_meta_asesorias',
       2 => 'group_producto_tab',
       3 => 'group_meta_estado',
       4 => 'group_meta_obsevaciones',
