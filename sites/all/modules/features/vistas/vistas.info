@@ -27,6 +27,7 @@ features[views_view][] = lista_metas
 features[views_view][] = lista_productos
 features[views_view][] = listado_aspectos_positivos
 features[views_view][] = listado_de_revisiones_de_compromisos
+features[views_view][] = listado_evaluacion_metas
 features[views_view][] = listado_metas
 features[views_view][] = listado_obstaculos
 features[views_view][] = matriz_cumplimiento
