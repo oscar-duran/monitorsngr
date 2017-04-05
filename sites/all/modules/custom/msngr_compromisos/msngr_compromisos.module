@@ -128,7 +128,24 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
 /**
  * Implements hook_preprocess_HOOK().
  */
+function msngr_compromisos_preprocess_print(&$variables) {
+  dpm("holaaa!");
+  dpm($variables);
+  $variables['dummy'] = 'Hola mundo!!!!!';
+  if( $variables['node']->type == "compromiso_de_gestion") {
+    $variables['metas'] = [];
+    foreach ($variables['node']->field_evaluar_metas[LANGUAGE_NONE] as $index => $meta_id) {
+      $meta_node = node_load($meta_id['target_id']);
+      array_push($variables['metas'], format_metas_labels($meta_node));
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function msngr_compromisos_preprocess_field(&$variables) {
+  dpm($variables);
   if($variables['element']['#field_name'] == 'field_evaluar_metas') {
     foreach ($variables['items'] as $id => $metas_id) {
       $meta_node = node_load($metas_id['#markup']);
@@ -250,6 +267,10 @@ function field_value(&$array, $id) {
   return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
 }
 
+function field_val(&$array, $key, $index) {
+  return empty($array) ? '' : $array[LANGUAGE_NONE][$index][$key];
+}
+
 function update_percentage_compromiso($node) {
   $percentaje = get_compromiso_percentage($node);
   $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
@@ -265,6 +286,73 @@ function get_compromiso_percentage($node) {
     $sum += ($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25;
   }
   return $sum / $cant;
+}
+
+
+
+//Formats
+function format_metas_labels($node) {
+  $meta_tax = taxonomy_term_load($node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
+  $accion = taxonomy_term_load($meta_tax->field_accion_estrategica[LANGUAGE_NONE][0]['tid']);
+  $eje = taxonomy_term_load($accion->field_eje[LANGUAGE_NONE][0]['target_id']);
+  $ambito = taxonomy_term_load($accion->field_ambito[LANGUAGE_NONE][0]['target_id']);
+  $lineamiento = taxonomy_term_load($accion->field_lineamiento[LANGUAGE_NONE][0]['target_id']);
+  $productos = [];
+  $temas = [];
+  dpm($node);
+  dpm($meta_tax);
+  foreach ($node->field_tema_necesidad_meta[LANGUAGE_NONE] as $tema) {
+    array_push($temas, $tema['value']);
+  }
+
+  foreach ($node->field_evaluar_producto[LANGUAGE_NONE] as $id_item => $item) {
+    $producto_fc = field_collection_item_load($item['value']);
+    $productos[$id_item] = format_productos_labels($producto_fc);
+  }
+
+  return array(
+    'field_title' => $node->title,
+    'field_eje' => $eje->name,
+    'field_ambito' => $ambito->name,
+    'field_lineamiento' => $lineamiento->name,
+    'field_accion_estrategica' => $accion->name,
+    'field_accion_codigo' => field_value($accion->field_codigo, 0),
+    'field_accion_descripcion' => $accion->description,
+    'field_meta' => $meta_tax->name,
+    'field_meta_codigo' => field_value($meta_tax->field_codigo, 0),
+    'field_meta_description' => $meta_tax->description,
+    'field_organizacion_capacitadora' => field_value($node->field_organizacion_capacitadora, 0),
+    'field_tema_necesidad_meta' => $temas,
+    'field_porcentaje_avance' => (field_value($node->field_porcentaje_avance, 0) - 1) * 25,
+    'field_porcentaje_avance_coment' => field_value($node->field_porcentaje_avance_coment, 0),
+    'field_obstaculo' => field_value($node->field_obstaculo, 0),
+    'field_aspecto_positivo' => field_value($node->field_aspecto_positivo, 0),
+    'field_observacion_del_analista' => field_value($node->field_observacion_del_analista, 0),
+    'field_recibio_asesoria_meta' => field_value($node->field_recibio_asesoria_meta, 0) ? 'Sí' : 'No',
+    'field_su_org_requiere_asesoria' => field_value($node->field_su_org_requiere_asesoria, 0) ? 'Sí' : 'No',
+    'field_productos' => $productos,
+  );
+}
+
+function format_productos_labels($field_collection) {
+  $producto_id = $field_collection->field_producto[LANGUAGE_NONE][0]['tid'];
+  $producto = taxonomy_term_load($producto_id);
+  $files = [];
+  foreach ($field_collection->field_prod_fuente_verifica[LANGUAGE_NONE] as $file) {
+    $file_data = file_load($file['fid']);
+    $url_file = file_create_url($file_data->uri);
+    array_push($files, $url_file);
+  }
+  return array(
+    'field_producto' => $producto->name,
+    'field_producto_codigo' => field_value($producto->field_cod_producto_meta, 0),
+    'field_detalle_del_producto' => field_value($producto->field_detalle_del_producto, 0),
+    'field_producto_descripcion' => $producto->description,
+    'field_producto_ano_inicial' => field_value($producto->	field_anno_ini_meta, 0),
+    'field_producto_ano_final' => field_value($producto->	field_anno_fin_meta, 0),
+    'field_descripc_fuente_verifica' => field_value($field_collection->field_descripc_fuente_verifica, 0),
+    'field_prod_fuente_verifica' => $files,
+  );
 }
 
 function simple_string_field_value($value) {
