@@ -1145,7 +1145,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'lista asesorias';
+  $handler->display->display_options['title'] = 'Temas con Necesidad de Asesoría';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1159,31 +1159,19 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['id'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['table'] = 'field_data_field_item_compromiso';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['field'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_item_compromiso_value']['label'] = 'item_compromiso';
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['field_accion_collect_value']['id'] = 'field_accion_collect_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['table'] = 'field_data_field_accion_collect';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['field'] = 'field_accion_collect_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['relationship'] = 'field_item_compromiso_value';
-  $handler->display->display_options['relationships']['field_accion_collect_value']['label'] = 'accion_collect';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_meta_target_id']['id'] = 'field_meta_target_id';
-  $handler->display->display_options['relationships']['field_meta_target_id']['table'] = 'field_data_field_meta';
-  $handler->display->display_options['relationships']['field_meta_target_id']['field'] = 'field_meta_target_id';
-  $handler->display->display_options['relationships']['field_meta_target_id']['relationship'] = 'field_accion_collect_value';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['id'] = 'field_evaluar_metas_target_id';
+  $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['table'] = 'field_data_field_evaluar_metas';
+  $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['field'] = 'field_evaluar_metas_target_id';
   /* Campo: Contenido: Tema de necesidades en asesoría */
   $handler->display->display_options['fields']['field_tema_necesidad_meta']['id'] = 'field_tema_necesidad_meta';
   $handler->display->display_options['fields']['field_tema_necesidad_meta']['table'] = 'field_data_field_tema_necesidad_meta';
   $handler->display->display_options['fields']['field_tema_necesidad_meta']['field'] = 'field_tema_necesidad_meta';
-  $handler->display->display_options['fields']['field_tema_necesidad_meta']['relationship'] = 'field_meta_target_id';
+  $handler->display->display_options['fields']['field_tema_necesidad_meta']['relationship'] = 'field_evaluar_metas_target_id';
   $handler->display->display_options['fields']['field_tema_necesidad_meta']['delta_offset'] = '0';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1192,23 +1180,12 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Meta */
-  $handler->display->display_options['fields']['field_meta_1']['id'] = 'field_meta_1';
-  $handler->display->display_options['fields']['field_meta_1']['table'] = 'field_data_field_meta';
-  $handler->display->display_options['fields']['field_meta_1']['field'] = 'field_meta';
-  $handler->display->display_options['fields']['field_meta_1']['relationship'] = 'field_accion_collect_value';
-  $handler->display->display_options['fields']['field_meta_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_meta_1']['settings'] = array(
-    'link' => 1,
-  );
-  $handler->display->display_options['fields']['field_meta_1']['delta_offset'] = '0';
-  /* Campo: Campo: Institución  */
-  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
-    'link' => 1,
-  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1256,7 +1233,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['title']['operator'] = 'contains';
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institucion';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -1267,8 +1244,14 @@ function vistas_views_default_views() {
     5 => 0,
     7 => 0,
     6 => 0,
-    8 => 0,
   );
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title_1';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1285,7 +1268,7 @@ function vistas_views_default_views() {
   );
   $translatables['lista_asesorias'] = array(
     t('Master'),
-    t('lista asesorias'),
+    t('Temas con Necesidad de Asesoría'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -1299,16 +1282,12 @@ function vistas_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('item_compromiso'),
-    t('accion_collect'),
-    t('Contenido entity referenced from field_meta'),
     t('Contenido entity referenced from field_institucion'),
+    t('Contenido entity referenced from field_evaluar_metas'),
     t('Tema de necesidades en asesoría'),
     t('Compromiso'),
-    t('Meta'),
-    t('Institución '),
+    t('Institución'),
     t('Año de Creación'),
-    t('Institucion'),
     t('Page'),
     t('Data export'),
   );
