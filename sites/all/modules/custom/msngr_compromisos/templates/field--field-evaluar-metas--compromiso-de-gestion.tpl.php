@@ -74,7 +74,7 @@ HTML comment.
         <td><?php print $value['accion'] ?></td>
         <td>
           <a href="<?php print $value['meta_url'] ?>">
-            <?php print $value['meta'] ?>
+            <?php print $value['meta'] ?> (<?php print $value['meta_percent'] ?>%)
           </a>
         </td>
         <?php $last_key = end(array_keys($value['productos'])) ?>
