@@ -165,6 +165,11 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
 
   $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
 //dpm($form);
+
+  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
+    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+  }
+
 }
 
 function ajax_producto_callback ($form, $form_state) {
@@ -178,18 +183,6 @@ function ajax_producto_callback ($form, $form_state) {
     '#commands' => $commands,
   );
 
-  //Items de compromiso
-  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
-  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
-
-  //Evaluar Metas
-  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
-    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
-   // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
-  }
-
-  //dpm($form);
-  //xdpm($form_state);
 }
 
 /**
