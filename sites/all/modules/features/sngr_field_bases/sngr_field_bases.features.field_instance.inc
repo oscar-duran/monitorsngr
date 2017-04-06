@@ -23,12 +23,12 @@ function sngr_field_bases_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_descripc_fuente_verifica',
-    'label' => 'descripc fuente verifica',
+    'label' => 'Descripción de la Fuente de Verificación',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -599,6 +599,7 @@ function sngr_field_bases_field_default_field_instances() {
   t('Auto inc eje');
   t('Auto inc lineamiento');
   t('Año');
+  t('Descripción de la Fuente de Verificación');
   t('Institución');
   t('Integrantes');
   t('Monto Presupuestario');
@@ -607,7 +608,6 @@ function sngr_field_bases_field_default_field_instances() {
   t('Provincia, Cantón, Distrito');
   t('Subtipo instancia');
   t('Tipo de instancia');
-  t('descripc fuente verifica');
 
   return $field_instances;
 }

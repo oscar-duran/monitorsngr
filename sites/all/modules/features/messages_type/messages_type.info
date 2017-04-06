@@ -1,6 +1,6 @@
 name = Messages type
 core = 7.x
-package = Features
+package = CNE Features
 dependencies[] = ctools
 dependencies[] = entity
 dependencies[] = features
