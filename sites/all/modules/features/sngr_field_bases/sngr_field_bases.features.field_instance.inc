@@ -41,7 +41,7 @@ function sngr_field_bases_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 

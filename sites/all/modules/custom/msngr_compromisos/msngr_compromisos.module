@@ -117,7 +117,7 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
 
   //Evaluar Metas
   if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
-    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+    //$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
    // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
   }
 
@@ -165,7 +165,7 @@ function msngr_compromisos_preprocess_field(&$variables) {
         'ambito' => $ambito->name,
         'lineamiento' => $lineamiento->name,
         'accion' => $accion->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $accion->name,
-        'meta' => $meta_tax->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $meta_node->title,
+        'meta' => $meta_node->title,
         'meta_percent' => porcentaje_avance($meta_node->field_porcentaje_avance['und'][0]['value']),
         'meta_url' => '/node/' . $meta_node->nid,
         'productos' => $productos,
@@ -290,6 +290,19 @@ function get_compromiso_percentage($node) {
 
 function porcentaje_avance($value) {
   return empty($value) ? 0 : ($value - 1) * 25;
+}
+
+function update_meta_name($compromiso_title, $nid) {
+  $node = node_load($nid);
+  $title = $node->title;
+  /*$node->title = t('@compromiso-@evaluacion', array(
+    '@compromiso' => $compromiso_title,
+    '@evaluacion' => $title
+  ));*/
+  $node->title = $compromiso_title . '-' . $title;
+  dpm($node);
+  $node->revision = 1;
+  node_save($node);
 }
 
 //Formats

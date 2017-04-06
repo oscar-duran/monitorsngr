@@ -53,7 +53,7 @@ function tipos_contenido_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -93,7 +93,7 @@ function tipos_contenido_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
-      'weight' => 3,
+      'weight' => 0,
     ),
   );
 
