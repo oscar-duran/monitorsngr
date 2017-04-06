@@ -345,7 +345,6 @@ function new_compromiso_id($node) {
         $compromiso_title = get_last_compromiso_title();
       if($compromiso_title != NULL) {
           $splitted_title = explode('-', $compromiso_title);
-
           if ($splitted_title[1] != date('Y')) {
             autoinc_compromiso($node);
 

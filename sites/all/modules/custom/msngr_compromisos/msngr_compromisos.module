@@ -42,23 +42,89 @@ function msngr_compromisos_node_access($node, $op, $account) {
       return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
     }
 
+    if($node->type == 'evaluacion_de_metas') {
+      $result = FALSE;
+      $compromisos = get_compromiso_by_meta($node->nid);
+      foreach ($compromisos as $compromiso) {
+        $compromiso_node = node_load($compromiso->nid);
+        $user_entity = user_load($account->uid);
+        $result = (field_target_id($user_entity->field_institucion, 0) == field_target_id($compromiso_node->field_institucion, 0)) || $result;
+      }
+      return $result ? NODE_ACCESS_ALLOW : NODE_ACCESS_DENY;
+    }
   }
 }
 
-
-
-function msngr_compromisos_form_evaluacion_de_metas_node_form_alter (&$form, &$form_state, $form_id) {
-
-//  dpm($form);
-
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function msngr_compromisos_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'msngr_compromisos');
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+  foreach ($template_file_objects as $key => $template_file) {
+    if(!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+      $theme_registry[$key]['theme path'] = $module_path;
+      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file);
+      $theme_registry[$key]['type'] = 'module';
+    }
+  }
 }
 
+/**
+ * Implements hook_node_insert().
+ */
+function msngr_compromisos_node_insert($node) {
+  if($node->type == "compromiso_de_gestion") {
+    update_compromiso_de_gestion($node);
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function msngr_compromisos_node_presave($node) {
+  if($node->type == "compromiso_de_gestion") {
+    new_compromiso_id($node);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function msngr_compromisos_node_update($node) {
+  if($node->type == "compromiso_de_gestion") {
+    update_percentage_compromiso($node);
+  }
+
+  if($node->type == 'evaluacion_de_metas') {
+    if($node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] != $node->original->field_porcentaje_avance[LANGUAGE_NONE][0]['value']) {
+      $meta_actual_node = node_load($node->nid);
+      $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = $node->field_porcentaje_avance['und'][0]['value'];
+      $compromisos = get_compromiso_by_meta($node->nid);
+      foreach ($compromisos as $compromiso_nid) {
+        $compromiso_node = node_load($compromiso_nid->nid);
+        $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
+        //update_percentage_compromiso($compromiso_node);
+        field_attach_update('node', $compromiso_node);
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
+
   variable_del('meta');
+
   global $user;
 
   $user_full = user_load($user->uid, TRUE);
@@ -68,9 +134,11 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   }
 
   //Add css
-  /*$form['#attached'] = array(
-    'css' => array('sites/all/modules/custom/auto_fill_id/css/compromiso_form.css'),
-  );*/
+
+  $form['#attached'] = array(
+    'css' => array(drupal_get_path('module', 'msngr_compromisos') . '/css/compromisos_form.css'),
+  );
+
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
@@ -109,6 +177,51 @@ function ajax_producto_callback ($form, $form_state) {
     '#type' => 'ajax',
     '#commands' => $commands,
   );
+
+  //Items de compromiso
+  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
+  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+
+  //Evaluar Metas
+  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
+    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+   // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
+  }
+
+  //dpm($form);
+  //xdpm($form_state);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function msngr_compromisos_preprocess_field(&$variables) {
+  if($variables['element']['#field_name'] == 'field_evaluar_metas') {
+    foreach ($variables['items'] as $id => $metas_id) {
+      $meta_node = node_load($metas_id['#markup']);
+      $meta_tax = taxonomy_term_load($meta_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
+      $accion = taxonomy_term_load($meta_tax->field_accion_estrategica[LANGUAGE_NONE][0]['tid']);
+      $eje = taxonomy_term_load($accion->field_eje[LANGUAGE_NONE][0]['target_id']);
+      $ambito = taxonomy_term_load($accion->field_ambito[LANGUAGE_NONE][0]['target_id']);
+      $lineamiento = taxonomy_term_load($accion->field_lineamiento[LANGUAGE_NONE][0]['target_id']);
+      $productos = [];
+      foreach ($meta_node->field_evaluar_producto[LANGUAGE_NONE] as $id_item => $item) {
+        $producto_id = field_collection_item_load($item['value'])->field_producto[LANGUAGE_NONE][0]['tid'];
+        $producto = taxonomy_term_load($producto_id);
+        $productos[$id_item] = $producto->name;
+      }
+      $variables['table_values'][$id] = [
+        'eje' => $eje->name,
+        'ambito' => $ambito->name,
+        'lineamiento' => $lineamiento->name,
+        'accion' => $accion->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $accion->name,
+        'meta' => $meta_tax->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $meta_node->title,
+        'meta_percent' => ($meta_node->field_porcentaje_avance['und'][0]['value'] - 1) * 25,
+        'meta_url' => '/node/' . $meta_node->nid,
+        'productos' => $productos,
+      ];
+    }
+  }
 }
 
 function is_add_form($form_state){
@@ -125,151 +238,124 @@ function auto_compromiso_form_title($user, &$form, &$form_state) {
   $form['title']['#default_value'] = date('Y').'-'.$ins->title;
 }
 
+function new_compromiso_id($node) {
+  if($node->is_new) {
+    if($node->field_id_compromiso) {
+      $compromiso_title = get_last_compromiso_title();
+      if($compromiso_title != NULL) {
+        $splitted_title = explode('-', $compromiso_title);
 
+        if ($splitted_title[1] != date('Y')) {
+          autoinc_compromiso($node);
 
-
-
-
-
-
-
-
-
-
-
-//  dpm('hola');
-//$matches = array()array;
-//  $result = db_select('taxonomy_term_data', 'ttd')
-//            ->fields('ttd', array('name'))
-//            ->condition('name', '%' . db_like($string) . '%', 'LIKE')
-//
-////    ->condition('')
-//          ->execute();
-///////////////////////////////////
-//  $result = db_select('field_data_field_productos_relacionados', 'ttd')
-//    ->fields('ttd', array('entity_id'))
-//    ->condition('entity_id', '%' . db_like($string) . '%', 'LIKE')
-//
-////    ->condition('')
-//    ->execute();
-////////////////////////////////////
-//  $str='SELECT taxonomy_term_data.tid AS tid, \'taxonomy_term\' AS field_data_field_productos_relacionados_taxonomy_term_entity
-//FROM
-//{taxonomy_term_data} taxonomy_term_data
-//LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid
-//WHERE (( (taxonomy_vocabulary.machine_name IN  (\'meta\')) AND (taxonomy_term_data.name ILIKE \'%meta 2%\') ))
-//LIMIT 10 OFFSET 0';
-//  $pri='1258';
-/////////////////////////////
-
-//keyed
-//associa
-// save the query to matches
-//  foreach ($result as $row) {
-//    $matches[$row->field_productos_relacionados_tid] = check_plain($row->field_productos_relacionados_tid);
-//  }
-/*if($node->type == 'meta') {
-  $compromisos = get_compromiso_by_meta($node->nid);
-  foreach ($compromisos as $compromiso) {
-    $compromiso_node = node_load($compromiso->nid);
-    $user_entity = user_load($account->uid);
-    return field_target_id($user_entity->field_institucion, 0) != field_target_id($compromiso_node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
+        } else {
+          $id_compromiso = $splitted_title[0] + 1;
+          $node->field_id_compromiso[LANGUAGE_NONE][0]["value"] = $id_compromiso;
+          $ins = !empty($node->field_institucion[LANGUAGE_NONE]) ? node_load(field_target_id($node->field_institucion, 0)) : NULL;
+          $ins_name = $ins ? $ins->title : '';
+          $year = explode("-", $node->field_year_compromiso[LANGUAGE_NONE][0]['value'])[0];
+          $node->title = $id_compromiso . '-' . $year . '-' . $ins_name;
+        }
+      } else {
+        autoinc_compromiso($node);
+      }
+    }
   }
 }
 
-if($node->type == 'producto_meta' && isset($node->entity_view_prepared)) {
-  return NODE_ACCESS_DENY;
-}*/
-/*
- * Implements hook_theme_registry_alter().
- */
-/*function msngr_compromisos_theme_registry_alter(&$theme_registry) {
-  $module_path = drupal_get_path('module', 'auto_fill_id');
-  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
-  foreach ($template_file_objects as $key => $template_file) {
-    if(!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
-      $theme_registry[$key]['theme path'] = $module_path;
-      $theme_registry[$key] = array_merge($theme_registry[$key], $template_file);
-      $theme_registry[$key]['type'] = 'module';
-    }
+function get_last_compromiso_title() {
+  $query_id_compromiso = db_select('field_data_field_id_compromiso', 'comp');
+  $query_id_compromiso->fields('comp', array('field_id_compromiso_value'));
+  $query_id_compromiso->orderBy('entity_id', 'DESC');
+  $query_id_compromiso->range(0, 1);
+  $count = $query_id_compromiso->execute()->fetchField();
+
+  $query_node_title = db_select('node');
+  $query_node_title->addExpression('MAX(nid)');
+  $query_node_title->condition('type', 'compromiso_de_gestion', '=');
+  $executed_query=$query_node_title->execute()->fetchField();
+  $node_loaded_with_id = node_load($executed_query);
+
+  return $count != NULL ? $node_loaded_with_id->title : NULL;
+}
+
+function autoinc_compromiso($node){
+  $node->field_id_compromiso[LANGUAGE_NONE][0]["value"] = 1;
+  $id = $node->field_id_compromiso[LANGUAGE_NONE][0]["value"];
+  $ins = node_load(field_target_id($node->field_institucion, 0));
+  $node->title = $id . '-' . date('Y') . '-' . $ins->title;
+}
+
+function update_compromiso_de_gestion($node) {
+  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
+    check_compromiso_id($node);
+    //action_id($node);
+    update_percentage_compromiso($node);
+    $node->is_new = FALSE;
+    $node->already_updated = TRUE;
+    field_attach_update('node', $node);
   }
-}*/
-//  dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']);
-//  dpm($form);
-//  $tax=taxonomy_get_term_by_name('meta 2', 'meta');
-//  $tax=array_shift($tax);
+}
 
+function check_compromiso_id($node) {
+  $ins = !empty($node->field_institucion) ? node_load(field_target_id($node->field_institucion, 0)) : null;
+  $xploded_title = explode('-', $node->title);
+  $xploded_title[2] = $ins->title;
+  $node->title = $xploded_title[0].'-'.$xploded_title[1].'-'.$xploded_title[2];
+}
 
+function allowed_edit_any_content() {
+  global $user;
+  return in_array("administrator", $user->roles) || in_array("admin-sngr", $user->roles);
+}
 
+function field_target_id(&$array, $id) {
+  return $array[LANGUAGE_NONE][$id]['target_id'];
+}
 
-//dpm($tax);
-//  foreach ($tax->field_productos_relacionados['und'] as $keyx => $valuex) {
-//    $testing[$keyx] = $valuex;
-//
-//  }
-//  dpm($testing);
+function field_value(&$array, $id) {
+  return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
+}
 
-//  dpm($tax);
-//
-//  $prod=$tax[1258]->field_productos_relacionados['und'][0]['tid'];
-//  dpm(taxonomy_term_load($prod));
-//  $...->field_productos_relacionados['und'][0]['tid']
+function update_percentage_compromiso($node) {
+  $percentaje = get_compromiso_percentage($node);
+  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
+  $node->is_new = false;
+  field_attach_update('node', $node);
+}
 
-//Items de compromiso
-//$form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
-//$form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+function get_compromiso_percentage($node) {
+  $cant = sizeof($node->field_evaluar_metas[LANGUAGE_NONE]);
+  $sum = 0;
+  foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $meta_id) {
+    $node_meta = node_load($meta_id['target_id']);
+    $sum += ($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25;
+  }
+  return $sum / $cant;
+}
 
-//  dpm($form);
+function simple_string_field_value($value) {
+  return array(
+    LANGUAGE_NONE => array(
+      0 => array(
+        'value' => $value,
+        'format' => NULL,
+        'safe_value' => $value,
+      ),
+    ),
+  );
+}
 
-//  $tax=array_shift($tax);
-//  dpm($tax->field_productos_relacionados['und'][0]['tid']);
+//Consultas
+function get_compromiso_by_meta($meta_id) {
+  $query = db_select('node', 'n');
+  $query->fields('n', array('title', 'nid'))
+    ->leftJoin('field_data_field_evaluar_metas', 'meta', 'n.nid = meta.entity_id AND meta.entity_type = \'node\'');
+  $query->leftJoin('node', 'meta_node', 'meta.field_evaluar_metas_target_id = meta_node.nid');
 
-//  $lol[0]=$result[0]->field_productos_relacionados_tid;
-//  $lol[1]=$result[1]->field_productos_relacionados_tid;
-//
-//  $lol2[0]=taxonomy_term_load($lol[0]);
-//  $lol2[1]=taxonomy_term_load($lol[1]);
-//
-//
-//
-//  $lol3[0]=$lol2[0]->name;
-//  $lol3[1]=$lol2[1]->name;
+  $query->condition('n.status', 1)
+    //->condition('n.type', 'compromiso_de_gestion', 'IN')
+    ->condition('meta.field_evaluar_metas_target_id', $meta_id);
 
-//  $lol4=(object)$lol3;
-
-//  $lol4
-
-//  $lol4[0]='x';
-//  $label=entity_label('taxonomy_term', 'taxonomy');
-//  $matches['producto 5']=check_plain('producto cinco');
-//  foreach ($result as $row) {
-////    $label=entity_label('taxonomy_term', 'taxonomy');
-//
-////    $matches[$label] = check_plain($row->field_productos_relacionados_tid);
-////    $pop=taxonomy_term_load($row->field_productos_relacionados_tid);
-//  }
-
-//////////////////////////////////////////////////////////////
-
-//  $str='select field_productos_relacionados_tid from field_data_field_productos_relacionados where entity_id = '.variable_get('meta').'';
-//  $result = db_query($str);
-//  $result=$result->fetchAllKeyed();
-//  $result=$result->fetchAssoc();
-//  $result=$result->fetchAllAssoc(1);
-//  $result=$result->fetchField();
-//  $result=$result->fetchCol(0);
-
-
-//  $some = array();
-//
-//  foreach ($result as $keyy => $vall) {
-//
-//    $match[$vall]=taxonomy_term_load($vall);
-//
-//    $some[$keyy]=$match[$vall]->name;
-//
-//  }
-
-
-//  $asd=(object)$some;
-// Return the result to the form in json
+  return $query->execute()->fetchAll();
+}

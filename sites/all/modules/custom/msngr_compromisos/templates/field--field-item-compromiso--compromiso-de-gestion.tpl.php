@@ -57,7 +57,7 @@ drupal_add_css(drupal_get_path('module', 'auto_fill_id') . '/css/compromisos_tab
     <table id="single-compromiso-table" class="compromisos_table">
       <thead>
         <th>Eje</th>
-        <th>Ambito</th>
+        <th>Ámbito</th>
         <th>Lineamiento</th>
         <th>Acción Estratégica</th>
         <th>Meta</th>

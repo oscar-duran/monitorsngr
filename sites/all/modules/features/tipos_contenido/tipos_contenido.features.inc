@@ -28,12 +28,20 @@ function tipos_contenido_views_api($module = NULL, $api = NULL) {
  */
 function tipos_contenido_node_info() {
   $items = array(
+    'compromiso_de_gestion' => array(
+      'name' => t('Compromiso de gestión'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Compromiso de gestión'),
+      'help' => '',
+    ),
     'evaluacion_de_metas' => array(
       'name' => t('Evaluacion de metas'),
       'base' => 'node_content',
       'description' => t('Content type de evaluacion de metas'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Título'),
       'help' => '',
     ),
     'instancia_coordinacion' => array(

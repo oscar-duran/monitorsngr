@@ -1,0 +1,44 @@
+table.compromisos_table {
+    font-size: 13px;
+}
+
+table.compromisos_table tbody tr td:nth-child(1) .field.field-name-field-id-item {
+    width: 80px;
+}
+
+table.compromisos_table td .field-item {
+    width: 150px;
+}
+
+table.compromisos_table td {
+    /*text-align: center;*/
+    border: 1px solid #8697b5;
+    vertical-align: middle;
+}
+
+table.compromisos_table .odd td {
+    background-color: #ebedff;
+}
+
+/**********************************************************************************************************************/
+
+.print-content h1 {
+    text-align: center;
+}
+
+.print-content li {
+    padding-bottom: 5px;
+}
+
+.print-content li > ul {
+//*padding-top: 10px;*/
+}
+
+.print-content ul {
+    padding-top : 10px;
+    padding-left: 15px;
+}
+
+li.sub-title span {
+    font-weight: bold;
+}

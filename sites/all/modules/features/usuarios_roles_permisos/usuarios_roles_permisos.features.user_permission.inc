@@ -740,15 +740,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create autoevaluacion content'.
-  $permissions['create autoevaluacion content'] = array(
-    'name' => 'create autoevaluacion content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create bitacora_moderacion_contenido content'.
   $permissions['create bitacora_moderacion_contenido content'] = array(
     'name' => 'create bitacora_moderacion_contenido content',
@@ -844,24 +835,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create sngr_compromiso content'.
-  $permissions['create sngr_compromiso content'] = array(
-    'name' => 'create sngr_compromiso content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create sngr_compromiso_detalle content'.
-  $permissions['create sngr_compromiso_detalle content'] = array(
-    'name' => 'create sngr_compromiso_detalle content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create url aliases'.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
@@ -904,15 +877,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete any article content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any autoevaluacion content'.
-  $permissions['delete any autoevaluacion content'] = array(
-    'name' => 'delete any autoevaluacion content',
-    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1002,24 +966,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any sngr_compromiso content'.
-  $permissions['delete any sngr_compromiso content'] = array(
-    'name' => 'delete any sngr_compromiso content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any sngr_compromiso_detalle content'.
-  $permissions['delete any sngr_compromiso_detalle content'] = array(
-    'name' => 'delete any sngr_compromiso_detalle content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any webform content'.
   $permissions['delete any webform content'] = array(
     'name' => 'delete any webform content',
@@ -1034,15 +980,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'delete own article content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own autoevaluacion content'.
-  $permissions['delete own autoevaluacion content'] = array(
-    'name' => 'delete own autoevaluacion content',
-    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1128,24 +1065,6 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'delete own respuestas_autoevaluacion content'.
   $permissions['delete own respuestas_autoevaluacion content'] = array(
     'name' => 'delete own respuestas_autoevaluacion content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own sngr_compromiso content'.
-  $permissions['delete own sngr_compromiso content'] = array(
-    'name' => 'delete own sngr_compromiso content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own sngr_compromiso_detalle content'.
-  $permissions['delete own sngr_compromiso_detalle content'] = array(
-    'name' => 'delete own sngr_compromiso_detalle content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -1333,15 +1252,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any autoevaluacion content'.
-  $permissions['edit any autoevaluacion content'] = array(
-    'name' => 'edit any autoevaluacion content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any bitacora_moderacion_contenido content'.
   $permissions['edit any bitacora_moderacion_contenido content'] = array(
     'name' => 'edit any bitacora_moderacion_contenido content',
@@ -1430,24 +1340,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any sngr_compromiso content'.
-  $permissions['edit any sngr_compromiso content'] = array(
-    'name' => 'edit any sngr_compromiso content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any sngr_compromiso_detalle content'.
-  $permissions['edit any sngr_compromiso_detalle content'] = array(
-    'name' => 'edit any sngr_compromiso_detalle content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any webform content'.
   $permissions['edit any webform content'] = array(
     'name' => 'edit any webform content',
@@ -1471,15 +1363,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'edit own article content',
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own autoevaluacion content'.
-  $permissions['edit own autoevaluacion content'] = array(
-    'name' => 'edit own autoevaluacion content',
-    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1578,24 +1461,6 @@ function usuarios_roles_permisos_user_default_permissions() {
   // Exported permission: 'edit own respuestas_autoevaluacion content'.
   $permissions['edit own respuestas_autoevaluacion content'] = array(
     'name' => 'edit own respuestas_autoevaluacion content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own sngr_compromiso content'.
-  $permissions['edit own sngr_compromiso content'] = array(
-    'name' => 'edit own sngr_compromiso content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own sngr_compromiso_detalle content'.
-  $permissions['edit own sngr_compromiso_detalle content'] = array(
-    'name' => 'edit own sngr_compromiso_detalle content',
     'roles' => array(
       'administrator' => 'administrator',
     ),

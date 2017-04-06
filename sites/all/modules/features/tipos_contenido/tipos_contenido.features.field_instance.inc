@@ -42,6 +42,7 @@ function tipos_contenido_field_default_field_instances() {
           'public' => 'public',
         ),
         'allowed_types' => array(
+          0 => 0,
           'audio' => 0,
           'default' => 0,
           'image' => 'image',
@@ -94,6 +95,44 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_accion_ejecutar'.
+  $field_instances['node-compromiso_de_gestion-field_accion_ejecutar'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_accion_ejecutar',
+    'label' => 'Acción a seguir',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-compromiso_de_gestion-field_evaluar_metas'.
   $field_instances['node-compromiso_de_gestion-field_evaluar_metas'] = array(
     'bundle' => 'compromiso_de_gestion',
@@ -104,10 +143,8 @@ function tipos_contenido_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
+        'settings' => array(),
+        'type' => 'entityreference_entity_id',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -129,8 +166,109 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'field_name' => 'field_evaluar_metas',
-    'label' => 'evaluar metas',
+    'label' => 'Metas a evaluar',
     'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'inline_entity_form',
+      'settings' => array(
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_clone' => 0,
+          'allow_existing' => 0,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'nodes',
+          'label_singular' => 'nodo',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 0,
+        ),
+      ),
+      'type' => 'inline_entity_form',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-compromiso_de_gestion-field_id_compromiso'.
+  $field_instances['node-compromiso_de_gestion-field_id_compromiso'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_id_compromiso',
+    'label' => 'id_compromiso',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => 1,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-compromiso_de_gestion-field_institucion'.
+  $field_instances['node-compromiso_de_gestion-field_institucion'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'entityconnect' => array(
+      'button' => array(
+        'unload_add_button' => 1,
+        'unload_edit_button' => 1,
+      ),
+      'icon' => array(
+        'show_add_icon' => 0,
+        'show_edit_icon' => 0,
+      ),
+    ),
+    'field_name' => 'field_institucion',
+    'label' => 'Institución ',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -147,51 +285,178 @@ function tipos_contenido_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 31,
+      'weight' => 1,
     ),
   );
 
-  // Exported field_instance: 'node-evaluacion_de_metas-body'.
-  $field_instances['node-evaluacion_de_metas-body'] = array(
-    'bundle' => 'evaluacion_de_metas',
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_analista'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_analista'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notificar_analista',
+    'label' => 'Notificar analista',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_notificar_institucional'.
+  $field_instances['node-compromiso_de_gestion-field_notificar_institucional'] = array(
+    'bundle' => 'compromiso_de_gestion',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
+        'type' => 'list_default',
+        'weight' => 8,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
+    'field_name' => 'field_notificar_institucional',
+    'label' => 'Notificar institucional',
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_porcentaje_de_avance_compr'.
+  $field_instances['node-compromiso_de_gestion-field_porcentaje_de_avance_compr'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
       ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_porcentaje_de_avance_compr',
+    'label' => 'Porcentaje de Avance',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-compromiso_de_gestion-field_year_compromiso'.
+  $field_instances['node-compromiso_de_gestion-field_year_compromiso'] = array(
+    'bundle' => 'compromiso_de_gestion',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_year_compromiso',
+    'label' => 'Año de Creación',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 8,
     ),
   );
 
@@ -301,7 +566,7 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_evaluar_producto',
-    'label' => 'evaluar producto',
+    'label' => 'Productos a evaluar',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -311,7 +576,7 @@ function tipos_contenido_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -356,7 +621,7 @@ function tipos_contenido_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'references_dialog_term_reference',
-      'weight' => 4,
+      'weight' => 1,
     ),
   );
 
@@ -1311,10 +1576,12 @@ function tipos_contenido_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acción a seguir');
   t('Aspecto positivo');
-  t('Body');
+  t('Año de Creación');
   t('Comentario porcentaje avance');
   t('Correo');
+  t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
   t('Estado actual del representante');
   t('Estado de la meta');
   t('Fin');
@@ -1322,11 +1589,16 @@ function tipos_contenido_field_default_field_instances() {
   t('Inicio');
   t('Institución ');
   t('Meta');
+  t('Metas a evaluar');
+  t('Notificar analista');
+  t('Notificar institucional');
   t('Observaciones del analista');
   t('Obstáculo');
   t('Organización asesora');
   t('Porcentaje avance');
+  t('Porcentaje de Avance');
   t('Porcentaje de avance de la meta');
+  t('Productos a evaluar');
   t('Referencia al producto');
   t('Referencia de la entidad evaluar metas');
   t('Rol');
@@ -1335,8 +1607,7 @@ function tipos_contenido_field_default_field_instances() {
   t('Tipo instancia');
   t('ambito');
   t('attachment');
-  t('evaluar metas');
-  t('evaluar producto');
+  t('id_compromiso');
   t('institucion asociada');
   t('lineamiento');
   t('producto');
