@@ -100,6 +100,7 @@ function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_node_update().
  */
 function msngr_compromisos_node_update($node) {
+  dpm('hola');
   if($node->type == "compromiso_de_gestion") {
     update_percentage_compromiso($node);
   }
@@ -124,27 +125,36 @@ function msngr_compromisos_node_update($node) {
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
 
+  dpm($form);
+
   $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
   $flag=null;
 
   foreach ($prod_form as $kix => $vax) {
     if (is_numeric($kix)){
       $flag=$kix;
+      dpm($flag);
     }
   }
   switch ($flag) {
-    case $flag==0:
+    case $flag===0:
+    {
+      dpm('se');
         variable_del('meta');
-      break;
+      break;}
 
-    case $flag>0:
-      break;
+    case $flag<>0:{
+      dpm('no');
+      dpm($flag);
+      break;}
 
-    case !is_numeric($flag):
-      break;
+    case !is_numeric($flag):{
+      dpm('no numeric');
+      break;}
 
-    default:
-      break;
+    default:{
+      dpm('default');
+      break;}
   }
 
   global $user;
@@ -304,6 +314,7 @@ function autoinc_compromiso($node){
 }
 
 function update_compromiso_de_gestion($node) {
+  dpm('hello');
   if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
     check_compromiso_id($node);
     //action_id($node);
