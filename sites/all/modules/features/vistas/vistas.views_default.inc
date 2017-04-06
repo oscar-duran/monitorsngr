@@ -82,7 +82,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_enlace_institucional']['settings'] = array(
     'link' => 0,
   );
-  /* Campo: Contenido: Estado de la meta */
+  /* Campo: Contenido: Estado */
   $handler->display->display_options['fields']['field_estado']['id'] = 'field_estado';
   $handler->display->display_options['fields']['field_estado']['table'] = 'field_data_field_estado';
   $handler->display->display_options['fields']['field_estado']['field'] = 'field_estado';
@@ -106,7 +106,7 @@ function vistas_views_default_views() {
     'autoevaluacion' => 'autoevaluacion',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
+  /* Filter criterion: Contenido: Estado (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
@@ -148,7 +148,6 @@ function vistas_views_default_views() {
     t('<a href="https://163.178.170.162/monitorsngr/node/add/autoevaluacion">Asignar autoevaluación</a>'),
     t('Nid'),
     t('Enlace institucional'),
-    t('Estado de la meta'),
     t('Estado'),
     t('Page'),
   );
@@ -1583,7 +1582,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_evaluar_producto_value']['field'] = 'field_evaluar_producto_value';
   $handler->display->display_options['relationships']['field_evaluar_producto_value']['relationship'] = 'field_evaluar_metas_target_id';
   $handler->display->display_options['relationships']['field_evaluar_producto_value']['delta'] = '-1';
-  /* Relationship: Field collection item: producto (field_producto) */
+  /* Relationship: Field collection item: Producto (field_producto) */
   $handler->display->display_options['relationships']['field_producto_tid']['id'] = 'field_producto_tid';
   $handler->display->display_options['relationships']['field_producto_tid']['table'] = 'field_data_field_producto';
   $handler->display->display_options['relationships']['field_producto_tid']['field'] = 'field_producto_tid';
@@ -1592,7 +1591,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Campo: Field collection item: producto */
+  /* Campo: Field collection item: Producto */
   $handler->display->display_options['fields']['field_producto']['id'] = 'field_producto';
   $handler->display->display_options['fields']['field_producto']['table'] = 'field_data_field_producto';
   $handler->display->display_options['fields']['field_producto']['field'] = 'field_producto';
@@ -1603,7 +1602,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Campo: descripc fuente verifica */
+  /* Campo: Campo: Descripción de la Fuente de Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -1679,7 +1678,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Campo: descripc fuente verifica */
+  /* Campo: Campo: Descripción de la Fuente de Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -1785,7 +1784,7 @@ function vistas_views_default_views() {
     t('field collection item from field_evaluar_producto'),
     t('term from field_producto'),
     t('Contenido entity referenced from field_institucion'),
-    t('producto'),
+    t('Producto'),
     t('Descripción Fuente'),
     t('Institución '),
     t('Compromiso'),
@@ -1793,7 +1792,6 @@ function vistas_views_default_views() {
     t('Page'),
     t('Institución'),
     t('Fuente de Verificación'),
-    t('Producto'),
     t('Data export'),
   );
   $export['lista_productos'] = $view;
@@ -2457,7 +2455,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
+  /* Filter criterion: Contenido: Estado (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
@@ -2786,7 +2784,7 @@ function vistas_views_default_views() {
       'value' => '',
     ),
   );
-  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
+  /* Filter criterion: Contenido: Estado (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';

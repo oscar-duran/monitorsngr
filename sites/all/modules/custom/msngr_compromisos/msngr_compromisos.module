@@ -166,7 +166,7 @@ function msngr_compromisos_preprocess_field(&$variables) {
         'lineamiento' => $lineamiento->name,
         'accion' => $accion->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $accion->name,
         'meta' => $meta_tax->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $meta_node->title,
-        'meta_percent' => ($meta_node->field_porcentaje_avance['und'][0]['value'] - 1) * 25,
+        'meta_percent' => porcentaje_avance($meta_node->field_porcentaje_avance['und'][0]['value']),
         'meta_url' => '/node/' . $meta_node->nid,
         'productos' => $productos,
       ];
@@ -283,12 +283,14 @@ function get_compromiso_percentage($node) {
   $sum = 0;
   foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $meta_id) {
     $node_meta = node_load($meta_id['target_id']);
-    $sum += ($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25;
+    $sum += porcentaje_avance($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value']);
   }
   return $sum / $cant;
 }
 
-
+function porcentaje_avance($value) {
+  return empty($value) ? 0 : ($value - 1) * 25;
+}
 
 //Formats
 function format_metas_labels($node) {
@@ -323,7 +325,7 @@ function format_metas_labels($node) {
     'field_meta_description' => $meta_tax->description,
     'field_organizacion_capacitadora' => field_value($node->field_organizacion_capacitadora, 0),
     'field_tema_necesidad_meta' => $temas,
-    'field_porcentaje_avance' => (field_value($node->field_porcentaje_avance, 0) - 1) * 25,
+    'field_porcentaje_avance' => porcentaje_avance(field_value($node->field_porcentaje_avance, 0)),
     'field_porcentaje_avance_coment' => field_value($node->field_porcentaje_avance_coment, 0),
     'field_obstaculo' => field_value($node->field_obstaculo, 0),
     'field_aspecto_positivo' => field_value($node->field_aspecto_positivo, 0),
