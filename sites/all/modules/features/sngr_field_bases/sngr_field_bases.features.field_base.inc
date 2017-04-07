@@ -1720,6 +1720,26 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_meta_avance_global'.
+  $field_bases['field_meta_avance_global'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_meta_avance_global',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
   // Exported field_base: 'field_meta_de_acci_n_estrat_gica'.
   $field_bases['field_meta_de_acci_n_estrat_gica'] = array(
     'active' => 1,
