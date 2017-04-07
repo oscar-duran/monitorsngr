@@ -43,6 +43,7 @@ function msngr_compromisos_theme_registry_alter(&$theme_registry) {
 function msngr_compromisos_node_insert($node) {
   if($node->type == "compromiso_de_gestion") {
     update_compromiso_de_gestion($node);
+    update_percentage_data_by_compromiso($node);
   }
 }
 
@@ -56,13 +57,6 @@ function msngr_compromisos_node_presave($node) {
 }
 
 /**
- * Implements hook_form_alter().
- */
-function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
-  //dpm($form_id);
-}
-
-/**
  * Implements hook_node_update().
  */
 function msngr_compromisos_node_update($node) {
@@ -71,27 +65,27 @@ function msngr_compromisos_node_update($node) {
   }
 
   if($node->type == 'evaluacion_de_metas') {
-    if($node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] != $node->original->field_porcentaje_avance[LANGUAGE_NONE][0]['value']) {
-      $meta_actual_node = node_load($node->nid);
-      $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = $node->field_porcentaje_avance['und'][0]['value'];
-      $compromisos = get_compromiso_by_meta($node->nid);
-      foreach ($compromisos as $compromiso_nid) {
-        $compromiso_node = node_load($compromiso_nid->nid);
-        $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
-        //update_percentage_compromiso($compromiso_node);
-        field_attach_update('node', $compromiso_node);
-      }
+    if(field_value($node->field_porcentaje_avance , 0) != field_value($node->original->field_porcentaje_avance, 0)) {
+      dpm($node);
+      update_percentage_compromiso_evaluacion_updated($node);
+      update_meta_percentage($node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
+  //dpm($form_id);
+}
+
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
   global $user;
-
-  dpm('hoal');
 
   $user_full = user_load($user->uid, TRUE);
 
@@ -127,31 +121,10 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   //xdpm($form_state);
 }
 
-/*
- * Implements hook_views_pre_render().
- */
-/*function msngr_compromisos_views_pre_render(&$view) {
-  dpm($view);
-
-  if ($view->name == 'metas_generales') {
-    foreach ($view->result as $result) {
-      if ($result->taxonomy_term_data_field_data_field_meta_tax_name == 'Meta 2') {
-        $result->taxonomy_term_data_field_data_field_meta_tax_name = t('@name @percentage%', array(
-          '@name' => 'Meta 3',
-          '@percentage' => '12',
-        ));
-      }
-    }
-  }
-}*/
-
 /**
  * Implements hook_preprocess_HOOK().
  */
 function msngr_compromisos_preprocess_print(&$variables) {
-  //dpm("holaaa!");
-  //dpm($variables);
-  $variables['dummy'] = 'Hola mundo!!!!!';
   if( $variables['node']->type == "compromiso_de_gestion") {
     $variables['metas'] = [];
     foreach ($variables['node']->field_evaluar_metas[LANGUAGE_NONE] as $index => $meta_id) {
@@ -256,17 +229,6 @@ function autoinc_compromiso($node){
   $node->title = $id . '-' . date('Y') . '-' . $ins->title;
 }
 
-function update_compromiso_de_gestion($node) {
-  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
-    check_compromiso_id($node);
-    //action_id($node);
-    update_percentage_compromiso($node);
-    $node->is_new = FALSE;
-    $node->already_updated = TRUE;
-    field_attach_update('node', $node);
-  }
-}
-
 function check_compromiso_id($node) {
   $ins = !empty($node->field_institucion) ? node_load(field_target_id($node->field_institucion, 0)) : null;
   $xploded_title = explode('-', $node->title);
@@ -291,13 +253,6 @@ function field_val(&$array, $key, $index) {
   return empty($array) ? '' : $array[LANGUAGE_NONE][$index][$key];
 }
 
-function update_percentage_compromiso($node) {
-  $percentaje = get_compromiso_percentage($node);
-  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
-  $node->is_new = false;
-  field_attach_update('node', $node);
-}
-
 function get_compromiso_percentage($node) {
   $cant = sizeof($node->field_evaluar_metas[LANGUAGE_NONE]);
   $sum = 0;
@@ -312,6 +267,46 @@ function porcentaje_avance($value) {
   return empty($value) ? 0 : ($value - 1) * 25;
 }
 
+//Updates
+function update_percentage_data_by_compromiso($node) {
+  update_percentage_compromiso($node);
+  foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $emid) {
+    dpm($node);
+    $em_node = node_load($emid['target_id']);
+    dpm($em_node);
+    update_meta_percentage($em_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
+  }
+}
+
+function update_compromiso_de_gestion($node) {
+  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
+    check_compromiso_id($node);
+    //update_percentage_compromiso($node);
+    $node->is_new = FALSE;
+    $node->already_updated = TRUE;
+    field_attach_update('node', $node);
+  }
+}
+
+function update_percentage_compromiso($node) {
+  $percentaje = get_compromiso_percentage($node);
+  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
+  $node->is_new = false;
+  field_attach_update('node', $node);
+}
+
+function update_percentage_compromiso_evaluacion_updated($update_node) {
+  $meta_actual_node = node_load($update_node->nid);
+  $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = field_value($update_node->field_porcentaje_avance, 0);
+  $compromisos = get_compromiso_by_meta($update_node->nid);
+  foreach ($compromisos as $compromiso_nid) {
+    $compromiso_node = node_load($compromiso_nid->nid);
+    $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
+    //update_percentage_compromiso($compromiso_node);
+    field_attach_update('node', $compromiso_node);
+  }
+}
+
 function update_meta_name($compromiso_title, $nid) {
   $node = node_load($nid);
   $title = $node->title;
@@ -323,6 +318,13 @@ function update_meta_name($compromiso_title, $nid) {
   dpm($node);
   $node->revision = 1;
   node_save($node);
+}
+
+function update_meta_percentage($nid) {
+  $meta = taxonomy_term_load($nid);
+  $percentage = get_meta_global_percentage($nid);
+  $meta->field_meta_avance_global = simple_string_field_value($percentage);
+  taxonomy_term_save($meta);
 }
 
 //Formats
@@ -429,10 +431,12 @@ function get_meta_global_percentage($meta_id) {
 
   $fetch = $query->execute()->fetchAll();
   $cant = sizeof($fetch);
-  $suma = 0;
+  $sum = 0;
   foreach ($fetch as $evaluacion) {
-    $suma += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
+    $sum += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
   }
 
-  return $suma / $cant;
+  dpm($fetch);
+
+  return $sum / $cant;
 }

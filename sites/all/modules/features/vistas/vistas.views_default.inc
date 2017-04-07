@@ -82,7 +82,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_enlace_institucional']['settings'] = array(
     'link' => 0,
   );
-  /* Campo: Contenido: Estado */
+  /* Campo: Contenido: Estado de la meta */
   $handler->display->display_options['fields']['field_estado']['id'] = 'field_estado';
   $handler->display->display_options['fields']['field_estado']['table'] = 'field_data_field_estado';
   $handler->display->display_options['fields']['field_estado']['field'] = 'field_estado';
@@ -106,7 +106,7 @@ function vistas_views_default_views() {
     'autoevaluacion' => 'autoevaluacion',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Estado (field_estado) */
+  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
@@ -148,6 +148,7 @@ function vistas_views_default_views() {
     t('<a href="https://163.178.170.162/monitorsngr/node/add/autoevaluacion">Asignar autoevaluación</a>'),
     t('Nid'),
     t('Enlace institucional'),
+    t('Estado de la meta'),
     t('Estado'),
     t('Page'),
   );
@@ -2455,7 +2456,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['name_3']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: Contenido: Estado (field_estado) */
+  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
@@ -2784,7 +2785,7 @@ function vistas_views_default_views() {
       'value' => '',
     ),
   );
-  /* Filter criterion: Contenido: Estado (field_estado) */
+  /* Filter criterion: Contenido: Estado de la meta (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
   $handler->display->display_options['filters']['field_estado_value']['field'] = 'field_estado_value';
@@ -3531,13 +3532,28 @@ function vistas_views_default_views() {
       'rendered' => 1,
       'rendered_strip' => 0,
     ),
+    1 => array(
+      'field' => 'field_meta_avance_global',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
   );
   $handler->display->display_options['style_options']['columns'] = array(
+    'title_1' => 'title_1',
     'title' => 'title',
     'name' => 'name',
+    'field_porcentaje_de_avance_compr' => 'field_porcentaje_de_avance_compr',
+    'field_meta_avance_global' => 'field_meta_avance_global',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'title_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'title' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -3546,6 +3562,20 @@ function vistas_views_default_views() {
       'empty_column' => 0,
     ),
     'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_porcentaje_de_avance_compr' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_meta_avance_global' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -3590,9 +3620,23 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['id'] = 'field_porcentaje_de_avance_compr';
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['table'] = 'field_data_field_porcentaje_de_avance_compr';
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['field'] = 'field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['label'] = 'Avance del Compromiso';
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['text'] = '[field_porcentaje_de_avance_compr]%';
   $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Término de taxonomía: Avance Global */
+  $handler->display->display_options['fields']['field_meta_avance_global']['id'] = 'field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['table'] = 'field_data_field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['field'] = 'field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['relationship'] = 'field_meta_tax_tid';
+  $handler->display->display_options['fields']['field_meta_avance_global']['label'] = 'Avance de la Meta';
+  $handler->display->display_options['fields']['field_meta_avance_global']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_meta_avance_global']['settings'] = array(
     'thousand_separator' => '',
     'decimal_separator' => '.',
     'scale' => '2',
@@ -3709,8 +3753,9 @@ function vistas_views_default_views() {
     t('Institución'),
     t('Compromiso'),
     t('Meta'),
-    t('Porcentaje de Avance'),
+    t('Avance del Compromiso'),
     t('[field_porcentaje_de_avance_compr]%'),
+    t('Avance de la Meta'),
     t('Page'),
     t('Data export'),
   );
