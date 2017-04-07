@@ -124,7 +124,6 @@ function msngr_compromisos_node_update($node) {
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
-  dpm($form);
   $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
   $flag=null;
   foreach ($prod_form as $kix => $vax) {
