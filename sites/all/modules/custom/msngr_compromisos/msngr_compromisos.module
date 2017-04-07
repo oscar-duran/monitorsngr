@@ -124,10 +124,9 @@ function msngr_compromisos_node_update($node) {
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
-//dpm($form);
+  dpm($form);
   $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
   $flag=null;
-
   foreach ($prod_form as $kix => $vax) {
     if (is_numeric($kix)){
       $flag=$kix;
@@ -137,10 +136,8 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     case $flag===0:{
       variable_del('meta');
       break;}
-
     case $flag!==0:{
       break;}
-
     default:{
       break;}
   }
@@ -203,7 +200,6 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   }
 
   $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
-//dpm($form);
 
   if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
@@ -231,7 +227,6 @@ function ajax_producto_edit_callback ($form, $form_state) {
       $captured_meta=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kcb]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
     }
   }
-//  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
   $tax=taxonomy_get_term_by_name($captured_meta, 'meta');
   $tax=array_shift($tax);
   variable_set('meta', $tax->tid);
