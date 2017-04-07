@@ -5,7 +5,7 @@ function msngr_compromisos_menu () {
     'title' => t('Autocomplete for products'),
     'page callback' => '_productos_autocomplete',
     'page arguments' => array('meta'),
-    'access arguments' => array('view published content'),  //MODIFICAR ESTO!!!! FALSE SOLO PARA PRUEBAS!!!!!!
+    'access arguments' => array('access content'),  //MODIFICAR ESTO!!!! FALSE SOLO PARA PRUEBAS!!!!!!
     'type' => MENU_CALLBACK
   );
   return $items;
@@ -178,12 +178,12 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form_prod=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
   if (!isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) {
     foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kkey => $vvalue) {
-//      dpm($kkey);
+
       if (is_numeric($kkey)) {
         $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto_edit;
         foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kprod => $vprod) {
           if (is_numeric($kprod)) {
-            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kprod]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']="productos/autocomplete";
+            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kprod]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']='productos/autocomplete';
           }
         }
       }
