@@ -52,9 +52,9 @@ function auto_fill_id_node_insert($node)
  * Implements hook_node_presave().
  */
 function auto_fill_id_node_presave($node) {
-  if($node->type == "compromiso_de_gestion") {
+  /*if($node->type == "compromiso_de_gestion") {
     new_compromiso_id($node);
-  }
+  }*/
 }
 
 /**
