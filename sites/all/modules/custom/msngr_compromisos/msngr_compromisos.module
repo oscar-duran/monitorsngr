@@ -1,5 +1,38 @@
 <?php
 
+function msngr_compromisos_menu () {
+  $items['productos/autocomplete'] = array(
+    'title' => t('Autocomplete for products'),
+    'page callback' => '_productos_autocomplete',
+    'page arguments' => array('meta'),
+    'access arguments' => array('view published content'),  //MODIFICAR ESTO!!!! FALSE SOLO PARA PRUEBAS!!!!!!
+    'type' => MENU_CALLBACK
+  );
+  return $items;
+}
+
+function _productos_autocomplete () {
+
+    $result = db_select('field_data_field_productos_relacionados', 'ttd')
+    ->fields('ttd', array('field_productos_relacionados_tid'))
+    ->condition('entity_id', '%' . variable_get('meta') . '%', 'LIKE')
+//    ->condition('name', '%' . db_like($string) . '%', 'LIKE')
+    ->execute()
+    ->fetchAll();
+//
+
+  foreach ($result as $k => $v) {
+
+  $tids[$k]=$result[$k]->field_productos_relacionados_tid;
+    $tax2[$k]=taxonomy_term_load($tids[$k]);
+    $tax_names[$k]=$tax2[$k]->name;
+    $matches[$tax_names[$k]]=check_plain($tax_names[$k]);
+
+  }
+
+  drupal_json_output($matches);
+}
+
 /**
  * Implements hook_node_access().
  */
@@ -9,6 +42,7 @@ function msngr_compromisos_node_access($node, $op, $account) {
       $user_entity = user_load($account->uid);
       return field_target_id($user_entity->field_institucion, 0) != field_target_id($node->field_institucion, 0) ? NODE_ACCESS_DENY : NODE_ACCESS_ALLOW;
     }
+
     if($node->type == 'evaluacion_de_metas') {
       $result = FALSE;
       $compromisos = get_compromiso_by_meta($node->nid);
@@ -43,6 +77,7 @@ function msngr_compromisos_theme_registry_alter(&$theme_registry) {
 function msngr_compromisos_node_insert($node) {
   if($node->type == "compromiso_de_gestion") {
     update_compromiso_de_gestion($node);
+    update_percentage_data_by_compromiso($node);
   }
 }
 
@@ -56,31 +91,18 @@ function msngr_compromisos_node_presave($node) {
 }
 
 /**
- * Implements hook_form_alter().
- */
-function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
-  //dpm($form_id);
-}
-
-/**
  * Implements hook_node_update().
  */
 function msngr_compromisos_node_update($node) {
+  dpm('hola');
   if($node->type == "compromiso_de_gestion") {
     update_percentage_compromiso($node);
   }
 
   if($node->type == 'evaluacion_de_metas') {
-    if($node->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] != $node->original->field_porcentaje_avance[LANGUAGE_NONE][0]['value']) {
-      $meta_actual_node = node_load($node->nid);
-      $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = $node->field_porcentaje_avance['und'][0]['value'];
-      $compromisos = get_compromiso_by_meta($node->nid);
-      foreach ($compromisos as $compromiso_nid) {
-        $compromiso_node = node_load($compromiso_nid->nid);
-        $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
-        //update_percentage_compromiso($compromiso_node);
-        field_attach_update('node', $compromiso_node);
-      }
+    if(field_value($node->field_porcentaje_avance , 0) != field_value($node->original->field_porcentaje_avance, 0)) {
+      update_percentage_compromiso_evaluacion_updated($node);
+      update_meta_percentage($node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
     }
   }
 }
@@ -89,6 +111,27 @@ function msngr_compromisos_node_update($node) {
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
+//dpm($form);
+  $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
+  $flag=null;
+
+  foreach ($prod_form as $kix => $vax) {
+    if (is_numeric($kix)){
+      $flag=$kix;
+    }
+  }
+  switch ($flag) {
+    case $flag===0:{
+      variable_del('meta');
+      break;}
+
+    case $flag!==0:{
+      break;}
+
+    default:{
+      break;}
+  }
+
   global $user;
 
   $user_full = user_load($user->uid, TRUE);
@@ -98,9 +141,11 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   }
 
   //Add css
+
   $form['#attached'] = array(
     'css' => array(drupal_get_path('module', 'msngr_compromisos') . '/css/compromisos_form.css'),
   );
+
 
   //Compromiso de Gestión title disabled
   $form['title']['#disabled'] = TRUE;
@@ -110,20 +155,92 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_year_compromiso']['#access'] = FALSE;
   $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
+  //
+  $ajax_producto = array(
+    'callback' => 'ajax_producto_callback',
+    'method' => 'blur',
+  );
 
-  //Items de compromiso
-  $form['field_item_compromiso'][LANGUAGE_NONE]['#title'] = 'Items de Compromiso';
-  $form['field_item_compromiso'][LANGUAGE_NONE]['add_more']['#value'] = 'Añadir Nuevo Item de Compromiso';
+  $ajax_producto_edit = array(
+    'callback' => 'ajax_producto_edit_callback',
+    'method' => 'blur',
+  );
 
-  //Evaluar Metas
-  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
-    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
-   // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
+  $form_prod=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
+  if (!isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) {
+    foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kkey => $vvalue) {
+//      dpm($kkey);
+      if (is_numeric($kkey)) {
+        $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto_edit;
+        foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kprod => $vprod) {
+          if (is_numeric($kprod)) {
+            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kprod]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']="productos/autocomplete";
+          }
+        }
+      }
+    }
+
+  }
+  foreach ($form_prod as $ki => $va) {
+
+    if (is_numeric($ki)) {
+      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$ki]['field_producto'][LANGUAGE_NONE][0]['tid']['#autocomplete_path']="productos/autocomplete";
+
+    }
   }
 
-  //dpm($form);
-  //xdpm($form_state);
+  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
+//dpm($form);
+
+  if (isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) { //Cuando se agrega una nueva evaluación
+    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+  }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function msngr_compromisos_preprocess_print(&$variables) {
+  if( $variables['node']->type == "compromiso_de_gestion") {
+    $variables['metas'] = [];
+    foreach ($variables['node']->field_evaluar_metas[LANGUAGE_NONE] as $index => $meta_id) {
+      $meta_node = node_load($meta_id['target_id']);
+      array_push($variables['metas'], format_metas_labels($meta_node));
+    }
+  }
+}
+
+function ajax_producto_callback ($form, $form_state) {
+  $commands = array();
+  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
+  $tax=array_shift($tax);
+  variable_set('meta', $tax->tid);
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+
+}
+
+function ajax_producto_edit_callback ($form, $form_state) {
+  $commands = array();
+  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kcb => $vcb) {
+    if (is_numeric($kcb)) {
+      $captured_meta=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kcb]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+    }
+  }
+//  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+  $tax=taxonomy_get_term_by_name($captured_meta, 'meta');
+  $tax=array_shift($tax);
+  variable_set('meta', $tax->tid);
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
+
+}
+
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -148,8 +265,8 @@ function msngr_compromisos_preprocess_field(&$variables) {
         'ambito' => $ambito->name,
         'lineamiento' => $lineamiento->name,
         'accion' => $accion->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $accion->name,
-        'meta' => $meta_tax->fiel_codigo[LANGUAGE_NONE][0]['value'] . ': ' . $meta_node->title,
-        'meta_percent' => ($meta_node->field_porcentaje_avance['und'][0]['value'] - 1) * 25,
+        'meta' => $meta_node->title,
+        'meta_percent' => porcentaje_avance($meta_node->field_porcentaje_avance['und'][0]['value']),
         'meta_url' => '/node/' . $meta_node->nid,
         'productos' => $productos,
       ];
@@ -219,17 +336,6 @@ function autoinc_compromiso($node){
   $node->title = $id . '-' . date('Y') . '-' . $ins->title;
 }
 
-function update_compromiso_de_gestion($node) {
-  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
-    check_compromiso_id($node);
-    //action_id($node);
-    update_percentage_compromiso($node);
-    $node->is_new = FALSE;
-    $node->already_updated = TRUE;
-    field_attach_update('node', $node);
-  }
-}
-
 function check_compromiso_id($node) {
   $ins = !empty($node->field_institucion) ? node_load(field_target_id($node->field_institucion, 0)) : null;
   $xploded_title = explode('-', $node->title);
@@ -250,11 +356,8 @@ function field_value(&$array, $id) {
   return empty($array) ? '' : $array[LANGUAGE_NONE][$id]['value'];
 }
 
-function update_percentage_compromiso($node) {
-  $percentaje = get_compromiso_percentage($node);
-  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
-  $node->is_new = false;
-  field_attach_update('node', $node);
+function field_val(&$array, $key, $index) {
+  return empty($array) ? '' : $array[LANGUAGE_NONE][$index][$key];
 }
 
 function get_compromiso_percentage($node) {
@@ -262,9 +365,134 @@ function get_compromiso_percentage($node) {
   $sum = 0;
   foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $meta_id) {
     $node_meta = node_load($meta_id['target_id']);
-    $sum += ($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value'] - 1) * 25;
+    $sum += porcentaje_avance($node_meta->field_porcentaje_avance[LANGUAGE_NONE][0]['value']);
   }
   return $sum / $cant;
+}
+
+function porcentaje_avance($value) {
+  return empty($value) ? 0 : ($value - 1) * 25;
+}
+
+//Updates
+function update_percentage_data_by_compromiso($node) {
+  update_percentage_compromiso($node);
+  foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $emid) {
+    $em_node = node_load($emid['target_id']);
+    update_meta_percentage($em_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
+  }
+}
+
+function update_compromiso_de_gestion($node) {
+  if(!isset($node->already_updated) || (isset($node->already_updated) && $node->already_updated)) {
+    check_compromiso_id($node);
+    //update_percentage_compromiso($node);
+    $node->is_new = FALSE;
+    $node->already_updated = TRUE;
+    field_attach_update('node', $node);
+  }
+}
+
+function update_percentage_compromiso($node) {
+  $percentaje = get_compromiso_percentage($node);
+  $node->field_porcentaje_de_avance_compr = simple_string_field_value($percentaje);
+  $node->is_new = false;
+  field_attach_update('node', $node);
+}
+
+function update_percentage_compromiso_evaluacion_updated($update_node) {
+  $meta_actual_node = node_load($update_node->nid);
+  $meta_actual_node->field_porcentaje_avance['und'][0]['value'] = field_value($update_node->field_porcentaje_avance, 0);
+  $compromisos = get_compromiso_by_meta($update_node->nid);
+  foreach ($compromisos as $compromiso_nid) {
+    $compromiso_node = node_load($compromiso_nid->nid);
+    $compromiso_node->field_porcentaje_de_avance_compr['und'][0]['value'] = get_compromiso_percentage($compromiso_node);
+    //update_percentage_compromiso($compromiso_node);
+    field_attach_update('node', $compromiso_node);
+  }
+}
+
+function update_meta_name($compromiso_title, $nid) {
+  $node = node_load($nid);
+  $title = $node->title;
+  /*$node->title = t('@compromiso-@evaluacion', array(
+    '@compromiso' => $compromiso_title,
+    '@evaluacion' => $title
+  ));*/
+  $node->title = $compromiso_title . '-' . $title;
+  $node->revision = 1;
+  node_save($node);
+}
+
+function update_meta_percentage($nid) {
+  $meta = taxonomy_term_load($nid);
+  $percentage = get_meta_global_percentage($nid);
+  $meta->field_meta_avance_global = simple_string_field_value($percentage);
+  taxonomy_term_save($meta);
+}
+
+//Formats
+function format_metas_labels($node) {
+  $meta_tax = taxonomy_term_load($node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
+  $accion = taxonomy_term_load($meta_tax->field_accion_estrategica[LANGUAGE_NONE][0]['tid']);
+  $eje = taxonomy_term_load($accion->field_eje[LANGUAGE_NONE][0]['target_id']);
+  $ambito = taxonomy_term_load($accion->field_ambito[LANGUAGE_NONE][0]['target_id']);
+  $lineamiento = taxonomy_term_load($accion->field_lineamiento[LANGUAGE_NONE][0]['target_id']);
+  $productos = [];
+  $temas = [];
+
+  foreach ($node->field_tema_necesidad_meta[LANGUAGE_NONE] as $tema) {
+    array_push($temas, $tema['value']);
+  }
+
+  foreach ($node->field_evaluar_producto[LANGUAGE_NONE] as $id_item => $item) {
+    $producto_fc = field_collection_item_load($item['value']);
+    $productos[$id_item] = format_productos_labels($producto_fc);
+  }
+
+  return array(
+    'field_title' => $node->title,
+    'field_eje' => $eje->name,
+    'field_ambito' => $ambito->name,
+    'field_lineamiento' => $lineamiento->name,
+    'field_accion_estrategica' => $accion->name,
+    'field_accion_codigo' => field_value($accion->field_codigo, 0),
+    'field_accion_descripcion' => $accion->description,
+    'field_meta' => $meta_tax->name,
+    'field_meta_codigo' => field_value($meta_tax->field_codigo, 0),
+    'field_meta_description' => $meta_tax->description,
+    'field_organizacion_capacitadora' => field_value($node->field_organizacion_capacitadora, 0),
+    'field_tema_necesidad_meta' => $temas,
+    'field_porcentaje_avance' => porcentaje_avance(field_value($node->field_porcentaje_avance, 0)),
+    'field_porcentaje_avance_coment' => field_value($node->field_porcentaje_avance_coment, 0),
+    'field_obstaculo' => field_value($node->field_obstaculo, 0),
+    'field_aspecto_positivo' => field_value($node->field_aspecto_positivo, 0),
+    'field_observacion_del_analista' => field_value($node->field_observacion_del_analista, 0),
+    'field_recibio_asesoria_meta' => field_value($node->field_recibio_asesoria_meta, 0) ? 'Sí' : 'No',
+    'field_su_org_requiere_asesoria' => field_value($node->field_su_org_requiere_asesoria, 0) ? 'Sí' : 'No',
+    'field_productos' => $productos,
+  );
+}
+
+function format_productos_labels($field_collection) {
+  $producto_id = $field_collection->field_producto[LANGUAGE_NONE][0]['tid'];
+  $producto = taxonomy_term_load($producto_id);
+  $files = [];
+  foreach ($field_collection->field_prod_fuente_verifica[LANGUAGE_NONE] as $file) {
+    $file_data = file_load($file['fid']);
+    $url_file = file_create_url($file_data->uri);
+    array_push($files, $url_file);
+  }
+  return array(
+    'field_producto' => $producto->name,
+    'field_producto_codigo' => field_value($producto->field_cod_producto_meta, 0),
+    'field_detalle_del_producto' => field_value($producto->field_detalle_del_producto, 0),
+    'field_producto_descripcion' => $producto->description,
+    'field_producto_ano_inicial' => field_value($producto->	field_anno_ini_meta, 0),
+    'field_producto_ano_final' => field_value($producto->	field_anno_fin_meta, 0),
+    'field_descripc_fuente_verifica' => field_value($field_collection->field_descripc_fuente_verifica, 0),
+    'field_prod_fuente_verifica' => $files,
+  );
 }
 
 function simple_string_field_value($value) {
@@ -291,4 +519,25 @@ function get_compromiso_by_meta($meta_id) {
     ->condition('meta.field_evaluar_metas_target_id', $meta_id);
 
   return $query->execute()->fetchAll();
+}
+
+function get_meta_global_percentage($meta_id) {
+  $query = db_select('node', 'n');
+  $query->innerJoin('field_data_field_meta_tax', 'meta_tax', 'n.nid = meta_tax.entity_id AND meta_tax.entity_type = \'node\'');
+  $query->leftJoin('field_data_field_porcentaje_avance', 'avance', 'n.nid = avance.entity_id AND avance.entity_type = \'node\'');
+
+  $query->fields('n', array('nid'));
+    $query->fields('avance', array('field_porcentaje_avance_value'));
+
+  $query->condition('n.status', 1)
+    ->condition('meta_tax.field_meta_tax_tid', $meta_id);
+
+  $fetch = $query->execute()->fetchAll();
+  $cant = sizeof($fetch);
+  $sum = 0;
+  foreach ($fetch as $evaluacion) {
+    $sum += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
+  }
+
+  return $sum / $cant;
 }

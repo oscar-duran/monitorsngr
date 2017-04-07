@@ -101,7 +101,6 @@ function vocabularios_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-
     'tipos_de_institucion' => array(
       'name' => 'Tipos de institución',
       'machine_name' => 'tipos_de_institucion',

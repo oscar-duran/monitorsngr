@@ -100,6 +100,13 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_meta_avance_global'.
+  $permissions['create field_meta_avance_global'] = array(
+    'name' => 'create field_meta_avance_global',
+    'roles' => array(),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_notificar_analista'.
   $permissions['create field_notificar_analista'] = array(
     'name' => 'create field_notificar_analista',
@@ -314,6 +321,13 @@ function sngr_field_bases_user_default_permissions() {
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_meta_avance_global'.
+  $permissions['edit field_meta_avance_global'] = array(
+    'name' => 'edit field_meta_avance_global',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -533,6 +547,13 @@ function sngr_field_bases_user_default_permissions() {
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_meta_avance_global'.
+  $permissions['edit own field_meta_avance_global'] = array(
+    'name' => 'edit own field_meta_avance_global',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -763,6 +784,17 @@ function sngr_field_bases_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view field_meta_avance_global'.
+  $permissions['view field_meta_avance_global'] = array(
+    'name' => 'view field_meta_avance_global',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -1013,6 +1045,17 @@ function sngr_field_bases_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'user-institucional' => 'user-institucional',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_meta_avance_global'.
+  $permissions['view own field_meta_avance_global'] = array(
+    'name' => 'view own field_meta_avance_global',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );

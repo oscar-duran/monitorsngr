@@ -6,7 +6,6 @@ version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
-<<<<<<< HEAD
 dependencies[] = field_group
 dependencies[] = number
 dependencies[] = options
@@ -15,6 +14,8 @@ dependencies[] = sngr_field_bases
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
+<<<<<<< HEAD
+dependencies[] = field_group
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
@@ -25,6 +26,7 @@ features[field_instance][] = taxonomy_term-accion_estrategica-field_eje
 features[field_instance][] = taxonomy_term-accion_estrategica-field_lineamiento
 features[field_instance][] = taxonomy_term-meta-field_accion_estrategica
 features[field_instance][] = taxonomy_term-meta-field_codigo
+features[field_instance][] = taxonomy_term-meta-field_meta_avance_global
 features[field_instance][] = taxonomy_term-meta-field_productos_relacionados
 features[field_instance][] = taxonomy_term-producto-field_anno_fin_meta
 features[field_instance][] = taxonomy_term-producto-field_anno_ini_meta
