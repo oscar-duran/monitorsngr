@@ -694,4 +694,5 @@ $conf['master_modules']['local'] = $conf['master_modules']['local'] = array(
 // Local settings config.
 if (file_exists(dirname(__FILE__) . '/settings.local.inc')) {
   @include dirname(__FILE__) . '/settings.local.inc';
+  
 }
