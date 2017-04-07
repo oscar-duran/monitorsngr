@@ -247,6 +247,46 @@ function vocabularios_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-meta-field_meta_avance_global'.
+  $field_instances['taxonomy_term-meta-field_meta_avance_global'] = array(
+    'bundle' => 'meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_meta_avance_global',
+    'label' => 'Avance Global',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-meta-field_productos_relacionados'.
   $field_instances['taxonomy_term-meta-field_productos_relacionados'] = array(
     'bundle' => 'meta',
@@ -525,6 +565,7 @@ function vocabularios_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción Estratégica');
+  t('Avance Global');
   t('Año Final');
   t('Año Inicial');
   t('Campo para el detalle/nombre del producto');

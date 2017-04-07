@@ -675,6 +675,7 @@ $conf['master_modules']['base'] = array(
   'field_readonly',
   'lista_modulos',
   'monitorsngr_pge',
+  'msngr_compromisos',
   'references_dialog',
   'rules_feature',
   'sngr_field_bases',

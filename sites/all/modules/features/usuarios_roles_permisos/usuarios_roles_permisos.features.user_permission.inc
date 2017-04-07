@@ -410,6 +410,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'administer media',
     'roles' => array(
       'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'media',
   );
@@ -1697,6 +1698,7 @@ function usuarios_roles_permisos_user_default_permissions() {
     'name' => 'import media',
     'roles' => array(
       'administrator' => 'administrator',
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'media',
   );

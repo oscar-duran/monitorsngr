@@ -1,6 +1,6 @@
 name = Rules Feature
 core = 7.x
-package = Features
+package = CNE Features
 dependencies[] = entity
 dependencies[] = message_notify
 dependencies[] = messages_type
