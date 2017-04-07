@@ -66,20 +66,11 @@ function msngr_compromisos_node_update($node) {
 
   if($node->type == 'evaluacion_de_metas') {
     if(field_value($node->field_porcentaje_avance , 0) != field_value($node->original->field_porcentaje_avance, 0)) {
-      dpm($node);
       update_percentage_compromiso_evaluacion_updated($node);
       update_meta_percentage($node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
     }
   }
 }
-
-/**
- * Implements hook_form_alter().
- */
-function msngr_compromisos_form_alter(&$form, &$form_state, $form_id) {
-  //dpm($form_id);
-}
-
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -116,9 +107,6 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     //$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
    // $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#required'] = FALSE;
   }
-
-  //dpm($form);
-  //xdpm($form_state);
 }
 
 /**
@@ -138,7 +126,6 @@ function msngr_compromisos_preprocess_print(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function msngr_compromisos_preprocess_field(&$variables) {
-  //dpm($variables);
   if($variables['element']['#field_name'] == 'field_evaluar_metas') {
     foreach ($variables['items'] as $id => $metas_id) {
       $meta_node = node_load($metas_id['#markup']);
@@ -271,9 +258,7 @@ function porcentaje_avance($value) {
 function update_percentage_data_by_compromiso($node) {
   update_percentage_compromiso($node);
   foreach ($node->field_evaluar_metas[LANGUAGE_NONE] as $emid) {
-    dpm($node);
     $em_node = node_load($emid['target_id']);
-    dpm($em_node);
     update_meta_percentage($em_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
   }
 }
@@ -315,7 +300,6 @@ function update_meta_name($compromiso_title, $nid) {
     '@evaluacion' => $title
   ));*/
   $node->title = $compromiso_title . '-' . $title;
-  dpm($node);
   $node->revision = 1;
   node_save($node);
 }
@@ -336,8 +320,7 @@ function format_metas_labels($node) {
   $lineamiento = taxonomy_term_load($accion->field_lineamiento[LANGUAGE_NONE][0]['target_id']);
   $productos = [];
   $temas = [];
-  //dpm($node);
-  //dpm($meta_tax);
+
   foreach ($node->field_tema_necesidad_meta[LANGUAGE_NONE] as $tema) {
     array_push($temas, $tema['value']);
   }
@@ -435,8 +418,6 @@ function get_meta_global_percentage($meta_id) {
   foreach ($fetch as $evaluacion) {
     $sum += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
   }
-
-  dpm($fetch);
 
   return $sum / $cant;
 }
