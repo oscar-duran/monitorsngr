@@ -110,7 +110,6 @@ function msngr_compromisos_node_update($node) {
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
-//  dpm($form);
   $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
   $flag=null;
 
@@ -152,14 +151,18 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_year_compromiso']['#access'] = FALSE;
   $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
+  //['field_evaluar_metas']['und']['form']['field_evaluar_producto']['und'][0]['field_producto']['und']
+  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE]['#prefix']='<div id="replace_div_1">';
+  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE]['#suffix']='</div>';
+
   //
   $ajax_producto = array(
-    'callback' => 'ajax_producto_callback',
+    'callback' => 'msngr_calback',
     'method' => 'blur',
   );
 
   $ajax_producto_edit = array(
-    'callback' => 'ajax_producto_edit_callback',
+    'callback' => 'ajax_producto_callback',
     'method' => 'blur',
   );
 
@@ -210,6 +213,46 @@ function msngr_compromisos_preprocess_print(&$variables) {
     }
   }
 
+}
+
+function msngr_calback ($form, $form_state) {
+  $commands = array();
+  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
+  $tax=array_shift($tax);
+  ///////////////////////////////
+  $result = db_select('field_data_field_productos_relacionados', 'ttd')
+    ->fields('ttd', array('field_productos_relacionados_tid'))
+    ->condition('entity_id', '%' . $tax->tid . '%', 'LIKE')
+//    ->condition('name', '%' . db_like($string) . '%', 'LIKE')
+    ->execute()
+    ->fetchAll();
+//  print ($tax->tid);
+//
+$matches2 = array();
+  foreach ($result as $k => $v) {
+
+    $tids[$k]=$result[$k]->field_productos_relacionados_tid;
+    $tax2[$k]=taxonomy_term_load($tids[$k]);
+    $tax_names[$k]=$tax2[$k]->name;
+    $matches[$tax_names[$k]]=check_plain($tax_names[$k]);
+    $matches2=$matches;
+
+  }
+  ///////////////////////////////
+
+  $commands[] = ajax_command_replace('#replace_div_1',
+    drupal_render($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE] = array(
+      '#prefix' => '<div id="replace_div_1">',
+      '#suffix' => '</div>',
+      '#type' => 'select',
+      '#options' => array($matches2
+      ),
+    )));
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
 }
 
 function ajax_producto_callback ($form, $form_state) {
