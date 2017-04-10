@@ -1750,7 +1750,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'lista productos';
+  $handler->display->display_options['title'] = 'Productos Evaluados';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1758,7 +1758,10 @@ function vistas_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reiniciar';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '15';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
@@ -1870,18 +1873,29 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Campo: Descripción Fuente Verificación */
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Fuente de Verificación';
   /* Campo: Término de taxonomía: Nombre */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
   $handler->display->display_options['fields']['name']['label'] = 'Producto';
+  /* Campo: Campo: Descripción Fuente Verificación */
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Fuente de Verificación';
+  /* Campo: Campo: Fuente de verificación */
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['id'] = 'field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['table'] = 'field_data_field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['field'] = 'field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['type'] = 'media';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['settings'] = array(
+    'file_view_mode' => 'default',
+  );
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Publicado */
@@ -1945,6 +1959,33 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+  /* Filter criterion: Término de taxonomía: Nombre */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'field_producto_tid';
+  $handler->display->display_options['filters']['name']['operator'] = 'contains';
+  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Producto';
+  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_filter'] = 1;
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_field'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['name']['expose']['autocomplete_dependent'] = 0;
   $handler->display->display_options['path'] = 'lista-productos';
 
   /* Display: Data export */
@@ -1958,7 +1999,7 @@ function vistas_views_default_views() {
   );
   $translatables['lista_productos'] = array(
     t('Master'),
-    t('lista productos'),
+    t('Productos Evaluados'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -1984,6 +2025,7 @@ function vistas_views_default_views() {
     t('Page'),
     t('Institución'),
     t('Fuente de Verificación'),
+    t('Fuente de verificación'),
     t('Data export'),
   );
   $export['lista_productos'] = $view;
