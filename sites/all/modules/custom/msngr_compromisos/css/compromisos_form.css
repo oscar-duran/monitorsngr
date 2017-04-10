@@ -13,3 +13,7 @@
 .field {
     width: 600px;
 }
+
+.field-items .field-item {
+    width: auto;
+}
