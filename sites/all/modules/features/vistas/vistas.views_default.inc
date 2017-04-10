@@ -239,6 +239,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Institución';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Campo: Field collection item: Monto de Ejecución */
@@ -300,6 +301,51 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'institucion' => 'institucion',
   );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+  /* Filter criterion: Campo: Año (field_anno) */
+  $handler->display->display_options['filters']['field_anno_value']['id'] = 'field_anno_value';
+  $handler->display->display_options['filters']['field_anno_value']['table'] = 'field_data_field_anno';
+  $handler->display->display_options['filters']['field_anno_value']['field'] = 'field_anno_value';
+  $handler->display->display_options['filters']['field_anno_value']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['filters']['field_anno_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_anno_value']['expose']['operator_id'] = 'field_anno_value_op';
+  $handler->display->display_options['filters']['field_anno_value']['expose']['label'] = 'Año';
+  $handler->display->display_options['filters']['field_anno_value']['expose']['operator'] = 'field_anno_value_op';
+  $handler->display->display_options['filters']['field_anno_value']['expose']['identifier'] = 'field_anno_value';
+  $handler->display->display_options['filters']['field_anno_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -332,7 +378,7 @@ function vistas_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('field collection item from field_financiamiento'),
-    t('Título'),
+    t('Institución'),
     t('Monto de Ejecución'),
     t('Monto Presupuestario'),
     t('Porcentaje de Ejecución'),
