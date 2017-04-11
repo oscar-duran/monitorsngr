@@ -197,15 +197,18 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
     if (!empty($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {
       dpm('no es vacio');
-      $meta_capturada=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
-      dpm($meta_capturada);
+      $tax=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
+      $result = _fetch_results_callback($tax);
+      $output = _output_tax_results($result);
+//      dpm($meta_capturada);
 //      dpm($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']);
 //      dpm($meta_capturada);
 //      $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
 //      $tax=array_shift($tax);
       $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE]['#options'] = array(
-       '_none' => 'Ninguno',
-       1260 => 'Empleados Capacitados',
+        $output,
+//       '_none' => 'Ninguno',
+//       1260 => 'Empleados Capacitados',
      );
 
 //      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE]['#options']=$output;
@@ -219,6 +222,26 @@ function _metodo_aparte ($form, $form_state) {
   return $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][0]['field_producto'][LANGUAGE_NONE];
 }
 
+function _fetch_results_callback ($tax) {
+  $result = db_select('field_data_field_productos_relacionados', 'ttd')
+    ->fields('ttd', array('field_productos_relacionados_tid'))
+    ->condition('entity_id', '%' . $tax . '%', 'LIKE')
+    ->execute()
+    ->fetchAll(); 
+
+  return $result;
+}
+
+function _output_tax_results ($fetched) {
+
+  foreach ($fetched as $k => $v) {
+    $tids[$k]=$fetched[$k]->field_productos_relacionados_tid;
+    $tax2[$k]=taxonomy_term_load($tids[$k]);
+    $tax_names[$k]=$tax2[$k]->name;
+    $matches[$tax_names[$k]]=check_plain($tax_names[$k]);
+  }
+  return $matches;
+}
 
 /**
  * Implements hook_preprocess_HOOK().
