@@ -502,13 +502,13 @@ function tipos_contenido_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'path' => array(
-          'weight' => '2',
+          'weight' => '5',
         ),
         'name' => array(
           'weight' => '0',
         ),
         'description' => array(
-          'weight' => '1',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
