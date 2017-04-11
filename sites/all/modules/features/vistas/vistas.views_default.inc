@@ -235,6 +235,16 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_financiamiento_value']['table'] = 'field_data_field_financiamiento';
   $handler->display->display_options['relationships']['field_financiamiento_value']['field'] = 'field_financiamiento_value';
   $handler->display->display_options['relationships']['field_financiamiento_value']['delta'] = '-1';
+  /* Campo: Campo: Año */
+  $handler->display->display_options['fields']['field_anno']['id'] = 'field_anno';
+  $handler->display->display_options['fields']['field_anno']['table'] = 'field_data_field_anno';
+  $handler->display->display_options['fields']['field_anno']['field'] = 'field_anno';
+  $handler->display->display_options['fields']['field_anno']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['fields']['field_anno']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_anno']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -272,16 +282,6 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['expression']['precision'] = '0';
   $handler->display->display_options['fields']['expression']['suffix'] = '%';
   $handler->display->display_options['fields']['expression']['expression'] = '([field_monto_de_ejecucion] / [field_monto_presupuestario]) * 100';
-  /* Campo: Campo: Año */
-  $handler->display->display_options['fields']['field_anno']['id'] = 'field_anno';
-  $handler->display->display_options['fields']['field_anno']['table'] = 'field_data_field_anno';
-  $handler->display->display_options['fields']['field_anno']['field'] = 'field_anno';
-  $handler->display->display_options['fields']['field_anno']['relationship'] = 'field_financiamiento_value';
-  $handler->display->display_options['fields']['field_anno']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_anno']['settings'] = array(
-    'thousand_separator' => '',
-    'prefix_suffix' => 1,
-  );
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -354,8 +354,56 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Campo: Año */
+  $handler->display->display_options['fields']['field_anno']['id'] = 'field_anno';
+  $handler->display->display_options['fields']['field_anno']['table'] = 'field_data_field_anno';
+  $handler->display->display_options['fields']['field_anno']['field'] = 'field_anno';
+  $handler->display->display_options['fields']['field_anno']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['fields']['field_anno']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Institución';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Field collection item: Monto de Ejecución */
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['id'] = 'field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['table'] = 'field_data_field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['field'] = 'field_monto_de_ejecucion';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['fields']['field_monto_de_ejecucion']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Field collection item: Monto Presupuestario */
+  $handler->display->display_options['fields']['field_monto_presupuestario']['id'] = 'field_monto_presupuestario';
+  $handler->display->display_options['fields']['field_monto_presupuestario']['table'] = 'field_data_field_monto_presupuestario';
+  $handler->display->display_options['fields']['field_monto_presupuestario']['field'] = 'field_monto_presupuestario';
+  $handler->display->display_options['fields']['field_monto_presupuestario']['relationship'] = 'field_financiamiento_value';
+  $handler->display->display_options['fields']['field_monto_presupuestario']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Global: Math expression */
+  $handler->display->display_options['fields']['expression']['id'] = 'expression';
+  $handler->display->display_options['fields']['expression']['table'] = 'views';
+  $handler->display->display_options['fields']['expression']['field'] = 'expression';
+  $handler->display->display_options['fields']['expression']['label'] = 'Porcentaje de Ejecución';
+  $handler->display->display_options['fields']['expression']['precision'] = '0';
+  $handler->display->display_options['fields']['expression']['suffix'] = '%';
+  $handler->display->display_options['fields']['expression']['expression'] = '([field_monto_de_ejecucion] / [field_monto_presupuestario]) * 100';
   $handler->display->display_options['path'] = 'consolidacion-de-montos-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -378,6 +426,7 @@ function vistas_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('field collection item from field_financiamiento'),
+    t('Año'),
     t('Institución'),
     t('Monto de Ejecución'),
     t('Monto Presupuestario'),
@@ -385,7 +434,6 @@ function vistas_views_default_views() {
     t('.'),
     t(','),
     t('%'),
-    t('Año'),
     t('Page'),
     t('Data export'),
   );
