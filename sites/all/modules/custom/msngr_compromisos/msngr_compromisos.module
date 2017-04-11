@@ -236,7 +236,7 @@ function msngr_compromisos_preprocess_field(&$variables) {
         'accion' => $labels['field_accion_codigo'] . ':' . $labels['field_accion_estrategica'],
         'meta' => $labels['field_title'],
         'meta_percent' => $labels['field_porcentaje_avance'],
-        'meta_url' => '/node/' . $node->nid,
+        'meta_url' => $labels['node_url'],
         'productos' => $labels['field_productos']
         ,
       ];
@@ -451,6 +451,7 @@ function format_metas_labels($node) {
     'field_recibio_asesoria_meta' => field_value($node->field_recibio_asesoria_meta, 0) ? 'Sí' : 'No',
     'field_su_org_requiere_asesoria' => field_value($node->field_su_org_requiere_asesoria, 0) ? 'Sí' : 'No',
     'field_productos' => $productos,
+    'node_url' => url('node/' . $node->nid, array('absolute' => TRUE)),
   );
 }
 
