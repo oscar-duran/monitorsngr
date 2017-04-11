@@ -67,7 +67,6 @@ features[field_base][] = field_correo_electronico
 features[field_base][] = field_decreto_emergencia
 features[field_base][] = field_departamento
 features[field_base][] = field_descripc_fuente_verifica
-features[field_base][] = field_descripcion_del_producto
 features[field_base][] = field_descripcion_obras_reque
 features[field_base][] = field_descripcion_tramo
 features[field_base][] = field_detalle_del_producto
