@@ -3888,6 +3888,18 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Contenido: Porcentaje de Avance */
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['id'] = 'field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['table'] = 'field_data_field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['field'] = 'field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['label'] = 'Avance del Compromiso';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
   /* Campo: Término de taxonomía: Nombre */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
@@ -3895,19 +3907,23 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['relationship'] = 'field_meta_tax_tid';
   $handler->display->display_options['fields']['name']['label'] = 'Meta';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  /* Campo: Contenido: Porcentaje de Avance */
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['id'] = 'field_porcentaje_de_avance_compr';
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['table'] = 'field_data_field_porcentaje_de_avance_compr';
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['field'] = 'field_porcentaje_de_avance_compr';
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['label'] = 'Avance del Compromiso';
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['text'] = '[field_porcentaje_de_avance_compr]%';
-  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['settings'] = array(
-    'thousand_separator' => '',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
+  /* Campo: Contenido: Porcentaje avance */
+  $handler->display->display_options['fields']['field_porcentaje_avance']['id'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['table'] = 'field_data_field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['field'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['relationship'] = 'field_evaluar_metas_target_id';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['label'] = 'Avance de la Meta en Compromiso';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_porcentaje_avance']['empty'] = '1';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['type'] = 'list_key';
+  /* Campo: Global: Math expression */
+  $handler->display->display_options['fields']['expression']['id'] = 'expression';
+  $handler->display->display_options['fields']['expression']['table'] = 'views';
+  $handler->display->display_options['fields']['expression']['field'] = 'expression';
+  $handler->display->display_options['fields']['expression']['label'] = 'Avance de la Meta en Compromiso';
+  $handler->display->display_options['fields']['expression']['precision'] = '0';
+  $handler->display->display_options['fields']['expression']['suffix'] = '%';
+  $handler->display->display_options['fields']['expression']['expression'] = '([field_porcentaje_avance] - 1) * 25';
   /* Campo: Término de taxonomía: Avance Global */
   $handler->display->display_options['fields']['field_meta_avance_global']['id'] = 'field_meta_avance_global';
   $handler->display->display_options['fields']['field_meta_avance_global']['table'] = 'field_data_field_meta_avance_global';
@@ -4003,8 +4019,70 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Contenido: Porcentaje de Avance */
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['id'] = 'field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['table'] = 'field_data_field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['field'] = 'field_porcentaje_de_avance_compr';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['label'] = 'Avance del Compromiso';
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_porcentaje_de_avance_compr']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_meta_tax_tid';
+  $handler->display->display_options['fields']['name']['label'] = 'Meta';
+  /* Campo: Contenido: Porcentaje avance */
+  $handler->display->display_options['fields']['field_porcentaje_avance']['id'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['table'] = 'field_data_field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['field'] = 'field_porcentaje_avance';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['relationship'] = 'field_evaluar_metas_target_id';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['label'] = 'Avance de la Meta en Compromiso';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_porcentaje_avance']['empty'] = '1';
+  $handler->display->display_options['fields']['field_porcentaje_avance']['type'] = 'list_key';
+  /* Campo: Global: Math expression */
+  $handler->display->display_options['fields']['expression']['id'] = 'expression';
+  $handler->display->display_options['fields']['expression']['table'] = 'views';
+  $handler->display->display_options['fields']['expression']['field'] = 'expression';
+  $handler->display->display_options['fields']['expression']['label'] = 'Avance de la Meta en Compromiso';
+  $handler->display->display_options['fields']['expression']['precision'] = '0';
+  $handler->display->display_options['fields']['expression']['suffix'] = '%';
+  $handler->display->display_options['fields']['expression']['expression'] = '([field_porcentaje_avance] - 1) * 25';
+  /* Campo: Término de taxonomía: Avance Global */
+  $handler->display->display_options['fields']['field_meta_avance_global']['id'] = 'field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['table'] = 'field_data_field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['field'] = 'field_meta_avance_global';
+  $handler->display->display_options['fields']['field_meta_avance_global']['relationship'] = 'field_meta_tax_tid';
+  $handler->display->display_options['fields']['field_meta_avance_global']['label'] = 'Avance de la Meta';
+  $handler->display->display_options['fields']['field_meta_avance_global']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
   $handler->display->display_options['path'] = 'metas-generales-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -4031,9 +4109,13 @@ function vistas_views_default_views() {
     t('Contenido entity referenced from field_institucion'),
     t('Institución'),
     t('Compromiso'),
-    t('Meta'),
     t('Avance del Compromiso'),
-    t('[field_porcentaje_de_avance_compr]%'),
+    t('Meta'),
+    t('Avance de la Meta en Compromiso'),
+    t('1'),
+    t('.'),
+    t(','),
+    t('%'),
     t('Avance de la Meta'),
     t('Page'),
     t('Data export'),
