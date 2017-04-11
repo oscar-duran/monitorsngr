@@ -4205,7 +4205,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Crear nueva meta';
-  $handler->display->display_options['header']['area']['content'] = '<a class="btn btn-primary" href="/admin/structure/taxonomy/meta/add">Crear nueva meta</a>';
+  $handler->display->display_options['header']['area']['content'] = '<a class="btn btn-primary" href="/monitorsngr/admin/structure/taxonomy/meta/add">Crear nueva meta</a>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Término de taxonomía: Acción Estratégica (field_accion_estrategica) */
   $handler->display->display_options['relationships']['field_accion_estrategica_tid']['id'] = 'field_accion_estrategica_tid';
@@ -4417,7 +4417,7 @@ function vistas_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('Crear nueva meta'),
-    t('<a class="btn btn-primary" href="/admin/structure/taxonomy/meta/add">Crear nueva meta</a>'),
+    t('<a class="btn btn-primary" href="/monitorsngr/admin/structure/taxonomy/meta/add">Crear nueva meta</a>'),
     t('term from field_accion_estrategica'),
     t('Término de taxonomía entity referenced from field_eje'),
     t('term from field_accion_estrategica_am'),
@@ -4538,7 +4538,7 @@ function vistas_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Campo: Instituciones Involucradas */
+  /* Campo: Contenido: Instituciones Involucradas */
   $handler->display->display_options['fields']['field_institucion_administradora']['id'] = 'field_institucion_administradora';
   $handler->display->display_options['fields']['field_institucion_administradora']['table'] = 'field_data_field_institucion_administradora';
   $handler->display->display_options['fields']['field_institucion_administradora']['field'] = 'field_institucion_administradora';
@@ -4546,11 +4546,11 @@ function vistas_views_default_views() {
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_institucion_administradora']['delta_offset'] = '0';
-  /* Campo: Término de taxonomía: descripcion del producto */
+  /* Campo: Broken/missing handler */
   $handler->display->display_options['fields']['field_descripcion_del_producto']['id'] = 'field_descripcion_del_producto';
   $handler->display->display_options['fields']['field_descripcion_del_producto']['table'] = 'field_data_field_descripcion_del_producto';
   $handler->display->display_options['fields']['field_descripcion_del_producto']['field'] = 'field_descripcion_del_producto';
-  /* Campo: Término de taxonomía: detalle del producto */
+  /* Campo: Término de taxonomía: Detalle del Producto */
   $handler->display->display_options['fields']['field_detalle_del_producto']['id'] = 'field_detalle_del_producto';
   $handler->display->display_options['fields']['field_detalle_del_producto']['table'] = 'field_data_field_detalle_del_producto';
   $handler->display->display_options['fields']['field_detalle_del_producto']['field'] = 'field_detalle_del_producto';
@@ -4586,8 +4586,8 @@ function vistas_views_default_views() {
     t('Año Inicial'),
     t('Año Final'),
     t('Instituciones Involucradas'),
-    t('descripcion del producto'),
-    t('detalle del producto'),
+    t('Broken handler field_data_field_descripcion_del_producto.field_descripcion_del_producto'),
+    t('Detalle del Producto'),
     t('Page'),
   );
   $export['taxonomias_productos'] = $view;

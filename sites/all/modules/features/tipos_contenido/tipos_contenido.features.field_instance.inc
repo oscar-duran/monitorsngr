@@ -399,7 +399,7 @@ function tipos_contenido_field_default_field_instances() {
       'max' => 100,
       'min' => 0,
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
