@@ -1394,14 +1394,14 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ambito_producto_adicional',
-    'label' => 'ambito',
+    'label' => 'Ámbito',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'references_dialog',
+      'module' => 'options',
       'settings' => array(
         'autocomplete_match' => 'starts_with',
         'autocomplete_path' => 'taxonomy/autocomplete',
@@ -1411,7 +1411,7 @@ function tipos_contenido_field_default_field_instances() {
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
-      'type' => 'references_dialog_term_reference',
+      'type' => 'options_select',
       'weight' => 31,
     ),
   );
@@ -1438,7 +1438,7 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_attachment',
-    'label' => 'attachment',
+    'label' => 'Attachment',
     'required' => 0,
     'settings' => array(
       'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
@@ -1453,6 +1453,7 @@ function tipos_contenido_field_default_field_instances() {
           'public' => 'public',
         ),
         'allowed_types' => array(
+          0 => 0,
           'audio' => 0,
           'default' => 0,
           'image' => 'image',
@@ -1501,7 +1502,7 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'field_name' => 'field_institucion_asociada',
-    'label' => 'institucion asociada',
+    'label' => 'Institución Asociada',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1547,14 +1548,14 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_lineamiento_producto_adici',
-    'label' => 'lineamiento',
+    'label' => 'Lineamiento',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'references_dialog',
+      'module' => 'options',
       'settings' => array(
         'autocomplete_match' => 'starts_with',
         'autocomplete_path' => 'taxonomy/autocomplete',
@@ -1564,7 +1565,7 @@ function tipos_contenido_field_default_field_instances() {
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
-      'type' => 'references_dialog_term_reference',
+      'type' => 'options_select',
       'weight' => 32,
     ),
   );
@@ -1573,6 +1574,7 @@ function tipos_contenido_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Acción a seguir');
   t('Aspecto positivo');
+  t('Attachment');
   t('Año de Creación');
   t('Comentario porcentaje avance');
   t('Correo');
@@ -1583,6 +1585,8 @@ function tipos_contenido_field_default_field_instances() {
   t('Fuente de verificación');
   t('Inicio');
   t('Institución ');
+  t('Institución Asociada');
+  t('Lineamiento');
   t('Meta');
   t('Metas a evaluar');
   t('Notificar analista');
@@ -1601,13 +1605,10 @@ function tipos_contenido_field_default_field_instances() {
   t('Teléfono');
   t('Tema de necesidades en asesoría');
   t('Tipo instancia');
-  t('ambito');
-  t('attachment');
   t('id_compromiso');
-  t('institucion asociada');
-  t('lineamiento');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');
+  t('Ámbito');
 
   return $field_instances;
 }
