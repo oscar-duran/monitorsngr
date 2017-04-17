@@ -1412,7 +1412,7 @@ function tipos_contenido_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'options_select',
-      'weight' => 31,
+      'weight' => 2,
     ),
   );
 
@@ -1424,10 +1424,12 @@ function tipos_contenido_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => NULL,
-        'settings' => array(),
-        'type' => 'media_large',
-        'weight' => 2,
+        'module' => 'media',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'media',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1462,7 +1464,47 @@ function tipos_contenido_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 33,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-productos_adicionales-field_body'.
+  $field_instances['node-productos_adicionales-field_body'] = array(
+    'bundle' => 'productos_adicionales',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_body',
+    'label' => 'Descripción',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 4,
     ),
   );
 
@@ -1500,7 +1542,7 @@ function tipos_contenido_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 32,
+      'weight' => 3,
     ),
   );
 
@@ -1513,6 +1555,7 @@ function tipos_contenido_field_default_field_instances() {
   t('Comentario porcentaje avance');
   t('Correo');
   t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
+  t('Descripción');
   t('Estado actual del representante');
   t('Estado de la meta');
   t('Fin');
