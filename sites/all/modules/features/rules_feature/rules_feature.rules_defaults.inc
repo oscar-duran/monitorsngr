@@ -9,6 +9,22 @@
  */
 function rules_feature_default_rules_configuration() {
   $items = array();
+  $items['rules_notificaci_n_nuevo_producto_adicional'] = entity_import('rules_config', '{ "rules_notificaci_n_nuevo_producto_adicional" : {
+      "LABEL" : "Notificaci\\u00f3n: Nuevo Producto Adicional",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "REQUIRES" : [ "rules" ],
+      "ON" : { "node_insert--productos_adicionales" : { "bundle" : "productos_adicionales" } },
+      "DO" : [
+        { "mail_to_users_of_role" : {
+            "roles" : { "value" : { "5" : "5" } },
+            "subject" : "Productos Adicional Creado",
+            "message" : "Estimado equipo de la Unidad de Desarrollo Estrat\\u00e9gico del Sistema Nacional de Gesti\\u00f3n del Riesgo              \\r\\nComisi\\u00f3n Nacional de Prevenci\\u00f3n de Riesgos y Atenci\\u00f3n de Emergencias.\\r\\n\\r\\nComo representante de la instituci\\u00f3n [node:field-institucion-asociada], me gustar\\u00eda reportar el siguiente producto que considero que contribuye al cumplimiento del plan. Puede revisar el producto en siguiente link: [node:url]\\r\\n\\r\\nAtentamente, \\r\\n[node:author]\\r\\nEnlace institucional,\\r\\n[node:author:field-institucion]"
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_regla_4'] = entity_import('rules_config', '{ "rules_regla_4" : {
       "LABEL" : "Regla de moderacion 4",
       "PLUGIN" : "reaction rule",
