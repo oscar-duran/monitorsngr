@@ -191,7 +191,7 @@ function tipos_contenido_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'ambito',
+          'vocabulary' => 'lineamiento',
           'parent' => 0,
         ),
       ),
