@@ -1467,64 +1467,6 @@ function tipos_contenido_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-productos_adicionales-field_institucion_asociada'.
-  $field_instances['node-productos_adicionales-field_institucion_asociada'] = array(
-    'bundle' => 'productos_adicionales',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'entityconnect' => array(
-      'button' => array(
-        'unload_add_button' => 1,
-        'unload_edit_button' => 1,
-      ),
-      'icon' => array(
-        'show_add_icon' => 0,
-        'show_edit_icon' => 0,
-      ),
-    ),
-    'field_name' => 'field_institucion_asociada',
-    'label' => 'Institución Asociada',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 34,
-    ),
-  );
-
-  // Exported field_instance:
   // 'node-productos_adicionales-field_lineamiento_producto_adici'.
   $field_instances['node-productos_adicionales-field_lineamiento_producto_adici'] = array(
     'bundle' => 'productos_adicionales',
@@ -1577,7 +1519,6 @@ function tipos_contenido_field_default_field_instances() {
   t('Fuente de verificación');
   t('Inicio');
   t('Institución ');
-  t('Institución Asociada');
   t('Lineamiento');
   t('Meta');
   t('Metas a evaluar');
