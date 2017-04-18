@@ -87,11 +87,6 @@
           type='image/x-icon'/>
   <?php endif; ?>
   <?php print $css; ?>
-  <style>
-    bold {
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
 <?php if (!empty($message)): ?>
@@ -110,37 +105,37 @@
 <?php endif; ?>
 <div class="print-content">
   <h1><?php print t('Compromiso de gestión @title', array('@title' => $node->title)); ?></h1>
-  <p><bold>Porcentaje de Avance:</bold> <?php print intval($node->field_porcentaje_de_avance_compr[LANGUAGE_NONE][0]['value']); ?>%</p>
+  <p><b>Porcentaje de Avance:</b> <?php print intval($node->field_porcentaje_de_avance_compr[LANGUAGE_NONE][0]['value']); ?>%</p>
   <h2>Metas evaluadas:</h2>
   <?php foreach ($metas as $meta) : ?>
     <h3><?php print $meta['field_title']; ?></h3>
     <ul>
-      <li><bold>Eje:</bold> <?php print $meta['field_eje']; ?></li>
-      <li><bold>Ámbito:</bold> <?php print $meta['field_ambito']; ?></li>
-      <li><bold>Lineamiento:</bold> <?php print $meta['field_lineamiento']; ?></li>
+      <li><b>Eje:</b> <?php print $meta['field_eje']; ?></li>
+      <li><b>Ámbito:</b> <?php print $meta['field_ambito']; ?></li>
+      <li><b>Lineamiento:</b> <?php print $meta['field_lineamiento']; ?></li>
       <li>
-        <bold>Acción Estratégica:</bold> <?php print $meta['field_accion_estrategica']; ?>
+        <b>Acción Estratégica:</b> <?php print $meta['field_accion_estrategica']; ?>
         <ul>
-          <li><bold>Código:</bold> <?php print $meta['field_accion_codigo']; ?></li>
-          <li><bold>Descripción:</bold> <?php print $meta['field_accion_descripcion']; ?></li>
+          <li><b>Código:</b> <?php print $meta['field_accion_codigo']; ?></li>
+          <li><b>Descripción:</b> <?php print $meta['field_accion_descripcion']; ?></li>
         </ul>
       </li>
       <li>
-        <bold>Meta:</bold> <?php print $meta['field_meta']; ?>
+        <b>Meta:</b> <?php print $meta['field_meta']; ?>
         <ul>
-          <li><bold>Código:</bold> <?php print $meta['field_meta_codigo']; ?></li>
-          <li><bold>Descripción:</bold> <?php print $meta['field_meta_description']; ?></li>
+          <li><b>Código:</b> <?php print $meta['field_meta_codigo']; ?></li>
+          <li><b>Descripción:</b> <?php print $meta['field_meta_description']; ?></li>
         </ul>
       </li>
-      <li><bold>Avance:</bold> <?php print t('@percentage%', array('@percentage' => $meta['field_porcentaje_avance'])); ?></li>
-      <li><bold>Comentario sobre avance:</bold> <?php print $meta['field_porcentaje_avance_coment']; ?></li>
-      <li><bold>Aspectos Postivo:</bold> <?php print $meta['field_aspecto_positivo']; ?></li>
-      <li><bold>Obstáculos:</bold> <?php print $meta['field_obstaculo']; ?></li>
-      <li><bold>¿Reciben Asesoría?:</bold> <?php print $meta['field_recibio_asesoria_meta']; ?></li>
-      <li><bold>Organización Asesora:</bold> <?php print $meta['field_organizacion_capacitadora']; ?></li>
-      <li><bold>¿Su organización requiere asesorías?:</bold> <?php print $meta['field_su_org_requiere_asesoria']; ?></li>
+      <li><b>Avance:</b> <?php print t('@percentage%', array('@percentage' => $meta['field_porcentaje_avance'])); ?></li>
+      <li><b>Comentario sobre avance:</b> <?php print $meta['field_porcentaje_avance_coment']; ?></li>
+      <li><b>Aspectos Postivo:</b> <?php print $meta['field_aspecto_positivo']; ?></li>
+      <li><b>Obstáculos:</b> <?php print $meta['field_obstaculo']; ?></li>
+      <li><b>¿Reciben Asesoría?:</b> <?php print $meta['field_recibio_asesoria_meta']; ?></li>
+      <li><b>Organización Asesora:</b> <?php print $meta['field_organizacion_capacitadora']; ?></li>
+      <li><b>¿Su organización requiere asesorías?:</b> <?php print $meta['field_su_org_requiere_asesoria']; ?></li>
       <li>
-        <bold>Temas de Necesidad de Asesoría:</bold>
+        <b>Temas de Necesidad de Asesoría:</b>
         <ul>
           <?php foreach ($meta['field_tema_necesidad_meta'] as $tema) : ?>
             <li><?php print $tema; ?></li>
@@ -148,18 +143,18 @@
         </ul>
       </li>
       <li>
-        <bold>Productos: </bold>
+        <b>Productos: </b>
         <?php foreach ($meta['field_productos'] as $producto) : ?>
           <br>
-          <bold><?php print $producto['field_producto']; ?></bold>
+          <b><?php print $producto['field_producto']; ?></b>
           <ul>
-            <li><bold>Código:</bold> <?php print $producto['field_producto_codigo']; ?></li>
-            <li><bold>Detalle:</bold> <?php print $producto['field_detalle_del_producto']; ?></li>
-            <li><bold>Descripción:</bold> <?php print $producto['field_producto_descripcion']; ?></li>
-            <li><bold>Año Incial:</bold> <?php print $producto['field_producto_ano_inicial']; ?></li>
-            <li><bold>Año Final:</bold> <?php print $producto['field_producto_ano_final']; ?></li>
-            <li><bold>Descripción de Fuentes de Verificación:</bold> <?php print $producto['field_descripc_fuente_verifica']; ?></li>
-            <li><bold>Fuentes de Verificación:</bold>
+            <li><b>Código:</b> <?php print $producto['field_producto_codigo']; ?></li>
+            <li><b>Detalle:</b> <?php print $producto['field_detalle_del_producto']; ?></li>
+            <li><b>Descripción:</b> <?php print $producto['field_producto_descripcion']; ?></li>
+            <li><b>Año Incial:</b> <?php print $producto['field_producto_ano_inicial']; ?></li>
+            <li><b>Año Final:</b> <?php print $producto['field_producto_ano_final']; ?></li>
+            <li><b>Descripción de Fuentes de Verificación:</b> <?php print $producto['field_descripc_fuente_verifica']; ?></li>
+            <li><b>Fuentes de Verificación:</b>
               <ul>
               <?php foreach ($producto['field_prod_fuente_verifica'] as $file) : ?>
                 <li><?php print $file; ?></li>

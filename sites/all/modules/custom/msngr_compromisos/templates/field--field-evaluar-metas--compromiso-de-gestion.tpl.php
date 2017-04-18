@@ -80,7 +80,7 @@ HTML comment.
         <?php $last_key = end(array_keys($value['productos'])) ?>
         <td>
           <?php foreach ($value['productos'] as $key => $producto) : ?>
-            <?php print $key == $last_key ? $producto : $producto . ', '  ;?>
+            <?php print $key == $last_key ? $producto['field_producto'] : $producto['field_producto'] . ', '  ;?>
           <?php endforeach; ?>
         </td>
       </tr>
