@@ -399,7 +399,7 @@ function tipos_contenido_field_default_field_instances() {
       'max' => 100,
       'min' => 0,
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -547,13 +547,9 @@ function tipos_contenido_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Agregar',
-          'delete' => 'Eliminar',
-          'description' => TRUE,
-          'edit' => 'Editar',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_fields',
         'weight' => 11,
       ),
       'teaser' => array(
@@ -1398,14 +1394,14 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ambito_producto_adicional',
-    'label' => 'ambito',
+    'label' => 'Ámbito',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'references_dialog',
+      'module' => 'options',
       'settings' => array(
         'autocomplete_match' => 'starts_with',
         'autocomplete_path' => 'taxonomy/autocomplete',
@@ -1415,8 +1411,8 @@ function tipos_contenido_field_default_field_instances() {
         'references_dialog_search_view' => '',
         'size' => 60,
       ),
-      'type' => 'references_dialog_term_reference',
-      'weight' => 31,
+      'type' => 'options_select',
+      'weight' => 2,
     ),
   );
 
@@ -1428,10 +1424,12 @@ function tipos_contenido_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => NULL,
-        'settings' => array(),
-        'type' => 'media_large',
-        'weight' => 2,
+        'module' => 'media',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'media',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1442,7 +1440,7 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_attachment',
-    'label' => 'attachment',
+    'label' => 'Attachment',
     'required' => 0,
     'settings' => array(
       'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
@@ -1457,6 +1455,7 @@ function tipos_contenido_field_default_field_instances() {
           'public' => 'public',
         ),
         'allowed_types' => array(
+          0 => 0,
           'audio' => 0,
           'default' => 0,
           'image' => 'image',
@@ -1465,13 +1464,12 @@ function tipos_contenido_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 33,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance:
-  // 'node-productos_adicionales-field_institucion_asociada'.
-  $field_instances['node-productos_adicionales-field_institucion_asociada'] = array(
+  // Exported field_instance: 'node-productos_adicionales-field_body'.
+  $field_instances['node-productos_adicionales-field_body'] = array(
     'bundle' => 'productos_adicionales',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1479,12 +1477,10 @@ function tipos_contenido_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1494,36 +1490,21 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'entityconnect' => array(
-      'button' => array(
-        'unload_add_button' => 1,
-        'unload_edit_button' => 1,
-      ),
-      'icon' => array(
-        'show_add_icon' => 0,
-        'show_edit_icon' => 0,
-      ),
-    ),
-    'field_name' => 'field_institucion_asociada',
-    'label' => 'institucion asociada',
+    'field_name' => 'field_body',
+    'label' => 'Descripción',
     'required' => 0,
     'settings' => array(
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'text',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
+        'rows' => 5,
       ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 34,
+      'type' => 'text_textarea',
+      'weight' => 4,
     ),
   );
 
@@ -1551,25 +1532,17 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_lineamiento_producto_adici',
-    'label' => 'lineamiento',
+    'label' => 'Lineamiento',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'references_dialog',
-      'settings' => array(
-        'autocomplete_match' => 'starts_with',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'references_dialog_term_reference',
-      'weight' => 32,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
     ),
   );
 
@@ -1577,16 +1550,19 @@ function tipos_contenido_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Acción a seguir');
   t('Aspecto positivo');
+  t('Attachment');
   t('Año de Creación');
   t('Comentario porcentaje avance');
   t('Correo');
   t('Cuando haya completado la autoevaluación, seleccione "Autoevaluación lista" para notificar el/los analista/s. De lo contrario, seleccione "En proceso de revisión".');
+  t('Descripción');
   t('Estado actual del representante');
   t('Estado de la meta');
   t('Fin');
   t('Fuente de verificación');
   t('Inicio');
   t('Institución ');
+  t('Lineamiento');
   t('Meta');
   t('Metas a evaluar');
   t('Notificar analista');
@@ -1605,13 +1581,10 @@ function tipos_contenido_field_default_field_instances() {
   t('Teléfono');
   t('Tema de necesidades en asesoría');
   t('Tipo instancia');
-  t('ambito');
-  t('attachment');
   t('id_compromiso');
-  t('institucion asociada');
-  t('lineamiento');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');
+  t('Ámbito');
 
   return $field_instances;
 }
