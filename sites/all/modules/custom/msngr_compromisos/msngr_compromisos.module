@@ -164,10 +164,12 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
       }
     }
   }
-
+//    dpm('before');
     /////////////////dropdown productos creacion compromiso
-    if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) { //Cuando se agrega una nueva evaluación
-      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+    if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {//Cuando se agrega una nueva evaluación
+//      dpm('ininininininin');
+//      dpm($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']);
+//      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
       if (!empty($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {
         $tax=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
         $result = _fetch_results_callback($tax);
@@ -227,6 +229,7 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
      $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$i] = $meta;
    }
  }
+// dpm($form);
 }
 
 function _get_actual_meta_id($index, $form, $form_state){
