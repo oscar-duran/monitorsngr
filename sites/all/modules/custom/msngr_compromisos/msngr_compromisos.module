@@ -165,7 +165,6 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     }
   }
 
-
     /////////////////dropdown productos creacion compromiso
     if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) { //Cuando se agrega una nueva evaluación
       $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
