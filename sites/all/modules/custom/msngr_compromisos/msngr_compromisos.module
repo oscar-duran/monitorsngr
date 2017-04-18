@@ -183,11 +183,7 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
 
 
 //=======
-//  $ajax_producto_edit = array(
-//    'callback' => 'ajax_producto_edit_callback',
-//    'method' => 'blur',
-//  );
-//
+
   $form_prod=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
 
 //>>>>>>> master
