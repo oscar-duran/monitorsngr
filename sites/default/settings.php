@@ -667,14 +667,13 @@ $conf['master_modules']['base'] = array(
 
   // Custom modules.
   'autoevaluacion',
-  'auto_fill_id',
   'cne_alters',
   'compromiso_gestion',
-  'feature_sngr_vistas_de_compromisos_de_gesti_n',
   'field_permissions',
   'field_readonly',
   'lista_modulos',
   'monitorsngr_pge',
+  'msngr_compromisos',
   'references_dialog',
   'rules_feature',
   'sngr_field_bases',
