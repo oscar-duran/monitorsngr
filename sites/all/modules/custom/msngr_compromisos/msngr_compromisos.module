@@ -185,7 +185,7 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     $ajax_producto = array(
       'callback' => '_call_producto',
       'method' => 'replace',
-      'wrapper' => 'replace_div_1',
+//      'wrapper' => 'replace_div_1',
     );
 
     foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkk => $vvv) {
@@ -265,6 +265,7 @@ function _call_producto ($form, $form_state) {
   );
 }
 
+//Dropdown functions (add and edit)
 function _fetch_results_callback ($tax) {
   $result = db_select('field_data_field_productos_relacionados', 'ttd')
     ->fields('ttd', array('field_productos_relacionados_tid'))
@@ -341,35 +342,35 @@ function msngr_compromisos_preprocess_field(&$variables) {
   }
 }
 
-//Ajax methods
-function ajax_producto_callback ($form, $form_state) {
-  $commands = array();
-  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
-  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
-  $tax=array_shift($tax);
-  variable_set('meta', $tax->tid);
-  return array(
-    '#type' => 'ajax',
-    '#commands' => $commands,
-  );
-}
-
-function ajax_producto_edit_callback ($form, $form_state) {
-  $commands = array();
-  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kcb => $vcb) {
-    if (is_numeric($kcb)) {
-      $captured_meta=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kcb]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
-    }
-  }
-  $tax=taxonomy_get_term_by_name($captured_meta, 'meta');
-  $tax=array_shift($tax);
-  variable_set('meta', $tax->tid);
-  return array(
-    '#type' => 'ajax',
-    '#commands' => $commands,
-  );
-
-}
+//Ajax methods (AUTOCOMPLETE)
+//function ajax_producto_callback ($form, $form_state) {
+//  $commands = array();
+//  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+//  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
+//  $tax=array_shift($tax);
+//  variable_set('meta', $tax->tid);
+//  return array(
+//    '#type' => 'ajax',
+//    '#commands' => $commands,
+//  );
+//}
+//
+//function ajax_producto_edit_callback ($form, $form_state) {
+//  $commands = array();
+//  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kcb => $vcb) {
+//    if (is_numeric($kcb)) {
+//      $captured_meta=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kcb]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
+//    }
+//  }
+//  $tax=taxonomy_get_term_by_name($captured_meta, 'meta');
+//  $tax=array_shift($tax);
+//  variable_set('meta', $tax->tid);
+//  return array(
+//    '#type' => 'ajax',
+//    '#commands' => $commands,
+//  );
+//
+//}
 
 function is_add_form($form_state){
   return !isset($form_state['node']->nid);
