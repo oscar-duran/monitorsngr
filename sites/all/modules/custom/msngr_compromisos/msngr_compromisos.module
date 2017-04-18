@@ -110,24 +110,6 @@ function msngr_compromisos_node_update($node) {
  * Implements hook_form_FORM_ID_alter().
  */
 function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$form_state, $form_id) {
-//
-//  $prod_form=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE];
-//  $flag=null;
-//
-//  foreach ($prod_form as $kix => $vax) {
-//    if (is_numeric($kix)){
-//      $flag=$kix;
-//    }
-//  }
-//  switch ($flag) {
-//    case $flag===0:{
-//      variable_del('meta');
-//      break;}
-//    case $flag!==0:{
-//      break;}
-//    default:{
-//      break;}
-//  }
 
   global $user;
 
@@ -153,69 +135,73 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
 
-  ///////////////dropdown productos creacion compromiso
-  if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) { //Cuando se agrega una nueva evaluación
-    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
-    if (!empty($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {
-      $tax=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
-//      dpm($tax);
-      $result = _fetch_results_callback($tax);
-//      dpm($result);
-      $output = _output_tax_results($result);
-//      dpm($output);
+    /////////////////dropdown productos creacion compromiso
+    if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) { //Cuando se agrega una nueva evaluación
+      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+      if (!empty($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {
+        $tax=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
+        $result = _fetch_results_callback($tax);
+        $output = _output_tax_results($result);
 
-      foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $ki => $va) {
-        if (is_numeric($ki)) {
-          $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$ki]['field_producto'][LANGUAGE_NONE]['#options'] = array(
-            $output,
-          );
+        foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $ki => $va) {
+          if (is_numeric($ki)) {
+            $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$ki]['field_producto'][LANGUAGE_NONE]['#options'] = array(
+              $output,
+            );
+          }
         }
       }
     }
-  }
-  $ajax_producto = array(
-    'callback' => '_call_producto',
-    'method' => 'replace',
-    'wrapper' => 'replace_div_1',
-  );
+    $ajax_producto = array(
+      'callback' => '_call_producto',
+      'method' => 'replace',
+      'wrapper' => 'replace_div_1',
+    );
 
-  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkk => $vvv) {
-    if (is_numeric($kkk)){
-      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkk]['field_producto'][LANGUAGE_NONE]['#prefix']='<div id="replace_div_'.$kkk.'">';
-      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkk]['field_producto'][LANGUAGE_NONE]['#suffix']='</div>';
+    foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkk => $vvv) {
+      if (is_numeric($kkk)){
+        $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkk]['field_producto'][LANGUAGE_NONE]['#prefix']='<div id="replace_div_'.$kkk.'">';
+        $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkk]['field_producto'][LANGUAGE_NONE]['#suffix']='</div>';
+      }
     }
-  }
-  $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
-  /////////////////dropdown productos creacion compromiso
-
-
-  /////////////////dropdown productos edicion compromiso
-  /////////////////dropdown productos edicion compromiso
-  $call_producto_edit = array(
+    $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
+    /////////////////dropdown productos creacion compromiso
+    ////////                    //////////////////
+    /////////////////dropdown productos edicion compromiso
+    $call_producto_edit = array(
     'callback' => '_call_producto_edit',
     'method' => 'replace',
 //    'wrapper' => 'replace_div_1',
   );
 
-  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kv => $vk) {
-    $taxE=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['#entity']->field_meta_tax[LANGUAGE_NONE][0]['tid'];
-    $resultE = _fetch_results_callbackE($taxE);
-//            dpm($resultE);
-    $outputE = _output_tax_resultsE($resultE);
-//    dpm($outputE);
-    if (is_numeric($kv)) {
-      $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$call_producto_edit;
-      foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkv => $vvk) {
-        if (is_numeric($kkv)) {
-          $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#prefix']='<div id="replace_edit_'.$kkv.'">';
-          $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#suffix']='</div>';
-          $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#options']=array(
-            $outputE,
-          );
-        }
-      }
-    }
-  }
+  $metas_entities = array_filter($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'], function ($key) {
+    return is_numeric($key);
+  }, ARRAY_FILTER_USE_KEY);
+
+ foreach ($metas_entities as $i => $meta) {
+   if(isset($meta['form'])) {
+     $taxE = _get_actual_meta_id($i, $form, $form_state);
+     $resultE = _fetch_results_callbackE($taxE);
+     $outputE = _output_tax_resultsE($resultE);
+     $meta['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax'] = $call_producto_edit;
+     foreach ($meta['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkv => $vvk) {
+       if (is_numeric($kkv)) {
+         $meta['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#prefix'] = '<div id="replace_edit_'.$kkv.'">';
+         $meta['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#suffix'] = '</div>';
+         $meta['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#options'] = array(
+           $outputE,
+         );
+       }
+     }
+     $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$i] = $meta;
+   }
+ }
+}
+
+function _get_actual_meta_id($index, $form, $form_state){
+  return isset($form_state['values']['field_evaluar_metas']['und']['entities'][$index]['form']) ?
+   $form_state['values']['field_evaluar_metas']['und']['entities'][$index]['form']['field_meta_tax']['und'][0]['tid'] :
+   $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$index]['#entity']->field_meta_tax[LANGUAGE_NONE][0]['tid'];
 }
 
 function _call_producto_edit ($form, $form_state) {
@@ -225,7 +211,6 @@ function _call_producto_edit ($form, $form_state) {
     if (is_numeric($kv)) {
       foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kkvv => $vkvk) {
         if (is_numeric($kkvv)) {
-          dpm($kkvv);
 //          $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#options'];
           $commandsE[]=ajax_command_replace('#replace_edit_'.$kkvv.'', drupal_render($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kv]['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkvv]['field_producto'][LANGUAGE_NONE]));
         }
