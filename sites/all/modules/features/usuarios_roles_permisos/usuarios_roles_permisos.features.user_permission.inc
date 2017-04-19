@@ -778,6 +778,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create evaluacion_de_metas content'.
+  $permissions['create evaluacion_de_metas content'] = array(
+    'name' => 'create evaluacion_de_metas content',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create instancia_coordinacion content'.
   $permissions['create instancia_coordinacion content'] = array(
     'name' => 'create instancia_coordinacion content',
@@ -823,6 +833,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create productos_adicionales content'.
+  $permissions['create productos_adicionales content'] = array(
+    'name' => 'create productos_adicionales content',
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
   );
@@ -919,6 +938,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any evaluacion_de_metas content'.
+  $permissions['delete any evaluacion_de_metas content'] = array(
+    'name' => 'delete any evaluacion_de_metas content',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any instancia_coordinacion content'.
   $permissions['delete any instancia_coordinacion content'] = array(
     'name' => 'delete any instancia_coordinacion content',
@@ -955,6 +984,13 @@ function usuarios_roles_permisos_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any productos_adicionales content'.
+  $permissions['delete any productos_adicionales content'] = array(
+    'name' => 'delete any productos_adicionales content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1024,6 +1060,16 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own evaluacion_de_metas content'.
+  $permissions['delete own evaluacion_de_metas content'] = array(
+    'name' => 'delete own evaluacion_de_metas content',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own instancia_coordinacion content'.
   $permissions['delete own instancia_coordinacion content'] = array(
     'name' => 'delete own instancia_coordinacion content',
@@ -1059,6 +1105,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own productos_adicionales content'.
+  $permissions['delete own productos_adicionales content'] = array(
+    'name' => 'delete own productos_adicionales content',
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
   );
@@ -1291,6 +1346,17 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any evaluacion_de_metas content'.
+  $permissions['edit any evaluacion_de_metas content'] = array(
+    'name' => 'edit any evaluacion_de_metas content',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+      'analista-sngr' => 'analista-sngr',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any instancia_coordinacion content'.
   $permissions['edit any instancia_coordinacion content'] = array(
     'name' => 'edit any instancia_coordinacion content',
@@ -1329,6 +1395,13 @@ function usuarios_roles_permisos_user_default_permissions() {
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any productos_adicionales content'.
+  $permissions['edit any productos_adicionales content'] = array(
+    'name' => 'edit any productos_adicionales content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1418,6 +1491,17 @@ function usuarios_roles_permisos_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own evaluacion_de_metas content'.
+  $permissions['edit own evaluacion_de_metas content'] = array(
+    'name' => 'edit own evaluacion_de_metas content',
+    'roles' => array(
+      'admin-sngr' => 'admin-sngr',
+      'administrator' => 'administrator',
+      'analista-sngr' => 'analista-sngr',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own instancia_coordinacion content'.
   $permissions['edit own instancia_coordinacion content'] = array(
     'name' => 'edit own instancia_coordinacion content',
@@ -1455,6 +1539,15 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own productos_adicionales content'.
+  $permissions['edit own productos_adicionales content'] = array(
+    'name' => 'edit own productos_adicionales content',
+    'roles' => array(
+      'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
   );
