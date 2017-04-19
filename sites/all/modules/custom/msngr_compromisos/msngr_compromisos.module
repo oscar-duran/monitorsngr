@@ -291,7 +291,7 @@ function _output_tax_results ($fetched) {
   }
   return $ar;
 }
-//////////////////////////////////
+/////////////////////////////////
 function _fetch_results_callbackE ($tax) {
   $result = db_select('field_data_field_productos_relacionados', 'ttd')
     ->fields('ttd', array('field_productos_relacionados_tid'))
