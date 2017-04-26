@@ -100,7 +100,7 @@ function msngr_compromisos_node_presave($node) {
  */
 function msngr_compromisos_node_update($node) {
   if($node->type == "compromiso_de_gestion") {
-    update_percentage_compromiso($node);
+    update_percentage_data_by_compromiso($node);
   }
 
   if($node->type == 'evaluacion_de_metas') {
@@ -639,6 +639,8 @@ function get_meta_global_percentage($meta_id) {
   foreach ($fetch as $evaluacion) {
     $sum += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
   }
+  dpm($fetch);
+  dpm($sum);
 
   return $sum / $cant;
 }
