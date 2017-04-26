@@ -621,8 +621,8 @@ function tipos_contenido_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-evaluacion_de_metas-field_observacion_del_analista'.
-  $field_instances['node-evaluacion_de_metas-field_observacion_del_analista'] = array(
+  // 'node-evaluacion_de_metas-field_observacion_analista'.
+  $field_instances['node-evaluacion_de_metas-field_observacion_analista'] = array(
     'bundle' => 'evaluacion_de_metas',
     'default_value' => NULL,
     'deleted' => 0,
@@ -633,7 +633,7 @@ function tipos_contenido_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 10,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -643,7 +643,7 @@ function tipos_contenido_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_observacion_del_analista',
+    'field_name' => 'field_observacion_analista',
     'label' => 'Observaciones del analista',
     'required' => 0,
     'settings' => array(
@@ -654,10 +654,10 @@ function tipos_contenido_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'rows' => 5,
       ),
-      'type' => 'text_textfield',
-      'weight' => 18,
+      'type' => 'text_textarea',
+      'weight' => 19,
     ),
   );
 

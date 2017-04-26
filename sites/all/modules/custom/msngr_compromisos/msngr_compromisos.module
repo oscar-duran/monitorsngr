@@ -153,12 +153,15 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
       $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE]['add_more']['#access'] = FALSE;
     }
   }
+  $node = $form_state['node'];
 
+  if (!isset($node->nid) || isset($node->is_new)) {
+    // This is a new node.
     /////////////////dropdown productos creacion compromiso
-    if (isset($form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) { //Cuando se agrega una nueva evaluación
-      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['title']['#access'] = FALSE;
+
+    if (isset($form_state['complete form']['field_evaluar_metas']['und']['form']['field_meta_tax']['und'][0]['tid']['#value'])) {//Cuando se agrega una nueva evaluación
       if (!empty($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'])) {
-        $tax=$form_state['values']['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid'];
+        $tax=$form_state['complete form']['field_evaluar_metas']['und']['form']['field_meta_tax']['und'][0]['tid']['#entity']->field_meta_tax['und'][0]['tid'];
         $result = _fetch_results_callback($tax);
         $output = _output_tax_results($result);
 
@@ -185,13 +188,14 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     }
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#ajax']=$ajax_producto;
     /////////////////dropdown productos creacion compromiso
-
-
+  }
+  else {
+    // This is not a new node.
     /////////////////dropdown productos edicion compromiso
     $call_producto_edit = array(
-    'callback' => '_call_producto_edit',
-    'method' => 'replace',
-  );
+      'callback' => '_call_producto_edit',
+      'method' => 'replace',
+    );
 
   $metas_entities = array_filter($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'], function ($key) {
     return is_numeric($key);
@@ -253,6 +257,16 @@ function _call_producto_edit ($form, $form_state) {
   );
 }
 
+//Dropdown functions (add and edit)
+function _fetch_results_callback ($tax) {
+  $result = db_select('field_data_field_productos_relacionados', 'ttd')
+    ->fields('ttd', array('field_productos_relacionados_tid'))
+    ->condition('entity_id', '%' . $tax . '%', 'LIKE')
+    ->execute()
+    ->fetchAll();
+  return $result;
+}
+
 function _call_producto ($form, $form_state) {
   $commands = array();
   foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kv => $vk) {
@@ -267,16 +281,6 @@ function _call_producto ($form, $form_state) {
 }
 
 //Dropdown functions (add and edit)
-function _fetch_results_callback ($tax) {
-  $result = db_select('field_data_field_productos_relacionados', 'ttd')
-    ->fields('ttd', array('field_productos_relacionados_tid'))
-    ->condition('entity_id', '%' . $tax . '%', 'LIKE')
-    ->execute()
-    ->fetchAll();
-  return $result;
-}
-
-
 function _output_tax_results ($fetched) {
   $ar = array();
   foreach ($fetched as $k => $v) {
@@ -286,7 +290,7 @@ function _output_tax_results ($fetched) {
   }
   return $ar;
 }
-//////////////////////////////////
+/////////////////////////////////
 function _fetch_results_callbackE ($tax) {
   $result = db_select('field_data_field_productos_relacionados', 'ttd')
     ->fields('ttd', array('field_productos_relacionados_tid'))

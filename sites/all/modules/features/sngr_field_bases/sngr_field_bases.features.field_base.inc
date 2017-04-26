@@ -2298,13 +2298,13 @@ function sngr_field_bases_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_observacion_del_analista'.
-  $field_bases['field_observacion_del_analista'] = array(
+  // Exported field_base: 'field_observacion_analista'.
+  $field_bases['field_observacion_analista'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_observacion_del_analista',
+    'field_name' => 'field_observacion_analista',
     'field_permissions' => array(
       'type' => 2,
     ),
@@ -2315,11 +2315,9 @@ function sngr_field_bases_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_obstaculo'.

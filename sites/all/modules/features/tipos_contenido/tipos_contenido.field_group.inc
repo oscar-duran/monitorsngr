@@ -86,8 +86,8 @@ function tipos_contenido_field_group_info() {
     'children' => array(
       0 => 'field_su_org_requiere_asesoria',
       1 => 'field_organizacion_capacitadora',
-      2 => 'field_tema_necesidad_meta',
-      3 => 'field_recibio_asesoria_meta',
+      2 => 'field_recibio_asesoria_meta',
+      3 => 'field_tema_necesidad_meta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -144,6 +144,7 @@ function tipos_contenido_field_group_info() {
     'children' => array(
       0 => 'field_estado',
       1 => 'field_observacion_del_analista',
+      2 => 'field_observacion_analista',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -281,11 +282,11 @@ function tipos_contenido_field_group_info() {
     'label' => 'Vertical Group',
     'weight' => '3',
     'children' => array(
-      0 => 'group_meta_asesorias',
-      1 => 'group_meta_avance',
-      2 => 'group_meta_estado',
-      3 => 'group_meta_obsevaciones',
-      4 => 'group_producto_tab',
+      0 => 'group_producto_tab',
+      1 => 'group_meta_asesorias',
+      2 => 'group_meta_avance',
+      3 => 'group_meta_estado',
+      4 => 'group_meta_obsevaciones',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
