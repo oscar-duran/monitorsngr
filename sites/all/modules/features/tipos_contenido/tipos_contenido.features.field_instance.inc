@@ -168,7 +168,7 @@ function tipos_contenido_field_default_field_instances() {
     ),
     'field_name' => 'field_evaluar_metas',
     'label' => 'Metas a evaluar',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -599,7 +599,7 @@ function tipos_contenido_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_meta_tax',
     'label' => 'Meta',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
