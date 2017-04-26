@@ -437,7 +437,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Consolidación de Montos';
+  $handler->display->display_options['title'] = 'Consolidado de Montos de Ejecución en GR';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -501,7 +501,7 @@ function vistas_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Contenido: Montos de Ejecución (field_financiamiento) */
+  /* Relationship: Contenido: Montos de Ejecución en GR (field_financiamiento) */
   $handler->display->display_options['relationships']['field_financiamiento_value']['id'] = 'field_financiamiento_value';
   $handler->display->display_options['relationships']['field_financiamiento_value']['table'] = 'field_data_field_financiamiento';
   $handler->display->display_options['relationships']['field_financiamiento_value']['field'] = 'field_financiamiento_value';
@@ -682,7 +682,7 @@ function vistas_views_default_views() {
   );
   $translatables['consolidaci_n_de_montos'] = array(
     t('Master'),
-    t('Consolidación de Montos'),
+    t('Consolidado de Montos de Ejecución en GR'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -2162,7 +2162,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Campo: Descripción de la Fuente de Verificación */
+  /* Campo: Campo: Descripción Fuente Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -2244,7 +2244,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
   $handler->display->display_options['fields']['name']['label'] = 'Producto';
-  /* Campo: Campo: Descripción de la Fuente de Verificación */
+  /* Campo: Campo: Descripción Fuente Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -4476,7 +4476,7 @@ function vistas_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Contenido: Montos de Ejecución (field_financiamiento) */
+  /* Relationship: Contenido: Montos de Ejecución en GR (field_financiamiento) */
   $handler->display->display_options['relationships']['field_financiamiento_value']['id'] = 'field_financiamiento_value';
   $handler->display->display_options['relationships']['field_financiamiento_value']['table'] = 'field_data_field_financiamiento';
   $handler->display->display_options['relationships']['field_financiamiento_value']['field'] = 'field_financiamiento_value';

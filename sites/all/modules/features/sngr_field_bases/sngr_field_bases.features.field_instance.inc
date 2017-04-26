@@ -452,7 +452,7 @@ function sngr_field_bases_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_financiamiento',
-    'label' => 'Montos de Ejecución',
+    'label' => 'Montos de Ejecución en GR',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -604,7 +604,7 @@ function sngr_field_bases_field_default_field_instances() {
   t('Integrantes');
   t('Monto Presupuestario');
   t('Monto de Ejecución');
-  t('Montos de Ejecución');
+  t('Montos de Ejecución en GR');
   t('Provincia, Cantón, Distrito');
   t('Subtipo instancia');
   t('Tipo de instancia');
