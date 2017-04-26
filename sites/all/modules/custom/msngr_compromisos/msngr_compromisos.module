@@ -119,8 +119,9 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   global $user;
 
   $user_full = user_load($user->uid, TRUE);
+  $roles = $user_full->roles;
 
-  if (is_add_form($form_state) && in_array('usuario-institucional', $user->roles)) {
+  if (is_add_form($form_state) && in_array('usuario-institucional', $roles)) {
     auto_compromiso_form_title($user_full, $form, $form_state);
   }
 
@@ -140,7 +141,6 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
   $form['field_estado']['#access'] = FALSE;
   $form['field_id_compromiso']['#access']= FALSE;
 
-
     //Evaluar metas
   $form['field_evaluar_metas']['und']['actions']['ief_add']['#value'] = 'Agregar nueva evaluación';
 
@@ -149,19 +149,8 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['status']['#access'] = FALSE;
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['#title'] = 'Agregar nueva evaluación';
     $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Crear Evaluación';
-  }
-  if (!isset($form['field_evaluar_metas'][LANGUAGE_NONE]['form'])) {
-    foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kkey => $vvalue) {
-      if (is_numeric($kkey)) {
-        foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['field_evaluar_producto'][LANGUAGE_NONE] as $kprod => $vprod) {
-          if (is_numeric($kprod)) {
-            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['title']['#access'] = FALSE;
-            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['status']['#access'] = FALSE;
-            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['#title'] = 'Editar evaluación';
-            $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kkey]['form']['actions']['ief_edit_save']['#value'] = 'Guardar Cambios';
-          }
-        }
-      }
+    if(!in_array('admin-sngr', $roles) && !in_array('administrator', $roles)) {
+      $form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_evaluar_producto'][LANGUAGE_NONE]['add_more']['#access'] = FALSE;
     }
   }
 
@@ -210,6 +199,15 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
 
  foreach ($metas_entities as $i => $meta) {
    if(isset($meta['form'])) {
+     $meta['form']['title']['#access'] = FALSE;
+     $meta['form']['status']['#access'] = FALSE;
+     $meta['form']['#title'] = 'Editar evaluación';
+     $meta['form']['actions']['ief_edit_save']['#value'] = 'Guardar Cambios';
+
+     if(!in_array('admin-sngr', $roles) && !in_array('administrator', $roles)) {
+       $meta['form']['field_evaluar_producto'][LANGUAGE_NONE]['add_more']['#access'] = FALSE;
+     }
+
      $taxE = _get_actual_meta_id($i, $form, $form_state);
      $resultE = _fetch_results_callbackE($taxE);
      $outputE = _output_tax_resultsE($resultE);
@@ -222,6 +220,9 @@ function msngr_compromisos_form_compromiso_de_gestion_node_form_alter(&$form, &$
          $meta['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['field_producto'][LANGUAGE_NONE]['#options'] = array(
            $outputE,
          );
+         if(!in_array('admin-sngr', $roles) && !in_array('administrator', $roles)) {
+           $meta['form']['field_evaluar_producto'][LANGUAGE_NONE][$kkv]['remove_button']['#access'] = FALSE;
+         }
        }
      }
      $form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$i] = $meta;
@@ -341,36 +342,6 @@ function msngr_compromisos_preprocess_field(&$variables) {
     }
   }
 }
-
-//Ajax methods (AUTOCOMPLETE)
-//function ajax_producto_callback ($form, $form_state) {
-//  $commands = array();
-//  $meta_capturada=$form['field_evaluar_metas'][LANGUAGE_NONE]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
-//  $tax=taxonomy_get_term_by_name($meta_capturada, 'meta');
-//  $tax=array_shift($tax);
-//  variable_set('meta', $tax->tid);
-//  return array(
-//    '#type' => 'ajax',
-//    '#commands' => $commands,
-//  );
-//}
-//
-//function ajax_producto_edit_callback ($form, $form_state) {
-//  $commands = array();
-//  foreach ($form['field_evaluar_metas'][LANGUAGE_NONE]['entities'] as $kcb => $vcb) {
-//    if (is_numeric($kcb)) {
-//      $captured_meta=$form['field_evaluar_metas'][LANGUAGE_NONE]['entities'][$kcb]['form']['field_meta_tax'][LANGUAGE_NONE][0]['tid']['#value'];
-//    }
-//  }
-//  $tax=taxonomy_get_term_by_name($captured_meta, 'meta');
-//  $tax=array_shift($tax);
-//  variable_set('meta', $tax->tid);
-//  return array(
-//    '#type' => 'ajax',
-//    '#commands' => $commands,
-//  );
-//
-//}
 
 function is_add_form($form_state){
   return !isset($form_state['node']->nid);
@@ -633,8 +604,6 @@ function get_meta_global_percentage($meta_id) {
   foreach ($fetch as $evaluacion) {
     $sum += porcentaje_avance($evaluacion->field_porcentaje_avance_value );
   }
-  dpm($fetch);
-  dpm($sum);
 
   return $sum / $cant;
 }
