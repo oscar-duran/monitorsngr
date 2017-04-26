@@ -127,9 +127,9 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_observacion_del_analista'.
-  $permissions['create field_observacion_del_analista'] = array(
-    'name' => 'create field_observacion_del_analista',
+  // Exported permission: 'create field_observacion_analista'.
+  $permissions['create field_observacion_analista'] = array(
+    'name' => 'create field_observacion_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -351,9 +351,9 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_observacion_del_analista'.
-  $permissions['edit field_observacion_del_analista'] = array(
-    'name' => 'edit field_observacion_del_analista',
+  // Exported permission: 'edit field_observacion_analista'.
+  $permissions['edit field_observacion_analista'] = array(
+    'name' => 'edit field_observacion_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -577,9 +577,9 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_observacion_del_analista'.
-  $permissions['edit own field_observacion_del_analista'] = array(
-    'name' => 'edit own field_observacion_del_analista',
+  // Exported permission: 'edit own field_observacion_analista'.
+  $permissions['edit own field_observacion_analista'] = array(
+    'name' => 'edit own field_observacion_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -821,9 +821,9 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_observacion_del_analista'.
-  $permissions['view field_observacion_del_analista'] = array(
-    'name' => 'view field_observacion_del_analista',
+  // Exported permission: 'view field_observacion_analista'.
+  $permissions['view field_observacion_analista'] = array(
+    'name' => 'view field_observacion_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
@@ -1086,9 +1086,9 @@ function sngr_field_bases_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_observacion_del_analista'.
-  $permissions['view own field_observacion_del_analista'] = array(
-    'name' => 'view own field_observacion_del_analista',
+  // Exported permission: 'view own field_observacion_analista'.
+  $permissions['view own field_observacion_analista'] = array(
+    'name' => 'view own field_observacion_analista',
     'roles' => array(
       'administrator' => 'administrator',
       'analista-sngr' => 'analista-sngr',
