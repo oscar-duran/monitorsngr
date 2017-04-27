@@ -58,33 +58,35 @@ HTML comment.
   <div class="field-items"<?php print $content_attributes; ?>>
     <table id="single-compromiso-table" class="compromisos_table">
       <thead>
-      <th>Eje</th>
-      <th>Ambito</th>
-      <th>Lineamiento</th>
-      <th>Acción Estratégica</th>
-      <th>Meta</th>
-      <th>Productos</th>
+        <th>Eje</th>
+        <th>Ámbito</th>
+        <th>Lineamiento</th>
+        <th>Acción Estratégica</th>
+        <th>Meta</th>
+        <th>Porcentaje de Avance</th>
+        <th>Productos</th>
       </thead>
       <tbody>
-    <?php foreach ($table_values as $delta => $value): ?>
-      <tr class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>">
-        <td><?php print $value['eje'] ?></td>
-        <td><?php print $value['ambito'] ?></td>
-        <td><?php print $value['lineamiento'] ?></td>
-        <td><?php print $value['accion'] ?></td>
-        <td>
-          <a href="<?php print $value['meta_url'] ?>">
-            <?php print $value['meta'] ?> (<?php print $value['meta_percent'] ?>%)
-          </a>
-        </td>
-        <?php $last_key = end(array_keys($value['productos'])) ?>
-        <td>
-          <?php foreach ($value['productos'] as $key => $producto) : ?>
-            <?php print $key == $last_key ? $producto['field_producto'] : $producto['field_producto'] . ', '  ;?>
-          <?php endforeach; ?>
-        </td>
-      </tr>
-    <?php endforeach; ?>
+        <?php foreach ($table_values as $delta => $value): ?>
+          <tr class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>">
+            <td><?php print $value['eje'] ?></td>
+            <td><?php print $value['ambito'] ?></td>
+            <td><?php print $value['lineamiento'] ?></td>
+            <td><?php print $value['accion'] ?></td>
+            <td>
+              <a href="<?php print $value['meta_url'] ?>">
+                <?php print $value['meta'] ?>
+              </a>
+            </td>
+            <td><?php print $value['meta_percent'] ?>%</td>
+            <?php $last_key = end(array_keys($value['productos'])) ?>
+              <td>
+                <?php foreach ($value['productos'] as $key => $producto) : ?>
+                  <?php print $key == $last_key ? $producto['field_producto'] : $producto['field_producto'] . ', '  ;?>
+                <?php endforeach; ?>
+              </td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </div>
