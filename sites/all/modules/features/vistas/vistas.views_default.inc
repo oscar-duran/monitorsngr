@@ -458,16 +458,23 @@ function vistas_views_default_views() {
     ),
   );
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_anno' => 'field_anno',
     'title' => 'title',
     'field_monto_de_ejecucion' => 'field_monto_de_ejecucion',
     'field_monto_presupuestario' => 'field_monto_presupuestario',
     'expression' => 'expression',
-    'field_anno' => 'field_anno',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
+    'field_anno' => array(
       'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -488,13 +495,6 @@ function vistas_views_default_views() {
       'empty_column' => 0,
     ),
     'expression' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_anno' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -2131,6 +2131,57 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title_1' => 'title_1',
+    'title' => 'title',
+    'name' => 'name',
+    'field_descripc_fuente_verifica' => 'field_descripc_fuente_verifica',
+    'field_prod_fuente_verifica' => 'field_prod_fuente_verifica',
+    'field_year_compromiso' => 'field_year_compromiso',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_descripc_fuente_verifica' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_prod_fuente_verifica' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_year_compromiso' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['id'] = 'field_evaluar_metas_target_id';
   $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['table'] = 'field_data_field_evaluar_metas';
@@ -2248,7 +2299,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Fuente de Verificación';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Descripcion fuente de Verificación';
   /* Campo: Campo: Fuente de verificación */
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['id'] = 'field_prod_fuente_verifica';
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['table'] = 'field_data_field_prod_fuente_verifica';
@@ -2260,6 +2311,18 @@ function vistas_views_default_views() {
     'file_view_mode' => 'default',
   );
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['delta_offset'] = '0';
+  /* Campo: Contenido: Año de Creación */
+  $handler->display->display_options['fields']['field_year_compromiso']['id'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['field'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Contenido: Publicado */
@@ -2356,6 +2419,55 @@ function vistas_views_default_views() {
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institucion';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
+  $handler->display->display_options['fields']['name']['label'] = 'Producto';
+  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
+  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Descripcion fuente de verificacion';
+  /* Campo: Campo: Fuente de verificación */
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['id'] = 'field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['table'] = 'field_data_field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['field'] = 'field_prod_fuente_verifica';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['type'] = 'media';
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['settings'] = array(
+    'file_view_mode' => 'default',
+  );
+  $handler->display->display_options['fields']['field_prod_fuente_verifica']['delta_offset'] = '0';
+  /* Campo: Contenido: Año de Creación */
+  $handler->display->display_options['fields']['field_year_compromiso']['id'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['field'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   $handler->display->display_options['path'] = 'lista-productos-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -2388,9 +2500,11 @@ function vistas_views_default_views() {
     t('Año de Creación'),
     t('Page'),
     t('Institución'),
-    t('Fuente de Verificación'),
+    t('Descripcion fuente de Verificación'),
     t('Fuente de verificación'),
     t('Data export'),
+    t('Institucion'),
+    t('Descripcion fuente de verificacion'),
   );
   $export['lista_productos'] = $view;
 
@@ -2420,6 +2534,35 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_aspecto_positivo' => 'field_aspecto_positivo',
+    'title' => 'title',
+    'title_1' => 'title_1',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_aspecto_positivo' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['id'] = 'field_evaluar_metas_target_id';
   $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['table'] = 'field_data_field_evaluar_metas';
@@ -2746,6 +2889,75 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'title_1' => 'title_1',
+    'title_2' => 'title_2',
+    'name' => 'name',
+    'name_1' => 'name_1',
+    'name_2' => 'name_2',
+    'name_3' => 'name_3',
+    'name_4' => 'name_4',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title_1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name_2' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name_3' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name_4' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
@@ -4141,20 +4353,30 @@ function vistas_views_default_views() {
   $handler->display->display_options['style_options']['columns'] = array(
     'title_1' => 'title_1',
     'title' => 'title',
-    'name' => 'name',
     'field_porcentaje_de_avance_compr' => 'field_porcentaje_de_avance_compr',
+    'name' => 'name',
+    'field_porcentaje_avance' => 'field_porcentaje_avance',
+    'expression' => 'expression',
     'field_meta_avance_global' => 'field_meta_avance_global',
+    'field_year_compromiso' => 'field_year_compromiso',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title_1' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_porcentaje_de_avance_compr' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -4168,15 +4390,27 @@ function vistas_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_porcentaje_de_avance_compr' => array(
+    'field_porcentaje_avance' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
+    'expression' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_meta_avance_global' => array(
       'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_year_compromiso' => array(
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -4258,6 +4492,18 @@ function vistas_views_default_views() {
     'scale' => '2',
     'prefix_suffix' => 1,
   );
+  /* Campo: Contenido: Año de Creación */
+  $handler->display->display_options['fields']['field_year_compromiso']['id'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['field'] = 'field_year_compromiso';
+  $handler->display->display_options['fields']['field_year_compromiso']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   /* Sort criterion: Término de taxonomía: Nombre */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
@@ -4332,6 +4578,31 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['name']['expose']['autocomplete_dependent'] = 0;
+  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
+  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_field'] = 'field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -4439,6 +4710,7 @@ function vistas_views_default_views() {
     t(','),
     t('%'),
     t('Avance de la Meta'),
+    t('Año de Creación'),
     t('Page'),
     t('Data export'),
   );
@@ -5230,7 +5502,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'View compromisos';
+  $handler->display->display_options['title'] = 'Listado de compromisos';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -5518,7 +5790,7 @@ function vistas_views_default_views() {
   );
   $translatables['view_instituciones'] = array(
     t('Master'),
-    t('View compromisos'),
+    t('Listado de compromisos'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
