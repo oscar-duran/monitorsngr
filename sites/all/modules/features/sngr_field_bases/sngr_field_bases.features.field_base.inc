@@ -485,9 +485,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_body',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -2518,9 +2515,6 @@ function sngr_field_bases_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_porcentaje_de_avance_compr',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',

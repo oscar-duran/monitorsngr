@@ -30,9 +30,9 @@ function tipos_contenido_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_prod_fuente_verifica',
     'label' => 'Fuente de verificación',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
-      'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico',
+      'file_extensions' => 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov m4v mp4 mpeg avi ogg oga ogv wmv ico tiff csv',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -76,22 +76,14 @@ function tipos_contenido_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_producto',
     'label' => 'Producto',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
+      'settings' => array(),
       'type' => 'options_select',
       'weight' => 0,
     ),

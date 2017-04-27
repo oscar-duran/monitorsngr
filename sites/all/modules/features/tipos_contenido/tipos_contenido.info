@@ -236,4 +236,5 @@ features_exclude[field_instance][node-instancia_coordinacion-field_subtipo_insta
 features_exclude[field_instance][node-instancia_coordinacion-field_subtipo_instancia3] = node-instancia_coordinacion-field_subtipo_instancia3
 features_exclude[field_instance][node-instancia_coordinacion-field_ubicaci_n_geogr_fica] = node-instancia_coordinacion-field_ubicaci_n_geogr_fica
 features_exclude[field_instance][node-productos_adicionales-field_institucion_asociada] = node-productos_adicionales-field_institucion_asociada
+features_exclude[field_instance][node-evaluacion_de_metas-body] = node-evaluacion_de_metas-body
 project path = sites/all/modules/features
