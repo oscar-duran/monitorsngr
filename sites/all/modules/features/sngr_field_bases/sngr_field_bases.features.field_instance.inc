@@ -25,6 +25,12 @@ function sngr_field_bases_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_descripc_fuente_verifica',

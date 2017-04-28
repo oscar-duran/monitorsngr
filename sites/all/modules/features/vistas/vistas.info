@@ -22,6 +22,7 @@ features[views_view][] = consolidaci_n_de_montos
 features[views_view][] = decreto_de_emergencia
 features[views_view][] = enlaces_institucionales
 features[views_view][] = evaluaci_n_compromisos
+features[views_view][] = evaluacion_metas_compromiso
 features[views_view][] = instancias_coordinacion
 features[views_view][] = instituciones
 features[views_view][] = lista_asesorias

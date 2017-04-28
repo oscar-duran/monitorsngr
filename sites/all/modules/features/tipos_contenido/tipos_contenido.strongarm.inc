@@ -268,7 +268,7 @@ function tipos_contenido_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'field_readonly' => array(
         'custom_settings' => FALSE,
