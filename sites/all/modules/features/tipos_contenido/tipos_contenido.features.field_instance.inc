@@ -26,6 +26,12 @@ function tipos_contenido_field_default_field_instances() {
         'type' => 'media',
         'weight' => 2,
       ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_prod_fuente_verifica',
@@ -70,6 +76,13 @@ function tipos_contenido_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 0,
       ),
     ),
@@ -135,9 +148,8 @@ function tipos_contenido_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
         'settings' => array(),
-        'type' => 'entityreference_entity_id',
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -650,6 +662,47 @@ function tipos_contenido_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-evaluacion_de_metas-field_observacion_del_analista'.
+  $field_instances['node-evaluacion_de_metas-field_observacion_del_analista'] = array(
+    'bundle' => 'evaluacion_de_metas',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_observacion_del_analista',
+    'label' => 'Observaciones del analista',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 18,
     ),
   );
 
@@ -1363,6 +1416,52 @@ function tipos_contenido_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-productos_adicionales-field_accion_estrategica'.
+  $field_instances['node-productos_adicionales-field_accion_estrategica'] = array(
+    'bundle' => 'productos_adicionales',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_accion_estrategica',
+    'label' => 'Acción Estratégica',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'references_dialog',
+      'settings' => array(
+        'autocomplete_match' => 'starts_with',
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'references_dialog_add' => 0,
+        'references_dialog_edit' => 0,
+        'references_dialog_search' => 0,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'references_dialog_term_reference',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-productos_adicionales-field_ambito_producto_adicional'.
   $field_instances['node-productos_adicionales-field_ambito_producto_adicional'] = array(
     'bundle' => 'productos_adicionales',
@@ -1540,6 +1639,7 @@ function tipos_contenido_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acción Estratégica');
   t('Acción a seguir');
   t('Aspecto positivo');
   t('Attachment');
