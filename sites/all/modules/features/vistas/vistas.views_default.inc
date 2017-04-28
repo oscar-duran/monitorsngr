@@ -1425,7 +1425,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Nueva instancia';
   $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">Nueva instancia</a>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">+Agregar instancia</a>';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1433,11 +1433,6 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Nombre instancia';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Tipo de instancia */
-  $handler->display->display_options['fields']['field_primera_lista']['id'] = 'field_primera_lista';
-  $handler->display->display_options['fields']['field_primera_lista']['table'] = 'field_data_field_primera_lista';
-  $handler->display->display_options['fields']['field_primera_lista']['field'] = 'field_primera_lista';
-  $handler->display->display_options['fields']['field_primera_lista']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Contenido: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1455,6 +1450,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
   $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Nombre instancia';
@@ -1476,26 +1472,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'instancia_coordinacion' => 'instancia_coordinacion',
   );
-  /* Filter criterion: Contenido: Tipo de instancia (field_primera_lista) */
-  $handler->display->display_options['filters']['field_primera_lista_tid']['id'] = 'field_primera_lista_tid';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['table'] = 'field_data_field_primera_lista';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['field'] = 'field_primera_lista_tid';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator_id'] = 'field_primera_lista_tid_op';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['label'] = 'Tipo de instancia';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['operator'] = 'field_primera_lista_tid_op';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['identifier'] = 'field_primera_lista_tid';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    7 => 0,
-    6 => 0,
-  );
-  $handler->display->display_options['filters']['field_primera_lista_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_primera_lista_tid']['vocabulary'] = 'tipo_instancia';
+  $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1517,9 +1494,8 @@ function vistas_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('Nueva instancia'),
-    t('<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">Nueva instancia</a>'),
+    t('<a href="https://163.178.170.162/monitorsngr/node/add/instancia-coordinacion">+Agregar instancia</a>'),
     t('Nombre instancia'),
-    t('Tipo de instancia'),
     t('Page'),
   );
   $export['instancias_coordinacion'] = $view;
