@@ -1216,7 +1216,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Nombre';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Broken/missing handler */
+  /* Campo: Contenido: Acción a seguir */
   $handler->display->display_options['fields']['field_accion_a_seguir']['id'] = 'field_accion_a_seguir';
   $handler->display->display_options['fields']['field_accion_a_seguir']['table'] = 'field_data_field_accion_a_seguir';
   $handler->display->display_options['fields']['field_accion_a_seguir']['field'] = 'field_accion_a_seguir';
@@ -1309,7 +1309,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator'] = 'field_notificar_institucional_value_op';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['identifier'] = 'field_notificar_institucional_value';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['label'] = 'Notificar institucional (field_notificar_institucional)';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['label'] = 'Notificar institucional';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['identifier'] = 'field_notificar_institucional_value';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['group_info']['group_items'] = array(
     1 => array(
@@ -1354,7 +1354,7 @@ function vistas_views_default_views() {
     t('última »'),
     t('Contenido entity referenced from field_institucion'),
     t('Nombre'),
-    t('Broken handler field_data_field_accion_a_seguir.field_accion_a_seguir'),
+    t('Acción a seguir'),
     t('Porcentaje de Avance'),
     t('Notificar institucional'),
     t('Institución'),
@@ -2242,17 +2242,17 @@ function vistas_views_default_views() {
   );
   $handler->display->display_options['fields']['field_meta']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_meta']['delta_offset'] = '0';
-  /* Campo: Broken/missing handler */
+  /* Campo: Contenido: Código Lineamiento */
   $handler->display->display_options['fields']['field_codigo_lineamiento']['id'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['field'] = 'field_codigo_lineamiento';
   $handler->display->display_options['fields']['field_codigo_lineamiento']['relationship'] = 'field_item_compromiso_value';
-  /* Campo: Broken/missing handler */
+  /* Campo: Contenido: Codigo Ambito */
   $handler->display->display_options['fields']['field_codigo_ambito']['id'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['field'] = 'field_codigo_ambito';
   $handler->display->display_options['fields']['field_codigo_ambito']['relationship'] = 'field_item_compromiso_value';
-  /* Campo: Broken/missing handler */
+  /* Campo: Contenido: Código Eje */
   $handler->display->display_options['fields']['field_codigo_eje']['id'] = 'field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['fields']['field_codigo_eje']['field'] = 'field_codigo_eje';
@@ -2274,7 +2274,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_porcentaje_avance']['table'] = 'field_data_field_porcentaje_avance';
   $handler->display->display_options['fields']['field_porcentaje_avance']['field'] = 'field_porcentaje_avance';
   $handler->display->display_options['fields']['field_porcentaje_avance']['relationship'] = 'field_meta_target_id';
-  /* Campo: Broken/missing handler */
+  /* Campo: Contenido: Estado autoevaluación */
   $handler->display->display_options['fields']['field_status_autoevaluacion']['id'] = 'field_status_autoevaluacion';
   $handler->display->display_options['fields']['field_status_autoevaluacion']['table'] = 'field_data_field_status_autoevaluacion';
   $handler->display->display_options['fields']['field_status_autoevaluacion']['field'] = 'field_status_autoevaluacion';
@@ -2317,12 +2317,12 @@ function vistas_views_default_views() {
     t('Compromisos'),
     t('Institución '),
     t('Meta'),
-    t('Broken handler field_data_field_codigo_lineamiento.field_codigo_lineamiento'),
-    t('Broken handler field_data_field_codigo_ambito.field_codigo_ambito'),
-    t('Broken handler field_data_field_codigo_eje.field_codigo_eje'),
+    t('Código Lineamiento'),
+    t('Codigo Ambito'),
+    t('Código Eje'),
     t('Año de Creación'),
     t('Porcentaje avance'),
-    t('Broken handler field_data_field_status_autoevaluacion.field_status_autoevaluacion'),
+    t('Estado autoevaluación'),
     t('Page'),
   );
   $export['lista_metas'] = $view;
@@ -2437,7 +2437,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Campo: Descripción de la Fuente de Verificación */
+  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -2519,7 +2519,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
   $handler->display->display_options['fields']['name']['label'] = 'Producto';
-  /* Campo: Campo: Descripción de la Fuente de Verificación */
+  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -2669,7 +2669,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
   $handler->display->display_options['fields']['name']['label'] = 'Producto';
-  /* Campo: Campo: Descripción de la Fuente de Verificación */
+  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
@@ -3748,7 +3748,7 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Broken/missing handler */
+  /* Filter criterion: Contenido: Código Eje (field_codigo_eje) */
   $handler->display->display_options['filters']['field_codigo_eje_tid']['id'] = 'field_codigo_eje_tid';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['table'] = 'field_data_field_codigo_eje';
   $handler->display->display_options['filters']['field_codigo_eje_tid']['field'] = 'field_codigo_eje_tid';
@@ -3769,7 +3769,8 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Broken/missing handler */
+  $handler->display->display_options['filters']['field_codigo_eje_tid']['vocabulary'] = 'eje';
+  /* Filter criterion: Contenido: Codigo Ambito (field_codigo_ambito) */
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['id'] = 'field_codigo_ambito_tid';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['table'] = 'field_data_field_codigo_ambito';
   $handler->display->display_options['filters']['field_codigo_ambito_tid']['field'] = 'field_codigo_ambito_tid';
@@ -3790,7 +3791,8 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Broken/missing handler */
+  $handler->display->display_options['filters']['field_codigo_ambito_tid']['vocabulary'] = 'ambito';
+  /* Filter criterion: Contenido: Código Lineamiento (field_codigo_lineamiento) */
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['id'] = 'field_codigo_lineamiento_tid';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['table'] = 'field_data_field_codigo_lineamiento';
   $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['field'] = 'field_codigo_lineamiento_tid';
@@ -3830,6 +3832,7 @@ function vistas_views_default_views() {
       'value' => '',
     ),
   );
+  $handler->display->display_options['filters']['field_codigo_lineamiento_tid']['vocabulary'] = 'lineamiento';
   /* Filter criterion: Contenido: Estado (field_estado) */
   $handler->display->display_options['filters']['field_estado_value']['id'] = 'field_estado_value';
   $handler->display->display_options['filters']['field_estado_value']['table'] = 'field_data_field_estado';
@@ -5151,7 +5154,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_attachment']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_attachment']['type'] = 'media';
   $handler->display->display_options['fields']['field_attachment']['settings'] = array(
-    'file_view_mode' => 'default',
+    'file_view_mode' => 'media_link',
   );
   $handler->display->display_options['fields']['field_attachment']['delta_offset'] = '0';
   /* Sort criterion: Contenido: Post date */
@@ -5263,6 +5266,42 @@ function vistas_views_default_views() {
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_ambito_producto_adicional_tid';
+  $handler->display->display_options['fields']['name']['label'] = 'Ámbito';
+  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['relationship'] = 'field_lineamiento_producto_adici_tid';
+  $handler->display->display_options['fields']['name_1']['label'] = 'Lineamiento';
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Campo: Contenido: Attachment */
+  $handler->display->display_options['fields']['field_attachment']['id'] = 'field_attachment';
+  $handler->display->display_options['fields']['field_attachment']['table'] = 'field_data_field_attachment';
+  $handler->display->display_options['fields']['field_attachment']['field'] = 'field_attachment';
+  $handler->display->display_options['fields']['field_attachment']['label'] = 'Adjunto';
+  $handler->display->display_options['fields']['field_attachment']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_attachment']['type'] = 'media';
+  $handler->display->display_options['fields']['field_attachment']['settings'] = array(
+    'file_view_mode' => 'media_link',
+  );
+  $handler->display->display_options['fields']['field_attachment']['delta_offset'] = '0';
   $handler->display->display_options['path'] = 'productos-adicionales-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -5659,7 +5698,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_cod_producto_meta']['id'] = 'field_cod_producto_meta';
   $handler->display->display_options['fields']['field_cod_producto_meta']['table'] = 'field_data_field_cod_producto_meta';
   $handler->display->display_options['fields']['field_cod_producto_meta']['field'] = 'field_cod_producto_meta';
-  /* Campo: Término de taxonomía: Año Inicial */
+  /* Campo: Campo: Año Inicial */
   $handler->display->display_options['fields']['field_anno_ini_meta']['id'] = 'field_anno_ini_meta';
   $handler->display->display_options['fields']['field_anno_ini_meta']['table'] = 'field_data_field_anno_ini_meta';
   $handler->display->display_options['fields']['field_anno_ini_meta']['field'] = 'field_anno_ini_meta';
@@ -5667,7 +5706,7 @@ function vistas_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Término de taxonomía: Año Final */
+  /* Campo: Campo: Año Final */
   $handler->display->display_options['fields']['field_anno_fin_meta']['id'] = 'field_anno_fin_meta';
   $handler->display->display_options['fields']['field_anno_fin_meta']['table'] = 'field_data_field_anno_fin_meta';
   $handler->display->display_options['fields']['field_anno_fin_meta']['field'] = 'field_anno_fin_meta';
@@ -5675,7 +5714,7 @@ function vistas_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Campo: Contenido: Instituciones Involucradas */
+  /* Campo: Campo: Instituciones Involucradas */
   $handler->display->display_options['fields']['field_institucion_administradora']['id'] = 'field_institucion_administradora';
   $handler->display->display_options['fields']['field_institucion_administradora']['table'] = 'field_data_field_institucion_administradora';
   $handler->display->display_options['fields']['field_institucion_administradora']['field'] = 'field_institucion_administradora';
@@ -5683,7 +5722,7 @@ function vistas_views_default_views() {
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_institucion_administradora']['delta_offset'] = '0';
-  /* Campo: Broken/missing handler */
+  /* Campo: Término de taxonomía: descripcion del producto */
   $handler->display->display_options['fields']['field_descripcion_del_producto']['id'] = 'field_descripcion_del_producto';
   $handler->display->display_options['fields']['field_descripcion_del_producto']['table'] = 'field_data_field_descripcion_del_producto';
   $handler->display->display_options['fields']['field_descripcion_del_producto']['field'] = 'field_descripcion_del_producto';
@@ -5723,7 +5762,7 @@ function vistas_views_default_views() {
     t('Año Inicial'),
     t('Año Final'),
     t('Instituciones Involucradas'),
-    t('Broken handler field_data_field_descripcion_del_producto.field_descripcion_del_producto'),
+    t('descripcion del producto'),
     t('Detalle del Producto'),
     t('Page'),
   );
