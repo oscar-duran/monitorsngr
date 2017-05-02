@@ -513,7 +513,7 @@ function tipos_contenido_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '1',
+          'weight' => '4',
         ),
       ),
       'display' => array(),
