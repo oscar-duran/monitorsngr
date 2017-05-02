@@ -5207,7 +5207,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['name_1']['id'] = 'name_1';
   $handler->display->display_options['filters']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name_1']['field'] = 'name';
-  $handler->display->display_options['filters']['name_1']['relationship'] = 'field_ambito_producto_adicional_tid';
+  $handler->display->display_options['filters']['name_1']['relationship'] = 'field_lineamiento_producto_adici_tid';
   $handler->display->display_options['filters']['name_1']['operator'] = 'contains';
   $handler->display->display_options['filters']['name_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['name_1']['expose']['operator_id'] = 'name_1_op';
