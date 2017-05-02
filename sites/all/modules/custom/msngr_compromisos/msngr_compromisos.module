@@ -101,6 +101,10 @@ function msngr_compromisos_node_presave($node) {
 function msngr_compromisos_node_update($node) {
   if($node->type == "compromiso_de_gestion") {
     update_percentage_data_by_compromiso($node);
+    if (!$node->listo){
+      update_title($node);
+    }
+
   }
 
   if($node->type == 'evaluacion_de_metas') {
@@ -435,6 +439,17 @@ function update_percentage_data_by_compromiso($node) {
     $em_node = node_load($emid['target_id']);
     update_meta_percentage($em_node->field_meta_tax[LANGUAGE_NONE][0]['tid']);
   }
+//  update_title($node);
+}
+
+function update_title($node){
+  $split = explode('-', $node->title);
+  $titu=node_load($node->field_institucion['und'][0]['target_id']);
+  $split[2]=$titu->title;
+  $node->title = $split[0] . '-' . $split[1] . '-' . $split[2];
+  $node->listo=true;
+  node_save($node);
+
 }
 
 function update_compromiso_de_gestion($node) {
