@@ -1461,52 +1461,6 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'node-productos_adicionales-field_ambito_producto_adicional'.
-  $field_instances['node-productos_adicionales-field_ambito_producto_adicional'] = array(
-    'bundle' => 'productos_adicionales',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_ambito_producto_adicional',
-    'label' => 'Ámbito',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'autocomplete_match' => 'starts_with',
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'references_dialog_add' => 0,
-        'references_dialog_edit' => 0,
-        'references_dialog_search' => 0,
-        'references_dialog_search_view' => '',
-        'size' => 60,
-      ),
-      'type' => 'options_select',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-productos_adicionales-field_attachment'.
   $field_instances['node-productos_adicionales-field_attachment'] = array(
     'bundle' => 'productos_adicionales',
@@ -1599,44 +1553,6 @@ function tipos_contenido_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'node-productos_adicionales-field_lineamiento_producto_adici'.
-  $field_instances['node-productos_adicionales-field_lineamiento_producto_adici'] = array(
-    'bundle' => 'productos_adicionales',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_lineamiento_producto_adici',
-    'label' => 'Lineamiento',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Acción Estratégica');
@@ -1654,7 +1570,6 @@ function tipos_contenido_field_default_field_instances() {
   t('Fuente de verificación');
   t('Inicio');
   t('Institución ');
-  t('Lineamiento');
   t('Meta');
   t('Metas a evaluar');
   t('Notificar analista');
@@ -1676,7 +1591,6 @@ function tipos_contenido_field_default_field_instances() {
   t('id_compromiso');
   t('¿Reciben Asesoría?');
   t('¿Su organización requiere asesorías?');
-  t('Ámbito');
 
   return $field_instances;
 }
