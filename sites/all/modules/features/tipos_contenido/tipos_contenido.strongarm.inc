@@ -666,6 +666,7 @@ function tipos_contenido_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_compromiso_de_gestion'] = $strongarm;
 
@@ -676,6 +677,7 @@ function tipos_contenido_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_evaluacion_de_metas'] = $strongarm;
 
@@ -706,6 +708,7 @@ function tipos_contenido_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_productos_adicionales'] = $strongarm;
 
