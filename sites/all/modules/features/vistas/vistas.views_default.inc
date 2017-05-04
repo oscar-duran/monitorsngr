@@ -2016,7 +2016,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'lista-asesorias-csv';
   $handler->display->display_options['displays'] = array(
@@ -2333,23 +2334,24 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'title_1' => 'title_1',
     'title' => 'title',
+    'title_1' => 'title_1',
     'name' => 'name',
     'field_descripc_fuente_verifica' => 'field_descripc_fuente_verifica',
     'field_prod_fuente_verifica' => 'field_prod_fuente_verifica',
     'field_year_compromiso' => 'field_year_compromiso',
+    'field_cod_producto_meta' => 'field_cod_producto_meta',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'title_1' => array(
+    'title' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'title' => array(
+    'title_1' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -2382,6 +2384,13 @@ function vistas_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_cod_producto_meta' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_evaluar_metas_target_id']['id'] = 'field_evaluar_metas_target_id';
@@ -2402,93 +2411,17 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['relationships']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['relationships']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
-  /* Campo: Field collection item: Producto */
-  $handler->display->display_options['fields']['field_producto']['id'] = 'field_producto';
-  $handler->display->display_options['fields']['field_producto']['table'] = 'field_data_field_producto';
-  $handler->display->display_options['fields']['field_producto']['field'] = 'field_producto';
-  $handler->display->display_options['fields']['field_producto']['relationship'] = 'field_meta_target_id';
-  $handler->display->display_options['fields']['field_producto']['settings'] = array(
-    'link' => 1,
-  );
-  $handler->display->display_options['fields']['field_producto']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_producto']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_producto']['multi_type'] = 'ul';
-  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_producto_target_id';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Descripción Fuente';
-  /* Campo: Campo: Institución  */
-  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
-    'link' => 1,
-  );
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Contenido: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Publicado */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'compromiso_de_gestion' => 'compromiso_de_gestion',
-  );
-  /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
-  $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator'] = 'field_year_compromiso_value_op';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['identifier'] = 'field_year_compromiso_value';
-  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    7 => 0,
-    6 => 0,
-    8 => 0,
-  );
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['defaults']['fields'] = FALSE;
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title']['label'] = 'Institución';
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['label'] = 'Compromiso';
   /* Campo: Término de taxonomía: Nombre */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
@@ -2500,7 +2433,6 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
   $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Descripcion fuente de Verificación';
   /* Campo: Campo: Fuente de verificación */
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['id'] = 'field_prod_fuente_verifica';
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['table'] = 'field_data_field_prod_fuente_verifica';
@@ -2509,7 +2441,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['type'] = 'media';
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['settings'] = array(
-    'file_view_mode' => 'default',
+    'file_view_mode' => 'media_link',
   );
   $handler->display->display_options['fields']['field_prod_fuente_verifica']['delta_offset'] = '0';
   /* Campo: Contenido: Año de Creación */
@@ -2529,15 +2461,16 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['field_cod_producto_meta']['table'] = 'field_data_field_cod_producto_meta';
   $handler->display->display_options['fields']['field_cod_producto_meta']['field'] = 'field_cod_producto_meta';
   $handler->display->display_options['fields']['field_cod_producto_meta']['relationship'] = 'field_producto_tid';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Sort criterion: Contenido: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Filter criterion: Contenido: Publicado */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  $handler->display->display_options['filters']['status']['value'] = '1';
   /* Filter criterion: Contenido: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -2563,8 +2496,13 @@ function vistas_views_default_views() {
     5 => 0,
     7 => 0,
     6 => 0,
-    8 => 0,
   );
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_field'] = 'field_year_compromiso';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['autocomplete_dependent'] = 0;
   /* Filter criterion: Contenido: Título */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -2588,7 +2526,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
   $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
   $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title_1';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
@@ -2619,67 +2557,16 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['name']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['name']['expose']['autocomplete_dependent'] = 0;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'lista-productos';
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Institucion';
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Término de taxonomía: Nombre */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['relationship'] = 'field_producto_tid';
-  $handler->display->display_options['fields']['name']['label'] = 'Producto';
-  /* Campo: Field collection item: Descripción de la Fuente de Verificación */
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['id'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['table'] = 'field_data_field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['field'] = 'field_descripc_fuente_verifica';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
-  $handler->display->display_options['fields']['field_descripc_fuente_verifica']['label'] = 'Descripcion fuente de verificacion';
-  /* Campo: Campo: Fuente de verificación */
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['id'] = 'field_prod_fuente_verifica';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['table'] = 'field_data_field_prod_fuente_verifica';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['field'] = 'field_prod_fuente_verifica';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['relationship'] = 'field_evaluar_producto_value';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['type'] = 'media';
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['settings'] = array(
-    'file_view_mode' => 'default',
-  );
-  $handler->display->display_options['fields']['field_prod_fuente_verifica']['delta_offset'] = '0';
-  /* Campo: Contenido: Año de Creación */
-  $handler->display->display_options['fields']['field_year_compromiso']['id'] = 'field_year_compromiso';
-  $handler->display->display_options['fields']['field_year_compromiso']['table'] = 'field_data_field_year_compromiso';
-  $handler->display->display_options['fields']['field_year_compromiso']['field'] = 'field_year_compromiso';
-  $handler->display->display_options['fields']['field_year_compromiso']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Campo: Campo: Código Producto */
-  $handler->display->display_options['fields']['field_cod_producto_meta']['id'] = 'field_cod_producto_meta';
-  $handler->display->display_options['fields']['field_cod_producto_meta']['table'] = 'field_data_field_cod_producto_meta';
-  $handler->display->display_options['fields']['field_cod_producto_meta']['field'] = 'field_cod_producto_meta';
-  $handler->display->display_options['fields']['field_cod_producto_meta']['relationship'] = 'field_producto_tid';
-  $handler->display->display_options['path'] = 'lista-productos-csv';
+  $handler->display->display_options['path'] = 'listado-productos-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
     'default' => 0,
@@ -2704,19 +2591,15 @@ function vistas_views_default_views() {
     t('field collection item from field_evaluar_producto'),
     t('term from field_producto'),
     t('Contenido entity referenced from field_institucion'),
-    t('Producto'),
-    t('Descripción Fuente'),
-    t('Institución '),
-    t('Compromiso'),
-    t('Año de Creación'),
-    t('Page'),
     t('Institución'),
-    t('Descripcion fuente de Verificación'),
+    t('Compromiso'),
+    t('Producto'),
+    t('Descripción de la Fuente de Verificación'),
     t('Fuente de verificación'),
+    t('Año de Creación'),
     t('Código Producto'),
+    t('Page'),
     t('Data export'),
-    t('Institucion'),
-    t('Descripcion fuente de verificacion'),
   );
   $export['lista_productos'] = $view;
 
@@ -2873,7 +2756,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'lista-aspectos-positivos-csv';
   $handler->display->display_options['displays'] = array(
@@ -2941,15 +2825,15 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Compromiso';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Campo: Institución  */
-  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
-    'link' => 1,
-  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
   /* Campo: Contenido: Notificar institucional */
   $handler->display->display_options['fields']['field_notificar_institucional']['id'] = 'field_notificar_institucional';
   $handler->display->display_options['fields']['field_notificar_institucional']['table'] = 'field_data_field_notificar_institucional';
@@ -2974,11 +2858,13 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'compromiso_de_gestion' => 'compromiso_de_gestion',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Contenido: Año de Creación (field_year_compromiso) */
   $handler->display->display_options['filters']['field_year_compromiso_value']['id'] = 'field_year_compromiso_value';
   $handler->display->display_options['filters']['field_year_compromiso_value']['table'] = 'field_data_field_year_compromiso';
   $handler->display->display_options['filters']['field_year_compromiso_value']['field'] = 'field_year_compromiso_value';
   $handler->display->display_options['filters']['field_year_compromiso_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_year_compromiso_value']['group'] = 1;
   $handler->display->display_options['filters']['field_year_compromiso_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['operator_id'] = 'field_year_compromiso_value_op';
   $handler->display->display_options['filters']['field_year_compromiso_value']['expose']['label'] = 'Año de Creación';
@@ -2994,31 +2880,11 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filter criterion: Contenido: Título */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_institucion_target_id';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    7 => 0,
-    6 => 0,
-    8 => 0,
-  );
   /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
   $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['field'] = 'field_notificar_institucional_value';
+  $handler->display->display_options['filters']['field_notificar_institucional_value']['group'] = 1;
   $handler->display->display_options['filters']['field_notificar_institucional_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['operator_id'] = 'field_notificar_institucional_value_op';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['expose']['label'] = 'Estado';
@@ -3034,6 +2900,32 @@ function vistas_views_default_views() {
     6 => 0,
     8 => 0,
   );
+  /* Filter criterion: Contenido: Título */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Título';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    7 => 0,
+    6 => 0,
+  );
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title_1';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -3041,7 +2933,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'lista-revisiones-csv';
   $handler->display->display_options['displays'] = array(
@@ -3065,11 +2958,11 @@ function vistas_views_default_views() {
     t('siguiente ›'),
     t('última »'),
     t('Contenido entity referenced from field_institucion'),
-    t('Título'),
-    t('Institución '),
+    t('Compromiso'),
+    t('Institución'),
     t('Estado'),
     t('Año de Creación'),
-    t('Institución'),
+    t('Título'),
     t('Page'),
     t('Data export'),
   );
@@ -3524,7 +3417,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'listado-evaluacion-metas-csv';
   $handler->display->display_options['displays'] = array(
@@ -4039,7 +3933,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'lista-obstaculos-csv';
   $handler->display->display_options['displays'] = array(
@@ -5334,42 +5229,6 @@ function vistas_views_default_views() {
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
-  /* Campo: Término de taxonomía: Nombre */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['relationship'] = 'field_ambito_producto_adicional_tid';
-  $handler->display->display_options['fields']['name']['label'] = 'Ámbito';
-  /* Campo: Término de taxonomía: Nombre */
-  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
-  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name_1']['field'] = 'name';
-  $handler->display->display_options['fields']['name_1']['relationship'] = 'field_lineamiento_producto_adici_tid';
-  $handler->display->display_options['fields']['name_1']['label'] = 'Lineamiento';
-  /* Campo: Contenido: Título */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Attachment */
-  $handler->display->display_options['fields']['field_attachment']['id'] = 'field_attachment';
-  $handler->display->display_options['fields']['field_attachment']['table'] = 'field_data_field_attachment';
-  $handler->display->display_options['fields']['field_attachment']['field'] = 'field_attachment';
-  $handler->display->display_options['fields']['field_attachment']['label'] = 'Adjunto';
-  $handler->display->display_options['fields']['field_attachment']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_attachment']['type'] = 'media';
-  $handler->display->display_options['fields']['field_attachment']['settings'] = array(
-    'file_view_mode' => 'media_link',
-  );
-  $handler->display->display_options['fields']['field_attachment']['delta_offset'] = '0';
   $handler->display->display_options['path'] = 'productos-adicionales-csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -5408,7 +5267,6 @@ function vistas_views_default_views() {
     t('Adjunto'),
     t('Page'),
     t('Data export'),
-    t('Título'),
   );
   $export['productos_adicionales'] = $view;
 
@@ -5424,7 +5282,7 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'revision por usuario';
+  $handler->display->display_options['title'] = 'Revision por usuario';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
@@ -5503,6 +5361,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Nombre de usuario';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   /* Campo: Contenido: Tipo */
@@ -5564,7 +5423,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['uid']['value'] = '';
   $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Nombre';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Nombre de usuario';
   $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
   $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
@@ -5583,7 +5442,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'revision-por-usuario-csv';
   $handler->display->display_options['displays'] = array(
@@ -5592,7 +5452,7 @@ function vistas_views_default_views() {
   );
   $translatables['revision_por_usuario'] = array(
     t('Master'),
-    t('revision por usuario'),
+    t('Revision por usuario'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
@@ -5610,7 +5470,7 @@ function vistas_views_default_views() {
     t('Get the actual content from a content revision.'),
     t('Título'),
     t('Fecha de modificacion'),
-    t('Nombre'),
+    t('Nombre de usuario'),
     t('Tipo'),
     t('Page'),
     t('Data export'),
@@ -6276,7 +6136,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'compromisos-data';
   $handler->display->display_options['displays'] = array(
@@ -6400,7 +6261,8 @@ function vistas_views_default_views() {
 
   /* Display: Data export */
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['path'] = 'compromisos-por-usuario-csv';
   $handler->display->display_options['displays'] = array(
