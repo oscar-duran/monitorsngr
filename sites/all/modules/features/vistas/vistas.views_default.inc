@@ -2907,7 +2907,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['title']['operator'] = 'contains';
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Título';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Institución';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -2962,7 +2962,6 @@ function vistas_views_default_views() {
     t('Institución'),
     t('Estado'),
     t('Año de Creación'),
-    t('Título'),
     t('Page'),
     t('Data export'),
   );
@@ -5966,13 +5965,13 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Campo: Institución  */
-  $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
-  $handler->display->display_options['fields']['field_institucion']['settings'] = array(
-    'link' => 0,
-  );
+  /* Campo: Contenido: Título */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_institucion_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Institución';
+  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
   /* Sort criterion: Campo: Institución  (field_institucion) */
   $handler->display->display_options['sorts']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['sorts']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
@@ -6038,6 +6037,13 @@ function vistas_views_default_views() {
     7 => 0,
     6 => 0,
   );
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_filter'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title_1';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
   /* Filter criterion: Contenido: Notificar institucional (field_notificar_institucional) */
   $handler->display->display_options['filters']['field_notificar_institucional_value']['id'] = 'field_notificar_institucional_value';
   $handler->display->display_options['filters']['field_notificar_institucional_value']['table'] = 'field_data_field_notificar_institucional';
@@ -6162,9 +6168,8 @@ function vistas_views_default_views() {
     t('última »'),
     t('Contenido entity referenced from field_institucion'),
     t('Título'),
-    t('Institución '),
-    t('Año'),
     t('Institución'),
+    t('Año'),
     t('Estado'),
     t('Porcentaje de Avance'),
     t('Page'),
