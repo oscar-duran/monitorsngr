@@ -1373,7 +1373,6 @@ function usuarios_roles_permisos_user_default_permissions() {
     'roles' => array(
       'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
-      'user-institucional' => 'user-institucional',
     ),
     'module' => 'node',
   );
