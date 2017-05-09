@@ -19,6 +19,7 @@ features[features_api][] = api:2
 features[views_view][] = acciones_estrategicas
 features[views_view][] = autoevaluaciones
 features[views_view][] = consolidaci_n_de_montos
+features[views_view][] = datos_institucional
 features[views_view][] = decreto_de_emergencia
 features[views_view][] = enlaces_institucionales
 features[views_view][] = evaluaci_n_compromisos
