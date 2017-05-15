@@ -250,6 +250,7 @@ function sngr_field_bases_user_default_permissions() {
   $permissions['edit field_anno_fin_meta'] = array(
     'name' => 'edit field_anno_fin_meta',
     'roles' => array(
+      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -259,6 +260,7 @@ function sngr_field_bases_user_default_permissions() {
   $permissions['edit field_anno_ini_meta'] = array(
     'name' => 'edit field_anno_ini_meta',
     'roles' => array(
+      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -700,6 +702,7 @@ function sngr_field_bases_user_default_permissions() {
   $permissions['view field_anno_fin_meta'] = array(
     'name' => 'view field_anno_fin_meta',
     'roles' => array(
+      'admin-sngr' => 'admin-sngr',
       'administrator' => 'administrator',
       'user-institucional' => 'user-institucional',
     ),

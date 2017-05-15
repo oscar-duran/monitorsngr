@@ -620,6 +620,41 @@ function sngr_field_bases_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'taxonomy_term-producto-field_origen_verificacion'.
+  $field_instances['taxonomy_term-producto-field_origen_verificacion'] = array(
+    'bundle' => 'producto',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Espacio para describir cuál es la fuente de verificación requerida',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_origen_verificacion',
+    'label' => 'Origen verificacion',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 38,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_institucion_user'.
   $field_instances['user-user-field_institucion_user'] = array(
     'bundle' => 'user',
@@ -661,11 +696,13 @@ function sngr_field_bases_field_default_field_instances() {
   t('Auto inc lineamiento');
   t('Año');
   t('Descripción de la Fuente de Verificación');
+  t('Espacio para describir cuál es la fuente de verificación requerida');
   t('Institución');
   t('Integrantes');
   t('Monto Presupuestario');
   t('Monto de Ejecución');
   t('Montos de Ejecución en GR');
+  t('Origen verificacion');
   t('Provincia, Cantón, Distrito');
   t('Subtipo instancia');
   t('Tipo de instancia');
